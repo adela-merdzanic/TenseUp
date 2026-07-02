@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TenseUp - Practice</title>
+    <meta
+      name="description"
+      content="Practice session - randomized English grammar questions for the FIT English II exam."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="TenseUp" />
+    <meta property="og:title" content="TenseUp - Practice" />
+    <meta
+      property="og:description"
+      content="Practice session - randomized English grammar questions for the FIT English II exam."
+    />
+    <meta property="og:url" content="https://tense-up.netlify.app/quiz.html" />
+    <meta
+      property="og:image"
+      content="https://tense-up.netlify.app/assets/images/og-image.png"
+    />
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png" />
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("quizTheme");
+          var prefersDark =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+          if (saved === "dark" || (!saved && prefersDark)) {
+            document.documentElement.setAttribute("data-theme", "dark");
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" href="assets/css/variables.css" />
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/components.css" />
+    <link rel="stylesheet" href="assets/css/quiz.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="index.html" class="app-logo">TenseUp</a>
+      <div class="header-right">
+        <div id="progress-readout" class="score-readout"></div>
+        <a href="rules.html" class="header-link">Grammar rules</a>
+      </div>
+      <button
+        type="button"
+        id="theme-toggle"
+        class="btn theme-toggle"
+        aria-label="Toggle dark mode"
+      >
+        🌙
+      </button>
+    </header>
+
+    <div class="progress-bar" id="progress-bar">
+      <div class="progress-bar__fill" id="progress-bar-fill"></div>
+    </div>
+
+    <main class="container">
+      <section id="question-screen" class="question-card" hidden>
+        <p class="sentence" id="sentence"></p>
+        <div id="options-form" class="options-list"></div>
+        <p id="select-hint" class="select-hint" hidden>
+          Please select an answer first.
+        </p>
+        <div class="actions quiz-actions">
+          <button
+            type="button"
+            id="prev-btn"
+            class="btn nav-btn"
+            hidden
+            aria-label="Previous question"
+          >
+            &#8249;
+          </button>
+          <button type="button" id="check-btn" class="btn btn-primary">
+            Check answer
+          </button>
+          <button
+            type="button"
+            id="next-btn"
+            class="btn btn-primary nav-btn"
+            hidden
+            aria-label="Next question"
+          >
+            &#8250;
+          </button>
+        </div>
+        <div id="feedback" class="feedback" hidden>
+          <p id="feedback-result" class="feedback-result"></p>
+          <p id="topic-tag" class="topic-tag"></p>
+          <div id="rule-box" class="rule-box"></div>
+        </div>
+      </section>
+
+      <section id="empty-screen" class="question-card" hidden>
+        <p>
+          You've solved every question in the selected topics - nice work! You
+          can pick other topics on the start screen, or reset your progress
+          below.
+        </p>
+        <button type="button" id="reset-from-empty-btn" class="btn btn-primary">
+          Reset progress and practice again
+        </button>
+        <a href="index.html" class="btn">Back to start</a>
+      </section>
+
+      <section id="summary-screen" class="question-card" hidden>
+        <h2>Session complete</h2>
+        <p id="summary-text"></p>
+        <div class="actions">
+          <a href="quiz.html" class="btn btn-primary">Practice again</a>
+          <a href="rules.html" class="btn">Grammar rules</a>
+          <a href="index.html" class="btn">Back to start</a>
+        </div>
+        <div id="summary-review" class="summary-review"></div>
+      </section>
+
+      <section id="error-screen" class="question-card" hidden>
+        <p id="error-text"></p>
+        <a href="index.html" class="btn">Back to start</a>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <p>
+        © 2026 Adela Merdžanić · Open source under the MIT license ·
+        <a href="contribute.html">Contribute</a>
+      </p>
+    </footer>
+
+    <script type="module" src="assets/js/main-quiz.js"></script>
+  </body>
+</html>

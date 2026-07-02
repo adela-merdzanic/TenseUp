@@ -1,0 +1,89 @@
+{
+  "topicId": "sample",
+  "title": "Sample: Tenses Warm-up",
+  "sourcePdf": "sample.pdf",
+  "exercises": [
+    {
+      "exerciseNumber": 1,
+      "sourceTaskName": "Task 1: Put the verb in brackets into the correct tense",
+      "questions": [
+        {
+          "id": "ex1-q1",
+          "promptParts": {
+            "before": "I ",
+            "blank": "___",
+            "after": " (already/finish) my homework."
+          },
+          "type": "single",
+          "options": [
+            "have already finished",
+            "already finished",
+            "am already finishing",
+            "had already finish"
+          ],
+          "correctAnswers": ["have already finished"],
+          "grammarRule": "Present Perfect (have/has + past participle) links a finished action to now, without saying exactly when it happened. 'Already' signals the action is done. Examples: 'I have already eaten.' / 'She has already left.'"
+        },
+        {
+          "id": "ex1-q2",
+          "promptParts": {
+            "before": "She ",
+            "blank": "___",
+            "after": " to Paris twice / last year."
+          },
+          "type": "multiple",
+          "options": ["has been", "has gone", "went", "was gone"],
+          "correctAnswers": ["has been", "went"],
+          "grammarRule": "Present Perfect ('has been') is used with unspecified time expressions like 'twice'; Past Simple ('went') is used with a specific past time marker like 'last year'. Both are accepted here depending on which half of the sentence you're matching. Examples: 'I have been there twice.' / 'I went there last year.'"
+        },
+        {
+          "id": "ex1-q3",
+          "promptParts": {
+            "before": "By the time we arrived, the film ",
+            "blank": "___",
+            "after": " already (start)."
+          },
+          "type": "single",
+          "options": [
+            "had already started",
+            "already started",
+            "has already started",
+            "was already starting"
+          ],
+          "correctAnswers": ["had already started"],
+          "grammarRule": "Past Perfect (had + past participle) describes an action that finished before another action in the past — here, the film starting happened before 'we arrived'. Examples: 'The train had left when I got to the station.' / 'She had already gone to bed when we called.'"
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 2,
+      "sourceTaskName": "Task 2: Choose the correct conditional form",
+      "questions": [
+        {
+          "id": "ex2-q1",
+          "promptParts": {
+            "before": "If I ",
+            "blank": "___",
+            "after": " more time, I would learn another language."
+          },
+          "type": "single",
+          "options": ["had", "have", "would have", "will have"],
+          "correctAnswers": ["had"],
+          "grammarRule": "Second conditional ('If + past simple, ... would + infinitive') describes an unreal or unlikely present/future situation — the speaker doesn't actually have more time. Examples: 'If I had a car, I would drive to work.' / 'If she won the lottery, she would travel the world.'"
+        },
+        {
+          "id": "ex2-q2",
+          "promptParts": {
+            "before": "If it ",
+            "blank": "___",
+            "after": " tomorrow, we will cancel the picnic."
+          },
+          "type": "single",
+          "options": ["rains", "rained", "will rain", "would rain"],
+          "correctAnswers": ["rains"],
+          "grammarRule": "First conditional ('If + present simple, ... will + infinitive') describes a realistic future possibility. Examples: 'If it rains, I will take an umbrella.' / 'If you study, you will pass the exam.'"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,653 @@
+{
+  "topicId": "networks-tenses-revision",
+  "title": "Computer Networks: Tenses Revision",
+  "sourcePdf": "7. Networks by Functional Relationship.pdf",
+  "exercises": [
+    {
+      "exerciseNumber": 1,
+      "sourceTaskName": "Grammar Work, Task 1: Present and Past",
+      "questions": [
+        {
+          "id": "t1-q1",
+          "promptParts": {
+            "before": "We can go out now. It ",
+            "blank": "___",
+            "after": " any more. (not/rain)"
+          },
+          "type": "single",
+          "options": [
+            "is not raining",
+            "does not rain",
+            "did not rain",
+            "has not rained"
+          ],
+          "correctAnswers": ["is not raining"],
+          "grammarRule": "'Now' signals an action happening at this moment — present continuous negative: 'is not raining'."
+        },
+        {
+          "id": "t1-q2a",
+          "promptParts": {
+            "before": "Ann ",
+            "blank": "___",
+            "after": " for me when I arrived. (wait)"
+          },
+          "type": "single",
+          "options": ["was waiting", "waited", "is waiting", "has waited"],
+          "correctAnswers": ["was waiting"],
+          "grammarRule": "Past continuous describes a background action in progress at a specific past moment ('was waiting'), interrupted by a shorter action ('I arrived')."
+        },
+        {
+          "id": "t1-q2b",
+          "promptParts": {
+            "before": "Ann was waiting for me when I ",
+            "blank": "___",
+            "after": ". (arrive)"
+          },
+          "type": "single",
+          "options": ["arrived", "was arriving", "arrives", "has arrived"],
+          "correctAnswers": ["arrived"],
+          "grammarRule": "The shorter action that interrupts an ongoing background action takes simple past: 'arrived'."
+        },
+        {
+          "id": "t1-q3",
+          "promptParts": {
+            "before": "I ",
+            "blank": "___",
+            "after": " hungry. Let's go and have something to eat. (get)"
+          },
+          "type": "single",
+          "options": ["am getting", "get", "got", "have got"],
+          "correctAnswers": ["am getting"],
+          "grammarRule": "Present continuous can describe a changing/developing state happening now: 'I am getting hungry'."
+        },
+        {
+          "id": "t1-q4",
+          "promptParts": {
+            "before": "What ",
+            "blank": "___",
+            "after": " in your spare time? Have you got any hobbies? (you/do)"
+          },
+          "type": "single",
+          "options": [
+            "do you do",
+            "are you doing",
+            "did you do",
+            "have you done"
+          ],
+          "correctAnswers": ["do you do"],
+          "grammarRule": "Present simple asks about habitual/general activities: 'What do you do in your spare time?'."
+        },
+        {
+          "id": "t1-q5",
+          "promptParts": {
+            "before": "What speed ",
+            "blank": "___",
+            "after": " at the time of the accident? (the car/do)"
+          },
+          "type": "single",
+          "options": [
+            "was the car doing",
+            "did the car do",
+            "does the car do",
+            "has the car done"
+          ],
+          "correctAnswers": ["was the car doing"],
+          "grammarRule": "'At the time of the accident' points to an action in progress at a specific past moment — past continuous: 'was the car doing'."
+        },
+        {
+          "id": "t1-q6a",
+          "promptParts": {
+            "before": "Mary usually ",
+            "blank": "___",
+            "after": " me on Fridays but she did not phone last Friday. (phone)"
+          },
+          "type": "single",
+          "options": ["phones", "phoned", "is phoning", "has phoned"],
+          "correctAnswers": ["phones"],
+          "grammarRule": "'Usually' signals a habitual routine — present simple: 'Mary usually phones'."
+        },
+        {
+          "id": "t1-q6b",
+          "promptParts": {
+            "before": "Mary usually phones me on Fridays but she ",
+            "blank": "___",
+            "after": " last Friday. (not/phone)"
+          },
+          "type": "single",
+          "options": [
+            "did not phone",
+            "does not phone",
+            "was not phoning",
+            "has not phoned"
+          ],
+          "correctAnswers": ["did not phone"],
+          "grammarRule": "'Last Friday' is a specific past time marker — simple past negative: 'did not phone'."
+        },
+        {
+          "id": "t1-q7",
+          "promptParts": {
+            "before": "What's that noise? What ",
+            "blank": "___",
+            "after": "? (happen)"
+          },
+          "type": "single",
+          "options": ["is happening", "happens", "happened", "has happened"],
+          "correctAnswers": ["is happening"],
+          "grammarRule": "Present continuous describes what's happening right now: 'What is happening?'."
+        },
+        {
+          "id": "t1-q8",
+          "promptParts": {
+            "before": "It's usually dry here at this time of the year. It ",
+            "blank": "___",
+            "after": " much. (not/rain)"
+          },
+          "type": "single",
+          "options": [
+            "doesn't rain",
+            "isn't raining",
+            "didn't rain",
+            "hasn't rained"
+          ],
+          "correctAnswers": ["doesn't rain"],
+          "grammarRule": "A general habitual fact about the climate uses present simple: 'It doesn't rain much'."
+        },
+        {
+          "id": "t1-q9a",
+          "promptParts": {
+            "before": "Yesterday evening the phone ",
+            "blank": "___",
+            "after": " three times while we were having dinner. (ring)"
+          },
+          "type": "single",
+          "options": ["rang", "was ringing", "rings", "has rung"],
+          "correctAnswers": ["rang"],
+          "grammarRule": "A completed action happening a specific number of times in the past ('three times') takes simple past: 'rang'."
+        },
+        {
+          "id": "t1-q9b",
+          "promptParts": {
+            "before": "Yesterday evening the phone rang three times while we ",
+            "blank": "___",
+            "after": " dinner. (have)"
+          },
+          "type": "single",
+          "options": ["were having", "had", "have", "have had"],
+          "correctAnswers": ["were having"],
+          "grammarRule": "'While' introduces an ongoing background action in the past — past continuous: 'were having dinner'."
+        },
+        {
+          "id": "t1-q10a",
+          "promptParts": {
+            "before": "Linda was busy when we ",
+            "blank": "___",
+            "after": " to see her yesterday."
+          },
+          "type": "single",
+          "options": ["went", "were going", "go", "have gone"],
+          "correctAnswers": ["went"],
+          "grammarRule": "The shorter action that interrupts a background situation takes simple past: 'went'."
+        },
+        {
+          "id": "t1-q10b",
+          "promptParts": {
+            "before": "Linda was busy when we went to see her yesterday. She ",
+            "blank": "___",
+            "after": " for an exam."
+          },
+          "type": "single",
+          "options": ["was studying", "studied", "studies", "has studied"],
+          "correctAnswers": ["was studying"],
+          "grammarRule": "Past continuous describes what was already in progress at that past moment: 'was studying for an exam'."
+        },
+        {
+          "id": "t1-q10c",
+          "promptParts": {
+            "before": "She was studying for an exam. We ",
+            "blank": "___",
+            "after": " to disturb her,"
+          },
+          "type": "single",
+          "options": [
+            "didn't want",
+            "don't want",
+            "weren't wanting",
+            "haven't wanted"
+          ],
+          "correctAnswers": ["didn't want"],
+          "grammarRule": "This continues the simple past narrative, and 'want' (a stative verb) isn't normally used in continuous form: 'didn't want'."
+        },
+        {
+          "id": "t1-q10d",
+          "promptParts": {
+            "before": "We didn't want to disturb her, so we ",
+            "blank": "___",
+            "after": " very long."
+          },
+          "type": "single",
+          "options": [
+            "didn't stay",
+            "don't stay",
+            "weren't staying",
+            "haven't stayed"
+          ],
+          "correctAnswers": ["didn't stay"],
+          "grammarRule": "This continues the simple past narrative describing a completed past sequence: 'didn't stay very long'."
+        },
+        {
+          "id": "t1-q11a",
+          "promptParts": {
+            "before": "When I first ",
+            "blank": "___",
+            "after": " Tom the news, he didn't believe me. (tell)"
+          },
+          "type": "single",
+          "options": ["told", "was telling", "tell", "have told"],
+          "correctAnswers": ["told"],
+          "grammarRule": "A single completed past action takes simple past: 'told'."
+        },
+        {
+          "id": "t1-q11b",
+          "promptParts": {
+            "before": "When I first told Tom the news, he ",
+            "blank": "___",
+            "after": " me. (not/believe)"
+          },
+          "type": "single",
+          "options": [
+            "didn't believe",
+            "doesn't believe",
+            "wasn't believing",
+            "hasn't believed"
+          ],
+          "correctAnswers": ["didn't believe"],
+          "grammarRule": "'Believe' is a stative verb (describing a mental state) and isn't normally used in continuous form: 'didn't believe'."
+        },
+        {
+          "id": "t1-q11c",
+          "promptParts": {
+            "before": "He ",
+            "blank": "___",
+            "after": " that I was joking. (think)"
+          },
+          "type": "single",
+          "options": ["thought", "was thinking", "thinks", "has thought"],
+          "correctAnswers": ["thought"],
+          "grammarRule": "'Thought that...' reports a specific past belief — simple past: 'thought'."
+        },
+        {
+          "id": "t1-q11d",
+          "promptParts": {
+            "before": "He thought that I ",
+            "blank": "___",
+            "after": ". (joke)"
+          },
+          "type": "single",
+          "options": ["was joking", "joked", "jokes", "has joked"],
+          "correctAnswers": ["was joking"],
+          "grammarRule": "Past continuous can describe a temporary behavior happening at that time: 'was joking' (he thought I wasn't being serious)."
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 2,
+      "sourceTaskName": "Grammar Work, Task 2: Complete the questions using a suitable verb",
+      "questions": [
+        {
+          "id": "t2-q1",
+          "promptParts": {
+            "before": "I'm looking for Paul. ",
+            "blank": "___",
+            "after": " him?"
+          },
+          "type": "single",
+          "options": [
+            "Have you seen",
+            "Did you see",
+            "Do you see",
+            "Were you seeing"
+          ],
+          "correctAnswers": ["Have you seen"],
+          "grammarRule": "Present perfect connects a past action to its relevance now: 'Have you seen him?' (relevant to searching for him now)."
+        },
+        {
+          "id": "t2-q2",
+          "promptParts": {
+            "before": "Why ",
+            "blank": "___",
+            "after": " to bed so early last night?"
+          },
+          "type": "single",
+          "options": [
+            "did you go",
+            "have you gone",
+            "do you go",
+            "were you going"
+          ],
+          "correctAnswers": ["did you go"],
+          "grammarRule": "'Last night' is a specific past time marker — simple past question: 'did you go'."
+        },
+        {
+          "id": "t2-q3",
+          "promptParts": {
+            "before": "Where ",
+            "blank": "___",
+            "after": "? Just to the post box. I want to post these letters. I'll be back in a few minutes."
+          },
+          "type": "single",
+          "options": [
+            "are you going",
+            "do you go",
+            "did you go",
+            "have you gone"
+          ],
+          "correctAnswers": ["are you going"],
+          "grammarRule": "Present continuous describes a current or near-future planned action: 'are you going' (matches 'I'll be back in a few minutes')."
+        },
+        {
+          "id": "t2-q4",
+          "promptParts": {
+            "before": "",
+            "blank": "___",
+            "after": " television every evening?"
+          },
+          "type": "single",
+          "options": [
+            "Do you watch",
+            "Are you watching",
+            "Did you watch",
+            "Have you watched"
+          ],
+          "correctAnswers": ["Do you watch"],
+          "grammarRule": "Present simple asks about a habitual routine: 'Do you watch television every evening?'."
+        },
+        {
+          "id": "t2-q5",
+          "promptParts": {
+            "before": "Your house is very beautiful. How long ",
+            "blank": "___",
+            "after": " here?"
+          },
+          "type": "single",
+          "options": [
+            "have you lived",
+            "did you live",
+            "do you live",
+            "were you living"
+          ],
+          "correctAnswers": ["have you lived"],
+          "grammarRule": "Present perfect asks about a duration that continues up to now: 'How long have you lived here?'."
+        },
+        {
+          "id": "t2-q6",
+          "promptParts": {
+            "before": "How was your holiday? ",
+            "blank": "___",
+            "after": " a nice time?"
+          },
+          "type": "single",
+          "options": [
+            "Did you have",
+            "Have you had",
+            "Do you have",
+            "Were you having"
+          ],
+          "correctAnswers": ["Did you have"],
+          "grammarRule": "A specific completed past event (the holiday) takes simple past: 'Did you have a nice time?'."
+        },
+        {
+          "id": "t2-q7",
+          "promptParts": {
+            "before": "",
+            "blank": "___",
+            "after": " Julie recently?"
+          },
+          "type": "single",
+          "options": [
+            "Have you seen",
+            "Did you see",
+            "Do you see",
+            "Were you seeing"
+          ],
+          "correctAnswers": ["Have you seen"],
+          "grammarRule": "'Recently' points to an unspecified time up to now — present perfect: 'Have you seen Julie recently?'."
+        },
+        {
+          "id": "t2-q8",
+          "promptParts": {
+            "before": "Can you describe the woman you saw? What ",
+            "blank": "___",
+            "after": "?"
+          },
+          "type": "single",
+          "options": [
+            "was she wearing",
+            "does she wear",
+            "did she wear",
+            "has she worn"
+          ],
+          "correctAnswers": ["was she wearing"],
+          "grammarRule": "Past continuous describes an ongoing state/appearance at a specific past moment: 'was she wearing'."
+        },
+        {
+          "id": "t2-q9",
+          "promptParts": {
+            "before": "I'm sorry to keep you waiting. ",
+            "blank": "___",
+            "after": " long?"
+          },
+          "type": "single",
+          "options": [
+            "Have you been waiting",
+            "Did you wait",
+            "Do you wait",
+            "Were you waiting"
+          ],
+          "correctAnswers": ["Have you been waiting"],
+          "grammarRule": "Present perfect continuous asks about a duration continuing up to now: 'Have you been waiting long?'."
+        },
+        {
+          "id": "t2-q10",
+          "promptParts": {
+            "before": "How long ",
+            "blank": "___",
+            "after": " to get to work in the morning?"
+          },
+          "type": "single",
+          "options": [
+            "does it take you",
+            "did it take you",
+            "is it taking you",
+            "has it taken you"
+          ],
+          "correctAnswers": ["does it take you"],
+          "grammarRule": "A general habitual fact uses present simple: 'How long does it take you...'."
+        },
+        {
+          "id": "t2-q11",
+          "promptParts": {
+            "before": "",
+            "blank": "___",
+            "after": " with that newspaper yet?"
+          },
+          "type": "single",
+          "options": [
+            "Have you finished",
+            "Did you finish",
+            "Do you finish",
+            "Were you finishing"
+          ],
+          "correctAnswers": ["Have you finished"],
+          "grammarRule": "'Yet' in a question about an expected action signals present perfect: 'Have you finished... yet?'."
+        },
+        {
+          "id": "t2-q12",
+          "promptParts": {
+            "before": "",
+            "blank": "___",
+            "after": " to the United States?"
+          },
+          "type": "single",
+          "options": [
+            "Have you ever been",
+            "Did you ever go",
+            "Do you ever go",
+            "Were you ever going"
+          ],
+          "correctAnswers": ["Have you ever been"],
+          "grammarRule": "'Ever' asking about life experience up to now signals present perfect: 'Have you ever been to the United States?'."
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 3,
+      "sourceTaskName": "Grammar Work, Task 3: Choose the right alternative",
+      "questions": [
+        {
+          "id": "t3-q2",
+          "promptParts": {
+            "before": "Margaret ",
+            "blank": "___",
+            "after": " to work yesterday. She wasn't feeling well."
+          },
+          "type": "single",
+          "options": ["didn't go", "hasn't gone"],
+          "correctAnswers": ["didn't go"],
+          "grammarRule": "'Yesterday' is a specific finished past time — simple past: 'didn't go', not present perfect."
+        },
+        {
+          "id": "t3-q3",
+          "promptParts": {
+            "before": "Look! That man over there ",
+            "blank": "___",
+            "after": " the same sweater as you."
+          },
+          "type": "single",
+          "options": ["wears", "is wearing"],
+          "correctAnswers": ["is wearing"],
+          "grammarRule": "An action happening right now (as you look) takes present continuous: 'is wearing'."
+        },
+        {
+          "id": "t3-q4",
+          "promptParts": {
+            "before": "Your son is much taller than when I last saw him. He ",
+            "blank": "___",
+            "after": " a lot."
+          },
+          "type": "single",
+          "options": ["grew", "has grown"],
+          "correctAnswers": ["has grown"],
+          "grammarRule": "Present perfect describes a change with a visible result now: 'has grown a lot'."
+        },
+        {
+          "id": "t3-q5",
+          "promptParts": {
+            "before": "I still don't know what to do. I ",
+            "blank": "___",
+            "after": " yet."
+          },
+          "type": "single",
+          "options": ["didn't decide", "haven't decided"],
+          "correctAnswers": ["haven't decided"],
+          "grammarRule": "'Yet' with present relevance signals present perfect: 'haven't decided yet'."
+        },
+        {
+          "id": "t3-q6",
+          "promptParts": {
+            "before": "I wonder why Jim ",
+            "blank": "___",
+            "after": " so nice to me today. He isn't usually like that."
+          },
+          "type": "single",
+          "options": ["is", "is being"],
+          "correctAnswers": ["is being"],
+          "grammarRule": "'Be' + adjective in the continuous form ('is being nice') describes temporary behavior, contrasted with 'is nice' for a permanent trait."
+        },
+        {
+          "id": "t3-q7",
+          "promptParts": {
+            "before": "Jane had a book open in front of her but she ",
+            "blank": "___",
+            "after": " it."
+          },
+          "type": "single",
+          "options": ["didn't read", "wasn't reading"],
+          "correctAnswers": ["wasn't reading"],
+          "grammarRule": "Past continuous describes an action not actually happening at that moment, despite appearances: 'wasn't reading it'."
+        },
+        {
+          "id": "t3-q8",
+          "promptParts": {
+            "before": "Marry wasn't happy in her new job at first but she ",
+            "blank": "___",
+            "after": " to enjoy it now."
+          },
+          "type": "single",
+          "options": ["begins", "is beginning"],
+          "correctAnswers": ["is beginning"],
+          "grammarRule": "Present continuous describes a change in progress right now: 'is beginning to enjoy it'."
+        },
+        {
+          "id": "t3-q9",
+          "promptParts": {
+            "before": "I wasn't very busy. I ",
+            "blank": "___",
+            "after": " much to do."
+          },
+          "type": "single",
+          "options": ["didn't have", "was not having"],
+          "correctAnswers": ["didn't have"],
+          "grammarRule": "'Have' (meaning 'possess' or 'there was') is a stative verb and isn't normally used in continuous form: 'didn't have'."
+        },
+        {
+          "id": "t3-q10",
+          "promptParts": {
+            "before": "After leaving school, Tim ",
+            "blank": "___",
+            "after": " it very difficult to get a job."
+          },
+          "type": "single",
+          "options": ["found", "has found"],
+          "correctAnswers": ["has found"],
+          "grammarRule": "Present perfect can describe an experience continuing to be true up to now, even without an explicit 'since' marker: 'has found it very difficult'."
+        },
+        {
+          "id": "t3-q11",
+          "promptParts": {
+            "before": "When Sue heard the news, she ",
+            "blank": "___",
+            "after": " very pleased."
+          },
+          "type": "single",
+          "options": ["wasn't", "hasn't been"],
+          "correctAnswers": ["wasn't"],
+          "grammarRule": "A specific past reaction at a specific past moment takes simple past: 'wasn't very pleased'."
+        },
+        {
+          "id": "t3-q14",
+          "promptParts": {
+            "before": "Where ",
+            "blank": "___",
+            "after": " from? Are you American?"
+          },
+          "type": "single",
+          "options": ["are you coming", "do you come"],
+          "correctAnswers": ["do you come"],
+          "grammarRule": "Asking about permanent origin uses present simple, not present continuous: 'Where do you come from?'."
+        },
+        {
+          "id": "t3-q15",
+          "promptParts": {
+            "before": "I'd like to see Tina again. It's long time ",
+            "blank": "___",
+            "after": " her."
+          },
+          "type": "single",
+          "options": ["since I saw", "that I didn't see"],
+          "correctAnswers": ["since I saw"],
+          "grammarRule": "'It's [a period of time] since + simple past' is the fixed pattern for describing time elapsed since a past event: 'since I saw her'."
+        }
+      ]
+    }
+  ]
+}

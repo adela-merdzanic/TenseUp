@@ -1,0 +1,1076 @@
+{
+  "topicId": "mac-os-grammar-vocab",
+  "title": "Mac OS: Conditionals, Tenses & Idioms",
+  "sourcePdf": "4. MAC OS.pdf",
+  "exercises": [
+    {
+      "exerciseNumber": 1,
+      "sourceTaskName": "Grammar and Vocabulary Work, Task 1: Conditional (if) sentences",
+      "questions": [
+        {
+          "id": "t1-q1",
+          "promptParts": {
+            "before": "If I ",
+            "blank": "___",
+            "after": " (stay) in Barlinek, I would have found a new girlfriend."
+          },
+          "type": "single",
+          "options": [
+            "had stayed",
+            "stayed",
+            "have stayed",
+            "would have stayed"
+          ],
+          "correctAnswers": ["had stayed"],
+          "grammarRule": "Since the main clause is 'would have found' (Third Conditional), the if-clause needs past perfect: 'had stayed', describing an unfulfilled past condition."
+        },
+        {
+          "id": "t1-q2",
+          "promptParts": {
+            "before": "He would do more to help the poor if he ",
+            "blank": "___",
+            "after": " (be) the Pope."
+          },
+          "type": "single",
+          "options": ["were", "was", "is", "had been"],
+          "correctAnswers": ["were"],
+          "grammarRule": "Second Conditional (hypothetical present) uses simple past in the if-clause. With 'be', the traditional/formal form for all persons is 'were' (not 'was'): 'if he were the Pope'."
+        },
+        {
+          "id": "t1-q3",
+          "promptParts": {
+            "before": "If he goes to London on a business trip, he ",
+            "blank": "___",
+            "after": " (visit) Soho."
+          },
+          "type": "single",
+          "options": ["will visit", "would visit", "visits", "is visiting"],
+          "correctAnswers": ["will visit"],
+          "grammarRule": "First Conditional (real future possibility): if-clause in simple present ('goes') pairs with 'will' + infinitive in the main clause: 'he will visit Soho'."
+        },
+        {
+          "id": "t1-q4",
+          "promptParts": {
+            "before": "We won't go to the film unless they ",
+            "blank": "___",
+            "after": " (arrive) in the next 5 minutes."
+          },
+          "type": "single",
+          "options": ["arrive", "will arrive", "arrived", "would arrive"],
+          "correctAnswers": ["arrive"],
+          "grammarRule": "'Unless' means 'if...not' and follows the same pattern as First Conditional if-clauses: simple present, not 'will': 'unless they arrive'."
+        },
+        {
+          "id": "t1-q5",
+          "promptParts": {
+            "before": "She ",
+            "blank": "___",
+            "after": " (buy) a new car if she had had the money."
+          },
+          "type": "single",
+          "options": [
+            "would have bought",
+            "would buy",
+            "had bought",
+            "will buy"
+          ],
+          "correctAnswers": ["would have bought"],
+          "grammarRule": "Since the if-clause is 'had had' (past perfect, Third Conditional), the main clause needs 'would have' + past participle: 'would have bought', describing an unfulfilled past possibility."
+        },
+        {
+          "id": "t1-q6",
+          "promptParts": {
+            "before": "If Yoko were me, she ",
+            "blank": "___",
+            "after": " (go) to Manchester immediately."
+          },
+          "type": "single",
+          "options": ["would go", "would have gone", "goes", "will go"],
+          "correctAnswers": ["would go"],
+          "grammarRule": "Second Conditional main clause uses 'would' + infinitive, matching the hypothetical if-clause 'were': 'she would go to Manchester'."
+        },
+        {
+          "id": "t1-q7",
+          "promptParts": {
+            "before": "They will talk to Jacek if he ",
+            "blank": "___",
+            "after": " (come)."
+          },
+          "type": "single",
+          "options": ["comes", "will come", "came", "would come"],
+          "correctAnswers": ["comes"],
+          "grammarRule": "First Conditional if-clause uses simple present, agreeing with the subject 'he': 'if he comes' (not 'will come' or 'came')."
+        },
+        {
+          "id": "t1-q8",
+          "promptParts": {
+            "before": "Bożena will come to work 30 minutes late if her child ",
+            "blank": "___",
+            "after": " (miss) the bus to school."
+          },
+          "type": "single",
+          "options": ["misses", "will miss", "missed", "would miss"],
+          "correctAnswers": ["misses"],
+          "grammarRule": "First Conditional if-clause uses simple present with correct subject-verb agreement: 'her child misses' (third person singular -s)."
+        },
+        {
+          "id": "t1-q9",
+          "promptParts": {
+            "before": "If Peter ",
+            "blank": "___",
+            "after": " (think) twice, he wouldn't have made such a stupid mistake."
+          },
+          "type": "single",
+          "options": [
+            "had thought",
+            "thought",
+            "has thought",
+            "would have thought"
+          ],
+          "correctAnswers": ["had thought"],
+          "grammarRule": "Since the main clause is 'wouldn't have made' (Third Conditional), the if-clause needs past perfect: 'had thought'."
+        },
+        {
+          "id": "t1-q10",
+          "promptParts": {
+            "before": "Kasia ",
+            "blank": "___",
+            "after": " (become) a university lecturer if she studies hard."
+          },
+          "type": "single",
+          "options": ["will become", "would become", "becomes", "is becoming"],
+          "correctAnswers": ["will become"],
+          "grammarRule": "First Conditional main clause uses 'will' + infinitive, matching the if-clause 'studies' (simple present): 'Kasia will become...'."
+        },
+        {
+          "id": "t1-q11",
+          "promptParts": {
+            "before": "If they ",
+            "blank": "___",
+            "after": " (know) all the facts, they would have found the defendant guilty."
+          },
+          "type": "single",
+          "options": ["had known", "knew", "have known", "would have known"],
+          "correctAnswers": ["had known"],
+          "grammarRule": "Since the main clause is 'would have found' (Third Conditional), the if-clause needs past perfect: 'had known'."
+        },
+        {
+          "id": "t1-q12",
+          "promptParts": {
+            "before": "Unless you ",
+            "blank": "___",
+            "after": " (hurry up), we will never arrive on time."
+          },
+          "type": "single",
+          "options": [
+            "hurry up",
+            "will hurry up",
+            "hurried up",
+            "would hurry up"
+          ],
+          "correctAnswers": ["hurry up"],
+          "grammarRule": "'Unless' (= if...not) follows the same pattern as First Conditional if-clauses: simple present, not 'will': 'unless you hurry up'."
+        },
+        {
+          "id": "t1-q13",
+          "promptParts": {
+            "before": "If I were in charge, I ",
+            "blank": "___",
+            "after": " (change) the standard business routines."
+          },
+          "type": "single",
+          "options": [
+            "would change",
+            "would have changed",
+            "change",
+            "will change"
+          ],
+          "correctAnswers": ["would change"],
+          "grammarRule": "Second Conditional main clause uses 'would' + infinitive, matching the hypothetical if-clause 'were': 'I would change...'."
+        },
+        {
+          "id": "t1-q14",
+          "promptParts": {
+            "before": "He will take his daughter out to dinner, if she ",
+            "blank": "___",
+            "after": " (come) to town."
+          },
+          "type": "single",
+          "options": ["comes", "will come", "came", "would come"],
+          "correctAnswers": ["comes"],
+          "grammarRule": "First Conditional if-clause uses simple present with correct subject-verb agreement: 'if she comes' (not 'will come' or 'came')."
+        },
+        {
+          "id": "t1-q15",
+          "promptParts": {
+            "before": "If I hadn't known better, I ",
+            "blank": "___",
+            "after": " (trust) him."
+          },
+          "type": "single",
+          "options": [
+            "would have trusted",
+            "would trust",
+            "had trusted",
+            "will trust"
+          ],
+          "correctAnswers": ["would have trusted"],
+          "grammarRule": "Since the if-clause is 'hadn't known' (past perfect negative, Third Conditional), the main clause needs 'would have' + past participle: 'would have trusted'."
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 2,
+      "sourceTaskName": "Grammar and Vocabulary Work, Task 2: Tenses",
+      "questions": [
+        {
+          "id": "t2-q1",
+          "promptParts": {
+            "before": "We ",
+            "blank": "___",
+            "after": " (write) an English test at the moment."
+          },
+          "type": "single",
+          "options": ["are writing", "write", "wrote", "have written"],
+          "correctAnswers": ["are writing"],
+          "grammarRule": "'At the moment' signals an action happening right now — present continuous: 'are writing'."
+        },
+        {
+          "id": "t2-q3",
+          "promptParts": {
+            "before": "We never ",
+            "blank": "___",
+            "after": " (write) more than six tests per year."
+          },
+          "type": "single",
+          "options": ["write", "wrote", "are writing", "have written"],
+          "correctAnswers": ["write"],
+          "grammarRule": "A general habitual fact ('never... per year') uses present simple: 'we never write'."
+        },
+        {
+          "id": "t2-q4",
+          "promptParts": {
+            "before": "Two weeks from now we ",
+            "blank": "___",
+            "after": " (write) our exams."
+          },
+          "type": "single",
+          "options": ["are going to write", "will write", "write", "wrote"],
+          "correctAnswers": ["are going to write"],
+          "grammarRule": "A planned future event with a specific time frame ('two weeks from now') uses 'going to': 'are going to write'."
+        },
+        {
+          "id": "t2-q5a",
+          "promptParts": {
+            "before": "Last night I ",
+            "blank": "___",
+            "after": " to the cinema."
+          },
+          "type": "single",
+          "options": ["went", "go", "have gone", "was going"],
+          "correctAnswers": ["went"],
+          "grammarRule": "'Last night' is a specific past time marker, so simple past is needed: 'went'."
+        },
+        {
+          "id": "t2-q5b",
+          "promptParts": {
+            "before": "Last night I went to the cinema. I ",
+            "blank": "___",
+            "after": " an interesting film, but my friend and I were so tired that we didn't have any fun."
+          },
+          "type": "single",
+          "options": ["saw", "see", "have seen", "was seeing"],
+          "correctAnswers": ["saw"],
+          "grammarRule": "This continues the simple past narrative of a completed sequence of past events: 'saw'."
+        },
+        {
+          "id": "t2-q5c",
+          "promptParts": {
+            "before": "Last night I went to the cinema. I saw an interesting film, but my friend and I ",
+            "blank": "___",
+            "after": " so tired that we didn't have any fun."
+          },
+          "type": "single",
+          "options": ["were", "was", "are", "have been"],
+          "correctAnswers": ["were"],
+          "grammarRule": "'My friend and I' together form a plural subject ('we'), so the past tense of 'be' is 'were', not 'was'."
+        },
+        {
+          "id": "t2-q5d",
+          "promptParts": {
+            "before": "Last night I went to the cinema. I saw an interesting film, but my friend and I were so tired that we ",
+            "blank": "___",
+            "after": " any fun."
+          },
+          "type": "single",
+          "options": ["didn't have", "don't have", "hadn't had", "haven't had"],
+          "correctAnswers": ["didn't have"],
+          "grammarRule": "This continues the simple past narrative: negative simple past is 'didn't have'."
+        },
+        {
+          "id": "t2-q6a",
+          "promptParts": {
+            "before": "In the morning we usually ",
+            "blank": "___",
+            "after": " cornflakes and drink tea. Last Sunday we had a brunch and ate muffins and strawberries."
+          },
+          "type": "single",
+          "options": ["eat", "ate", "are eating", "have eaten"],
+          "correctAnswers": ["eat"],
+          "grammarRule": "'Usually' signals a habitual routine — present simple: 'we usually eat'."
+        },
+        {
+          "id": "t2-q6b",
+          "promptParts": {
+            "before": "In the morning we usually eat cornflakes and ",
+            "blank": "___",
+            "after": " tea. Last Sunday we had a brunch and ate muffins and strawberries."
+          },
+          "type": "single",
+          "options": ["drink", "drank", "are drinking", "have drunk"],
+          "correctAnswers": ["drink"],
+          "grammarRule": "This continues the habitual present simple routine: 'and drink tea'."
+        },
+        {
+          "id": "t2-q6c",
+          "promptParts": {
+            "before": "In the morning we usually eat cornflakes and drink tea. Last Sunday we ",
+            "blank": "___",
+            "after": " a brunch and ate muffins and strawberries."
+          },
+          "type": "single",
+          "options": ["had", "have", "were having", "have had"],
+          "correctAnswers": ["had"],
+          "grammarRule": "'Last Sunday' is a specific past time marker, switching from the habitual present to simple past: 'we had a brunch'."
+        },
+        {
+          "id": "t2-q6d",
+          "promptParts": {
+            "before": "In the morning we usually eat cornflakes and drink tea. Last Sunday we had a brunch and ",
+            "blank": "___",
+            "after": " muffins and strawberries."
+          },
+          "type": "single",
+          "options": ["ate", "eat", "were eating", "have eaten"],
+          "correctAnswers": ["ate"],
+          "grammarRule": "This continues the simple past narrative describing what happened last Sunday: 'and ate muffins'."
+        },
+        {
+          "id": "t2-q7",
+          "promptParts": {
+            "before": "Next Sunday I ",
+            "blank": "___",
+            "after": " (visit) my grandma."
+          },
+          "type": "single",
+          "options": ["am going to visit", "will visit", "visit", "visited"],
+          "correctAnswers": ["am going to visit"],
+          "grammarRule": "A stated future plan ('next Sunday') uses 'going to': 'am going to visit my grandma'."
+        },
+        {
+          "id": "t2-q8a",
+          "promptParts": {
+            "before": "My family ",
+            "blank": "___",
+            "after": " in Rodgau for a very long time."
+          },
+          "type": "single",
+          "options": ["has lived", "lived", "lives", "was living"],
+          "correctAnswers": ["has lived"],
+          "grammarRule": "'For a very long time' with no clear end signals an unfinished duration up to now — present perfect: 'has lived'."
+        },
+        {
+          "id": "t2-q8b",
+          "promptParts": {
+            "before": "My family has lived in Rodgau for a very long time. My older brother ",
+            "blank": "___",
+            "after": " to Hamburg last Christmas."
+          },
+          "type": "single",
+          "options": ["moved", "has moved", "move", "was moving"],
+          "correctAnswers": ["moved"],
+          "grammarRule": "'Last Christmas' is a specific, finished past time marker — simple past is needed: 'moved', not present perfect."
+        },
+        {
+          "id": "t2-q8c",
+          "promptParts": {
+            "before": "My older brother moved to Hamburg last Christmas. He ",
+            "blank": "___",
+            "after": " an interesting job there."
+          },
+          "type": "single",
+          "options": ["found", "has found", "finds", "was finding"],
+          "correctAnswers": ["found"],
+          "grammarRule": "This continues the simple past narrative about a specific past sequence of events: 'found'."
+        },
+        {
+          "id": "t2-q9a",
+          "promptParts": {
+            "before": "Before we ",
+            "blank": "___",
+            "after": " to school we had eaten breakfast together."
+          },
+          "type": "single",
+          "options": ["walked", "had walked", "walk", "were walking"],
+          "correctAnswers": ["walked"],
+          "grammarRule": "Of the two past actions, walking to school happened after eating, so it takes simple past: 'walked'."
+        },
+        {
+          "id": "t2-q9b",
+          "promptParts": {
+            "before": "Before we walked to school we ",
+            "blank": "___",
+            "after": " breakfast together."
+          },
+          "type": "single",
+          "options": ["had eaten", "ate", "eat", "have eaten"],
+          "correctAnswers": ["had eaten"],
+          "grammarRule": "Eating breakfast happened before walking to school — the earlier of two past actions takes past perfect: 'had eaten'."
+        },
+        {
+          "id": "t2-q10a",
+          "promptParts": {
+            "before": "After we ",
+            "blank": "___",
+            "after": " our homework my friend and I went shopping."
+          },
+          "type": "single",
+          "options": ["had finished", "finished", "finish", "have finished"],
+          "correctAnswers": ["had finished"],
+          "grammarRule": "Finishing homework happened before going shopping — the earlier of two past actions takes past perfect: 'had finished'."
+        },
+        {
+          "id": "t2-q10b",
+          "promptParts": {
+            "before": "After we had finished our homework my friend and I ",
+            "blank": "___",
+            "after": " shopping."
+          },
+          "type": "single",
+          "options": ["went", "had gone", "go", "were going"],
+          "correctAnswers": ["went"],
+          "grammarRule": "Going shopping is the later of the two past actions, so it takes simple past: 'went'."
+        },
+        {
+          "id": "t2-q11a",
+          "promptParts": {
+            "before": "Yesterday we ",
+            "blank": "___",
+            "after": " along Marktstraße when we met two more friends."
+          },
+          "type": "single",
+          "options": ["were walking", "walked", "walk", "have walked"],
+          "correctAnswers": ["were walking"],
+          "grammarRule": "'When' introduces a shorter action (meeting friends) that interrupts a longer background action — the background action takes past continuous: 'were walking'."
+        },
+        {
+          "id": "t2-q11b",
+          "promptParts": {
+            "before": "Yesterday we were walking along Marktstraße when we ",
+            "blank": "___",
+            "after": " two more friends."
+          },
+          "type": "single",
+          "options": ["met", "were meeting", "meet", "have met"],
+          "correctAnswers": ["met"],
+          "grammarRule": "The shorter action that interrupts an ongoing background action takes simple past: 'met'."
+        },
+        {
+          "id": "t2-q11c",
+          "promptParts": {
+            "before": "Yesterday we were walking along Marktstraße when we met two more friends. So all of us ",
+            "blank": "___",
+            "after": " down at the ice cream parlour and enjoyed fantastic ice cream delights."
+          },
+          "type": "single",
+          "options": ["sat", "were sitting", "sit", "have sat"],
+          "correctAnswers": ["sat"],
+          "grammarRule": "This continues the simple past narrative of sequential completed actions: 'sat down'."
+        },
+        {
+          "id": "t2-q11d",
+          "promptParts": {
+            "before": "So all of us sat down at the ice cream parlour and ",
+            "blank": "___",
+            "after": " fantastic ice cream delights."
+          },
+          "type": "single",
+          "options": ["enjoyed", "were enjoying", "enjoy", "have enjoyed"],
+          "correctAnswers": ["enjoyed"],
+          "grammarRule": "This continues the simple past narrative: 'and enjoyed fantastic ice cream delights'."
+        },
+        {
+          "id": "t2-q12",
+          "promptParts": {
+            "before": "We ",
+            "blank": "___",
+            "after": " pizza."
+          },
+          "type": "single",
+          "options": [
+            "have just made",
+            "just made",
+            "are just making",
+            "had just made"
+          ],
+          "correctAnswers": ["have just made"],
+          "grammarRule": "'Just' + present perfect describes something completed a very short time ago, relevant to now: 'have just made'."
+        },
+        {
+          "id": "t2-q13",
+          "promptParts": {
+            "before": "My friends ",
+            "blank": "___",
+            "after": " Lord of the Rings yet."
+          },
+          "type": "single",
+          "options": [
+            "haven't seen",
+            "don't see",
+            "didn't see",
+            "aren't seeing"
+          ],
+          "correctAnswers": ["haven't seen"],
+          "grammarRule": "'Yet' in a negative sentence about an expected-but-not-done action signals present perfect: 'haven't seen... yet'."
+        },
+        {
+          "id": "t2-q14",
+          "promptParts": {
+            "before": "",
+            "blank": "___",
+            "after": " the big red parrot last week?"
+          },
+          "type": "single",
+          "options": [
+            "Did you see",
+            "Have you seen",
+            "Do you see",
+            "Were you seeing"
+          ],
+          "correctAnswers": ["Did you see"],
+          "grammarRule": "'Last week' is a specific, finished past time marker, so the simple past question form is needed: 'Did you see...?', not present perfect."
+        },
+        {
+          "id": "t2-q15",
+          "promptParts": {
+            "before": "",
+            "blank": "___",
+            "after": " ever eaten sushi?"
+          },
+          "type": "single",
+          "options": ["Have you", "Did you", "Do you", "Were you"],
+          "correctAnswers": ["Have you"],
+          "grammarRule": "'Ever' asking about life experience up to now signals present perfect: 'Have you ever eaten...?'."
+        },
+        {
+          "id": "t2-q16a",
+          "promptParts": {
+            "before": "The last Olympic Games ",
+            "blank": "___",
+            "after": " place in Sydney in 2000."
+          },
+          "type": "single",
+          "options": ["took", "have taken", "take", "were taking"],
+          "correctAnswers": ["took"],
+          "grammarRule": "A specific past date ('in 2000') needs simple past: 'took place'."
+        },
+        {
+          "id": "t2-q16b",
+          "promptParts": {
+            "before": "The last Olympic Games took place in Sydney in 2000. The games ",
+            "blank": "___",
+            "after": " very successful."
+          },
+          "type": "single",
+          "options": ["were", "have been", "are", "was"],
+          "correctAnswers": ["were"],
+          "grammarRule": "'The games' is plural, and this continues the specific past narrative: 'were very successful'."
+        },
+        {
+          "id": "t2-q16c",
+          "promptParts": {
+            "before": "Since then a lot more tourists ",
+            "blank": "___",
+            "after": " Australia."
+          },
+          "type": "single",
+          "options": ["have visited", "visited", "visit", "were visiting"],
+          "correctAnswers": ["have visited"],
+          "grammarRule": "'Since then' points to a period that continues up to now — present perfect: 'have visited'."
+        },
+        {
+          "id": "t2-q17a",
+          "promptParts": {
+            "before": "It normally ",
+            "blank": "___",
+            "after": " 22 hours to fly to Sydney."
+          },
+          "type": "single",
+          "options": ["takes", "took", "is taking", "has taken"],
+          "correctAnswers": ["takes"],
+          "grammarRule": "'Normally' signals a general habitual fact — present simple: 'it normally takes'."
+        },
+        {
+          "id": "t2-q17b",
+          "promptParts": {
+            "before": "That's why lot of tourists ",
+            "blank": "___",
+            "after": " to Australia. 22 hours in the air can be quite long."
+          },
+          "type": "single",
+          "options": [
+            "don't fly",
+            "didn't fly",
+            "aren't flying",
+            "haven't flown"
+          ],
+          "correctAnswers": ["don't fly"],
+          "grammarRule": "This continues the general present-tense fact: 'tourists don't fly'."
+        },
+        {
+          "id": "t2-q18a",
+          "promptParts": {
+            "before": "A few weeks ago I ",
+            "blank": "___",
+            "after": " my friends what they had seen in Australia."
+          },
+          "type": "single",
+          "options": ["asked", "had asked", "ask", "was asking"],
+          "correctAnswers": ["asked"],
+          "grammarRule": "'A few weeks ago' is a specific past time marker for the main reported action: simple past 'asked'."
+        },
+        {
+          "id": "t2-q18b",
+          "promptParts": {
+            "before": "A few weeks ago I asked my friends what they ",
+            "blank": "___",
+            "after": " in Australia."
+          },
+          "type": "single",
+          "options": ["had seen", "saw", "see", "have seen"],
+          "correctAnswers": ["had seen"],
+          "grammarRule": "Inside reported speech, an action that happened before the main past action (asking) takes past perfect: 'had seen'."
+        },
+        {
+          "id": "t2-q18c",
+          "promptParts": {
+            "before": "They ",
+            "blank": "___",
+            "after": ": 'We saw many koalas and kangaroos when we were travelling around Down Under.'"
+          },
+          "type": "single",
+          "options": ["said", "had said", "say", "were saying"],
+          "correctAnswers": ["said"],
+          "grammarRule": "Simple past reports what someone said at a specific past moment: 'they said'."
+        },
+        {
+          "id": "t2-q18d",
+          "promptParts": {
+            "before": "They said: 'We ",
+            "blank": "___",
+            "after": " many koalas and kangaroos when we were travelling around Down Under.'"
+          },
+          "type": "single",
+          "options": ["saw", "had seen", "see", "have seen"],
+          "correctAnswers": ["saw"],
+          "grammarRule": "Inside the direct quote, this is straightforward simple past narrative: 'we saw'."
+        },
+        {
+          "id": "t2-q18e",
+          "promptParts": {
+            "before": "'We saw many koalas and kangaroos when we ",
+            "blank": "___",
+            "after": " around Down Under.'"
+          },
+          "type": "single",
+          "options": [
+            "were travelling",
+            "travelled",
+            "travel",
+            "have travelled"
+          ],
+          "correctAnswers": ["were travelling"],
+          "grammarRule": "An ongoing background action ('when...') takes past continuous: 'were travelling'."
+        },
+        {
+          "id": "t2-q19a",
+          "promptParts": {
+            "before": "Microsoft ",
+            "blank": "___",
+            "after": " a famous company in Seattle."
+          },
+          "type": "single",
+          "options": ["is", "was", "has been", "is being"],
+          "correctAnswers": ["is"],
+          "grammarRule": "A current general fact uses present simple: 'Microsoft is a famous company'."
+        },
+        {
+          "id": "t2-q19b",
+          "promptParts": {
+            "before": "Bill Gates ",
+            "blank": "___",
+            "after": " millions of dollars with it so far."
+          },
+          "type": "single",
+          "options": ["has made", "made", "makes", "is making"],
+          "correctAnswers": ["has made"],
+          "grammarRule": "'So far' signals present perfect, describing a total/result continuing up to now: 'has made'."
+        },
+        {
+          "id": "t2-q20a",
+          "promptParts": {
+            "before": "All of you ",
+            "blank": "___",
+            "after": " English for five years."
+          },
+          "type": "single",
+          "options": ["have been learning", "learned", "learn", "have learnt"],
+          "correctAnswers": ["have been learning"],
+          "grammarRule": "'For five years' describing an ongoing activity that continues now uses present perfect continuous: 'have been learning'."
+        },
+        {
+          "id": "t2-q20b",
+          "promptParts": {
+            "before": "I ",
+            "blank": "___",
+            "after": " this grammar exercise will be easy for you."
+          },
+          "type": "single",
+          "options": ["hope", "hoped", "am hoping", "will hope"],
+          "correctAnswers": ["hope"],
+          "grammarRule": "'Hope' expressing a present opinion/wish uses simple present: 'I hope'."
+        },
+        {
+          "id": "t2-q20c",
+          "promptParts": {
+            "before": "I hope this grammar exercise ",
+            "blank": "___",
+            "after": " easy for you. Good luck with it!"
+          },
+          "type": "single",
+          "options": ["will be", "is", "was", "would be"],
+          "correctAnswers": ["will be"],
+          "grammarRule": "An uncertain future outcome takes 'will' + infinitive: 'will be easy for you'."
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 3,
+      "sourceTaskName": "Grammar and Vocabulary Work, Task 3: Phrasal verbs (match each sentence with a noun)",
+      "questions": [
+        {
+          "id": "t3-q1",
+          "promptParts": {
+            "before": "\"This takes off and lands.\" This describes ",
+            "blank": "___",
+            "after": "."
+          },
+          "type": "single",
+          "options": [
+            "an aeroplane",
+            "a dictionary",
+            "a discussion point",
+            "an illness",
+            "a jumper",
+            "children"
+          ],
+          "correctAnswers": ["an aeroplane"],
+          "grammarRule": "'Take off' (of a plane) means to leave the ground and begin flying; 'land' means to arrive back on the ground. Only an aeroplane does both: this describes an aeroplane."
+        },
+        {
+          "id": "t3-q2",
+          "promptParts": {
+            "before": "\"Words can be looked up in this.\" This describes ",
+            "blank": "___",
+            "after": "."
+          },
+          "type": "single",
+          "options": [
+            "a dictionary",
+            "an aeroplane",
+            "a discussion point",
+            "an illness",
+            "a jumper",
+            "children"
+          ],
+          "correctAnswers": ["a dictionary"],
+          "grammarRule": "'Look up' means to search for information (like a word's meaning) in a reference source — a dictionary is exactly that."
+        },
+        {
+          "id": "t3-q3",
+          "promptParts": {
+            "before": "\"You bring this up at a meeting.\" This describes ",
+            "blank": "___",
+            "after": "."
+          },
+          "type": "single",
+          "options": [
+            "a discussion point",
+            "an aeroplane",
+            "a dictionary",
+            "an illness",
+            "a jumper",
+            "children"
+          ],
+          "correctAnswers": ["a discussion point"],
+          "grammarRule": "'Bring up' means to introduce a topic for discussion — you bring up a discussion point, not a physical object."
+        },
+        {
+          "id": "t3-q4",
+          "promptParts": {
+            "before": "\"You should rest to get over this.\" This describes ",
+            "blank": "___",
+            "after": "."
+          },
+          "type": "single",
+          "options": [
+            "an illness",
+            "an aeroplane",
+            "a dictionary",
+            "a discussion point",
+            "a jumper",
+            "children"
+          ],
+          "correctAnswers": ["an illness"],
+          "grammarRule": "'Get over' means to recover from something, typically used for an illness or a difficult experience: 'get over an illness'."
+        },
+        {
+          "id": "t3-q5",
+          "promptParts": {
+            "before": "\"You take this off if it gets hot.\" This describes ",
+            "blank": "___",
+            "after": "."
+          },
+          "type": "single",
+          "options": [
+            "a jumper",
+            "an aeroplane",
+            "a dictionary",
+            "a discussion point",
+            "an illness",
+            "children"
+          ],
+          "correctAnswers": ["a jumper"],
+          "grammarRule": "'Take off' (clothing) means to remove it. You take off a jumper (sweater) when you're too warm."
+        },
+        {
+          "id": "t3-q6",
+          "promptParts": {
+            "before": "\"It's not easy to bring them up well.\" This describes ",
+            "blank": "___",
+            "after": "."
+          },
+          "type": "single",
+          "options": [
+            "children",
+            "an aeroplane",
+            "a dictionary",
+            "a discussion point",
+            "an illness",
+            "a jumper"
+          ],
+          "correctAnswers": ["children"],
+          "grammarRule": "'Bring up' (a person) means to raise/care for them from childhood — this refers to children, not objects."
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 4,
+      "sourceTaskName": "Grammar and Vocabulary Work, Task 4: Complete the sentences with the correct form of take or put",
+      "questions": [
+        {
+          "id": "t4-q1",
+          "promptParts": {
+            "before": "I hope she didn't ",
+            "blank": "___",
+            "after": " offence when I said the food was a bit salty."
+          },
+          "type": "single",
+          "options": ["take", "put", "took", "taking"],
+          "correctAnswers": ["take"],
+          "grammarRule": "'Take offence' is a fixed idiom meaning 'to feel insulted'. After 'didn't', the base form is needed: 'take', not 'took'."
+        },
+        {
+          "id": "t4-q2",
+          "promptParts": {
+            "before": "Don't ",
+            "blank": "___",
+            "after": " any notice of Bob - he's only teasing you."
+          },
+          "type": "single",
+          "options": ["take", "put", "took", "taking"],
+          "correctAnswers": ["take"],
+          "grammarRule": "'Take notice of' is a fixed idiom meaning 'to pay attention to'. After 'don't', the base form is needed: 'take'."
+        },
+        {
+          "id": "t4-q3",
+          "promptParts": {
+            "before": "My mother's ",
+            "blank": "___",
+            "after": " pressure on me to get married."
+          },
+          "type": "single",
+          "options": ["putting", "taking", "put", "puts"],
+          "correctAnswers": ["putting"],
+          "grammarRule": "'Put pressure on someone' is a fixed idiom. After the contracted 'is' ('mother's putting'), the verb needs the -ing form: 'putting'."
+        },
+        {
+          "id": "t4-q4",
+          "promptParts": {
+            "before": "You have to ",
+            "blank": "___",
+            "after": " risks in business."
+          },
+          "type": "single",
+          "options": ["take", "put", "took", "taking"],
+          "correctAnswers": ["take"],
+          "grammarRule": "'Take risks' is a fixed idiom meaning 'to do something that might not succeed'. After 'have to', the base form is needed: 'take'."
+        },
+        {
+          "id": "t4-q5",
+          "promptParts": {
+            "before": "",
+            "blank": "___",
+            "after": " yourself in Mike's shoes - do you think you could do better?"
+          },
+          "type": "single",
+          "options": ["Put", "Take", "Putting", "Puts"],
+          "correctAnswers": ["Put"],
+          "grammarRule": "'Put yourself in someone's shoes' is a fixed idiom meaning 'imagine being in their situation'. As a command (imperative), it uses the base form: 'Put yourself...'."
+        },
+        {
+          "id": "t4-q6",
+          "promptParts": {
+            "before": "I wish you would ",
+            "blank": "___",
+            "after": " my interests first sometimes."
+          },
+          "type": "single",
+          "options": ["put", "take", "putting", "puts"],
+          "correctAnswers": ["put"],
+          "grammarRule": "'Put something first' is a fixed idiom meaning 'to prioritize it'. After the modal 'would', the base form is needed: 'put'."
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 5,
+      "sourceTaskName": "Grammar and Vocabulary Work, Task 5: Match the understatements and exaggerations",
+      "questions": [
+        {
+          "id": "t5-q1",
+          "promptParts": {
+            "before": "\"She's a bit thirsty.\" The exaggerated version is: ",
+            "blank": "___",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "She's dying for a drink.",
+            "She's absolutely loaded.",
+            "She was totally out of order.",
+            "She can't stand the sight of him.",
+            "She hit the roof.",
+            "She's freezing."
+          ],
+          "correctAnswers": ["She's dying for a drink."],
+          "grammarRule": "'Dying for' is a common exaggeration idiom meaning 'wanting something very much' — an exaggerated way of saying 'a bit thirsty'."
+        },
+        {
+          "id": "t5-q2",
+          "promptParts": {
+            "before": "\"She's pretty well off.\" The exaggerated version is: ",
+            "blank": "___",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "She's absolutely loaded.",
+            "She's dying for a drink.",
+            "She was totally out of order.",
+            "She can't stand the sight of him.",
+            "She hit the roof.",
+            "She's freezing."
+          ],
+          "correctAnswers": ["She's absolutely loaded."],
+          "grammarRule": "'Loaded' is slang for 'very rich' — an exaggerated way of saying someone is 'well off' (comfortably wealthy)."
+        },
+        {
+          "id": "t5-q3",
+          "promptParts": {
+            "before": "\"She was a bit rude.\" The exaggerated version is: ",
+            "blank": "___",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "She was totally out of order.",
+            "She's dying for a drink.",
+            "She's absolutely loaded.",
+            "She can't stand the sight of him.",
+            "She hit the roof.",
+            "She's freezing."
+          ],
+          "correctAnswers": ["She was totally out of order."],
+          "grammarRule": "'Out of order' (describing behavior) means acting inappropriately/unacceptably — an exaggerated way of saying someone was 'a bit rude'."
+        },
+        {
+          "id": "t5-q4",
+          "promptParts": {
+            "before": "\"She isn't keen on him.\" The exaggerated version is: ",
+            "blank": "___",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "She can't stand the sight of him.",
+            "She's dying for a drink.",
+            "She's absolutely loaded.",
+            "She was totally out of order.",
+            "She hit the roof.",
+            "She's freezing."
+          ],
+          "correctAnswers": ["She can't stand the sight of him."],
+          "grammarRule": "'Can't stand the sight of someone' means to strongly dislike them — an exaggerated way of saying someone 'isn't keen on' (doesn't like) another person."
+        },
+        {
+          "id": "t5-q5",
+          "promptParts": {
+            "before": "\"She was a bit upset.\" The exaggerated version is: ",
+            "blank": "___",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "She hit the roof.",
+            "She's dying for a drink.",
+            "She's absolutely loaded.",
+            "She was totally out of order.",
+            "She can't stand the sight of him.",
+            "She's freezing."
+          ],
+          "correctAnswers": ["She hit the roof."],
+          "grammarRule": "'Hit the roof' is an idiom meaning to become very angry — an exaggerated way of describing someone who was 'a bit upset'."
+        },
+        {
+          "id": "t5-q6",
+          "promptParts": {
+            "before": "\"She's a bit chilly.\" The exaggerated version is: ",
+            "blank": "___",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "She's freezing.",
+            "She's dying for a drink.",
+            "She's absolutely loaded.",
+            "She was totally out of order.",
+            "She can't stand the sight of him.",
+            "She hit the roof."
+          ],
+          "correctAnswers": ["She's freezing."],
+          "grammarRule": "'Freezing' is a common exaggeration for feeling very cold — an exaggerated way of saying 'a bit chilly'."
+        }
+      ]
+    }
+  ]
+}

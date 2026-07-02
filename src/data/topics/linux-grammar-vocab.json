@@ -1,0 +1,530 @@
+{
+  "topicId": "linux-grammar-vocab",
+  "title": "Linux: Grammar & Vocabulary Practice",
+  "sourcePdf": "3. Linux.pdf",
+  "exercises": [
+    {
+      "exerciseNumber": 1,
+      "sourceTaskName": "Task 1: Complete the sentences. Use the correct form of the verb, active or passive.",
+      "questions": [
+        {
+          "id": "t1-q1",
+          "promptParts": {
+            "before": "The Olympic Games ",
+            "blank": "___",
+            "after": " every four years. (hold)"
+          },
+          "type": "single",
+          "options": ["are held", "hold", "are holding", "held"],
+          "correctAnswers": ["are held"],
+          "grammarRule": "The Games don't hold themselves — they are held (by organizers), so passive voice is needed. Present simple passive = am/is/are + past participle: 'are held' (plural subject 'Games')."
+        },
+        {
+          "id": "t1-q2",
+          "promptParts": {
+            "before": "Last month a Renoir painting ",
+            "blank": "___",
+            "after": " for over £50 million. (sell)"
+          },
+          "type": "single",
+          "options": ["was sold", "sold", "was selling", "is sold"],
+          "correctAnswers": ["was sold"],
+          "grammarRule": "A painting doesn't sell itself — someone sells it, so passive is needed: 'was sold'. Past simple passive = was/were + past participle, matching the past time marker 'last month'."
+        },
+        {
+          "id": "t1-q3",
+          "promptParts": {
+            "before": "Agatha Christie's The Mousetrap ",
+            "blank": "___",
+            "after": " in London in November 1952. (open)"
+          },
+          "type": "single",
+          "options": ["was opened", "opened", "was opening", "is opened"],
+          "correctAnswers": ["was opened"],
+          "grammarRule": "A play is opened/premiered by its producers, so passive voice fits: 'was opened' (past simple passive), matching the past date '1952'."
+        },
+        {
+          "id": "t1-q4",
+          "promptParts": {
+            "before": "The police told her that her husband ",
+            "blank": "___",
+            "after": ". (arrest)"
+          },
+          "type": "single",
+          "options": [
+            "was arrested",
+            "arrested",
+            "has been arrested",
+            "was arresting"
+          ],
+          "correctAnswers": ["was arrested"],
+          "grammarRule": "The husband doesn't arrest himself — he was arrested (by police), so passive voice is needed: past simple passive 'was arrested', matching the reported past tense."
+        },
+        {
+          "id": "t1-q5",
+          "promptParts": {
+            "before": "In the summer the population of Greece ",
+            "blank": "___",
+            "after": ". (double)"
+          },
+          "type": "single",
+          "options": ["doubled", "is doubled", "was doubled", "double"],
+          "correctAnswers": ["doubled"],
+          "grammarRule": "The population doesn't double itself by an external agent's action — it simply changes on its own, so this needs active voice, not passive: 'doubled', not 'is/was doubled'."
+        },
+        {
+          "id": "t1-q6",
+          "promptParts": {
+            "before": "I fell asleep while my hair ",
+            "blank": "___",
+            "after": ". (cut)"
+          },
+          "type": "single",
+          "options": ["was being cut", "was cutting", "cut", "had been cut"],
+          "correctAnswers": ["was being cut"],
+          "grammarRule": "Hair doesn't cut itself — someone cuts it, so passive is needed. 'While' signals an action in progress at that same past moment, so past continuous passive fits: 'was being cut' (was/were + being + past participle)."
+        },
+        {
+          "id": "t1-q7",
+          "promptParts": {
+            "before": "Hamlet ",
+            "blank": "___",
+            "after": " for the first time in 1603. (perform)"
+          },
+          "type": "single",
+          "options": [
+            "was performed",
+            "performed",
+            "was performing",
+            "has been performed"
+          ],
+          "correctAnswers": ["was performed"],
+          "grammarRule": "A play is performed by actors, so passive voice fits: 'was performed' (past simple passive), matching the specific past date."
+        },
+        {
+          "id": "t1-q8",
+          "promptParts": {
+            "before": "Every year Europe ",
+            "blank": "___",
+            "after": " more food than it can eat. (produce)"
+          },
+          "type": "single",
+          "options": ["produces", "is produced", "was produced", "produce"],
+          "correctAnswers": ["produces"],
+          "grammarRule": "Here Europe is the active agent doing the producing (not something being produced), so active voice is correct: 'produces' (present simple, matching the habitual 'every year' and the -s for the singular subject 'Europe')."
+        },
+        {
+          "id": "t1-q9",
+          "promptParts": {
+            "before": "At this time tomorrow I ",
+            "blank": "___",
+            "after": " on a beach in Bermuda! (sit)"
+          },
+          "type": "single",
+          "options": [
+            "will be sitting",
+            "will sit",
+            "am sitting",
+            "will have sat"
+          ],
+          "correctAnswers": ["will be sitting"],
+          "grammarRule": "'At this time tomorrow' points to an action in progress at a specific future moment — that calls for future continuous: 'will be sitting' (will be + -ing), not the simple future 'will sit'."
+        },
+        {
+          "id": "t1-q10",
+          "promptParts": {
+            "before": "These glasses are dirty! They should ",
+            "blank": "___",
+            "after": " before the party. (clean)"
+          },
+          "type": "single",
+          "options": ["be cleaned", "clean", "be cleaning", "have cleaned"],
+          "correctAnswers": ["be cleaned"],
+          "grammarRule": "Glasses don't clean themselves — someone cleans them, so passive is needed after the modal 'should': 'should be cleaned' (modal + be + past participle)."
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 2,
+      "sourceTaskName": "Task 2: Complete the sentences with the correct form of make or do.",
+      "questions": [
+        {
+          "id": "t2-q1",
+          "promptParts": {
+            "before": "The cinema has been demolished to ",
+            "blank": "___",
+            "after": " way for a supermarket."
+          },
+          "type": "single",
+          "options": ["make", "do", "made", "making"],
+          "correctAnswers": ["make"],
+          "grammarRule": "'Make way for' is a fixed idiom meaning 'to create space/an opportunity for something else'. It always uses 'make', not 'do'."
+        },
+        {
+          "id": "t2-q2",
+          "promptParts": {
+            "before": "I think you ",
+            "blank": "___",
+            "after": " a very good impression on my mother yesterday."
+          },
+          "type": "single",
+          "options": ["made", "did", "make", "making"],
+          "correctAnswers": ["made"],
+          "grammarRule": "'Make an impression' is a fixed idiom — impressions are always 'made', never 'done'. Since the sentence refers to 'yesterday', the past tense 'made' is needed."
+        },
+        {
+          "id": "t2-q3",
+          "promptParts": {
+            "before": "It doesn't matter that you came last in the race. You ",
+            "blank": "___",
+            "after": " your best."
+          },
+          "type": "single",
+          "options": ["did", "made", "do", "doing"],
+          "correctAnswers": ["did"],
+          "grammarRule": "'Do your best' is a fixed idiom — you always 'do' your best, never 'make' it. Since the race already happened, the past tense 'did' is needed."
+        },
+        {
+          "id": "t2-q4",
+          "promptParts": {
+            "before": "You really hate ",
+            "blank": "___",
+            "after": " decisions, don't you?"
+          },
+          "type": "single",
+          "options": ["making", "doing", "make", "made"],
+          "correctAnswers": ["making"],
+          "grammarRule": "'Make a decision' is a fixed idiom — decisions are always 'made', never 'done'. After 'hate', the verb takes the -ing form: 'hate making decisions'."
+        },
+        {
+          "id": "t2-q5",
+          "promptParts": {
+            "before": "It'll be a pleasure to ",
+            "blank": "___",
+            "after": " business with you."
+          },
+          "type": "single",
+          "options": ["do", "make", "did", "doing"],
+          "correctAnswers": ["do"],
+          "grammarRule": "'Do business' is a fixed idiom — you always 'do' business, never 'make' it."
+        },
+        {
+          "id": "t2-q6",
+          "promptParts": {
+            "before": "If you ",
+            "blank": "___",
+            "after": " a good job, we'll pay you extra."
+          },
+          "type": "single",
+          "options": ["do", "make", "did", "doing"],
+          "correctAnswers": ["do"],
+          "grammarRule": "'Do a good job' is a fixed idiom — you always 'do' a job (well or badly), never 'make' it."
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 3,
+      "sourceTaskName": "Task 3: Complete the sentences. Use the correct form of the verb.",
+      "questions": [
+        {
+          "id": "t3-q1",
+          "promptParts": {
+            "before": "Chris and Declan ",
+            "blank": "___",
+            "after": " in New Zealand until January. (stay)"
+          },
+          "type": "single",
+          "options": ["are staying", "stay", "stayed", "will stay"],
+          "correctAnswers": ["are staying"],
+          "grammarRule": "Present continuous describes a temporary situation happening now and extending into the near future: 'are staying... until January'."
+        },
+        {
+          "id": "t3-q2",
+          "promptParts": {
+            "before": "Give me your mobile number. I ",
+            "blank": "___",
+            "after": " you later. (ring)"
+          },
+          "type": "single",
+          "options": ["will ring", "ring", "am ringing", "rang"],
+          "correctAnswers": ["will ring"],
+          "grammarRule": "'Will' + base verb expresses a decision made at the moment of speaking (here, right after asking for the number): 'I will ring you later'."
+        },
+        {
+          "id": "t3-q3",
+          "promptParts": {
+            "before": "I ",
+            "blank": "___",
+            "after": " Judy at 3.00. (meet)"
+          },
+          "type": "single",
+          "options": ["am meeting", "meet", "will meet", "met"],
+          "correctAnswers": ["am meeting"],
+          "grammarRule": "Present continuous describes a fixed, pre-arranged future plan, especially with a specific time: 'I am meeting Judy at 3.00'."
+        },
+        {
+          "id": "t3-q4",
+          "promptParts": {
+            "before": "I'd like ",
+            "blank": "___",
+            "after": " lunch soon. (eat)"
+          },
+          "type": "single",
+          "options": ["to eat", "eating", "eat", "ate"],
+          "correctAnswers": ["to eat"],
+          "grammarRule": "'Would like' is followed by the infinitive with 'to': 'I'd like to eat', not 'I'd like eating' or 'I'd like eat'."
+        },
+        {
+          "id": "t3-q5",
+          "promptParts": {
+            "before": "She must ",
+            "blank": "___",
+            "after": " her passport with her. (take)"
+          },
+          "type": "single",
+          "options": ["take", "to take", "taking", "took"],
+          "correctAnswers": ["take"],
+          "grammarRule": "Modal verbs like 'must' are always followed by the base infinitive without 'to': 'must take', not 'must to take' or 'must taking'."
+        },
+        {
+          "id": "t3-q6",
+          "promptParts": {
+            "before": "You shouldn't ",
+            "blank": "___",
+            "after": " so many sweets. You'll get fat! (eat)"
+          },
+          "type": "single",
+          "options": ["eat", "to eat", "eating", "ate"],
+          "correctAnswers": ["eat"],
+          "grammarRule": "Modal verbs like 'shouldn't' are followed by the base infinitive without 'to': 'shouldn't eat', not 'shouldn't to eat' or 'shouldn't eating'."
+        },
+        {
+          "id": "t3-q7",
+          "promptParts": {
+            "before": "They ",
+            "blank": "___",
+            "after": " dancing. (not like)"
+          },
+          "type": "single",
+          "options": ["don't like", "doesn't like", "not like", "didn't like"],
+          "correctAnswers": ["don't like"],
+          "grammarRule": "Present simple negative for 'they' (plural) uses the auxiliary 'don't': 'they don't like dancing', not 'doesn't' (for he/she/it) or 'not' alone (missing the auxiliary)."
+        },
+        {
+          "id": "t3-q8",
+          "promptParts": {
+            "before": "What ",
+            "blank": "___",
+            "after": " your first teacher like? (be)"
+          },
+          "type": "single",
+          "options": ["was", "is", "were", "did"],
+          "correctAnswers": ["was"],
+          "grammarRule": "'What was ... like?' asks for a description in the past. Since 'your first teacher' is singular, the verb is 'was', not 'were'."
+        },
+        {
+          "id": "t3-q9",
+          "promptParts": {
+            "before": "Don't worry about your exam, I ",
+            "blank": "___",
+            "after": " you revise. (help)"
+          },
+          "type": "single",
+          "options": ["will help", "help", "am helping", "helped"],
+          "correctAnswers": ["will help"],
+          "grammarRule": "'Will' + base verb is used for offers made at the moment of speaking: 'I will help you revise', reassuring someone right now."
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 4,
+      "sourceTaskName": "Task 4: Complete the sentences. Use the correct future form of the verb: will, going to or Present Continuous.",
+      "questions": [
+        {
+          "id": "t4-q2",
+          "promptParts": {
+            "before": "Don't eat all those crisps. You ",
+            "blank": "___",
+            "after": " any dinner. (want)"
+          },
+          "type": "single",
+          "options": [
+            "will not want",
+            "are not going to want",
+            "do not want",
+            "are not wanting"
+          ],
+          "correctAnswers": ["will not want"],
+          "grammarRule": "'Will' is used for predictions based on opinion or logical reasoning (eating too many crisps logically leads to not being hungry later), rather than direct visual evidence: 'you will not want any dinner'."
+        },
+        {
+          "id": "t4-q3",
+          "promptParts": {
+            "before": "The score is 5:0, Venus Williams ",
+            "blank": "___",
+            "after": " this set! (win)"
+          },
+          "type": "single",
+          "options": ["is winning", "will win", "is going to win", "wins"],
+          "correctAnswers": ["is winning"],
+          "grammarRule": "Present continuous can describe an action happening right now: 'is winning' reports the current state of the match (5:0), not a future prediction."
+        },
+        {
+          "id": "t4-q4",
+          "promptParts": {
+            "before": "I ",
+            "blank": "___",
+            "after": " my hair cut at 1.00 today. (have)"
+          },
+          "type": "single",
+          "options": ["am going to have", "will have", "have", "had"],
+          "correctAnswers": ["am going to have"],
+          "grammarRule": "'Going to' + base verb expresses a prior plan or intention (here, a scheduled hair appointment): 'am going to have my hair cut'."
+        },
+        {
+          "id": "t4-q5",
+          "promptParts": {
+            "before": "I am sure she ",
+            "blank": "___",
+            "after": " punctual for her interview. (be)"
+          },
+          "type": "single",
+          "options": ["will be", "is going to be", "is being", "is"],
+          "correctAnswers": ["will be"],
+          "grammarRule": "'Will' is used for predictions based on personal opinion or belief ('I am sure...'), rather than visible evidence: 'she will be punctual'."
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 5,
+      "sourceTaskName": "Task 5: Complete the sentences. Use the correct form of the multi-word verbs.",
+      "questions": [
+        {
+          "id": "t5-q1",
+          "promptParts": {
+            "before": "Are you still ",
+            "blank": "___",
+            "after": " your mind?"
+          },
+          "type": "single",
+          "options": ["making up", "sorting out", "looking for", "giving back"],
+          "correctAnswers": ["making up"],
+          "grammarRule": "'Make up your mind' is a fixed idiom meaning 'to decide'. Here it's in the present continuous ('Are you still making up your mind?') asking if a decision is still pending."
+        },
+        {
+          "id": "t5-q2",
+          "promptParts": {
+            "before": "I'm ",
+            "blank": "___",
+            "after": " a French/English dictionary. Do you have one?"
+          },
+          "type": "single",
+          "options": ["looking for", "making up", "sorting out", "trying on"],
+          "correctAnswers": ["looking for"],
+          "grammarRule": "'Look for' means 'to search for something you need or have lost'. Here, the speaker is currently searching for a dictionary: 'I'm looking for...'."
+        },
+        {
+          "id": "t5-q3",
+          "promptParts": {
+            "before": "That woman bought three pairs of trousers here last week and she ",
+            "blank": "___",
+            "after": " them all back yesterday."
+          },
+          "type": "single",
+          "options": ["brought", "gave", "took", "went"],
+          "correctAnswers": ["brought"],
+          "grammarRule": "'Bring back' means to return something to a place, often split around the object: 'brought them all back'. It's used here because the trousers are being brought back to the shop where they were purchased."
+        },
+        {
+          "id": "t5-q4",
+          "promptParts": {
+            "before": "The dress looked OK when she ",
+            "blank": "___",
+            "after": " it on in the shop."
+          },
+          "type": "single",
+          "options": ["tried", "gave", "took", "made"],
+          "correctAnswers": ["tried"],
+          "grammarRule": "'Try on' means to put on a piece of clothing to see if it fits/looks good, often split around the object: 'tried it on'."
+        },
+        {
+          "id": "t5-q5",
+          "promptParts": {
+            "before": "The manager ",
+            "blank": "___",
+            "after": " on a training course this week."
+          },
+          "type": "single",
+          "options": ["is away", "is in", "goes back", "sorts out"],
+          "correctAnswers": ["is away"],
+          "grammarRule": "'Be away' means to not be present, often because you're somewhere else temporarily (like a training course): 'The manager is away...'."
+        },
+        {
+          "id": "t5-q6",
+          "promptParts": {
+            "before": "The solicitors ",
+            "blank": "___",
+            "after": " the problems at the moment."
+          },
+          "type": "single",
+          "options": [
+            "are sorting out",
+            "are looking for",
+            "are making up",
+            "are bringing back"
+          ],
+          "correctAnswers": ["are sorting out"],
+          "grammarRule": "'Sort out' means to resolve or deal with a problem. Present continuous fits 'at the moment' — an action in progress right now: 'are sorting out'."
+        },
+        {
+          "id": "t5-q7",
+          "promptParts": {
+            "before": "These jeans don't fit. I'll have to ",
+            "blank": "___",
+            "after": " them back to the shop."
+          },
+          "type": "single",
+          "options": ["take", "bring", "give", "try"],
+          "correctAnswers": ["take"],
+          "grammarRule": "'Take back' means to return an item to where you got it (moving away from here, towards there) — the opposite direction of 'bring back'. Since the jeans need to go 'to the shop', 'take back' is correct."
+        },
+        {
+          "id": "t5-q8",
+          "promptParts": {
+            "before": "When I was a child we ",
+            "blank": "___",
+            "after": " to the same camp site every summer."
+          },
+          "type": "single",
+          "options": ["went back", "brought back", "gave back", "took back"],
+          "correctAnswers": ["went back"],
+          "grammarRule": "'Go back' means to return to a place you've been before. Since this describes a repeated childhood habit, the past tense 'went back' is used."
+        },
+        {
+          "id": "t5-q9",
+          "promptParts": {
+            "before": "I think you should ",
+            "blank": "___",
+            "after": " me my money back."
+          },
+          "type": "single",
+          "options": ["give", "take", "bring", "sort"],
+          "correctAnswers": ["give"],
+          "grammarRule": "'Give back' means to return something you owe or borrowed to its rightful owner, often split around the object: 'give me my money back'."
+        },
+        {
+          "id": "t5-q10",
+          "promptParts": {
+            "before": "'I'm sorry, she's out of the office.' 'When will she ",
+            "blank": "___",
+            "after": " again?'"
+          },
+          "type": "single",
+          "options": ["be in", "be away", "go back", "make up"],
+          "correctAnswers": ["be in"],
+          "grammarRule": "'Be in' means to be present/at your workplace (opposite of 'be away' or 'be out'). Here it asks when she'll be back at the office: 'When will she be in again?'."
+        }
+      ]
+    }
+  ]
+}

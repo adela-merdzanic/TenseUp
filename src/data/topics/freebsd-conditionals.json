@@ -1,0 +1,507 @@
+{
+  "topicId": "freebsd-conditionals",
+  "title": "FreeBSD: Conditional Sentences (If-Clauses)",
+  "sourcePdf": "5. Free BSD.pdf",
+  "exercises": [
+    {
+      "exerciseNumber": 1,
+      "sourceTaskName": "Exercises, Task 1: Complete the Conditional Sentences (Types I, II, III)",
+      "questions": [
+        {
+          "id": "e1-q1a",
+          "promptParts": {
+            "before": "If you ",
+            "blank": "___",
+            "after": " out with your friends tonight, I will watch the football match on TV."
+          },
+          "type": "single",
+          "options": ["go", "will go", "went", "going"],
+          "correctAnswers": ["go"],
+          "grammarRule": "First Conditional if-clause uses simple present: 'if you go out...', not 'will go'."
+        },
+        {
+          "id": "e1-q1b",
+          "promptParts": {
+            "before": "If you go out with your friends tonight, I ",
+            "blank": "___",
+            "after": " the football match on TV."
+          },
+          "type": "single",
+          "options": ["will watch", "watch", "would watch", "watched"],
+          "correctAnswers": ["will watch"],
+          "grammarRule": "First Conditional main clause uses 'will' + infinitive, matching the if-clause 'go' (simple present): 'I will watch...'."
+        },
+        {
+          "id": "e1-q2a",
+          "promptParts": {
+            "before": "I ",
+            "blank": "___",
+            "after": " a lot of money if I get that job."
+          },
+          "type": "single",
+          "options": ["will earn", "earn", "would earn", "earned"],
+          "correctAnswers": ["will earn"],
+          "grammarRule": "First Conditional main clause uses 'will' + infinitive: 'I will earn...'."
+        },
+        {
+          "id": "e1-q2b",
+          "promptParts": {
+            "before": "I will earn a lot of money if I ",
+            "blank": "___",
+            "after": " that job."
+          },
+          "type": "single",
+          "options": ["get", "will get", "got", "getting"],
+          "correctAnswers": ["get"],
+          "grammarRule": "First Conditional if-clause uses simple present: 'if I get that job'."
+        },
+        {
+          "id": "e1-q3a",
+          "promptParts": {
+            "before": "If she ",
+            "blank": "___",
+            "after": ", we will miss the bus."
+          },
+          "type": "single",
+          "options": [
+            "doesn't hurry",
+            "won't hurry",
+            "didn't hurry",
+            "isn't hurrying"
+          ],
+          "correctAnswers": ["doesn't hurry"],
+          "grammarRule": "First Conditional if-clause negative uses 'doesn't' + base verb: 'if she doesn't hurry'."
+        },
+        {
+          "id": "e1-q3b",
+          "promptParts": {
+            "before": "If she doesn't hurry, we ",
+            "blank": "___",
+            "after": " the bus."
+          },
+          "type": "single",
+          "options": ["will miss", "miss", "would miss", "missed"],
+          "correctAnswers": ["will miss"],
+          "grammarRule": "First Conditional main clause uses 'will' + infinitive: 'we will miss the bus'."
+        },
+        {
+          "id": "e1-q4a",
+          "promptParts": {
+            "before": "If he ",
+            "blank": "___",
+            "after": " harder, he would reach his goals."
+          },
+          "type": "single",
+          "options": ["tried", "try", "will try", "trying"],
+          "correctAnswers": ["tried"],
+          "grammarRule": "Second Conditional if-clause uses simple past: 'if he tried harder'."
+        },
+        {
+          "id": "e1-q4b",
+          "promptParts": {
+            "before": "If he tried harder, he ",
+            "blank": "___",
+            "after": " his goals."
+          },
+          "type": "single",
+          "options": ["would reach", "reaches", "will reach", "reached"],
+          "correctAnswers": ["would reach"],
+          "grammarRule": "Second Conditional main clause uses 'would' + infinitive, matching the if-clause 'tried': 'he would reach his goals'."
+        },
+        {
+          "id": "e1-q5a",
+          "promptParts": {
+            "before": "I ",
+            "blank": "___",
+            "after": " these shoes if they fit."
+          },
+          "type": "single",
+          "options": ["would buy", "buy", "will buy", "bought"],
+          "correctAnswers": ["would buy"],
+          "grammarRule": "Second Conditional main clause uses 'would' + infinitive: 'I would buy these shoes'."
+        },
+        {
+          "id": "e1-q5b",
+          "promptParts": {
+            "before": "I would buy these shoes if they ",
+            "blank": "___",
+            "after": "."
+          },
+          "type": "single",
+          "options": ["fit", "fits", "will fit", "fitted"],
+          "correctAnswers": ["fit"],
+          "grammarRule": "Second Conditional if-clause uses simple past. 'Fit' is unusual — its past tense is spelled the same as the present ('fit'), so it doesn't change form here."
+        },
+        {
+          "id": "e1-q6a",
+          "promptParts": {
+            "before": "It ",
+            "blank": "___",
+            "after": " me if he did not know the answer."
+          },
+          "type": "single",
+          "options": [
+            "would not surprise",
+            "does not surprise",
+            "will not surprise",
+            "did not surprise"
+          ],
+          "correctAnswers": ["would not surprise"],
+          "grammarRule": "Second Conditional main clause negative uses 'would not' + infinitive: 'it would not surprise me'."
+        },
+        {
+          "id": "e1-q6b",
+          "promptParts": {
+            "before": "It would not surprise me if he ",
+            "blank": "___",
+            "after": " the answer."
+          },
+          "type": "single",
+          "options": [
+            "did not know",
+            "does not know",
+            "will not know",
+            "had not known"
+          ],
+          "correctAnswers": ["did not know"],
+          "grammarRule": "Second Conditional if-clause negative uses simple past: 'if he did not know'."
+        },
+        {
+          "id": "e1-q7a",
+          "promptParts": {
+            "before": "If we ",
+            "blank": "___",
+            "after": " to the radio, we would have heard the news."
+          },
+          "type": "single",
+          "options": [
+            "had listened",
+            "listened",
+            "would listen",
+            "have listened"
+          ],
+          "correctAnswers": ["had listened"],
+          "grammarRule": "Since the main clause is 'would have heard' (Third Conditional), the if-clause needs past perfect: 'had listened'."
+        },
+        {
+          "id": "e1-q7b",
+          "promptParts": {
+            "before": "If we had listened to the radio, we ",
+            "blank": "___",
+            "after": " the news."
+          },
+          "type": "single",
+          "options": [
+            "would have heard",
+            "would hear",
+            "heard",
+            "will have heard"
+          ],
+          "correctAnswers": ["would have heard"],
+          "grammarRule": "Third Conditional main clause uses 'would have' + past participle, matching the if-clause 'had listened': 'we would have heard the news'."
+        },
+        {
+          "id": "e1-q8a",
+          "promptParts": {
+            "before": "If you ",
+            "blank": "___",
+            "after": " on the lights, you would not have fallen over the chair."
+          },
+          "type": "single",
+          "options": [
+            "had switched",
+            "switched",
+            "would switch",
+            "have switched"
+          ],
+          "correctAnswers": ["had switched"],
+          "grammarRule": "Since the main clause is 'would not have fallen' (Third Conditional), the if-clause needs past perfect: 'had switched'."
+        },
+        {
+          "id": "e1-q8b",
+          "promptParts": {
+            "before": "If you had switched on the lights, you ",
+            "blank": "___",
+            "after": " over the chair."
+          },
+          "type": "single",
+          "options": [
+            "would not have fallen",
+            "would not fall",
+            "did not fall",
+            "will not have fallen"
+          ],
+          "correctAnswers": ["would not have fallen"],
+          "grammarRule": "Third Conditional main clause negative uses 'would not have' + past participle: 'you would not have fallen'."
+        },
+        {
+          "id": "e1-q9a",
+          "promptParts": {
+            "before": "She ",
+            "blank": "___",
+            "after": " to our party if she had not been on holiday."
+          },
+          "type": "single",
+          "options": [
+            "would have come",
+            "would come",
+            "came",
+            "will have come"
+          ],
+          "correctAnswers": ["would have come"],
+          "grammarRule": "Third Conditional main clause uses 'would have' + past participle: 'she would have come to our party'."
+        },
+        {
+          "id": "e1-q9b",
+          "promptParts": {
+            "before": "She would have come to our party if she ",
+            "blank": "___",
+            "after": " on holiday."
+          },
+          "type": "single",
+          "options": [
+            "had not been",
+            "was not",
+            "would not be",
+            "has not been"
+          ],
+          "correctAnswers": ["had not been"],
+          "grammarRule": "Since the main clause is 'would have come' (Third Conditional), the if-clause needs past perfect negative: 'had not been'."
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 2,
+      "sourceTaskName": "Task 2: Write the verbs in brackets in their correct forms into the gaps",
+      "questions": [
+        {
+          "id": "e2-q1",
+          "promptParts": {
+            "before": "If you ",
+            "blank": "___",
+            "after": " a minute, I'll come with you."
+          },
+          "type": "single",
+          "options": ["wait", "will wait", "waited", "waiting"],
+          "correctAnswers": ["wait"],
+          "grammarRule": "First Conditional if-clause uses simple present: 'if you wait a minute'."
+        },
+        {
+          "id": "e2-q2",
+          "promptParts": {
+            "before": "If I went anywhere, it ",
+            "blank": "___",
+            "after": " Australia."
+          },
+          "type": "single",
+          "options": ["would be", "is", "will be", "was"],
+          "correctAnswers": ["would be"],
+          "grammarRule": "Second Conditional main clause uses 'would' + infinitive, matching the if-clause 'went': 'it would be Australia'."
+        },
+        {
+          "id": "e2-q3",
+          "promptParts": {
+            "before": "We ",
+            "blank": "___",
+            "after": " TV if Peter hadn't bought the theatre tickets."
+          },
+          "type": "single",
+          "options": [
+            "would have watched",
+            "would watch",
+            "watched",
+            "will have watched"
+          ],
+          "correctAnswers": ["would have watched"],
+          "grammarRule": "Since the if-clause is 'hadn't bought' (past perfect negative, Third Conditional), the main clause needs 'would have' + past participle: 'would have watched'."
+        },
+        {
+          "id": "e2-q4",
+          "promptParts": {
+            "before": "Would you go out more often if you ",
+            "blank": "___",
+            "after": " to do so much in the house?"
+          },
+          "type": "single",
+          "options": ["did not have", "don't have", "didn't had", "hadn't had"],
+          "correctAnswers": ["did not have"],
+          "grammarRule": "Second Conditional if-clause negative uses simple past: 'if you did not have to...'."
+        },
+        {
+          "id": "e2-q5",
+          "promptParts": {
+            "before": "If he hadn't missed the train, he ",
+            "blank": "___",
+            "after": " here in time."
+          },
+          "type": "single",
+          "options": [
+            "would have arrived",
+            "would arrive",
+            "arrived",
+            "will have arrived"
+          ],
+          "correctAnswers": ["would have arrived"],
+          "grammarRule": "Since the if-clause is 'hadn't missed' (past perfect negative, Third Conditional), the main clause needs 'would have' + past participle: 'would have arrived'."
+        },
+        {
+          "id": "e2-q6",
+          "promptParts": {
+            "before": "I will miss the school bus if I ",
+            "blank": "___",
+            "after": " early."
+          },
+          "type": "single",
+          "options": [
+            "do not get up",
+            "will not get up",
+            "did not get up",
+            "am not getting up"
+          ],
+          "correctAnswers": ["do not get up"],
+          "grammarRule": "First Conditional if-clause negative uses 'do not' + base verb: 'if I do not get up early'."
+        },
+        {
+          "id": "e2-q7",
+          "promptParts": {
+            "before": "We could have helped John if we ",
+            "blank": "___",
+            "after": " about his problems."
+          },
+          "type": "single",
+          "options": ["had known", "knew", "would have known", "have known"],
+          "correctAnswers": ["had known"],
+          "grammarRule": "Since the main clause is 'could have helped' (Third Conditional pattern), the if-clause needs past perfect: 'had known'."
+        },
+        {
+          "id": "e2-q8",
+          "promptParts": {
+            "before": "If we ",
+            "blank": "___",
+            "after": " to Dresden, it will be a fantastic trip."
+          },
+          "type": "single",
+          "options": ["cycle", "will cycle", "cycled", "cycling"],
+          "correctAnswers": ["cycle"],
+          "grammarRule": "First Conditional if-clause uses simple present: 'if we cycle to Dresden'."
+        },
+        {
+          "id": "e2-q9",
+          "promptParts": {
+            "before": "If they ",
+            "blank": "___",
+            "after": " enough money, they would buy a new car."
+          },
+          "type": "single",
+          "options": ["had", "have", "will have", "would have"],
+          "correctAnswers": ["had"],
+          "grammarRule": "Second Conditional if-clause uses simple past: 'if they had enough money'."
+        },
+        {
+          "id": "e2-q10",
+          "promptParts": {
+            "before": "If it rains, I ",
+            "blank": "___",
+            "after": " football."
+          },
+          "type": "single",
+          "options": [
+            "will not play",
+            "do not play",
+            "would not play",
+            "did not play"
+          ],
+          "correctAnswers": ["will not play"],
+          "grammarRule": "First Conditional main clause negative uses 'will not' + infinitive: 'I will not play football'."
+        },
+        {
+          "id": "e2-q11",
+          "promptParts": {
+            "before": "I ",
+            "blank": "___",
+            "after": " you if I hadn't seen you today."
+          },
+          "type": "single",
+          "options": [
+            "would have phoned",
+            "would phone",
+            "phoned",
+            "will have phoned"
+          ],
+          "correctAnswers": ["would have phoned"],
+          "grammarRule": "Since the if-clause is 'hadn't seen' (past perfect negative, Third Conditional), the main clause needs 'would have' + past participle: 'would have phoned'."
+        },
+        {
+          "id": "e2-q12",
+          "promptParts": {
+            "before": "We would pass the exam if we ",
+            "blank": "___",
+            "after": " more."
+          },
+          "type": "single",
+          "options": ["learnt", "learn", "will learn", "had learnt"],
+          "correctAnswers": ["learnt"],
+          "grammarRule": "Second Conditional if-clause uses simple past: 'if we learnt more' (British spelling of 'learned')."
+        },
+        {
+          "id": "e2-q13",
+          "promptParts": {
+            "before": "I ",
+            "blank": "___",
+            "after": " to the party if you come with me."
+          },
+          "type": "single",
+          "options": ["will go", "go", "would go", "went"],
+          "correctAnswers": ["will go"],
+          "grammarRule": "First Conditional main clause uses 'will' + infinitive, matching the if-clause 'come' (simple present): 'I will go to the party'."
+        },
+        {
+          "id": "e2-q14",
+          "promptParts": {
+            "before": "If they ",
+            "blank": "___",
+            "after": " the cat, their children would have been happy."
+          },
+          "type": "single",
+          "options": [
+            "had bought",
+            "bought",
+            "would have bought",
+            "have bought"
+          ],
+          "correctAnswers": ["had bought"],
+          "grammarRule": "Since the main clause is 'would have been happy' (Third Conditional), the if-clause needs past perfect: 'had bought'."
+        },
+        {
+          "id": "e2-q15",
+          "promptParts": {
+            "before": "You'll catch a cold if you ",
+            "blank": "___",
+            "after": " a pullover."
+          },
+          "type": "single",
+          "options": [
+            "don't wear",
+            "won't wear",
+            "didn't wear",
+            "aren't wearing"
+          ],
+          "correctAnswers": ["don't wear"],
+          "grammarRule": "First Conditional if-clause negative uses 'don't' + base verb: 'if you don't wear a pullover'."
+        },
+        {
+          "id": "e2-q16",
+          "promptParts": {
+            "before": "If I ",
+            "blank": "___",
+            "after": " the film, I wouldn't have bought the video."
+          },
+          "type": "single",
+          "options": ["had seen", "saw", "would have seen", "have seen"],
+          "correctAnswers": ["had seen"],
+          "grammarRule": "Since the main clause is 'wouldn't have bought' (Third Conditional), the if-clause needs past perfect: 'had seen'."
+        }
+      ]
+    }
+  ]
+}

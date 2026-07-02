@@ -1,0 +1,732 @@
+{
+  "topicId": "websites-grammar-vocab",
+  "title": "Web Sites: Vocabulary & Grammar Practice",
+  "sourcePdf": "10. Web sites.pdf",
+  "exercises": [
+    {
+      "exerciseNumber": 8,
+      "sourceTaskName": "Language Work, Task 8: The prefixes e- and cyber-",
+      "questions": [
+        {
+          "id": "t8-q1",
+          "promptParts": {
+            "before": "A ",
+            "blank": "___",
+            "after": " is an employee who uses his company's internet connection during work hours to chat with friends, play games, etc."
+          },
+          "type": "single",
+          "options": ["cyberslacker", "cybercrime", "e-pal", "cyberculture"],
+          "correctAnswers": ["cyberslacker"],
+          "grammarRule": "'Cyberslacker' (cyber- + slacker) describes someone who wastes time online instead of working."
+        },
+        {
+          "id": "t8-q2",
+          "promptParts": {
+            "before": "An ",
+            "blank": "___",
+            "after": " is a postcard sent via the Internet."
+          },
+          "type": "single",
+          "options": ["e-card", "e-zine", "e-pal", "cybercafe"],
+          "correctAnswers": ["e-card"],
+          "grammarRule": "The e- prefix means 'electronic'; an 'e-card' is an electronic version of a postcard/greeting card."
+        },
+        {
+          "id": "t8-q3",
+          "promptParts": {
+            "before": "An ",
+            "blank": "___",
+            "after": " is a small magazine or newsletter published online."
+          },
+          "type": "single",
+          "options": ["e-zine", "e-book", "e-card", "cyberspace"],
+          "correctAnswers": ["e-zine"],
+          "grammarRule": "'E-zine' (electronic + magazine) is a magazine or newsletter published online."
+        },
+        {
+          "id": "t8-q4",
+          "promptParts": {
+            "before": "In a ",
+            "blank": "___",
+            "after": " you can use computers with internet access for a fee."
+          },
+          "type": "single",
+          "options": ["cybercafe", "e-signature", "cybercrime", "e-cash"],
+          "correctAnswers": ["cybercafe"],
+          "grammarRule": "The cyber- prefix relates to computer networks; a 'cybercafe' is a cafe where you pay to use internet-connected computers."
+        },
+        {
+          "id": "t8-q5",
+          "promptParts": {
+            "before": "Examples of ",
+            "blank": "___",
+            "after": " include internet fraud, digital piracy, theft of confidential information etc."
+          },
+          "type": "single",
+          "options": ["cybercrime", "cyberculture", "e-voting", "cyberslacker"],
+          "correctAnswers": ["cybercrime"],
+          "grammarRule": "'Cybercrime' describes criminal activities carried out using computers/networks, like fraud and piracy."
+        },
+        {
+          "id": "t8-q6",
+          "promptParts": {
+            "before": "In the future, all elections will be carried out using ",
+            "blank": "___",
+            "after": "."
+          },
+          "type": "single",
+          "options": ["e-voting", "e-cash", "e-signature", "cyberspace"],
+          "correctAnswers": ["e-voting"],
+          "grammarRule": "'E-voting' (electronic voting) refers to casting votes using electronic systems instead of paper ballots."
+        },
+        {
+          "id": "t8-q7",
+          "promptParts": {
+            "before": "You can now sign legal documents online using an ",
+            "blank": "___",
+            "after": "."
+          },
+          "type": "single",
+          "options": ["e-signature", "e-card", "e-book", "cybercafe"],
+          "correctAnswers": ["e-signature"],
+          "grammarRule": "An 'e-signature' (electronic signature) is used to sign documents digitally, replacing a handwritten signature."
+        },
+        {
+          "id": "t8-q8",
+          "promptParts": {
+            "before": "",
+            "blank": "___",
+            "after": " will revolutionize the way we take exams."
+          },
+          "type": "single",
+          "options": ["E-assessment", "E-learning", "E-voting", "Cybercrime"],
+          "correctAnswers": ["E-assessment"],
+          "grammarRule": "'E-assessment' (electronic assessment) refers to conducting tests/exams using computers instead of paper."
+        },
+        {
+          "id": "t8-q9",
+          "promptParts": {
+            "before": "",
+            "blank": "___",
+            "after": " can be used on some websites instead of real money to make purchases. It reduces the risk of fraud."
+          },
+          "type": "single",
+          "options": ["E-cash", "E-signature", "E-book", "Cyberculture"],
+          "correctAnswers": ["E-cash"],
+          "grammarRule": "'E-cash' (electronic cash) is digital money used for online purchases instead of physical currency."
+        },
+        {
+          "id": "t8-q10",
+          "promptParts": {
+            "before": "An ",
+            "blank": "___",
+            "after": " is like the paper version, but in digital form."
+          },
+          "type": "single",
+          "options": ["e-book", "e-zine", "e-card", "cyberspace"],
+          "correctAnswers": ["e-book"],
+          "grammarRule": "An 'e-book' (electronic book) is the digital version of a printed book."
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 1,
+      "sourceTaskName": "Grammar and Vocabulary Exercises, Task 1: don't have to or mustn't",
+      "questions": [
+        {
+          "id": "g1-q1",
+          "promptParts": {
+            "before": "Sally! You ",
+            "blank": "___",
+            "after": " say rude words like that!"
+          },
+          "type": "single",
+          "options": [
+            "mustn't",
+            "don't have to",
+            "doesn't have to",
+            "haven't to"
+          ],
+          "correctAnswers": ["mustn't"],
+          "grammarRule": "'Mustn't' expresses prohibition (rude words are forbidden), not 'don't have to' (which means something is merely optional)."
+        },
+        {
+          "id": "g1-q2",
+          "promptParts": {
+            "before": "You ",
+            "blank": "___",
+            "after": " finish the exercise now. You can finish it at home."
+          },
+          "type": "single",
+          "options": [
+            "don't have to",
+            "mustn't",
+            "doesn't have to",
+            "haven't to"
+          ],
+          "correctAnswers": ["don't have to"],
+          "grammarRule": "'Don't have to' means something is not necessary/optional (you can finish it later); 'mustn't' would wrongly imply it's forbidden."
+        },
+        {
+          "id": "g1-q3",
+          "promptParts": {
+            "before": "James ",
+            "blank": "___",
+            "after": " go to church if he doesn't want to."
+          },
+          "type": "single",
+          "options": [
+            "doesn't have to",
+            "mustn't",
+            "don't have to",
+            "hasn't to"
+          ],
+          "correctAnswers": ["doesn't have to"],
+          "grammarRule": "'Doesn't have to' (third person singular) means something is optional, matching 'if he doesn't want to'; 'mustn't' would wrongly mean he's forbidden to go."
+        },
+        {
+          "id": "g1-q4",
+          "promptParts": {
+            "before": "You ",
+            "blank": "___",
+            "after": " drive so aggressively. You'll end up killing someone."
+          },
+          "type": "single",
+          "options": [
+            "mustn't",
+            "don't have to",
+            "doesn't have to",
+            "haven't to"
+          ],
+          "correctAnswers": ["mustn't"],
+          "grammarRule": "'Mustn't' expresses prohibition for dangerous behavior; 'don't have to' would wrongly suggest it's just optional rather than something to avoid."
+        },
+        {
+          "id": "g1-q5",
+          "promptParts": {
+            "before": "David ",
+            "blank": "___",
+            "after": " answer your emails. There's no law about it."
+          },
+          "type": "single",
+          "options": [
+            "doesn't have to",
+            "mustn't",
+            "don't have to",
+            "hasn't to"
+          ],
+          "correctAnswers": ["doesn't have to"],
+          "grammarRule": "'Doesn't have to' means something isn't obligatory, matching 'There's no law about it'; 'mustn't' would wrongly mean he's forbidden."
+        },
+        {
+          "id": "g1-q6",
+          "promptParts": {
+            "before": "It's OK. You ",
+            "blank": "___",
+            "after": " pay now. You can pay me at the end of the month."
+          },
+          "type": "single",
+          "options": [
+            "don't have to",
+            "mustn't",
+            "doesn't have to",
+            "haven't to"
+          ],
+          "correctAnswers": ["don't have to"],
+          "grammarRule": "'Don't have to' means something isn't necessary right now (you can pay later); 'mustn't' would wrongly mean you're forbidden to pay now."
+        },
+        {
+          "id": "g1-q7",
+          "promptParts": {
+            "before": "You ",
+            "blank": "___",
+            "after": " stay out so late without ringing me. I was worried sick."
+          },
+          "type": "single",
+          "options": [
+            "mustn't",
+            "don't have to",
+            "doesn't have to",
+            "haven't to"
+          ],
+          "correctAnswers": ["mustn't"],
+          "grammarRule": "'Mustn't' here expresses a strong scolding/prohibition ('you shouldn't do that'), not mere optionality."
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 2,
+      "sourceTaskName": "Task 2: Prepositions of Time (at, in, on)",
+      "questions": [
+        {
+          "id": "g2-q1",
+          "promptParts": {
+            "before": "I hate doing the shopping ",
+            "blank": "___",
+            "after": " Saturdays."
+          },
+          "type": "single",
+          "options": ["on", "in", "at"],
+          "correctAnswers": ["on"],
+          "grammarRule": "'On' + day of the week (plural for a habitual pattern): 'on Saturdays'."
+        },
+        {
+          "id": "g2-q2",
+          "promptParts": {
+            "before": "She passed her driving test ",
+            "blank": "___",
+            "after": " March."
+          },
+          "type": "single",
+          "options": ["in", "on", "at"],
+          "correctAnswers": ["in"],
+          "grammarRule": "'In' + month: 'in March'."
+        },
+        {
+          "id": "g2-q3",
+          "promptParts": {
+            "before": "Valencia is too hot for me ",
+            "blank": "___",
+            "after": " summer."
+          },
+          "type": "single",
+          "options": ["in", "on", "at"],
+          "correctAnswers": ["in"],
+          "grammarRule": "'In' + season: 'in summer'."
+        },
+        {
+          "id": "g2-q4",
+          "promptParts": {
+            "before": "",
+            "blank": "___",
+            "after": " Sunday mornings I have coffee and toast for breakfast and read the newspaper."
+          },
+          "type": "single",
+          "options": ["On", "In", "At"],
+          "correctAnswers": ["On"],
+          "grammarRule": "'On' + a specific part of a specific day: 'on Sunday mornings'."
+        },
+        {
+          "id": "g2-q5",
+          "promptParts": {
+            "before": "",
+            "blank": "___",
+            "after": " Monday and Wednesday evenings I go to English class."
+          },
+          "type": "single",
+          "options": ["On", "In", "At"],
+          "correctAnswers": ["On"],
+          "grammarRule": "'On' + a specific part of specific days: 'on Monday and Wednesday evenings'."
+        },
+        {
+          "id": "g2-q6",
+          "promptParts": {
+            "before": "It's ridiculous. The bank closes ",
+            "blank": "___",
+            "after": " 2:30 pm."
+          },
+          "type": "single",
+          "options": ["at", "in", "on"],
+          "correctAnswers": ["at"],
+          "grammarRule": "'At' + clock time: 'at 2:30 pm'."
+        },
+        {
+          "id": "g2-q7",
+          "promptParts": {
+            "before": "",
+            "blank": "___",
+            "after": " 1492 Columbus sailed the ocean blue."
+          },
+          "type": "single",
+          "options": ["In", "On", "At"],
+          "correctAnswers": ["In"],
+          "grammarRule": "'In' + year: 'in 1492'."
+        },
+        {
+          "id": "g2-q8",
+          "promptParts": {
+            "before": "Some people study best ",
+            "blank": "___",
+            "after": " night but I prefer the morning."
+          },
+          "type": "single",
+          "options": ["at", "in", "on"],
+          "correctAnswers": ["at"],
+          "grammarRule": "'At night' is a fixed exception (unlike 'in the morning/afternoon/evening')."
+        },
+        {
+          "id": "g2-q9",
+          "promptParts": {
+            "before": "I love watching the James Bond film ",
+            "blank": "___",
+            "after": " Christmas Day."
+          },
+          "type": "single",
+          "options": ["on", "in", "at"],
+          "correctAnswers": ["on"],
+          "grammarRule": "'On' + a specific named day: 'on Christmas Day' (contrast with 'at Christmas' for the holiday period generally)."
+        },
+        {
+          "id": "g2-q10",
+          "promptParts": {
+            "before": "I normally phone my girlfriend ",
+            "blank": "___",
+            "after": " 10 o'clock every evening."
+          },
+          "type": "single",
+          "options": ["at", "in", "on"],
+          "correctAnswers": ["at"],
+          "grammarRule": "'At' + clock time: 'at 10 o'clock'."
+        },
+        {
+          "id": "g2-q11",
+          "promptParts": {
+            "before": "I hate going out ",
+            "blank": "___",
+            "after": " the week."
+          },
+          "type": "single",
+          "options": ["in", "on", "at"],
+          "correctAnswers": ["in"],
+          "grammarRule": "'In the week' is a fixed phrase meaning 'during weekdays'."
+        },
+        {
+          "id": "g2-q12",
+          "promptParts": {
+            "before": "We usually go out for dinner ",
+            "blank": "___",
+            "after": " the weekend."
+          },
+          "type": "single",
+          "options": ["at", "in", "on"],
+          "correctAnswers": ["at"],
+          "grammarRule": "'At the weekend' is the standard British English phrase (American English typically uses 'on the weekend')."
+        },
+        {
+          "id": "g2-q13",
+          "promptParts": {
+            "before": "She's always very grumpy first thing ",
+            "blank": "___",
+            "after": " the morning."
+          },
+          "type": "single",
+          "options": ["in", "on", "at"],
+          "correctAnswers": ["in"],
+          "grammarRule": "'In the morning/afternoon/evening' is the standard pattern (contrast with the exception 'at night')."
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 3,
+      "sourceTaskName": "Task 3: Prepositions of Place (at, in, on, to)",
+      "questions": [
+        {
+          "id": "g3-q1",
+          "promptParts": {
+            "before": "I get ",
+            "blank": "___",
+            "after": " work at 9."
+          },
+          "type": "single",
+          "options": ["to", "at", "in"],
+          "correctAnswers": ["to"],
+          "grammarRule": "'Get to' + place describes arriving/reaching somewhere (motion): 'get to work'."
+        },
+        {
+          "id": "g3-q2",
+          "promptParts": {
+            "before": "I arrive ",
+            "blank": "___",
+            "after": " work at 9."
+          },
+          "type": "single",
+          "options": ["at", "to", "in"],
+          "correctAnswers": ["at"],
+          "grammarRule": "'Arrive at' + a building/small place: 'arrive at work'. ('Arrive in' is used for larger areas like cities/countries.)"
+        },
+        {
+          "id": "g3-q3",
+          "promptParts": {
+            "before": "We arrived ",
+            "blank": "___",
+            "after": " Paris at five in the morning."
+          },
+          "type": "single",
+          "options": ["in", "at", "to"],
+          "correctAnswers": ["in"],
+          "grammarRule": "'Arrive in' + a city/large area: 'arrived in Paris'."
+        },
+        {
+          "id": "g3-q4",
+          "promptParts": {
+            "before": "Samantha likes to stay ",
+            "blank": "___",
+            "after": " bed all Sunday morning."
+          },
+          "type": "single",
+          "options": ["in", "at", "on"],
+          "correctAnswers": ["in"],
+          "grammarRule": "'In bed' is the standard fixed phrase."
+        },
+        {
+          "id": "g3-q5",
+          "promptParts": {
+            "before": "Clare's boyfriend's a nurse. He works ",
+            "blank": "___",
+            "after": " the hospital."
+          },
+          "type": "single",
+          "options": ["at", "in", "to"],
+          "correctAnswers": ["at"],
+          "grammarRule": "'Work at' + a workplace: 'works at the hospital'."
+        },
+        {
+          "id": "g3-q6",
+          "promptParts": {
+            "before": "A: When's Jenny having her baby? B: Very soon. She's already ",
+            "blank": "___",
+            "after": " hospital."
+          },
+          "type": "single",
+          "options": ["in", "at", "to"],
+          "correctAnswers": ["in"],
+          "grammarRule": "'In hospital' (without 'the', British English) means being admitted as a patient."
+        },
+        {
+          "id": "g3-q7",
+          "promptParts": {
+            "before": "Do you put your feet ",
+            "blank": "___",
+            "after": " the table at home?"
+          },
+          "type": "single",
+          "options": ["on", "in", "at"],
+          "correctAnswers": ["on"],
+          "grammarRule": "'On' + surface: 'on the table'."
+        },
+        {
+          "id": "g3-q8",
+          "promptParts": {
+            "before": "I'm sorry. María's not here. She's ",
+            "blank": "___",
+            "after": " work."
+          },
+          "type": "single",
+          "options": ["at", "in", "to"],
+          "correctAnswers": ["at"],
+          "grammarRule": "'At work' describes being present at your workplace."
+        },
+        {
+          "id": "g3-q9",
+          "promptParts": {
+            "before": "I go ",
+            "blank": "___",
+            "after": " school by bus."
+          },
+          "type": "single",
+          "options": ["to", "at", "in"],
+          "correctAnswers": ["to"],
+          "grammarRule": "'Go to' + place describes movement/destination: 'go to school'."
+        },
+        {
+          "id": "g3-q10",
+          "promptParts": {
+            "before": "I have lunch ",
+            "blank": "___",
+            "after": " school."
+          },
+          "type": "single",
+          "options": ["at", "in", "to"],
+          "correctAnswers": ["at"],
+          "grammarRule": "'At' + institution/building where an action takes place: 'have lunch at school'."
+        },
+        {
+          "id": "g3-q11",
+          "promptParts": {
+            "before": "I have to be ",
+            "blank": "___",
+            "after": " the office for half eight."
+          },
+          "type": "single",
+          "options": ["at", "in", "to"],
+          "correctAnswers": ["at"],
+          "grammarRule": "'Be at' + a workplace: 'be at the office'."
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 4,
+      "sourceTaskName": "Task 4: as long, providing and unless",
+      "questions": [
+        {
+          "id": "g4-q1",
+          "promptParts": {
+            "before": "She's a sweet person ",
+            "blank": "___",
+            "after": " that you don't contradict her."
+          },
+          "type": "single",
+          "options": ["providing", "unless", "as long"],
+          "correctAnswers": ["providing"],
+          "grammarRule": "'Providing that' (= 'on condition that') introduces a positive condition: she's sweet on the condition you don't contradict her."
+        },
+        {
+          "id": "g4-q2",
+          "promptParts": {
+            "before": "You can't borrow my camera ",
+            "blank": "___",
+            "after": " you're prepared to buy me a new one if you break it."
+          },
+          "type": "single",
+          "options": ["unless", "providing", "as long"],
+          "correctAnswers": ["unless"],
+          "grammarRule": "'Unless' (= 'if not') introduces a negative condition: you can't borrow it if you're NOT prepared to replace it."
+        },
+        {
+          "id": "g4-q3",
+          "promptParts": {
+            "before": "You can borrow my camera ",
+            "blank": "___",
+            "after": " that you buy me a new one if you break it."
+          },
+          "type": "single",
+          "options": ["providing", "unless", "as long"],
+          "correctAnswers": ["providing"],
+          "grammarRule": "'Providing that' introduces a positive condition: you can borrow it on the condition you'd replace it."
+        },
+        {
+          "id": "g4-q4",
+          "promptParts": {
+            "before": "Camping is fun ",
+            "blank": "___",
+            "after": " as you don't forget the torch and the can-opener."
+          },
+          "type": "single",
+          "options": ["as long", "unless", "providing"],
+          "correctAnswers": ["as long"],
+          "grammarRule": "'As long as' introduces a positive condition, similar to 'providing': camping is fun on the condition you remember those items."
+        },
+        {
+          "id": "g4-q5",
+          "promptParts": {
+            "before": "Camping is fun ",
+            "blank": "___",
+            "after": " you forget the torch and the can-opener."
+          },
+          "type": "single",
+          "options": ["unless", "providing", "as long"],
+          "correctAnswers": ["unless"],
+          "grammarRule": "'Unless' introduces a negative condition: camping is fun if you DON'T forget those items."
+        },
+        {
+          "id": "g4-q6",
+          "promptParts": {
+            "before": "Don't use ESL websites ",
+            "blank": "___",
+            "after": " they are free."
+          },
+          "type": "single",
+          "options": ["unless", "providing", "as long"],
+          "correctAnswers": ["unless"],
+          "grammarRule": "'Unless' introduces a negative condition: don't use them if they're NOT free."
+        },
+        {
+          "id": "g4-q7",
+          "promptParts": {
+            "before": "Only use ESL websites ",
+            "blank": "___",
+            "after": " as they are free."
+          },
+          "type": "single",
+          "options": ["as long", "unless", "providing"],
+          "correctAnswers": ["as long"],
+          "grammarRule": "'As long as' introduces a positive condition: only use them on the condition they're free."
+        },
+        {
+          "id": "g4-q8",
+          "promptParts": {
+            "before": "I refuse to go ",
+            "blank": "___",
+            "after": " you come with me."
+          },
+          "type": "single",
+          "options": ["unless", "providing", "as long"],
+          "correctAnswers": ["unless"],
+          "grammarRule": "'Unless' introduces a negative condition: I refuse if you DON'T come with me (i.e. I'll only go if you come)."
+        },
+        {
+          "id": "g4-q9",
+          "promptParts": {
+            "before": "A great white shark will be nice to you ",
+            "blank": "___",
+            "after": " as you stroke his nose."
+          },
+          "type": "single",
+          "options": ["as long", "unless", "providing"],
+          "correctAnswers": ["as long"],
+          "grammarRule": "'As long as' introduces a positive (if silly) condition: the shark is nice on the condition you stroke its nose."
+        },
+        {
+          "id": "g4-q10",
+          "promptParts": {
+            "before": "",
+            "blank": "___",
+            "after": " that the weather is good, we'll spend the day in the mountains."
+          },
+          "type": "single",
+          "options": ["Providing", "Unless", "As long"],
+          "correctAnswers": ["Providing"],
+          "grammarRule": "'Providing that' introduces a positive condition at the start of a sentence: on the condition the weather is good."
+        },
+        {
+          "id": "g4-q11",
+          "promptParts": {
+            "before": "I refuse to watch Channel Two, ",
+            "blank": "___",
+            "after": " they show less adverts."
+          },
+          "type": "single",
+          "options": ["unless", "providing", "as long"],
+          "correctAnswers": ["unless"],
+          "grammarRule": "'Unless' introduces a negative condition: I refuse if they DON'T show fewer adverts."
+        },
+        {
+          "id": "g4-q12",
+          "promptParts": {
+            "before": "",
+            "blank": "___",
+            "after": " I can find a cheaper one, I'll have to buy that monitor."
+          },
+          "type": "single",
+          "options": ["Unless", "Providing", "As long"],
+          "correctAnswers": ["Unless"],
+          "grammarRule": "'Unless' introduces a negative condition at the start of a sentence: if I CAN'T find a cheaper one, I'll have to buy it."
+        },
+        {
+          "id": "g4-q13",
+          "promptParts": {
+            "before": "",
+            "blank": "___",
+            "after": " as you wear a bullet-proof jacket, being a president is a safe job."
+          },
+          "type": "single",
+          "options": ["As long", "Unless", "Providing"],
+          "correctAnswers": ["As long"],
+          "grammarRule": "'As long as' introduces a positive condition: the job is safe on the condition you wear protection."
+        },
+        {
+          "id": "g4-q14",
+          "promptParts": {
+            "before": "",
+            "blank": "___",
+            "after": " you're prepared to work very hard, you'll never be a doctor."
+          },
+          "type": "single",
+          "options": ["Unless", "Providing", "As long"],
+          "correctAnswers": ["Unless"],
+          "grammarRule": "'Unless' introduces a negative condition: you'll never be a doctor if you're NOT prepared to work hard."
+        }
+      ]
+    }
+  ]
+}

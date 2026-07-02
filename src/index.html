@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TenseUp - English Grammar Practice</title>
+    <meta
+      name="description"
+      content="Randomized English grammar practice for the FIT English II exam - 350+ questions from the course materials, progress tracking, and a grammar cheat sheet."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="TenseUp" />
+    <meta property="og:title" content="TenseUp - English Grammar Practice" />
+    <meta
+      property="og:description"
+      content="Randomized English grammar practice for the FIT English II exam - 350+ questions from the course materials, progress tracking, and a grammar cheat sheet."
+    />
+    <meta property="og:url" content="https://tense-up.netlify.app/" />
+    <meta
+      property="og:image"
+      content="https://tense-up.netlify.app/assets/images/og-image.png"
+    />
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png" />
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("quizTheme");
+          var prefersDark =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+          if (saved === "dark" || (!saved && prefersDark)) {
+            document.documentElement.setAttribute("data-theme", "dark");
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" href="assets/css/variables.css" />
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/components.css" />
+    <link rel="stylesheet" href="assets/css/home.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="index.html" class="app-logo">TenseUp</a>
+      <nav class="header-nav">
+        <a href="quiz.html">Practice</a>
+        <a href="rules.html">Grammar rules</a>
+        <a href="contribute.html">Contribute</a>
+      </nav>
+      <button
+        type="button"
+        id="theme-toggle"
+        class="btn theme-toggle"
+        aria-label="Toggle dark mode"
+      >
+        🌙
+      </button>
+    </header>
+
+    <main class="container home-screen">
+      <section class="hero">
+        <h1 class="app-title">English grammar practice</h1>
+        <p class="app-subtitle">
+          Randomized questions from the FIT English II exercises. Solved
+          questions drop out of the pool, so every session focuses on what you
+          haven't mastered yet.
+        </p>
+      </section>
+
+      <div class="home-grid">
+        <section
+          class="home-card setup-card"
+          aria-labelledby="setup-card-title"
+        >
+          <h2 class="card-title" id="setup-card-title">Practice setup</h2>
+
+          <div class="setup-group">
+            <h3 class="setup-title">Session length</h3>
+            <div class="choice-grid">
+              <label class="choice-card">
+                <input type="radio" name="session-size" value="all" checked />
+                <span class="choice-title">Full set</span>
+                <span class="choice-desc">All remaining questions</span>
+              </label>
+              <label class="choice-card">
+                <input type="radio" name="session-size" value="short" />
+                <span class="choice-title">Short session</span>
+                <span class="choice-desc">20 random questions</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="setup-group">
+            <div class="setup-heading-row">
+              <h3 class="setup-title">Topics</h3>
+              <div class="topic-bulk">
+                <span id="topic-count" class="topic-count"></span>
+                <button type="button" id="toggle-all-btn" class="btn btn-sm">
+                  Select all
+                </button>
+              </div>
+            </div>
+            <div id="topic-list" class="topic-list"></div>
+            <p id="topic-hint" class="select-hint" hidden>
+              Select at least one topic first.
+            </p>
+          </div>
+
+          <a href="quiz.html" id="start-btn" class="btn btn-primary btn-block"
+            >Start practice</a
+          >
+        </section>
+
+        <aside class="home-side">
+          <section class="home-card" aria-labelledby="progress-card-title">
+            <h2 class="card-title" id="progress-card-title">Your progress</h2>
+            <p class="progress-count">
+              <span id="solved-count">–</span>
+              <span class="progress-total" id="total-count"></span>
+            </p>
+            <div class="overall-bar">
+              <div class="overall-bar__fill" id="overall-bar-fill"></div>
+            </div>
+            <p id="stats-text" class="stats-text">Loading stats...</p>
+            <button type="button" id="reset-btn" class="btn">
+              Reset progress
+            </button>
+          </section>
+
+          <section class="home-card" aria-labelledby="info-card-title">
+            <h2 class="card-title" id="info-card-title">How it works</h2>
+            <ul class="info-list">
+              <li>
+                Questions are pulled from the selected topics and shuffled
+                together, just like the real exam.
+              </li>
+              <li>
+                Once you answer a question correctly, it's removed from future
+                runs - so each new session only quizzes you on what you haven't
+                mastered yet.
+              </li>
+              <li>
+                Use "Reset progress" any time to bring back the full question
+                pool and start over.
+              </li>
+            </ul>
+          </section>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="app-footer">
+      <p>
+        © 2026 Adela Merdžanić · Open source under the MIT license ·
+        <a href="contribute.html">Contribute</a>
+      </p>
+    </footer>
+
+    <script type="module" src="assets/js/main-home.js"></script>
+  </body>
+</html>

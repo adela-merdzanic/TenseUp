@@ -1,0 +1,1247 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TenseUp - Grammar Rules</title>
+    <meta
+      name="description"
+      content="Grammar cheat sheet for the FIT English II exam: tenses, conditionals, participle clauses, irregular verbs, prepositions and more."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="TenseUp" />
+    <meta property="og:title" content="TenseUp - Grammar Rules" />
+    <meta
+      property="og:description"
+      content="Grammar cheat sheet for the FIT English II exam: tenses, conditionals, participle clauses, irregular verbs, prepositions and more."
+    />
+    <meta property="og:url" content="https://tense-up.netlify.app/rules.html" />
+    <meta
+      property="og:image"
+      content="https://tense-up.netlify.app/assets/images/og-image.png"
+    />
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png" />
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("quizTheme");
+          var prefersDark =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+          if (saved === "dark" || (!saved && prefersDark)) {
+            document.documentElement.setAttribute("data-theme", "dark");
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" href="assets/css/variables.css" />
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/components.css" />
+    <link rel="stylesheet" href="assets/css/rules.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="index.html" class="app-logo">TenseUp</a>
+      <nav class="header-nav">
+        <a href="quiz.html">Practice</a>
+        <a href="rules.html" class="is-active">Grammar rules</a>
+        <a href="contribute.html">Contribute</a>
+      </nav>
+      <button
+        type="button"
+        id="theme-toggle"
+        class="btn theme-toggle"
+        aria-label="Toggle dark mode"
+      >
+        🌙
+      </button>
+    </header>
+
+    <main class="container rules-screen">
+      <h1>Grammar rules</h1>
+      <p class="rules-intro">
+        A compact cheat sheet covering the grammar behind every exercise in the
+        question pool. Read it before a session, or come back to a section after
+        a mistake.
+      </p>
+
+      <nav class="rules-toc" aria-label="Sections">
+        <a href="#tenses">Tenses</a>
+        <a href="#future">Future forms</a>
+        <a href="#conditionals">Conditionals</a>
+        <a href="#participles">Participle clauses</a>
+        <a href="#both-either-neither">Both / either / neither</a>
+        <a href="#passive">Active &amp; passive</a>
+        <a href="#modals">mustn't vs don't have to</a>
+        <a href="#prepositions">Prepositions</a>
+        <a href="#collocations">make / do &amp; take / put</a>
+        <a href="#questions">Making questions</a>
+        <a href="#prefixes">e- and cyber-</a>
+        <a href="#irregular-verbs">Irregular verbs</a>
+        <a href="#exam-tips">Exam tips</a>
+      </nav>
+
+      <section id="tenses" class="rule-section">
+        <h2>Tenses at a glance</h2>
+        <p>
+          Most tense questions are decided by a
+          <strong>signal word</strong> somewhere in the sentence. Find it first,
+          then pick the tense.
+        </p>
+        <div class="table-scroll">
+          <table class="rules-table">
+            <thead>
+              <tr>
+                <th>Tense</th>
+                <th>Use it for</th>
+                <th>Signal words</th>
+                <th>Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Present Simple</td>
+                <td>habits, routines, facts, timetables</td>
+                <td>always, usually, often, every day, never</td>
+                <td>
+                  <em
+                    >The server <strong>backs up</strong> data every night.</em
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>Present Continuous</td>
+                <td>happening now; temporary or changing situations</td>
+                <td>now, at the moment, currently, Look!, these days</td>
+                <td>
+                  <em>The system <strong>is updating</strong> right now.</em>
+                </td>
+              </tr>
+              <tr>
+                <td>Past Simple</td>
+                <td>finished action at a known past time</td>
+                <td>yesterday, ago, last week, in 1984</td>
+                <td>
+                  <em
+                    >Apple <strong>released</strong> the first Mac in 1984.</em
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>Past Continuous</td>
+                <td>
+                  action in progress at a past moment; background to a shorter
+                  action
+                </td>
+                <td>while, as, at 10 p.m. yesterday</td>
+                <td>
+                  <em
+                    >I <strong>was installing</strong> Linux when the power
+                    <strong>went</strong> out.</em
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>Present Perfect</td>
+                <td>
+                  past action with a result now; experience; unfinished time
+                  period
+                </td>
+                <td>just, already, yet, ever, never, since, for, so far</td>
+                <td>
+                  <em>I <strong>have just finished</strong> the report.</em>
+                </td>
+              </tr>
+              <tr>
+                <td>Present Perfect Continuous</td>
+                <td>
+                  emphasises <strong>how long</strong> something has been going
+                  on (and still is)
+                </td>
+                <td>for, since, all morning, how long</td>
+                <td>
+                  <em
+                    >She <strong>has been working</strong> here since 2020.</em
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>Past Perfect</td>
+                <td>the <strong>earlier</strong> of two past actions</td>
+                <td>before, after, by the time, when</td>
+                <td>
+                  <em
+                    >The download <strong>had finished</strong> before I got
+                    back.</em
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Picking the right past tense</h3>
+        <ul>
+          <li>
+            Long background action interrupted by a short one →
+            <strong>past continuous + past simple</strong>:
+            <em
+              >I <strong>was waiting</strong> for the download when the
+              connection <strong>dropped</strong>.</em
+            >
+          </li>
+          <li>
+            Two actions one after the other → both <strong>past simple</strong>:
+            <em
+              >I <strong>opened</strong> the file and <strong>fixed</strong> the
+              bug.</em
+            >
+          </li>
+          <li>
+            One action clearly before the other → the earlier one takes
+            <strong>past perfect</strong>:
+            <em
+              >When I arrived, the meeting <strong>had</strong> already
+              <strong>started</strong>.</em
+            >
+          </li>
+        </ul>
+
+        <div class="tip">
+          <strong>State verbs</strong> (know, want, believe, like, need, own,
+          understand) are almost never used in continuous forms:
+          <em>I <strong>know</strong> the answer</em>, not <s>I am knowing</s>.
+        </div>
+        <div class="tip">
+          <strong>since vs for:</strong> <em>since</em> + starting point (<em
+            >since Monday, since 2020</em
+          >); <em>for</em> + duration (<em>for two hours, for three years</em>).
+        </div>
+      </section>
+
+      <section id="future" class="rule-section">
+        <h2>Future forms: will, going to, present continuous</h2>
+        <div class="table-scroll">
+          <table class="rules-table">
+            <thead>
+              <tr>
+                <th>Form</th>
+                <th>Use it for</th>
+                <th>Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>will</strong> + infinitive</td>
+                <td>
+                  decision made <strong>at the moment of speaking</strong>;
+                  predictions and opinions (I think…); promises and offers
+                </td>
+                <td>
+                  <em
+                    >The phone is ringing - I<strong>'ll answer</strong> it.</em
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><strong>going to</strong> + infinitive</td>
+                <td>
+                  plan or intention decided <strong>before</strong> speaking;
+                  prediction based on present evidence
+                </td>
+                <td>
+                  <em
+                    >We<strong>'re going to upgrade</strong> the network next
+                    month. Look at those clouds - it<strong
+                      >'s going to rain</strong
+                    >.</em
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Present Continuous</strong></td>
+                <td>fixed arrangement, usually with a time and place</td>
+                <td>
+                  <em
+                    >I<strong>'m meeting</strong> the professor on Tuesday at
+                    10.</em
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Present Simple</strong></td>
+                <td>timetables and schedules</td>
+                <td>
+                  <em>The exam <strong>starts</strong> at 9:00.</em>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tip">
+          Rule of thumb: decided <strong>now</strong> → <em>will</em>; decided
+          <strong>earlier</strong> → <em>going to</em>; already
+          <strong>arranged</strong> with someone → present continuous.
+        </div>
+      </section>
+
+      <section id="conditionals" class="rule-section">
+        <h2>Conditionals</h2>
+        <div class="table-scroll">
+          <table class="rules-table">
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>If-clause</th>
+                <th>Main clause</th>
+                <th>Use it for</th>
+                <th>Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Zero</td>
+                <td>present simple</td>
+                <td>present simple</td>
+                <td>facts, things that are always true</td>
+                <td>
+                  <em
+                    >If you <strong>delete</strong> a file, it
+                    <strong>goes</strong> to the recycle bin.</em
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>First</td>
+                <td>present simple</td>
+                <td><strong>will</strong> + infinitive</td>
+                <td>real, likely future situations</td>
+                <td>
+                  <em
+                    >If the test <strong>passes</strong>, we
+                    <strong>will deploy</strong> the update.</em
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>Second</td>
+                <td>past simple</td>
+                <td><strong>would</strong> + infinitive</td>
+                <td>unreal or unlikely present/future</td>
+                <td>
+                  <em
+                    >If I <strong>had</strong> more RAM, the build
+                    <strong>would run</strong> faster.</em
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>Third</td>
+                <td>past perfect</td>
+                <td><strong>would have</strong> + past participle</td>
+                <td>unreal past - it didn't happen; regrets</td>
+                <td>
+                  <em
+                    >If you <strong>had made</strong> a backup, you
+                    <strong>wouldn't have lost</strong> the data.</em
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ul>
+          <li>
+            <strong
+              >Never put <em>will</em> or <em>would</em> in the
+              if-clause.</strong
+            >
+            <em>If you <strong>go</strong> out…</em>, not <s>if you will go</s>.
+          </li>
+          <li>
+            In the second conditional, use <strong>were</strong> for all
+            persons: <em>If I <strong>were</strong> you…</em>
+          </li>
+          <li>
+            When the if-clause comes first, put a comma after it:
+            <em>If it rains<strong>,</strong> we'll stay in.</em>
+          </li>
+        </ul>
+
+        <h3>unless, as long as, providing</h3>
+        <ul>
+          <li>
+            <strong>unless</strong> = <em>if … not</em>:
+            <em
+              ><strong>Unless</strong> you save the file, you'll lose your
+              changes</em
+            >
+            = <em>If you <strong>don't</strong> save…</em> (don't add another
+            <em>not</em> after unless).
+          </li>
+          <li>
+            <strong>as long as / provided (that) / providing (that)</strong> =
+            <em>only if</em> - they follow the first-conditional pattern:
+            <em
+              >You can use my laptop <strong>as long as</strong> you
+              <strong>are</strong> careful.</em
+            >
+          </li>
+        </ul>
+      </section>
+
+      <section id="participles" class="rule-section">
+        <h2>Participle clauses</h2>
+        <p>
+          Participles shorten relative clauses (<em>which/that…</em>) in
+          definitions - very common in technical English.
+        </p>
+        <ul>
+          <li>
+            <strong>-ing (present participle) = active</strong> meaning:
+            <em>a device <strong>connecting</strong> two networks</em> (= a
+            device <em>which connects</em>…).
+          </li>
+          <li>
+            <strong>-ed / third form (past participle) = passive</strong>
+            meaning: <em>data <strong>stored</strong> in the cloud</em> (= data
+            <em>which is stored</em>…).
+          </li>
+        </ul>
+        <p>
+          Ask: does the noun <strong>do</strong> the action (→ -ing) or is the
+          action <strong>done to it</strong> (→ -ed)?
+        </p>
+        <div class="tip">
+          Typical exam transformation:
+          <em
+            >A bridge is a device <strong>which links</strong> two networks</em
+          >
+          →
+          <em>A bridge is a device <strong>linking</strong> two networks.</em>
+          And passive:
+          <em>a program <strong>which is used</strong> for browsing</em> →
+          <em>a program <strong>used</strong> for browsing.</em>
+        </div>
+      </section>
+
+      <section id="both-either-neither" class="rule-section">
+        <h2>Both / either / neither</h2>
+        <div class="table-scroll">
+          <table class="rules-table">
+            <thead>
+              <tr>
+                <th>Word</th>
+                <th>Meaning</th>
+                <th>Pattern</th>
+                <th>Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>both</strong></td>
+                <td>the one AND the other (2 of 2)</td>
+                <td>both … and - plural verb</td>
+                <td>
+                  <em
+                    ><strong>Both</strong> Windows <strong>and</strong> Linux
+                    <strong>are</strong> operating systems.</em
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><strong>either</strong></td>
+                <td>the one OR the other (1 of 2)</td>
+                <td>either … or</td>
+                <td>
+                  <em
+                    >You can use <strong>either</strong> Chrome
+                    <strong>or</strong> Firefox.</em
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><strong>neither</strong></td>
+                <td>NOT the one and NOT the other (0 of 2)</td>
+                <td>neither … nor - verb stays positive</td>
+                <td>
+                  <em
+                    ><strong>Neither</strong> the mouse <strong>nor</strong> the
+                    keyboard works.</em
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>When do you need "of"?</h3>
+        <ul>
+          <li>
+            Directly before a noun: no <em>of</em> -
+            <em>both computers, either option, neither answer</em>.
+          </li>
+          <li>
+            Before <em>the / these / my</em> + noun: <em>of</em> is optional
+            with both (<em>both (of) the students</em>) but required with
+            either/neither (<em
+              >either <strong>of</strong> the options, neither
+              <strong>of</strong> the servers</em
+            >).
+          </li>
+          <li>
+            Before a pronoun: <em>of</em> is required -
+            <em
+              >both <strong>of</strong> them, either <strong>of</strong> us,
+              neither <strong>of</strong> them</em
+            >.
+          </li>
+        </ul>
+      </section>
+
+      <section id="passive" class="rule-section">
+        <h2>Active &amp; passive</h2>
+        <p>
+          Passive = <strong>be</strong> (in the tense you need) +
+          <strong>past participle</strong>. Use it when the doer is unknown,
+          obvious, or unimportant; add <em>by</em> + agent only if it matters.
+        </p>
+        <div class="table-scroll">
+          <table class="rules-table">
+            <thead>
+              <tr>
+                <th>Tense</th>
+                <th>Passive form</th>
+                <th>Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Present Simple</td>
+                <td>is/are + stored</td>
+                <td>
+                  <em>Backups <strong>are stored</strong> on the server.</em>
+                </td>
+              </tr>
+              <tr>
+                <td>Present Continuous</td>
+                <td>is/are being + stored</td>
+                <td>
+                  <em>The update <strong>is being installed</strong> now.</em>
+                </td>
+              </tr>
+              <tr>
+                <td>Past Simple</td>
+                <td>was/were + stored</td>
+                <td>
+                  <em>Linux <strong>was created</strong> by Linus Torvalds.</em>
+                </td>
+              </tr>
+              <tr>
+                <td>Present Perfect</td>
+                <td>has/have been + stored</td>
+                <td>
+                  <em>The bug <strong>has been fixed</strong>.</em>
+                </td>
+              </tr>
+              <tr>
+                <td>will</td>
+                <td>will be + stored</td>
+                <td>
+                  <em
+                    >The results
+                    <strong>will be published</strong> tomorrow.</em
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>Modals (can, must…)</td>
+                <td>can be + stored</td>
+                <td>
+                  <em>The file <strong>can be downloaded</strong> for free.</em>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tip">
+          Deciding active vs passive in a gap: find the subject and ask - does
+          it <strong>do</strong> the action, or is the action
+          <strong>done to it</strong>?
+          <em>The email <strong>was sent</strong> yesterday</em> (someone sent
+          it), but <em>She <strong>sent</strong> the email yesterday</em>.
+        </div>
+      </section>
+
+      <section id="modals" class="rule-section">
+        <h2>mustn't vs don't have to</h2>
+        <p>They look similar but mean opposite things:</p>
+        <ul>
+          <li>
+            <strong>mustn't</strong> = it is <strong>prohibited</strong>, don't
+            do it: <em>You <strong>mustn't</strong> share your password.</em>
+          </li>
+          <li>
+            <strong>don't have to</strong> = it is
+            <strong>not necessary</strong>, but you can if you want:
+            <em
+              >You <strong>don't have to</strong> pay - the software is
+              free.</em
+            >
+          </li>
+        </ul>
+        <p>
+          For obligation, <strong>must</strong> and <strong>have to</strong> are
+          close in meaning: <em>must</em> often expresses the speaker's own
+          rule, <em>have to</em> an external rule (<em
+            >I <strong>have to</strong> wear a badge at work</em
+          >).
+        </p>
+      </section>
+
+      <section id="prepositions" class="rule-section">
+        <h2>Prepositions: at, in, on (and to)</h2>
+        <h3>Time</h3>
+        <div class="table-scroll">
+          <table class="rules-table">
+            <thead>
+              <tr>
+                <th>Preposition</th>
+                <th>Used with</th>
+                <th>Examples</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>at</strong></td>
+                <td>clock times; fixed phrases</td>
+                <td>
+                  <em
+                    >at 9 o'clock, at noon, <strong>at night</strong>, at the
+                    weekend, at Christmas</em
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><strong>in</strong></td>
+                <td>
+                  months, years, seasons, centuries; parts of the day; "after X
+                  time"
+                </td>
+                <td>
+                  <em
+                    >in July, in 2026, in winter,
+                    <strong>in the morning</strong>, in ten minutes</em
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><strong>on</strong></td>
+                <td>days and dates; day + part of day</td>
+                <td>
+                  <em
+                    >on Monday, on 4 May, on my birthday,
+                    <strong>on Friday morning</strong></em
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>Place</h3>
+        <div class="table-scroll">
+          <table class="rules-table">
+            <thead>
+              <tr>
+                <th>Preposition</th>
+                <th>Used for</th>
+                <th>Examples</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>at</strong></td>
+                <td>a point or a place seen as a point</td>
+                <td>
+                  <em>at the door, at work, at school, at the bus stop</em>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>in</strong></td>
+                <td>inside something; towns, countries</td>
+                <td>
+                  <em>in the office, in a folder, in Mostar, in Bosnia</em>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>on</strong></td>
+                <td>a surface</td>
+                <td>
+                  <em
+                    >on the desk, on the screen, on the wall,
+                    <strong>on the internet</strong></em
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><strong>to</strong></td>
+                <td>movement, direction</td>
+                <td>
+                  <em
+                    >go to work, travel to Sarajevo, upload it to the server</em
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tip">
+          Watch out: <em>at night</em> but <em>in the evening</em>;
+          <em>arrive <strong>in</strong> a city</em> but
+          <em>arrive <strong>at</strong> a building</em>; <em>at home</em> and
+          <em>go home</em> (no <em>to</em>); no preposition before
+          <em>next / last / this / every</em> (<em>next Monday</em>, not
+          <s>on next Monday</s>).
+        </div>
+      </section>
+
+      <section id="collocations" class="rule-section">
+        <h2>make / do &amp; take / put</h2>
+        <h3>make vs do</h3>
+        <ul>
+          <li>
+            <strong>do</strong> - work-like activities and general tasks:
+            <em
+              >do homework, do a job, do business, do research, do the shopping,
+              do your best, do someone a favour</em
+            >.
+          </li>
+          <li>
+            <strong>make</strong> - creating or producing something, plus many
+            fixed phrases:
+            <em
+              >make a decision, make a mistake, make progress, make money, make
+              a phone call, make an appointment, make an effort, make sure</em
+            >.
+          </li>
+        </ul>
+        <h3>take vs put</h3>
+        <ul>
+          <li>
+            <strong>take</strong>: <em>take part in</em> (participate),
+            <em>take place</em> (happen),
+            <em>take care of, take over</em> (assume control),
+            <em>take up</em> (start a hobby / occupy space),
+            <em>take advantage of, take notes, take your time</em>.
+          </li>
+          <li>
+            <strong>put</strong>: <em>put off</em> (postpone),
+            <em>put up with</em> (tolerate), <em>put forward</em> (suggest),
+            <em>put through</em> (connect a call), <em>put on, put away</em>.
+          </li>
+        </ul>
+        <div class="tip">
+          Collocations can't be worked out from logic - they're fixed pairs.
+          When you get one wrong in practice, learn the whole phrase, not just
+          the verb.
+        </div>
+      </section>
+
+      <section id="questions" class="rule-section">
+        <h2>Making questions</h2>
+        <ul>
+          <li>
+            Word order:
+            <strong>(Question word) + auxiliary + subject + main verb</strong> -
+            <em><strong>What does</strong> LAN stand for?</em>
+          </li>
+          <li>
+            Present and past simple need <strong>do / does / did</strong>, and
+            the main verb goes back to its base form:
+            <em><strong>Did</strong> you <strong>install</strong> it?</em>, not
+            <s>Did you installed</s>.
+          </li>
+          <li>
+            If <em>who</em> or <em>what</em> is the <strong>subject</strong> of
+            the question, there is no auxiliary:
+            <em><strong>Who invented</strong> the World Wide Web?</em>
+          </li>
+          <li>
+            With <em>be</em> and with other auxiliaries (have, will, can…), just
+            invert:
+            <em
+              ><strong>Is</strong> the network down? <strong>Have</strong> you
+              finished?</em
+            >
+          </li>
+        </ul>
+      </section>
+
+      <section id="prefixes" class="rule-section">
+        <h2>The prefixes e- and cyber-</h2>
+        <ul>
+          <li>
+            <strong>e-</strong> = electronic, done over the internet:
+            <em>e-mail, e-commerce, e-learning, e-book, e-banking</em>.
+          </li>
+          <li>
+            <strong>cyber-</strong> = connected with computers and the internet
+            (often security-related):
+            <em
+              >cybersecurity, cybercrime, cyberattack, cyberspace,
+              cyberbullying</em
+            >.
+          </li>
+        </ul>
+      </section>
+
+      <section id="irregular-verbs" class="rule-section">
+        <h2>Irregular verbs</h2>
+        <p>
+          Base form → past simple → past participle. The past simple is used on
+          its own (<em>I <strong>wrote</strong> the report yesterday</em>); the
+          past participle appears in the present/past perfect, the passive, and
+          the third conditional (<em
+            >I <strong>have written</strong>, it <strong>was written</strong>,
+            you <strong>would have written</strong></em
+          >).
+        </p>
+
+        <h3>Verbs that appear in the exercises</h3>
+        <div class="verbs-grid">
+          <table class="rules-table verbs-table">
+            <thead>
+              <tr>
+                <th>Base</th>
+                <th>Past simple</th>
+                <th>Past participle</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>be</td>
+                <td>was / were</td>
+                <td>been</td>
+              </tr>
+              <tr>
+                <td>become</td>
+                <td>became</td>
+                <td>become</td>
+              </tr>
+              <tr>
+                <td>begin</td>
+                <td>began</td>
+                <td>begun</td>
+              </tr>
+              <tr>
+                <td>break</td>
+                <td>broke</td>
+                <td>broken</td>
+              </tr>
+              <tr>
+                <td>bring</td>
+                <td>brought</td>
+                <td>brought</td>
+              </tr>
+              <tr>
+                <td>buy</td>
+                <td>bought</td>
+                <td>bought</td>
+              </tr>
+              <tr>
+                <td>come</td>
+                <td>came</td>
+                <td>come</td>
+              </tr>
+              <tr>
+                <td>cut</td>
+                <td>cut</td>
+                <td>cut</td>
+              </tr>
+              <tr>
+                <td>do</td>
+                <td>did</td>
+                <td>done</td>
+              </tr>
+              <tr>
+                <td>draw</td>
+                <td>drew</td>
+                <td>drawn</td>
+              </tr>
+              <tr>
+                <td>drink</td>
+                <td>drank</td>
+                <td>drunk</td>
+              </tr>
+              <tr>
+                <td>drive</td>
+                <td>drove</td>
+                <td>driven</td>
+              </tr>
+              <tr>
+                <td>eat</td>
+                <td>ate</td>
+                <td>eaten</td>
+              </tr>
+              <tr>
+                <td>fall</td>
+                <td>fell</td>
+                <td>fallen</td>
+              </tr>
+              <tr>
+                <td>find</td>
+                <td>found</td>
+                <td>found</td>
+              </tr>
+              <tr>
+                <td>fly</td>
+                <td>flew</td>
+                <td>flown</td>
+              </tr>
+              <tr>
+                <td>get</td>
+                <td>got</td>
+                <td>got</td>
+              </tr>
+              <tr>
+                <td>give</td>
+                <td>gave</td>
+                <td>given</td>
+              </tr>
+              <tr>
+                <td>go</td>
+                <td>went</td>
+                <td>gone</td>
+              </tr>
+              <tr>
+                <td>grow</td>
+                <td>grew</td>
+                <td>grown</td>
+              </tr>
+              <tr>
+                <td>have</td>
+                <td>had</td>
+                <td>had</td>
+              </tr>
+              <tr>
+                <td>hear</td>
+                <td>heard</td>
+                <td>heard</td>
+              </tr>
+              <tr>
+                <td>hit</td>
+                <td>hit</td>
+                <td>hit</td>
+              </tr>
+              <tr>
+                <td>hold</td>
+                <td>held</td>
+                <td>held</td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="rules-table verbs-table">
+            <thead>
+              <tr>
+                <th>Base</th>
+                <th>Past simple</th>
+                <th>Past participle</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>know</td>
+                <td>knew</td>
+                <td>known</td>
+              </tr>
+              <tr>
+                <td>learn</td>
+                <td>learnt / learned</td>
+                <td>learnt / learned</td>
+              </tr>
+              <tr>
+                <td>lose</td>
+                <td>lost</td>
+                <td>lost</td>
+              </tr>
+              <tr>
+                <td>make</td>
+                <td>made</td>
+                <td>made</td>
+              </tr>
+              <tr>
+                <td>mean</td>
+                <td>meant</td>
+                <td>meant</td>
+              </tr>
+              <tr>
+                <td>meet</td>
+                <td>met</td>
+                <td>met</td>
+              </tr>
+              <tr>
+                <td>put</td>
+                <td>put</td>
+                <td>put</td>
+              </tr>
+              <tr>
+                <td>read</td>
+                <td>read</td>
+                <td>read</td>
+              </tr>
+              <tr>
+                <td>ring</td>
+                <td>rang</td>
+                <td>rung</td>
+              </tr>
+              <tr>
+                <td>say</td>
+                <td>said</td>
+                <td>said</td>
+              </tr>
+              <tr>
+                <td>see</td>
+                <td>saw</td>
+                <td>seen</td>
+              </tr>
+              <tr>
+                <td>sell</td>
+                <td>sold</td>
+                <td>sold</td>
+              </tr>
+              <tr>
+                <td>sit</td>
+                <td>sat</td>
+                <td>sat</td>
+              </tr>
+              <tr>
+                <td>speak</td>
+                <td>spoke</td>
+                <td>spoken</td>
+              </tr>
+              <tr>
+                <td>spend</td>
+                <td>spent</td>
+                <td>spent</td>
+              </tr>
+              <tr>
+                <td>stand</td>
+                <td>stood</td>
+                <td>stood</td>
+              </tr>
+              <tr>
+                <td>take</td>
+                <td>took</td>
+                <td>taken</td>
+              </tr>
+              <tr>
+                <td>teach</td>
+                <td>taught</td>
+                <td>taught</td>
+              </tr>
+              <tr>
+                <td>tell</td>
+                <td>told</td>
+                <td>told</td>
+              </tr>
+              <tr>
+                <td>think</td>
+                <td>thought</td>
+                <td>thought</td>
+              </tr>
+              <tr>
+                <td>wear</td>
+                <td>wore</td>
+                <td>worn</td>
+              </tr>
+              <tr>
+                <td>win</td>
+                <td>won</td>
+                <td>won</td>
+              </tr>
+              <tr>
+                <td>write</td>
+                <td>wrote</td>
+                <td>written</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Other common ones worth knowing</h3>
+        <div class="verbs-grid">
+          <table class="rules-table verbs-table">
+            <thead>
+              <tr>
+                <th>Base</th>
+                <th>Past simple</th>
+                <th>Past participle</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>build</td>
+                <td>built</td>
+                <td>built</td>
+              </tr>
+              <tr>
+                <td>catch</td>
+                <td>caught</td>
+                <td>caught</td>
+              </tr>
+              <tr>
+                <td>choose</td>
+                <td>chose</td>
+                <td>chosen</td>
+              </tr>
+              <tr>
+                <td>cost</td>
+                <td>cost</td>
+                <td>cost</td>
+              </tr>
+              <tr>
+                <td>feel</td>
+                <td>felt</td>
+                <td>felt</td>
+              </tr>
+              <tr>
+                <td>forget</td>
+                <td>forgot</td>
+                <td>forgotten</td>
+              </tr>
+              <tr>
+                <td>keep</td>
+                <td>kept</td>
+                <td>kept</td>
+              </tr>
+              <tr>
+                <td>leave</td>
+                <td>left</td>
+                <td>left</td>
+              </tr>
+              <tr>
+                <td>lend</td>
+                <td>lent</td>
+                <td>lent</td>
+              </tr>
+              <tr>
+                <td>let</td>
+                <td>let</td>
+                <td>let</td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="rules-table verbs-table">
+            <thead>
+              <tr>
+                <th>Base</th>
+                <th>Past simple</th>
+                <th>Past participle</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>pay</td>
+                <td>paid</td>
+                <td>paid</td>
+              </tr>
+              <tr>
+                <td>run</td>
+                <td>ran</td>
+                <td>run</td>
+              </tr>
+              <tr>
+                <td>send</td>
+                <td>sent</td>
+                <td>sent</td>
+              </tr>
+              <tr>
+                <td>show</td>
+                <td>showed</td>
+                <td>shown</td>
+              </tr>
+              <tr>
+                <td>sleep</td>
+                <td>slept</td>
+                <td>slept</td>
+              </tr>
+              <tr>
+                <td>steal</td>
+                <td>stole</td>
+                <td>stolen</td>
+              </tr>
+              <tr>
+                <td>throw</td>
+                <td>threw</td>
+                <td>thrown</td>
+              </tr>
+              <tr>
+                <td>understand</td>
+                <td>understood</td>
+                <td>understood</td>
+              </tr>
+              <tr>
+                <td>swim</td>
+                <td>swam</td>
+                <td>swum</td>
+              </tr>
+              <tr>
+                <td>wake</td>
+                <td>woke</td>
+                <td>woken</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="tip">
+          <strong>read – read – read</strong> is spelled the same three times
+          but the past forms are pronounced <em>/red/</em>, like the colour red.
+          And don't mix up <strong>gone</strong> vs <strong>been</strong>:
+          <em>she has <strong>gone</strong> to London</em> (still there) vs
+          <em>she has <strong>been</strong> to London</em> (visited and came
+          back).
+        </div>
+      </section>
+
+      <section id="exam-tips" class="rule-section">
+        <h2>Exam tips</h2>
+        <ul>
+          <li>
+            Read the <strong>whole sentence</strong> before choosing - the
+            signal word that decides the tense is often at the end.
+          </li>
+          <li>
+            In key-word transformations: keep the meaning,
+            <strong>don't change the given word</strong>, and check the word
+            count if one is required.
+          </li>
+          <li>
+            For if-sentences, identify the type first (real future? unreal
+            present? unreal past?) - then the verb forms follow automatically.
+          </li>
+          <li>
+            In this app, multiple-answer questions require you to select
+            <strong>every</strong> correct option - a partial answer counts as
+            wrong.
+          </li>
+        </ul>
+      </section>
+
+      <div class="actions rules-actions">
+        <a href="quiz.html" class="btn btn-primary">Start practice</a>
+        <a href="index.html" class="btn">Back to start</a>
+      </div>
+    </main>
+
+    <footer class="app-footer">
+      <p>
+        © 2026 Adela Merdžanić · Open source under the MIT license ·
+        <a href="contribute.html">Contribute</a>
+      </p>
+    </footer>
+
+    <script type="module" src="assets/js/main-static.js"></script>
+  </body>
+</html>

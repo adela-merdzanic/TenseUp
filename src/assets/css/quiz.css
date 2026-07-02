@@ -1,0 +1,185 @@
+.question-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: calc(var(--spacing-unit) * 3);
+  margin-top: calc(var(--spacing-unit) * 3);
+  box-shadow: var(--shadow-card);
+  transition: background-color 0.15s ease;
+}
+
+.sentence {
+  font-size: 1.2rem;
+  margin-bottom: calc(var(--spacing-unit) * 3);
+}
+
+.blank {
+  display: inline-block;
+  min-width: 90px;
+  border-bottom: 2px solid var(--color-primary);
+  text-align: center;
+  font-weight: 600;
+}
+
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--spacing-unit));
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--spacing-unit) * 1.5);
+  padding: calc(var(--spacing-unit) * 1.5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  min-height: 44px;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.option input {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  accent-color: var(--color-primary);
+}
+
+.option:has(input:not(:disabled)):hover {
+  border-color: var(--color-muted);
+}
+
+/* Highlight the picked option, but only before checking — after that the
+   inputs are disabled and the correct/incorrect classes take over. */
+.option:has(input:checked:not(:disabled)) {
+  border-color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 8%, var(--color-surface));
+}
+
+.option:has(input:disabled) {
+  cursor: default;
+}
+
+.option:has(input:focus-visible) {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.option--correct {
+  border-color: var(--color-correct);
+  background: var(--color-correct-bg);
+}
+
+.option--incorrect {
+  border-color: var(--color-incorrect);
+  background: var(--color-incorrect-bg);
+}
+
+.option--missed {
+  border-color: var(--color-missed);
+  background: var(--color-missed-bg);
+}
+
+.feedback {
+  margin-top: calc(var(--spacing-unit) * 3);
+  border-top: 1px solid var(--color-border);
+  padding-top: calc(var(--spacing-unit) * 2);
+}
+
+.quiz-actions {
+  flex-wrap: nowrap;
+}
+
+.nav-btn {
+  flex: 0 0 48px;
+  width: 48px;
+  min-width: 48px;
+  padding: calc(var(--spacing-unit) * 1.5) 0;
+  font-size: 1.4rem;
+  line-height: 1;
+  text-align: center;
+}
+
+.quiz-actions #check-btn {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* Next stays pinned to the right edge, alone or next to the prev button. */
+.quiz-actions #next-btn {
+  margin-left: auto;
+}
+
+.feedback-result {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.feedback-result.is-correct {
+  color: var(--color-correct);
+}
+
+.feedback-result.is-incorrect {
+  color: var(--color-incorrect);
+}
+
+.topic-tag {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+.rule-box {
+  margin-top: calc(var(--spacing-unit));
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: calc(var(--spacing-unit) * 1.5);
+}
+
+.summary-review {
+  margin-top: calc(var(--spacing-unit) * 3);
+}
+
+.review-title {
+  border-top: 1px solid var(--color-border);
+  padding-top: calc(var(--spacing-unit) * 2);
+  font-size: 1rem;
+}
+
+.review-perfect {
+  color: var(--color-correct);
+  font-weight: 600;
+}
+
+.review-item {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: calc(var(--spacing-unit) * 1.5);
+  margin-top: calc(var(--spacing-unit) * 1.5);
+}
+
+.review-sentence {
+  margin: 0 0 calc(var(--spacing-unit) / 2);
+}
+
+.review-answer {
+  color: var(--color-correct);
+  font-weight: 600;
+  border-bottom: 2px solid var(--color-correct);
+  padding: 0 2px;
+}
+
+.review-yours {
+  color: var(--color-incorrect);
+  font-size: 0.9rem;
+  margin: 0 0 var(--spacing-unit);
+}
+
+@media (min-width: 640px) {
+  .question-card {
+    padding: calc(var(--spacing-unit) * 4);
+  }
+}

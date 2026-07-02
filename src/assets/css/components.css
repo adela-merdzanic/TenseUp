@@ -1,0 +1,112 @@
+.btn {
+  display: inline-block;
+  padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2);
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  min-height: 44px;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  min-height: 36px;
+  padding: 0;
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+/* The toggle lives in the always-dark header bar. */
+.app-header .theme-toggle {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.25);
+  color: var(--color-header-text);
+}
+
+.app-header .theme-toggle:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.btn:hover {
+  border-color: var(--color-muted);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+
+/* In dark mode the primary color is light, so the label flips to dark. */
+[data-theme="dark"] .btn-primary {
+  color: #10131b;
+}
+
+.actions {
+  display: flex;
+  gap: calc(var(--spacing-unit) * 1.5);
+  flex-wrap: wrap;
+  margin-top: calc(var(--spacing-unit) * 2);
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: calc(var(--spacing-unit) * 3);
+}
+
+.progress-bar {
+  flex-shrink: 0;
+  height: 6px;
+  background: var(--color-border);
+  transition: background-color 0.15s ease;
+}
+
+.progress-bar__fill {
+  height: 100%;
+  width: 0%;
+  background: var(--color-primary);
+  transition: width 0.2s ease;
+}
+
+.score-readout {
+  font-size: 0.9rem;
+  color: var(--color-header-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.select-hint {
+  color: var(--color-incorrect);
+  font-size: 0.9rem;
+  margin-top: calc(var(--spacing-unit));
+}
+
+.btn-sm {
+  min-height: 30px;
+  padding: 4px 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}

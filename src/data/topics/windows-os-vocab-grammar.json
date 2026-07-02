@@ -1,0 +1,518 @@
+{
+  "topicId": "windows-os-vocab-grammar",
+  "title": "Vocabulary & Grammar Practice",
+  "sourcePdf": "2. Windows OS_1.pdf",
+  "exercises": [
+    {
+      "exerciseNumber": 1,
+      "sourceTaskName": "Task 1: Complete the second sentence using the given word (key word transformation)",
+      "questions": [
+        {
+          "id": "t1-q1",
+          "promptParts": {
+            "before": "Did you ",
+            "blank": "___",
+            "after": " at the party?"
+          },
+          "type": "single",
+          "options": [
+            "have a good time",
+            "had a good time",
+            "have a great time",
+            "have good time"
+          ],
+          "correctAnswers": ["have a good time"],
+          "grammarRule": "'Have a good time' is a fixed idiom meaning 'enjoy yourself'. After the auxiliary 'did', the main verb stays in its base form: 'Did you have...?' — not 'had', which would incorrectly repeat the past tense."
+        },
+        {
+          "id": "t1-q2",
+          "promptParts": {
+            "before": "What do ",
+            "blank": "___",
+            "after": " living, Nick?"
+          },
+          "type": "single",
+          "options": [
+            "you do for a",
+            "you do for the",
+            "you make for a",
+            "you did for a"
+          ],
+          "correctAnswers": ["you do for a"],
+          "grammarRule": "'What do you do for a living?' is the standard idiom for asking about someone's job. Since 'What do' already starts the question, the blank continues with subject + verb + article: 'you do for a'."
+        },
+        {
+          "id": "t1-q3",
+          "promptParts": {
+            "before": "",
+            "blank": "___",
+            "after": " you in last year?"
+          },
+          "type": "single",
+          "options": [
+            "Whose class were",
+            "Whose class was",
+            "Who's class were",
+            "Whose teacher were"
+          ],
+          "correctAnswers": ["Whose class were"],
+          "grammarRule": "'Whose class were you in?' asks about possession using 'whose' + noun. Since the subject is 'you', the verb must agree: 'were', not 'was'. ('Who's' is a contraction of 'who is/has' — different word entirely.)"
+        },
+        {
+          "id": "t1-q4",
+          "promptParts": {
+            "before": "We ",
+            "blank": "___",
+            "after": " on the boat."
+          },
+          "type": "single",
+          "options": ["had a meal", "have a meal", "had a food", "ate a meal"],
+          "correctAnswers": ["had a meal"],
+          "grammarRule": "'Have a meal' is an idiom meaning 'to eat'. Since the original sentence is in the past ('We ate'), the transformation needs the past form: 'had a meal'. Also, 'meal' (not 'food') is the correct noun in this idiom."
+        },
+        {
+          "id": "t1-q5",
+          "promptParts": {
+            "before": "I'm ",
+            "blank": "___",
+            "after": " singing."
+          },
+          "type": "single",
+          "options": ["good at", "well at", "good in", "good for"],
+          "correctAnswers": ["good at"],
+          "grammarRule": "'Good at' + gerund (-ing form) describes being skilled at something. English uses the adjective 'good' here, not the adverb 'well' — 'good at singing', not 'well at singing'."
+        },
+        {
+          "id": "t1-q6",
+          "promptParts": {
+            "before": "I ",
+            "blank": "___",
+            "after": " when I was seventeen."
+          },
+          "type": "single",
+          "options": [
+            "learnt how to drive",
+            "learnt how to driving",
+            "learnt to drive how",
+            "learnt driving how"
+          ],
+          "correctAnswers": ["learnt how to drive"],
+          "grammarRule": "'Learn how to' + base infinitive describes acquiring a skill. After 'to', use the plain verb form: 'how to drive', not 'how to driving'."
+        },
+        {
+          "id": "t1-q7",
+          "promptParts": {
+            "before": "We never ",
+            "blank": "___",
+            "after": " for our holidays when I was young."
+          },
+          "type": "single",
+          "options": [
+            "used to go abroad",
+            "used to going abroad",
+            "use to go abroad",
+            "used to went abroad"
+          ],
+          "correctAnswers": ["used to go abroad"],
+          "grammarRule": "'Used to' + base infinitive describes a habitual action in the past that no longer happens. It's spelled 'used to' (not 'use to'), and it's followed by the plain verb form: 'used to go', not 'used to going' or 'used to went'."
+        },
+        {
+          "id": "t1-q8",
+          "promptParts": {
+            "before": "Our ",
+            "blank": "___",
+            "after": " the Sahara Desert."
+          },
+          "type": "single",
+          "options": [
+            "plane flew over",
+            "plane flied over",
+            "planes flew over",
+            "plane has flown over"
+          ],
+          "correctAnswers": ["plane flew over"],
+          "grammarRule": "'Fly' is an irregular verb: past tense is 'flew' (not 'flied'). Since the original sentence is in simple past ('was'), the transformation keeps simple past: 'Our plane flew over...'."
+        },
+        {
+          "id": "t1-q9",
+          "promptParts": {
+            "before": "My mother buys a newspaper ",
+            "blank": "___",
+            "after": " into the shop."
+          },
+          "type": "single",
+          "options": [
+            "every time she goes",
+            "every time she go",
+            "every time she going",
+            "every time she went"
+          ],
+          "correctAnswers": ["every time she goes"],
+          "grammarRule": "'Every time' + present simple describes a habitual action. Since the subject is 'she' (third person singular), the verb needs the -s ending: 'goes', not 'go' or 'going'."
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 2,
+      "sourceTaskName": "Task 2: Rewrite the second sentence using the given word",
+      "questions": [
+        {
+          "id": "t2-q1",
+          "promptParts": {
+            "before": "Helmets must be worn ",
+            "blank": "___",
+            "after": " when riding a motorcycle."
+          },
+          "type": "single",
+          "options": ["all the time", "all time", "in all time", "always"],
+          "correctAnswers": ["all the time"],
+          "grammarRule": "'All the time' is a fixed phrase meaning 'always/continuously' and needs the article 'the' between 'all' and 'time' — 'all the time', not 'all time'."
+        },
+        {
+          "id": "t2-q2",
+          "promptParts": {
+            "before": "They paid for dinner ",
+            "blank": "___",
+            "after": " for their behavior."
+          },
+          "type": "single",
+          "options": [
+            "in order to apologize",
+            "in order apologize",
+            "in order for apologize",
+            "in order to apologizing"
+          ],
+          "correctAnswers": ["in order to apologize"],
+          "grammarRule": "'In order to' + base infinitive expresses purpose (why someone does something). It needs 'to' before the base verb: 'in order to apologize', not 'in order apologize' or '...apologizing'."
+        },
+        {
+          "id": "t2-q3",
+          "promptParts": {
+            "before": "You ",
+            "blank": "___",
+            "after": " bring skis as they are included in the package."
+          },
+          "type": "single",
+          "options": ["don't have to", "haven't to", "don't must", "mustn't"],
+          "correctAnswers": ["don't have to"],
+          "grammarRule": "'Don't have to' means something is not necessary (you have a choice). Careful: 'mustn't' has a different meaning — it means something is forbidden, not optional."
+        },
+        {
+          "id": "t2-q4",
+          "promptParts": {
+            "before": "I ",
+            "blank": "___",
+            "after": " that parking was allowed here."
+          },
+          "type": "single",
+          "options": [
+            "was under the impression",
+            "was under the impressions",
+            "was under impression",
+            "had the impression"
+          ],
+          "correctAnswers": ["was under the impression"],
+          "grammarRule": "'Under the impression that...' is a fixed idiom meaning 'I believed/thought that...'. It's always singular ('the impression', not 'the impressions') and always needs the article 'the'."
+        },
+        {
+          "id": "t2-q5",
+          "promptParts": {
+            "before": "She continued to cry until he ",
+            "blank": "___",
+            "after": "."
+          },
+          "type": "single",
+          "options": [
+            "was out of sight",
+            "was out of the sight",
+            "was out from sight",
+            "went out of sight"
+          ],
+          "correctAnswers": ["was out of sight"],
+          "grammarRule": "'Out of sight' is a fixed idiom (no article needed) meaning 'no longer visible'. It pairs with 'be' to describe a state: 'he was out of sight', not 'went out of sight' or 'out of the sight'."
+        },
+        {
+          "id": "t2-q6",
+          "promptParts": {
+            "before": "That car is ",
+            "blank": "___",
+            "after": "."
+          },
+          "type": "single",
+          "options": [
+            "beyond my means",
+            "beyond my mean",
+            "over my means",
+            "beyond my budget"
+          ],
+          "correctAnswers": ["beyond my means"],
+          "grammarRule": "'Beyond my means' is a fixed idiom meaning 'too expensive for me to afford'. 'Means' here (financial resources) is always plural, even though it can look like a singular word."
+        },
+        {
+          "id": "t2-q7",
+          "promptParts": {
+            "before": "They ",
+            "blank": "___",
+            "after": " in this suburb since 1997."
+          },
+          "type": "single",
+          "options": ["have lived", "lived", "has lived", "had lived"],
+          "correctAnswers": ["have lived"],
+          "grammarRule": "'Have/has + past participle + since + [starting point]' (Present Perfect) describes an action that started in the past and continues now. Since the subject is 'they', use 'have': 'they have lived...', not 'has lived' or 'had lived'."
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 3,
+      "sourceTaskName": "Task 3: Put the verb in capitals into the past tense",
+      "questions": [
+        {
+          "id": "t3-q1",
+          "promptParts": {
+            "before": "Nicholas Evans was a child genius. He was born in 1980 and his mother ",
+            "blank": "___",
+            "after": " him how to read when he was eight months old."
+          },
+          "type": "single",
+          "options": ["taught", "teached", "teaches", "was teaching"],
+          "correctAnswers": ["taught"],
+          "grammarRule": "'Teach' is an irregular verb: past tense is 'taught' (not 'teached', a common regularization error). This passage uses simple past throughout to narrate completed past events."
+        },
+        {
+          "id": "t3-q2",
+          "promptParts": {
+            "before": "He ",
+            "blank": "___",
+            "after": " his first book when he was only one."
+          },
+          "type": "single",
+          "options": ["read", "reads", "readed", "reading"],
+          "correctAnswers": ["read"],
+          "grammarRule": "'Read' is unusual: its past tense is spelled the same as the present ('read') but pronounced differently (like 'red'). There's no '-ed' added — 'readed' doesn't exist."
+        },
+        {
+          "id": "t3-q3",
+          "promptParts": {
+            "before": "His father ",
+            "blank": "___",
+            "after": " him a piano for his third birthday."
+          },
+          "type": "single",
+          "options": ["bought", "buyed", "buys", "was buying"],
+          "correctAnswers": ["bought"],
+          "grammarRule": "'Buy' is an irregular verb: past tense is 'bought' (not 'buyed')."
+        },
+        {
+          "id": "t3-q4",
+          "promptParts": {
+            "before": "He got a piano for his third birthday and he ",
+            "blank": "___",
+            "after": " playing immediately."
+          },
+          "type": "single",
+          "options": ["began", "beginned", "begins", "begun"],
+          "correctAnswers": ["began"],
+          "grammarRule": "'Begin' is irregular: simple past is 'began'. Don't confuse it with 'begun', which is the past participle used with 'have/has' (e.g. 'has begun'), not for simple past narration."
+        },
+        {
+          "id": "t3-q5",
+          "promptParts": {
+            "before": "He ",
+            "blank": "___",
+            "after": " his first piece of music soon after getting a piano."
+          },
+          "type": "single",
+          "options": ["wrote", "writed", "writes", "written"],
+          "correctAnswers": ["wrote"],
+          "grammarRule": "'Write' is irregular: simple past is 'wrote'. Don't confuse it with 'written', the past participle used with 'have/has' (e.g. 'has written'), not for simple past narration."
+        },
+        {
+          "id": "t3-q6",
+          "promptParts": {
+            "before": "By the age of seven he ",
+            "blank": "___",
+            "after": " three languages fluently."
+          },
+          "type": "single",
+          "options": ["spoke", "speaked", "speaks", "spoken"],
+          "correctAnswers": ["spoke"],
+          "grammarRule": "'Speak' is irregular: simple past is 'spoke'. 'Spoken' is the past participle (used with have/has), not the simple past form."
+        },
+        {
+          "id": "t3-q7",
+          "promptParts": {
+            "before": "By the age of seven he spoke three languages fluently and he ",
+            "blank": "___",
+            "after": " understand two others."
+          },
+          "type": "single",
+          "options": ["could", "canned", "cans", "was able"],
+          "correctAnswers": ["could"],
+          "grammarRule": "'Can' is a modal verb; its past tense form is 'could' (not 'canned', which isn't a real inflection of this modal)."
+        },
+        {
+          "id": "t3-q8",
+          "promptParts": {
+            "before": "He ",
+            "blank": "___",
+            "after": " sports more difficult than music."
+          },
+          "type": "single",
+          "options": ["found", "finded", "finds", "founded"],
+          "correctAnswers": ["found"],
+          "grammarRule": "'Find' is irregular: past tense is 'found'. Don't confuse it with 'founded', which is the past tense of the different verb 'found' (meaning 'to establish', like founding a company)."
+        },
+        {
+          "id": "t3-q9",
+          "promptParts": {
+            "before": "He ",
+            "blank": "___",
+            "after": " his arm the first time he played football."
+          },
+          "type": "single",
+          "options": ["broke", "breaked", "breaks", "broken"],
+          "correctAnswers": ["broke"],
+          "grammarRule": "'Break' is irregular: simple past is 'broke'. 'Broken' is the past participle (used with have/has), not the simple past form."
+        },
+        {
+          "id": "t3-q10",
+          "promptParts": {
+            "before": "He always ",
+            "blank": "___",
+            "after": " any races he took part in."
+          },
+          "type": "single",
+          "options": ["lost", "losed", "loses", "loosed"],
+          "correctAnswers": ["lost"],
+          "grammarRule": "'Lose' is irregular: past tense is 'lost'. Careful not to confuse the spelling with 'loose' (meaning 'not tight') — that's a different word entirely."
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 5,
+      "sourceTaskName": "Task 5: Open cloze — think of one word which best fits each space",
+      "questions": [
+        {
+          "id": "t5-q1",
+          "promptParts": {
+            "before": "In many ways young people between the ages of twelve and nineteen are not very different now from how they ",
+            "blank": "___",
+            "after": " to be twenty years ago."
+          },
+          "type": "single",
+          "options": ["used", "use", "were", "did"],
+          "correctAnswers": ["used"],
+          "grammarRule": "'Used to' + infinitive describes a repeated past habit that's no longer true. The word needed is 'used' (with -d), not 'use' — a very common spelling slip."
+        },
+        {
+          "id": "t5-q2",
+          "promptParts": {
+            "before": "Every year the number of cigarettes they smoke is ",
+            "blank": "___",
+            "after": " down"
+          },
+          "type": "single",
+          "options": ["going", "go", "went", "goes"],
+          "correctAnswers": ["going"],
+          "grammarRule": "After the auxiliary 'is' (present continuous), the main verb needs the -ing form: 'is going down', not 'is go/goes/went down'."
+        },
+        {
+          "id": "t5-q3",
+          "promptParts": {
+            "before": "And they ",
+            "blank": "___",
+            "after": " eat so much fast food or drink so much alcohol."
+          },
+          "type": "single",
+          "options": ["don't", "doesn't", "didn't", "not"],
+          "correctAnswers": ["don't"],
+          "grammarRule": "The passage describes current habits in present simple, and the subject is 'they' (plural), so the negative auxiliary is 'don't' — not 'doesn't' (for he/she/it) or 'didn't' (past tense)."
+        },
+        {
+          "id": "t5-q4",
+          "promptParts": {
+            "before": "However, the number of televisions and computers in teenagers' bedrooms is ",
+            "blank": "___",
+            "after": ", something that a lot of parents worry about."
+          },
+          "type": "single",
+          "options": ["increasing", "increase", "increased", "increases"],
+          "correctAnswers": ["increasing"],
+          "grammarRule": "After 'is' (present continuous), the verb needs the -ing form: 'is increasing', describing an ongoing trend."
+        },
+        {
+          "id": "t5-q5",
+          "promptParts": {
+            "before": "Something that a lot of ",
+            "blank": "___",
+            "after": " worry about."
+          },
+          "type": "single",
+          "options": ["parents", "parent", "kids", "adults"],
+          "correctAnswers": ["parents"],
+          "grammarRule": "The context (parents worrying about their teenage children's screen time) points to 'parents' as the fitting noun — plural, since 'a lot of' + a countable noun needs the plural form."
+        },
+        {
+          "id": "t5-q6",
+          "promptParts": {
+            "before": "She knows that they ",
+            "blank": "___",
+            "after": " a lot of time in their rooms playing computer games"
+          },
+          "type": "single",
+          "options": ["spend", "spent", "spends", "waste"],
+          "correctAnswers": ["spend"],
+          "grammarRule": "'They' is plural, so the present-tense verb has no -s: 'they spend', not 'spends'. The context describes a present habitual fact, not the past ('spent')."
+        },
+        {
+          "id": "t5-q7",
+          "promptParts": {
+            "before": "And she thinks that this is a complete ",
+            "blank": "___",
+            "after": " of time."
+          },
+          "type": "single",
+          "options": ["waste", "loss", "spend", "wasting"],
+          "correctAnswers": ["waste"],
+          "grammarRule": "'A waste of time' is a fixed idiomatic phrase meaning something isn't worth the time spent on it — it doesn't work with other nouns like 'a loss of time'."
+        },
+        {
+          "id": "t5-q8",
+          "promptParts": {
+            "before": "They always tell me that they're doing their homework, but I know they ",
+            "blank": "___",
+            "after": "."
+          },
+          "type": "single",
+          "options": ["aren't", "don't", "isn't", "not"],
+          "correctAnswers": ["aren't"],
+          "grammarRule": "This is a short reply avoiding repetition: 'I know they aren't [doing their homework]' mirrors the auxiliary 'are' from 'they're doing'. Since the subject is 'they', the negative form is 'aren't', not 'isn't' or 'don't'."
+        },
+        {
+          "id": "t5-q9",
+          "promptParts": {
+            "before": "When I was their age, I really enjoyed ",
+            "blank": "___",
+            "after": " outside with my friends,"
+          },
+          "type": "single",
+          "options": ["being", "be", "been", "to be"],
+          "correctAnswers": ["being"],
+          "grammarRule": "'Enjoy' is followed by the -ing form (gerund), not the infinitive: 'enjoyed being outside', not 'enjoyed to be/be/been outside'."
+        },
+        {
+          "id": "t5-q10",
+          "promptParts": {
+            "before": "But Steve and Robert only seem ",
+            "blank": "___",
+            "after": " in the latest CDs or what's on television that night."
+          },
+          "type": "single",
+          "options": ["interested", "interest", "interesting", "interests"],
+          "correctAnswers": ["interested"],
+          "grammarRule": "'Interested' (feeling interest) is different from 'interesting' (causing interest). Since Steve and Robert are the ones who feel curious about something, 'interested' is correct: 'seem interested in...'."
+        }
+      ]
+    }
+  ]
+}

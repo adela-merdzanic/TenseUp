@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TenseUp - Use &amp; Contribute</title>
+    <meta
+      name="description"
+      content="TenseUp is open source under the MIT license - use it, fork it for your own quiz, report wrong questions, or contribute improvements."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="TenseUp" />
+    <meta property="og:title" content="TenseUp - Use &amp; Contribute" />
+    <meta
+      property="og:description"
+      content="TenseUp is open source under the MIT license - use it, fork it for your own quiz, report wrong questions, or contribute improvements."
+    />
+    <meta
+      property="og:url"
+      content="https://tense-up.netlify.app/contribute.html"
+    />
+    <meta
+      property="og:image"
+      content="https://tense-up.netlify.app/assets/images/og-image.png"
+    />
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png" />
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("quizTheme");
+          var prefersDark =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+          if (saved === "dark" || (!saved && prefersDark)) {
+            document.documentElement.setAttribute("data-theme", "dark");
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" href="assets/css/variables.css" />
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/components.css" />
+    <link rel="stylesheet" href="assets/css/rules.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="index.html" class="app-logo">TenseUp</a>
+      <nav class="header-nav">
+        <a href="quiz.html">Practice</a>
+        <a href="rules.html">Grammar rules</a>
+        <a href="contribute.html" class="is-active">Contribute</a>
+      </nav>
+      <button
+        type="button"
+        id="theme-toggle"
+        class="btn theme-toggle"
+        aria-label="Toggle dark mode"
+      >
+        🌙
+      </button>
+    </header>
+
+    <main class="container rules-screen">
+      <h1>Use &amp; contribute</h1>
+      <p class="rules-intro">
+        TenseUp is open source under the MIT license. This page explains what
+        you're free to do with it and how to propose a change - even if you've
+        never contributed to a project before.
+      </p>
+
+      <section class="rule-section">
+        <h2>Use it, fork it</h2>
+        <ul>
+          <li>
+            Use the app as much as you like - no account, no strings attached.
+          </li>
+          <li>
+            Fork the repository and adapt it to your own needs: every question
+            lives as plain JSON in <code>src/data/topics/</code>, so the same code
+            can host a quiz on any subject - operating systems, programming,
+            anything. The README's "Adding a new topic" section describes the
+            file format.
+          </li>
+          <li>
+            There is no build step and there are no dependencies - clone it,
+            serve the folder with any static server, done.
+          </li>
+        </ul>
+      </section>
+
+      <section class="rule-section">
+        <h2>Found a mistake?</h2>
+        <p>If you spot a wrong answer, a typo, or a bug in the app:</p>
+        <ul>
+          <li>
+            <a
+              href="https://github.com/adela-merdzanic/TenseUp/issues"
+              target="_blank"
+              rel="noopener"
+              >open an issue</a
+            >
+            describing the question and what looks wrong, or
+          </li>
+          <li>
+            fix the topic file in <code>src/data/topics/</code> yourself and open a
+            pull request - question fixes are very welcome.
+          </li>
+        </ul>
+      </section>
+
+      <section class="rule-section">
+        <h2>Contribute improvements</h2>
+        <p>
+          Pull requests are welcome - bug fixes, new topics, new features. Two
+          things to keep in mind:
+        </p>
+        <ul>
+          <li>
+            keep it vanilla HTML/CSS/JS with no build step and no dependencies;
+          </li>
+          <li>
+            formatting is handled by Prettier - the repo ships a config, so if
+            your editor formats on save, your code is already consistent.
+          </li>
+        </ul>
+      </section>
+
+      <section class="rule-section">
+        <h2>How to propose a change</h2>
+        <ol>
+          <li>
+            <strong>Fork</strong> the repository on GitHub. A fork is your own
+            copy that you can push to - anyone can clone this repo, but only
+            collaborators can push branches to it.
+          </li>
+          <li>
+            Clone your fork and create a branch:
+            <code>git checkout -b fix-question-typo</code>
+          </li>
+          <li>
+            Make the change - for question fixes, edit the topic file in
+            <code>src/data/topics/</code>.
+          </li>
+          <li>
+            Run the app locally (<code>npx serve src</code>,
+            <code>python -m http.server</code> inside <code>src/</code>, or VS
+            Code Live Server) and check your change in the browser.
+          </li>
+          <li>
+            Push the branch to your fork and open a
+            <strong>pull request</strong> against <code>main</code>, describing
+            what you changed and why.
+          </li>
+        </ol>
+        <div class="tip tip--info">
+          Small fix, like a typo in one question? You can edit the file directly
+          on github.com - click the pencil icon on the file and GitHub creates
+          the fork, branch and pull request for you.
+        </div>
+      </section>
+
+      <div class="actions rules-actions">
+        <a
+          class="btn btn-primary"
+          href="https://github.com/adela-merdzanic/TenseUp"
+          target="_blank"
+          rel="noopener"
+          >View on GitHub</a
+        >
+        <a
+          class="btn"
+          href="https://github.com/adela-merdzanic/TenseUp/issues"
+          target="_blank"
+          rel="noopener"
+          >Open an issue</a
+        >
+      </div>
+    </main>
+
+    <footer class="app-footer">
+      <p>
+        © 2026 Adela Merdžanić · Open source under the MIT license ·
+        <a href="contribute.html">Contribute</a>
+      </p>
+    </footer>
+
+    <script type="module" src="assets/js/main-static.js"></script>
+  </body>
+</html>

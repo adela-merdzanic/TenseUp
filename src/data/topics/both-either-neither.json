@@ -1,0 +1,145 @@
+{
+  "topicId": "both-either-neither",
+  "title": "Both, Either & Neither",
+  "sourcePdf": "1. Operating Systems.pdf",
+  "exercises": [
+    {
+      "exerciseNumber": 1,
+      "sourceTaskName": "Task 1: Put in both/either/neither. Use of where necessary.",
+      "questions": [
+        {
+          "id": "q3",
+          "promptParts": {
+            "before": "It was a good football match. ",
+            "blank": "___",
+            "after": " teams played well."
+          },
+          "type": "single",
+          "options": ["both", "either", "neither"],
+          "correctAnswers": ["both"],
+          "grammarRule": "'Both' refers to two people/things together and takes a plural noun. Since it was a good match, both teams played well. Examples: 'Both cities were beautiful.' / 'Both windows are open.'"
+        },
+        {
+          "id": "q4",
+          "promptParts": {
+            "before": "It wasn't a good football match. ",
+            "blank": "___",
+            "after": " team played well."
+          },
+          "type": "single",
+          "options": ["both", "either", "neither"],
+          "correctAnswers": ["neither"],
+          "grammarRule": "'Neither' means 'not either' — it rules out both options and takes a singular noun. Since the match was bad, neither team played well. Examples: 'Neither job was very interesting.' / 'Neither of us was hungry.'"
+        },
+        {
+          "id": "q5",
+          "promptParts": {
+            "before": "Is your friend English or American? ",
+            "blank": "___",
+            "after": ". She is Australian."
+          },
+          "type": "single",
+          "options": ["both", "either", "neither"],
+          "correctAnswers": ["neither"],
+          "grammarRule": "'Neither' can stand alone to reject both options in a question. Since she is Australian (not English or American), the answer is 'Neither.' Example: 'Do you want tea or coffee?' — 'Neither, thanks.'"
+        },
+        {
+          "id": "q6",
+          "promptParts": {
+            "before": "We went away for two days but the weather wasn't good. It rained on ",
+            "blank": "___",
+            "after": " days."
+          },
+          "type": "single",
+          "options": ["both", "either", "neither"],
+          "correctAnswers": ["both"],
+          "grammarRule": "'Both' + plural noun describes something true of two things together, with no 'of' needed directly before a plain noun. Since the weather was bad the whole trip, it rained on both days. Example: 'Both windows are open.'"
+        },
+        {
+          "id": "q7",
+          "promptParts": {
+            "before": "I bought two newspapers. Which one do you want? ",
+            "blank": "___",
+            "after": ". It doesn't matter which one."
+          },
+          "type": "single",
+          "options": ["both", "either", "neither"],
+          "correctAnswers": ["either"],
+          "grammarRule": "'Either' means 'one or the other, it doesn't matter which' and can stand alone as a reply. Example: 'Tea or coffee?' — 'Either, I don't mind.'"
+        },
+        {
+          "id": "q8",
+          "promptParts": {
+            "before": "I invited Diana and Mike to the party but ",
+            "blank": "___",
+            "after": " them came."
+          },
+          "type": "single",
+          "options": ["both of", "either of", "neither of"],
+          "correctAnswers": ["neither of"],
+          "grammarRule": "Before a pronoun like 'them', either/neither need 'of' ('neither of them'), while 'both' can drop it. Since neither person showed up, the answer is 'neither of them'. Example: 'Neither of us had a watch.'"
+        },
+        {
+          "id": "q9",
+          "promptParts": {
+            "before": "Do you go to work by car or by bus? ",
+            "blank": "___",
+            "after": ". I always walk."
+          },
+          "type": "single",
+          "options": ["both", "either", "neither"],
+          "correctAnswers": ["neither"],
+          "grammarRule": "'Neither' rejects both options in a question and can stand alone. Since the speaker always walks (not car or bus), the answer is 'Neither.' Example: 'Cinema or theatre?' — 'Neither, I want to stay home.'"
+        },
+        {
+          "id": "q10",
+          "promptParts": {
+            "before": "Which jacket do you prefer, this one or that one? I don't like ",
+            "blank": "___",
+            "after": " of them."
+          },
+          "type": "single",
+          "options": ["both", "either", "neither"],
+          "correctAnswers": ["either"],
+          "grammarRule": "Here 'of them' is already given, so only the base word is needed: 'either of them' means the speaker dislikes both options equally. Note: since the verb is already negative ('don't like'), 'neither' can't be used too — that would be a double negative. Example: 'I haven't read either of these books.'"
+        },
+        {
+          "id": "q11",
+          "promptParts": {
+            "before": "Paula and I didn't know the time because ",
+            "blank": "___",
+            "after": " us had a watch."
+          },
+          "type": "single",
+          "options": ["both of", "either of", "neither of"],
+          "correctAnswers": ["neither of"],
+          "grammarRule": "Before a pronoun like 'us', either/neither need 'of' ('neither of us'), while 'both' can drop it. Since neither person had a watch, the answer is 'neither of us'. Example: 'Neither of my parents is English.'"
+        },
+        {
+          "id": "q12",
+          "promptParts": {
+            "before": "Ann has got two sisters and a brother. ",
+            "blank": "___",
+            "after": " sisters are married."
+          },
+          "type": "single",
+          "options": ["both", "either", "neither"],
+          "correctAnswers": ["both"],
+          "grammarRule": "'Both' can go directly before a plain plural noun with no 'of' needed. Example: 'Both sisters are married.' (same as 'Both of Ann's sisters are married.')"
+        },
+        {
+          "id": "q13",
+          "promptParts": {
+            "before": "Ann has got two sisters and a brother. I've met her brother but I haven't met ",
+            "blank": "___",
+            "after": " her sisters."
+          },
+          "type": "single",
+          "options": ["both of", "either of", "neither of"],
+          "correctAnswers": ["either of"],
+          "grammarRule": "Before a possessive like 'her sisters', either/neither need 'of' ('either of her sisters') — only 'both' can drop the 'of'. Note: since the verb is already negative ('haven't met'), 'neither' can't be used too — that would be a double negative. Example: 'I haven't read either of these books.'"
+        }
+      ]
+    }
+  ]
+}

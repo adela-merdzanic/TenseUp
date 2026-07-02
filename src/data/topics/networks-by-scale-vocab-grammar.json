@@ -1,0 +1,586 @@
+{
+  "topicId": "networks-by-scale-vocab-grammar",
+  "title": "Computer Networks by Scale: Vocabulary & Questions",
+  "sourcePdf": "8. Computer Networks by Scale.pdf",
+  "exercises": [
+    {
+      "exerciseNumber": 1,
+      "sourceTaskName": "Vocabulary and Grammar Work, Task 1: Science and technology jobs",
+      "questions": [
+        {
+          "id": "t1-wb1",
+          "promptParts": {
+            "before": "A scientist studies ",
+            "blank": "___",
+            "after": "."
+          },
+          "type": "single",
+          "options": [
+            "science",
+            "medicine",
+            "psychology",
+            "engineering",
+            "architecture",
+            "geology"
+          ],
+          "correctAnswers": ["science"],
+          "grammarRule": "'Science' is the general subject a scientist studies."
+        },
+        {
+          "id": "t1-wb2",
+          "promptParts": {
+            "before": "A doctor studies ",
+            "blank": "___",
+            "after": "."
+          },
+          "type": "single",
+          "options": [
+            "medicine",
+            "science",
+            "psychology",
+            "engineering",
+            "architecture",
+            "geology"
+          ],
+          "correctAnswers": ["medicine"],
+          "grammarRule": "'Medicine' is the subject a doctor studies."
+        },
+        {
+          "id": "t1-wb3",
+          "promptParts": {
+            "before": "A psychologist studies ",
+            "blank": "___",
+            "after": "."
+          },
+          "type": "single",
+          "options": [
+            "psychology",
+            "science",
+            "medicine",
+            "engineering",
+            "architecture",
+            "geology"
+          ],
+          "correctAnswers": ["psychology"],
+          "grammarRule": "'Psychology' is the subject a psychologist studies (the initial 'p' is silent when pronounced)."
+        },
+        {
+          "id": "t1-wb4",
+          "promptParts": {
+            "before": "An engineer studies ",
+            "blank": "___",
+            "after": "."
+          },
+          "type": "single",
+          "options": [
+            "engineering",
+            "science",
+            "medicine",
+            "psychology",
+            "architecture",
+            "geology"
+          ],
+          "correctAnswers": ["engineering"],
+          "grammarRule": "'Engineering' is the subject an engineer studies."
+        },
+        {
+          "id": "t1-wb5",
+          "promptParts": {
+            "before": "An architect studies ",
+            "blank": "___",
+            "after": "."
+          },
+          "type": "single",
+          "options": [
+            "architecture",
+            "science",
+            "medicine",
+            "psychology",
+            "engineering",
+            "geology"
+          ],
+          "correctAnswers": ["architecture"],
+          "grammarRule": "'Architecture' is the subject an architect studies."
+        },
+        {
+          "id": "t1-wb6",
+          "promptParts": {
+            "before": "A geologist studies ",
+            "blank": "___",
+            "after": "."
+          },
+          "type": "single",
+          "options": [
+            "geology",
+            "science",
+            "medicine",
+            "psychology",
+            "engineering",
+            "architecture"
+          ],
+          "correctAnswers": ["geology"],
+          "grammarRule": "'Geology' is the subject a geologist studies."
+        },
+        {
+          "id": "t1-vc1a",
+          "promptParts": {
+            "before": "A scientist ",
+            "blank": "___",
+            "after": " experiments and carries out research."
+          },
+          "type": "single",
+          "options": ["does", "makes"],
+          "correctAnswers": ["does"],
+          "grammarRule": "'Do an experiment' is the standard collocation; 'make an experiment' isn't natural English."
+        },
+        {
+          "id": "t1-vc1b",
+          "promptParts": {
+            "before": "A scientist does experiments and ",
+            "blank": "___",
+            "after": " research."
+          },
+          "type": "single",
+          "options": ["carries out", "makes"],
+          "correctAnswers": ["carries out"],
+          "grammarRule": "'Carry out research' is the standard collocation; 'make research' isn't natural English."
+        },
+        {
+          "id": "t1-vc2",
+          "promptParts": {
+            "before": "A psychologist ",
+            "blank": "___",
+            "after": " people's problems."
+          },
+          "type": "single",
+          "options": ["investigates", "looks"],
+          "correctAnswers": ["investigates"],
+          "grammarRule": "'Investigate' takes a direct object ('investigates problems'); 'look' would need 'look INTO problems' to work the same way."
+        },
+        {
+          "id": "t1-vc3",
+          "promptParts": {
+            "before": "An architect ",
+            "blank": "___",
+            "after": " plans of buildings."
+          },
+          "type": "single",
+          "options": ["draws", "writes"],
+          "correctAnswers": ["draws"],
+          "grammarRule": "'Draw (up) plans' is the standard collocation for creating building plans; 'write plans' isn't natural here."
+        },
+        {
+          "id": "t1-vc4",
+          "promptParts": {
+            "before": "An engineer ",
+            "blank": "___",
+            "after": " tests on roads and bridges."
+          },
+          "type": "single",
+          "options": ["carries out", "executes"],
+          "correctAnswers": ["carries out"],
+          "grammarRule": "'Carry out tests' is the standard collocation; 'execute' is more typically used for carrying out programs/commands, not physical tests."
+        },
+        {
+          "id": "t1-vc5",
+          "promptParts": {
+            "before": "A mathematician ",
+            "blank": "___",
+            "after": " calculations."
+          },
+          "type": "single",
+          "options": ["makes", "finds"],
+          "correctAnswers": ["makes"],
+          "grammarRule": "'Make a calculation' is a standard collocation; 'find a calculation' isn't natural English."
+        },
+        {
+          "id": "t1-vc6a",
+          "promptParts": {
+            "before": "A doctor ",
+            "blank": "___",
+            "after": " patients and gives advice."
+          },
+          "type": "single",
+          "options": ["cares", "treats"],
+          "correctAnswers": ["treats"],
+          "grammarRule": "'Treat patients' takes a direct object; 'care' would need 'care FOR patients' to work the same way."
+        },
+        {
+          "id": "t1-vc6b",
+          "promptParts": {
+            "before": "A doctor treats patients and ",
+            "blank": "___",
+            "after": " advice."
+          },
+          "type": "single",
+          "options": ["gives", "tells"],
+          "correctAnswers": ["gives"],
+          "grammarRule": "'Give advice' is the standard collocation; you 'tell someone something', but you 'give advice'."
+        },
+        {
+          "id": "t1-vc7a",
+          "promptParts": {
+            "before": "A geologist ",
+            "blank": "___",
+            "after": " rock samples and analyses them."
+          },
+          "type": "single",
+          "options": ["takes", "looks"],
+          "correctAnswers": ["takes"],
+          "grammarRule": "'Take samples' is the standard collocation; 'look' would need 'look AT samples' to work the same way."
+        },
+        {
+          "id": "t1-vc7b",
+          "promptParts": {
+            "before": "A geologist takes rock samples and ",
+            "blank": "___",
+            "after": " them."
+          },
+          "type": "single",
+          "options": ["analyses", "proves"],
+          "correctAnswers": ["analyses"],
+          "grammarRule": "'Analyse' fits examining samples scientifically; 'prove' doesn't fit this context."
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 2,
+      "sourceTaskName": "Vocabulary and Grammar Work, Task 2: Adjectives to describe jobs",
+      "questions": [
+        {
+          "id": "t2-q1",
+          "promptParts": {
+            "before": "Which adjective means \"making you feel that you want to sleep or rest\"? ",
+            "blank": "___",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "tiring",
+            "stressful",
+            "challenging",
+            "varied",
+            "creative",
+            "depressing",
+            "rewarding"
+          ],
+          "correctAnswers": ["tiring"],
+          "grammarRule": "'Tiring' describes something that makes you want to sleep or rest, often from physical or mental exhaustion."
+        },
+        {
+          "id": "t2-q2",
+          "promptParts": {
+            "before": "Which adjective means \"makes you worry a lot\"? ",
+            "blank": "___",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "stressful",
+            "tiring",
+            "challenging",
+            "varied",
+            "creative",
+            "depressing",
+            "rewarding"
+          ],
+          "correctAnswers": ["stressful"],
+          "grammarRule": "'Stressful' describes something that makes you worry or feel under pressure a lot."
+        },
+        {
+          "id": "t2-q3",
+          "promptParts": {
+            "before": "Which adjective means \"difficult in an interesting or enjoyable way\"? ",
+            "blank": "___",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "challenging",
+            "tiring",
+            "stressful",
+            "varied",
+            "creative",
+            "depressing",
+            "rewarding"
+          ],
+          "correctAnswers": ["challenging"],
+          "grammarRule": "'Challenging' describes something difficult in a way that's stimulating rather than just hard."
+        },
+        {
+          "id": "t2-q4",
+          "promptParts": {
+            "before": "Which adjective means \"involving different kinds of things or people\"? ",
+            "blank": "___",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "varied",
+            "tiring",
+            "stressful",
+            "challenging",
+            "creative",
+            "depressing",
+            "rewarding"
+          ],
+          "correctAnswers": ["varied"],
+          "grammarRule": "'Varied' describes something made up of many different kinds of things or people."
+        },
+        {
+          "id": "t2-q5",
+          "promptParts": {
+            "before": "Which adjective means \"producing or using new or imaginative ideas\"? ",
+            "blank": "___",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "creative",
+            "tiring",
+            "stressful",
+            "challenging",
+            "varied",
+            "depressing",
+            "rewarding"
+          ],
+          "correctAnswers": ["creative"],
+          "grammarRule": "'Creative' describes producing or using new, imaginative ideas."
+        },
+        {
+          "id": "t2-q6",
+          "promptParts": {
+            "before": "Which adjective means \"making you feel very sad\"? ",
+            "blank": "___",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "depressing",
+            "tiring",
+            "stressful",
+            "challenging",
+            "varied",
+            "creative",
+            "rewarding"
+          ],
+          "correctAnswers": ["depressing"],
+          "grammarRule": "'Depressing' describes something that makes you feel very sad or low."
+        },
+        {
+          "id": "t2-q7",
+          "promptParts": {
+            "before": "Which adjective means \"making you feel happy and satisfied because you're doing something useful or important\"? ",
+            "blank": "___",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "rewarding",
+            "tiring",
+            "stressful",
+            "challenging",
+            "varied",
+            "creative",
+            "depressing"
+          ],
+          "correctAnswers": ["rewarding"],
+          "grammarRule": "'Rewarding' describes something that makes you feel happy and satisfied because you feel you're doing something useful or important."
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 3,
+      "sourceTaskName": "Task 3: Making questions",
+      "questions": [
+        {
+          "id": "t3-a2",
+          "promptParts": {
+            "before": "Steve is asking Phil about his girlfriend Cinzia. Prompt: \"Which part of Italy / she / come from?\" Question: ",
+            "blank": "___",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Which part of Italy does she come from?",
+            "Which part of Italy she comes from?",
+            "Which part of Italy is she coming from?",
+            "Which part of Italy she does come from?"
+          ],
+          "correctAnswers": ["Which part of Italy does she come from?"],
+          "grammarRule": "Wh-questions about habitual facts need do-support and standard question word order: 'does she come from', not 'she comes from' or 'is she coming from' (which wrongly implies right now)."
+        },
+        {
+          "id": "t3-a3",
+          "promptParts": {
+            "before": "Prompt: \"How / you / meet / her?\" Question: ",
+            "blank": "___",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "How did you meet her?",
+            "How you met her?",
+            "How do you meet her?",
+            "How you did meet her?"
+          ],
+          "correctAnswers": ["How did you meet her?"],
+          "grammarRule": "A completed past event needs simple past with do-support and standard word order: 'did you meet', not 'you met' (missing auxiliary) or 'do you meet' (wrong tense)."
+        },
+        {
+          "id": "t3-a4",
+          "promptParts": {
+            "before": "Prompt: \"What / she / do for a living?\" Question: ",
+            "blank": "___",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "What does she do for a living?",
+            "What she does for a living?",
+            "What is she doing for a living?",
+            "What she do for a living?"
+          ],
+          "correctAnswers": ["What does she do for a living?"],
+          "grammarRule": "Asking about a permanent occupation needs present simple with do-support: 'does she do', not 'is she doing' (which wrongly implies right now) or 'she does' (wrong word order)."
+        },
+        {
+          "id": "t3-a5",
+          "promptParts": {
+            "before": "Prompt: \"When / she first / come / to England?\" Question: ",
+            "blank": "___",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "When did she first come to England?",
+            "When she first came to England?",
+            "When does she first come to England?",
+            "When has she first come to England?"
+          ],
+          "correctAnswers": ["When did she first come to England?"],
+          "grammarRule": "A specific past event needs simple past with do-support: 'did she first come', not 'she first came' (missing auxiliary/wrong word order)."
+        },
+        {
+          "id": "t3-a6",
+          "promptParts": {
+            "before": "Prompt: \"How well / she / speak English?\" Question: ",
+            "blank": "___",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "How well does she speak English?",
+            "How well she speaks English?",
+            "How well is she speaking English?",
+            "How well she does speak English?"
+          ],
+          "correctAnswers": ["How well does she speak English?"],
+          "grammarRule": "Asking about a general ability needs present simple with do-support: 'does she speak', not 'is she speaking' (which wrongly implies right now) or 'she speaks' (wrong word order)."
+        },
+        {
+          "id": "t3-a7",
+          "promptParts": {
+            "before": "Prompt: \"she / like / London?\" Question: ",
+            "blank": "___",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Does she like London?",
+            "She likes London?",
+            "Is she liking London?",
+            "She does like London?"
+          ],
+          "correctAnswers": ["Does she like London?"],
+          "grammarRule": "'Like' is a stative verb (not used in continuous form), and yes/no questions need do-support at the front: 'Does she like...?', not 'Is she liking...?' or 'She likes...?'."
+        },
+        {
+          "id": "t3-a8",
+          "promptParts": {
+            "before": "Prompt: \"she / have / a flat here?\" Question: ",
+            "blank": "___",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Does she have a flat here?",
+            "She has a flat here?",
+            "Is she having a flat here?",
+            "She does have a flat here?"
+          ],
+          "correctAnswers": ["Does she have a flat here?"],
+          "grammarRule": "'Have' (meaning 'possess') is a stative verb, and yes/no questions need do-support at the front: 'Does she have...?', not 'Is she having...?' or 'She has...?'."
+        },
+        {
+          "id": "t3-b1",
+          "promptParts": {
+            "before": "An official is asking Sarah questions about emigrating. Prompt: \"Where / your husband / born?\" Question: ",
+            "blank": "___",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Where was your husband born?",
+            "Where is your husband born?",
+            "Where did your husband born?",
+            "Where has your husband been born?"
+          ],
+          "correctAnswers": ["Where was your husband born?"],
+          "grammarRule": "Being born is a completed past event described with the passive 'be born': 'was your husband born', not 'did your husband born' (which wrongly adds 'did' to an already-past-participle verb)."
+        },
+        {
+          "id": "t3-b2",
+          "promptParts": {
+            "before": "Prompt: \"He / have any qualifications?\" Question: ",
+            "blank": "___",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Does he have any qualifications?",
+            "He has any qualifications?",
+            "Is he having any qualifications?",
+            "He does have any qualifications?"
+          ],
+          "correctAnswers": ["Does he have any qualifications?"],
+          "grammarRule": "'Have' (meaning 'possess') is a stative verb, and yes/no questions need do-support at the front: 'Does he have...?', not 'Is he having...?' or 'He has...?'."
+        },
+        {
+          "id": "t3-b3",
+          "promptParts": {
+            "before": "Prompt: \"How many children / you / have?\" Question: ",
+            "blank": "___",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "How many children do you have?",
+            "How many children you have?",
+            "How many children are you having?",
+            "How many children have you?"
+          ],
+          "correctAnswers": ["How many children do you have?"],
+          "grammarRule": "'Have' (meaning 'possess') needs do-support in modern questions: 'do you have', not 'are you having' (stative verb) or 'have you' (an older, now non-standard inversion for this meaning)."
+        },
+        {
+          "id": "t3-b4",
+          "promptParts": {
+            "before": "Prompt: \"How old / your children?\" Question: ",
+            "blank": "___",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "How old are your children?",
+            "How old do your children?",
+            "How old have your children?",
+            "How old is your children?"
+          ],
+          "correctAnswers": ["How old are your children?"],
+          "grammarRule": "'Old' is an adjective following the verb 'be' (not 'do' or 'have'), and 'children' is plural, so the verb must be 'are': 'How old are your children?'."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,316 @@
+{
+  "topicId": "computer-networks-participles",
+  "title": "Computer Networks: Participle Clauses",
+  "sourcePdf": "6. Computer Networks.pdf",
+  "exercises": [
+    {
+      "exerciseNumber": 4,
+      "sourceTaskName": "Task 4: Complete these definitions with the correct participle of the verb given in brackets",
+      "questions": [
+        {
+          "id": "t4-q1",
+          "promptParts": {
+            "before": "A gateway is an interface ",
+            "blank": "___",
+            "after": " (enable) dissimilar networks to communicate."
+          },
+          "type": "single",
+          "options": ["enabling", "enabled", "enables", "having enabled"],
+          "correctAnswers": ["enabling"],
+          "grammarRule": "The interface is the active agent that enables communication (= 'an interface which enables...'), so the active participle is needed: 'enabling'."
+        },
+        {
+          "id": "t4-q2",
+          "promptParts": {
+            "before": "A bridge is a hardware and software combination ",
+            "blank": "___",
+            "after": " (use) to connect the same type of networks."
+          },
+          "type": "single",
+          "options": ["used", "using", "uses", "having used"],
+          "correctAnswers": ["used"],
+          "grammarRule": "The combination doesn't use itself — it IS used (by someone) to connect networks (= 'a combination which is used...'), so the passive participle is needed: 'used'."
+        },
+        {
+          "id": "t4-q3",
+          "promptParts": {
+            "before": "A backbone is network transmission path ",
+            "blank": "___",
+            "after": " (handle) major data traffic."
+          },
+          "type": "single",
+          "options": ["handling", "handled", "handles", "having handled"],
+          "correctAnswers": ["handling"],
+          "grammarRule": "The path is the active agent that handles traffic (= 'a path which handles...'), so the active participle is needed: 'handling'."
+        },
+        {
+          "id": "t4-q4",
+          "promptParts": {
+            "before": "A router is a special computer ",
+            "blank": "___",
+            "after": " (direct) messages when several networks are linked."
+          },
+          "type": "single",
+          "options": ["directing", "directed", "directs", "having directed"],
+          "correctAnswers": ["directing"],
+          "grammarRule": "The router is the active agent that directs messages (= 'a computer which directs...'), so the active participle is needed: 'directing'."
+        },
+        {
+          "id": "t4-q5",
+          "promptParts": {
+            "before": "A network is a number of computers and peripherals ",
+            "blank": "___",
+            "after": " (link) together."
+          },
+          "type": "single",
+          "options": ["linked", "linking", "links", "having linked"],
+          "correctAnswers": ["linked"],
+          "grammarRule": "The computers and peripherals don't link themselves — they ARE linked together (by cabling/software) (= 'a number of things which are linked...'), so the passive participle is needed: 'linked'."
+        },
+        {
+          "id": "t4-q6",
+          "promptParts": {
+            "before": "A LAN is a network ",
+            "blank": "___",
+            "after": " (connect) computers over a small distance such as within the company."
+          },
+          "type": "single",
+          "options": [
+            "connecting",
+            "connected",
+            "connects",
+            "having connected"
+          ],
+          "correctAnswers": ["connecting"],
+          "grammarRule": "The network is the active agent that connects the computers (= 'a network which connects...'), so the active participle is needed: 'connecting'."
+        },
+        {
+          "id": "t4-q7a",
+          "promptParts": {
+            "before": "A server is a powerful computer ",
+            "blank": "___",
+            "after": " (store) many programs shared by all the clients in the network."
+          },
+          "type": "single",
+          "options": ["storing", "stored", "stores", "having stored"],
+          "correctAnswers": ["storing"],
+          "grammarRule": "The server is the active agent that stores programs (= 'a computer which stores...'), so the active participle is needed: 'storing'."
+        },
+        {
+          "id": "t4-q7b",
+          "promptParts": {
+            "before": "A server is a powerful computer storing many programs ",
+            "blank": "___",
+            "after": " by all the clients in the network."
+          },
+          "type": "single",
+          "options": ["shared", "sharing", "shares", "having shared"],
+          "correctAnswers": ["shared"],
+          "grammarRule": "The programs don't share themselves — they ARE shared (by/among the clients) (= 'programs which are shared...'), so the passive participle is needed: 'shared'."
+        },
+        {
+          "id": "t4-q8",
+          "promptParts": {
+            "before": "A client is a network computer ",
+            "blank": "___",
+            "after": " (use) for accessing a service on a server."
+          },
+          "type": "single",
+          "options": ["used", "using", "uses", "having used"],
+          "correctAnswers": ["used"],
+          "grammarRule": "The client computer doesn't use itself — it IS used (by a person) for accessing a service (= 'a computer which is used...'), so the passive participle is needed: 'used'."
+        },
+        {
+          "id": "t4-q9",
+          "promptParts": {
+            "before": "A thin client is a simple computer ",
+            "blank": "___",
+            "after": " (comprise) a processor and memory, display, keyboard, mouse and hard drives only."
+          },
+          "type": "single",
+          "options": [
+            "comprising",
+            "comprised",
+            "comprises",
+            "having comprised"
+          ],
+          "correctAnswers": ["comprising"],
+          "grammarRule": "The computer is the active agent that comprises (contains) these parts (= 'a computer which comprises...'), so the active participle is needed: 'comprising'."
+        },
+        {
+          "id": "t4-q10",
+          "promptParts": {
+            "before": "A hub is an electronic device ",
+            "blank": "___",
+            "after": " (connect) all the data cabling in a network."
+          },
+          "type": "single",
+          "options": [
+            "connecting",
+            "connected",
+            "connects",
+            "having connected"
+          ],
+          "correctAnswers": ["connecting"],
+          "grammarRule": "The hub is the active agent that connects the cabling (= 'a device which connects...'), so the active participle is needed: 'connecting'."
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 5,
+      "sourceTaskName": "Task 5: Link these statements using a relative clause with a participle",
+      "questions": [
+        {
+          "id": "t5-q1",
+          "promptParts": {
+            "before": "The technology ",
+            "blank": "___",
+            "after": " to set up a home network is here today."
+          },
+          "type": "single",
+          "options": ["needed", "needing", "needs", "having needed"],
+          "correctAnswers": ["needed"],
+          "grammarRule": "Since 'the technology' doesn't need anything itself — it IS needed (by someone) — this requires the passive participle: 'needed to set up...'. (From: 'The technology is here today' + 'It is needed to set up a home network'.)"
+        },
+        {
+          "id": "t5-q2",
+          "promptParts": {
+            "before": "You only need one network printer ",
+            "blank": "___",
+            "after": " to the server."
+          },
+          "type": "single",
+          "options": [
+            "connected",
+            "connecting",
+            "connects",
+            "having connected"
+          ],
+          "correctAnswers": ["connected"],
+          "grammarRule": "The printer doesn't connect itself — it IS connected (by someone) — so the passive participle is needed: 'connected to the server'."
+        },
+        {
+          "id": "t5-q3",
+          "promptParts": {
+            "before": "Her house has a network ",
+            "blank": "___",
+            "after": " basic file-sharing and multi-player gaming."
+          },
+          "type": "single",
+          "options": ["allowing", "allowed", "allows", "having allowed"],
+          "correctAnswers": ["allowing"],
+          "grammarRule": "The network is the active agent that allows file-sharing — active participle: 'allowing basic file-sharing...'."
+        },
+        {
+          "id": "t5-q4",
+          "promptParts": {
+            "before": "There is a line receiver in the living room ",
+            "blank": "___",
+            "after": " home entertainment audio to speakers."
+          },
+          "type": "single",
+          "options": [
+            "delivering",
+            "delivered",
+            "delivers",
+            "having delivered"
+          ],
+          "correctAnswers": ["delivering"],
+          "grammarRule": "The receiver is the active agent that delivers audio — active participle: 'delivering home entertainment audio...'."
+        },
+        {
+          "id": "t5-q5",
+          "promptParts": {
+            "before": "Eve has designed a site ",
+            "blank": "___",
+            "after": " to dance."
+          },
+          "type": "single",
+          "options": [
+            "dedicated",
+            "dedicating",
+            "dedicates",
+            "having dedicated"
+          ],
+          "correctAnswers": ["dedicated"],
+          "grammarRule": "The site doesn't dedicate itself — it IS dedicated (by Eve) — passive participle: 'dedicated to dance'."
+        },
+        {
+          "id": "t5-q6",
+          "promptParts": {
+            "before": "She has built in links ",
+            "blank": "___",
+            "after": " her site to other dance sites."
+          },
+          "type": "single",
+          "options": [
+            "connecting",
+            "connected",
+            "connects",
+            "having connected"
+          ],
+          "correctAnswers": ["connecting"],
+          "grammarRule": "The links are the active agent that connects the sites — active participle: 'connecting her site to other dance sites'."
+        },
+        {
+          "id": "t5-q7",
+          "promptParts": {
+            "before": "She created the site using a program called Netscape Composer ",
+            "blank": "___",
+            "after": " in Netscape Communicator."
+          },
+          "type": "single",
+          "options": [
+            "contained",
+            "containing",
+            "contains",
+            "having contained"
+          ],
+          "correctAnswers": ["contained"],
+          "grammarRule": "The program doesn't contain itself — it IS contained (within Netscape Communicator) — passive participle: 'contained in Netscape Communicator'."
+        },
+        {
+          "id": "t5-q8",
+          "promptParts": {
+            "before": "The network can simulate the owner's presence, ",
+            "blank": "___",
+            "after": " sure vital tasks are carried out in her absence."
+          },
+          "type": "single",
+          "options": ["making", "made", "makes", "having made"],
+          "correctAnswers": ["making"],
+          "grammarRule": "The network is the active agent that makes sure tasks are carried out — active participle: 'making sure vital tasks are carried out...'."
+        },
+        {
+          "id": "t5-q9a",
+          "promptParts": {
+            "before": "The house has an electronic door-keeper ",
+            "blank": "___",
+            "after": " to recognize you."
+          },
+          "type": "single",
+          "options": [
+            "programmed",
+            "programming",
+            "programs",
+            "having programmed"
+          ],
+          "correctAnswers": ["programmed"],
+          "grammarRule": "The door-keeper doesn't program itself — it IS programmed (by someone) — passive participle: 'programmed to recognize you'."
+        },
+        {
+          "id": "t5-q9b",
+          "promptParts": {
+            "before": "The house has an electronic door-keeper programmed to recognize you, ",
+            "blank": "___",
+            "after": " access to family only."
+          },
+          "type": "single",
+          "options": ["giving", "given", "gives", "having given"],
+          "correctAnswers": ["giving"],
+          "grammarRule": "The door-keeper is the active agent that gives access — active participle: 'giving access to family only'."
+        }
+      ]
+    }
+  ]
+}

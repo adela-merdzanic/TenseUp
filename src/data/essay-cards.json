@@ -19,7 +19,7 @@
       "more": [
         "Key tasks: processor management, memory management, device management (drivers translate signals between the OS and hardware), application interface (APIs), user interface.",
         "Four general types: real-time (RTOS, controls machinery), single-user single-task (PDAs), single-user multi-tasking (most PCs), multi-user multi-tasking.",
-        "Partial-credit examples of operating systems: Windows, Linux, macOS, FreeBSD, Android, iOS."
+        "Examples of operating systems: Windows, Linux, macOS, FreeBSD, Android, iOS."
       ]
     },
     {
@@ -50,7 +50,7 @@
       "more": [
         "A kernel is the core of an OS: it handles memory allocation, talks to hardware devices and keeps everything running.",
         "Today Linux powers phones, tablets, routers, game consoles, desktops, mainframes and supercomputers; the Linux Foundation is the non-profit fostering its growth.",
-        "If years slip your mind, the safe story: a Finnish student wrote the kernel as a hobby project in the early 90s, the free-software GNU Project supplied the rest, and the combination became GNU/Linux."
+        "In short: a Finnish student wrote the kernel as a hobby project in the early 90s, the free-software GNU Project supplied the rest, and the combination became GNU/Linux."
       ]
     },
     {
@@ -79,7 +79,7 @@
       "mnemonic": "GNU = \"GNU's Not Unix\" - a recursive acronym.",
       "more": [
         "GNU supplied the compiler, utilities and tools; Linux supplied the kernel - together they form GNU/Linux.",
-        "Even if you forget the dates, remember the pairing: Stallman = ideology and GNU; Torvalds = the kernel."
+        "Key pairing: Stallman = ideology and GNU; Torvalds = the kernel."
       ]
     },
     {
@@ -92,7 +92,7 @@
         "His work led to the GNU/Linux operating system ecosystem and the open-source movement as we know it."
       ],
       "more": [
-        "Anchor for the exam: Stallman and Torvalds are two different people - Stallman started the free-software movement and GNU, Torvalds wrote the Linux kernel eight years later."
+        "Stallman and Torvalds are two different people - Stallman started the free-software movement and GNU, Torvalds wrote the Linux kernel eight years later."
       ]
     },
     {
@@ -105,7 +105,7 @@
         "The name is also used collectively for its modern descendants - one of several branches of Unix operating systems."
       ],
       "mnemonic": "BSD = Berkeley + Unix + the 1970s.",
-      "more": ["Modern descendants worth naming: FreeBSD, OpenBSD, NetBSD."]
+      "more": ["Modern descendants: FreeBSD, OpenBSD, NetBSD."]
     },
     {
       "id": "what-is-freebsd",
@@ -117,7 +117,7 @@
         "It is regarded as very reliable and robust - the most common free OS on Netcraft's list of the 50 web servers with the longest uptime."
       ],
       "more": [
-        "Features worth listing: preemptive multitasking, multi-user facilities, strong TCP/IP networking, memory protection, X Window System (GUI), thousands of ready-to-run applications, extensive documentation.",
+        "Key features: preemptive multitasking, multi-user facilities, strong TCP/IP networking, memory protection, X Window System (GUI), thousands of ready-to-run applications, extensive documentation.",
         "It can also run most Linux programs thanks to binary compatibility."
       ]
     },
@@ -133,7 +133,7 @@
       "mnemonic": "FreeBSD = one tree, whole OS; Linux = kernel + kit of parts.",
       "more": [
         "Both are considered very stable; FreeBSD's reputation comes from those record server uptimes (Netcraft list).",
-        "BSD variants to mention: FreeBSD, OpenBSD, NetBSD; Linux distributions: Ubuntu, Fedora, openSUSE."
+        "BSD variants: FreeBSD, OpenBSD, NetBSD; Linux distributions: Ubuntu, Fedora, openSUSE."
       ]
     },
     {
@@ -146,7 +146,7 @@
         "This makes FreeBSD very flexible: users get the large Linux software ecosystem without running Linux natively."
       ],
       "more": [
-        "If the term slips your mind, describe it in plain words: FreeBSD can run Linux software directly, so you don't have to choose between the two ecosystems."
+        "In plain words: FreeBSD can run Linux software directly, so you don't have to choose between the two ecosystems."
       ]
     },
     {
@@ -160,7 +160,7 @@
       ],
       "mnemonic": "X = ten (Roman numeral), not the letter.",
       "more": [
-        "Deeper detail if you remember it: OS X is built on NeXTSTEP and the Mach kernel, and it is the basis for iOS on iPhones and iPads.",
+        "Deeper detail: OS X is built on NeXTSTEP and the Mach kernel, and it is the basis for iOS on iPhones and iPads.",
         "Fun fact: Apple introduced the Macintosh with the famous \"1984\" commercial aired during the Super Bowl."
       ]
     },
@@ -173,7 +173,7 @@
         "Networks allow sharing of data and files, sharing of peripherals (printers, scanners), communication between users, and access to shared processing power."
       ],
       "more": [
-        "Key components to name for extra points: file servers, bridges, routers, gateways, backbones, LANs, modems, hubs."
+        "Key components: file servers, bridges, routers, gateways, backbones, LANs, modems, hubs."
       ]
     },
     {
@@ -186,7 +186,7 @@
       ],
       "mnemonic": "Advantages = sharing + communication; disadvantages = security + dependence + cost.",
       "more": [
-        "A strong closing sentence: most disadvantages (security, congestion, server dependence) can be managed with firewalls, backups and good administration, so the benefits usually outweigh them."
+        "Most disadvantages (security, congestion, server dependence) can be managed with firewalls, backups and good administration, so the benefits usually outweigh them."
       ]
     },
     {
@@ -198,7 +198,7 @@
       ],
       "more": [
         "Physical topology = how the cables are laid out; logical topology = how the data actually travels.",
-        "Be ready to name the common ones: bus, star, ring, mesh."
+        "The common topologies: bus, star, ring, mesh."
       ]
     },
     {
@@ -229,7 +229,7 @@
       ],
       "mnemonic": "One cable = one point of failure.",
       "more": [
-        "Historical note for context: early Ethernet networks really were a bus on coaxial cable, before star wiring with hubs and switches took over."
+        "Historical note: early Ethernet networks really were a bus on coaxial cable, before star wiring with hubs and switches took over."
       ]
     },
     {
@@ -273,7 +273,7 @@
       ],
       "mnemonic": "PAN = one Person, a few meters.",
       "more": [
-        "Everyday example to offer: your phone, smartwatch and wireless earbuds connected over Bluetooth form a PAN."
+        "Everyday example: your phone, smartwatch and wireless earbuds connected over Bluetooth form a PAN."
       ]
     },
     {
@@ -311,7 +311,7 @@
         "It requires security and privacy: firewall server management, digital certificates, user authentication, message encryption, VPNs (Virtual Private Networks)."
       ],
       "more": [
-        "Example to offer: a supplier logging into a company's ordering system - an outsider working securely inside one part of the company network."
+        "Example: a supplier logging into a company's ordering system - an outsider working securely inside one part of the company network."
       ]
     },
     {
@@ -325,7 +325,7 @@
       ],
       "mnemonic": "Intra = inside the company; extra = extended outside.",
       "more": [
-        "One-line summary that earns points: an extranet is an intranet extended to trusted outsiders."
+        "One-line summary: an extranet is an intranet extended to trusted outsiders."
       ]
     },
     {
@@ -338,8 +338,8 @@
         "Pages are organized into websites, maintained by a webmaster; the Web carries interactive multimedia information and has become a real information highway."
       ],
       "more": [
-        "Partial-credit fact: the Web was invented by Tim Berners-Lee at CERN around 1990.",
-        "Key vocabulary to drop in: hypertext, hyperlink, client, server, browser, website, webmaster."
+        "The Web was invented by Tim Berners-Lee at CERN around 1990.",
+        "Key vocabulary: hypertext, hyperlink, client, server, browser, website, webmaster."
       ]
     },
     {
@@ -353,7 +353,7 @@
       ],
       "mnemonic": "Internet = infrastructure (TCP/IP); Web = one service on it (HTTP).",
       "more": [
-        "One-sentence version for the exam: the Internet is the network; the Web is one of the services that uses it."
+        "One-sentence version: the Internet is the network; the Web is one of the services that uses it."
       ]
     },
     {
@@ -367,7 +367,7 @@
       ],
       "mnemonic": "IP = who you are + where you are on the network.",
       "more": [
-        "Versions worth mentioning: IPv4 (numbers like 192.168.0.1) and the newer IPv6, introduced because IPv4 addresses were running out."
+        "Versions: IPv4 (numbers like 192.168.0.1) and the newer IPv6, introduced because IPv4 addresses were running out."
       ]
     },
     {
@@ -431,10 +431,7 @@
         "A URL (Uniform Resource Locator) is the address of a resource on the World Wide Web - it tells the browser exactly where to find a web page.",
         "Example breakdown of http://www.hw.ac.uk/libWWW/irn/irn.html: protocol prefix (http://), web service indicator (www), domain name (hw.ac), country code (uk), directory path (libWWW/irn/), document name (irn.html)."
       ],
-      "mnemonic": "Protocol + www + domain + country + path + document.",
-      "more": [
-        "If you can't recall the sample URL, invent a simple one and label its parts - the labels carry the points."
-      ]
+      "mnemonic": "Protocol + www + domain + country + path + document."
     },
     {
       "id": "gateway-and-url",
@@ -447,7 +444,7 @@
       ],
       "mnemonic": "Gateway = the way out of your network; URL = the destination address.",
       "more": [
-        "If asked separately, keep the split clear: a gateway is a network device, a URL is a text address - they meet only in the browsing process."
+        "The split: a gateway is a network device, a URL is a text address - they meet only in the browsing process."
       ]
     },
     {
@@ -487,7 +484,7 @@
         "It is a decentralized network architecture."
       ],
       "more": [
-        "Partial-credit examples of P2P in practice: file sharing (BitTorrent) and cryptocurrency networks."
+        "Examples of P2P in practice: file sharing (BitTorrent) and cryptocurrency networks."
       ]
     },
     {
@@ -500,7 +497,7 @@
       ],
       "mnemonic": "More peers = more capacity; no boss = harder security.",
       "more": [
-        "Known example for extra points: BitTorrent file sharing - each downloader also uploads, which is exactly why capacity grows as more peers join."
+        "Known example: BitTorrent file sharing - each downloader also uploads, which is exactly why capacity grows as more peers join."
       ]
     },
     {
@@ -578,7 +575,7 @@
         "Examples: Wi-Fi (wireless LAN in homes, offices, cafes), Bluetooth (short-range - headphones, keyboards; used in PANs), mobile data 2G/3G/4G/5G (cellular Internet), GPS (satellite positioning), satellite Internet (remote areas), IrDA (infrared, line-of-sight, e.g. TV remotes), WiMAX (wide-area wireless broadband)."
       ],
       "more": [
-        "For each example be ready to add one use: Wi-Fi at home and in cafes, Bluetooth for accessories, GPS for navigation, satellite Internet where cables don't reach.",
+        "One use for each example: Wi-Fi at home and in cafes, Bluetooth for accessories, GPS for navigation, satellite Internet where cables don't reach.",
         "Fun fact: Bluetooth is named after the 10th-century Scandinavian king Harald Bluetooth."
       ]
     },
@@ -605,7 +602,7 @@
         "Instead of owning their own infrastructure, organizations rent access to computing resources from a cloud provider, typically pay-as-you-go."
       ],
       "more": [
-        "Partial-credit examples: Google Drive, Dropbox, Microsoft OneDrive as everyday cloud storage; AWS and Microsoft Azure as cloud platforms."
+        "Examples: Google Drive, Dropbox, Microsoft OneDrive as everyday cloud storage; AWS and Microsoft Azure as cloud platforms."
       ]
     },
     {
@@ -618,7 +615,7 @@
       ],
       "mnemonic": "The cloud trades control for convenience.",
       "more": [
-        "Terms that impress if you remember them: public, private and hybrid cloud; service models IaaS, PaaS and SaaS."
+        "Related terms: public, private and hybrid cloud; service models IaaS, PaaS and SaaS."
       ]
     },
     {
@@ -632,7 +629,7 @@
       ],
       "mnemonic": "SMTP Sends; POP Pulls off the post; IMAP stays In place.",
       "more": [
-        "One practical sentence for extra points: modern mail apps use IMAP because people read mail on both phone and laptop."
+        "In practice: modern mail apps use IMAP because people read mail on both phone and laptop."
       ]
     },
     {
@@ -646,7 +643,7 @@
       ],
       "mnemonic": "Design, navigation, accuracy, freshness, speed, contact.",
       "more": [
-        "An easy structure for the written answer: design + navigation + content (accurate, updated) + technical (fast, compatible) + contact information."
+        "An easy structure to remember: design + navigation + content (accurate, updated) + technical (fast, compatible) + contact information."
       ]
     },
     {
@@ -659,7 +656,7 @@
       ],
       "mnemonic": "JPEG = photos with many colors; GIF = simple graphics and icons.",
       "more": [
-        "If the element list slips your mind, walk through any web page you know and name what you see: text, links, images, tables, video - that recall trick covers most of the answer."
+        "A practical way to recall the list: walk through any web page you know and name what you see - text, links, images, tables, video."
       ]
     },
     {
@@ -673,7 +670,7 @@
       ],
       "mnemonic": "Eight sins: bad name, bad design, slow, stale, broken, unreachable, unmeasured, cheap hosting.",
       "more": [
-        "Each mistake is the negation of a rule from \"what makes a good website\" - if you remember one list, you can derive the other."
+        "Each mistake is the negation of a rule from \"what makes a good website\" - the two lists mirror each other."
       ]
     },
     {
@@ -688,20 +685,20 @@
       "mnemonic": "URL, DNS, IP, routers, server, page, display.",
       "more": [
         "Extra detail: you can bookmark a page to return to it easily, or use the Home button to go back to your start page.",
-        "Name the roles for extra points: your computer is the client, the DNS server resolves the name, routers forward packets, the web server hosts the page."
+        "The roles: your computer is the client, the DNS server resolves the name, routers forward packets, the web server hosts the page."
       ]
     },
     {
       "id": "exam-combo-tcp-dns-star",
       "category": "networks",
-      "question": "Exam combo: explain TCP, DNS, and the advantages and disadvantages of the star topology.",
+      "question": "Explain TCP, DNS, and the advantages and disadvantages of the star topology.",
       "core": [
         "TCP provides reliable, ordered and error-checked delivery of data packets across the Internet - data sent from one computer arrives correctly at the other.",
         "DNS translates human-readable domain names (www.fit.ba) into the IP addresses computers use to locate each other.",
         "Star topology: easy to add or remove devices, one failure affects only that device, easy to troubleshoot; but the central hub is a single point of failure and it needs more cabling and cost than bus."
       ],
       "more": [
-        "This question just recombines three earlier answers - if it appears, answer each part separately and briefly."
+        "This combines three earlier cards - answer each part separately and briefly."
       ]
     }
   ]

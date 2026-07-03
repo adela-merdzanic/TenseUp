@@ -15,11 +15,48 @@ for (const topic of manifest.topics) {
     errors.push(`${topic.topicId}: file missing (${topic.file})`);
     continue;
   }
-  const data = JSON.parse(fs.readFileSync(file, "utf8"));
+  let data;
+  try {
+    data = JSON.parse(fs.readFileSync(file, "utf8"));
+  } catch (err) {
+    errors.push(
+      `${topic.topicId}: invalid JSON in ${topic.file} (${err && err.message ? err.message : err})`,
+    );
+    continue;
+  }
   const ids = new Set();
+  if (!data || !Array.isArray(data.exercises)) {
+    errors.push(`${topic.topicId}: missing exercises[] array (${topic.file})`);
+    continue;
+  }
   for (const exercise of data.exercises) {
+    if (!exercise || !Array.isArray(exercise.questions)) {
+      errors.push(
+        `${topic.topicId}: exercise missing questions[] array (${topic.file})`,
+      );
+      continue;
+    }
     for (const q of exercise.questions) {
+      if (!q || typeof q.id !== "string" || q.id.trim() === "") {
+        errors.push(`${topic.topicId}: question missing string id (${topic.file})`);
+        continue;
+      }
       const label = `${topic.topicId}/${q.id}`;
+      if (q.type !== "single" && q.type !== "multiple") {
+        errors.push(
+          `${label}: invalid type "${q.type}" (expected "single" or "multiple")`,
+        );
+      }
+      if (
+        !q.promptParts ||
+        typeof q.promptParts.before !== "string" ||
+        typeof q.promptParts.after !== "string"
+      ) {
+        errors.push(`${label}: missing promptParts.before/after`);
+      }
+      if (typeof q.grammarRule !== "string" || q.grammarRule.trim() === "") {
+        errors.push(`${label}: missing grammarRule`);
+      }
       if (ids.has(q.id)) errors.push(`${label}: duplicate id`);
       ids.add(q.id);
       const optionsOk = Array.isArray(q.options) && q.options.length >= 2;
@@ -47,8 +84,10 @@ for (const card of essay.cards) {
   cardIds.add(card.id);
   if (!categoryIds.has(card.category))
     errors.push(`essay/${card.id}: unknown category "${card.category}"`);
-  if (!card.core || card.core.length === 0)
-    errors.push(`essay/${card.id}: empty core answer`);
+  const coreOk = Array.isArray(card.core) && card.core.length > 0;
+  if (!coreOk) errors.push(`essay/${card.id}: core must be a non-empty array`);
+  const moreOk = card.more === undefined || Array.isArray(card.more);
+  if (!moreOk) errors.push(`essay/${card.id}: more must be an array if present`);
 }
 
 if (errors.length) {

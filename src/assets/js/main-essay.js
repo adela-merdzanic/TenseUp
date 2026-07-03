@@ -136,7 +136,8 @@ function renderMastery(box) {
     "aria-label",
     `Mastery ${Math.min(box, MASTERED_BOX)}/${MASTERED_BOX}`,
   );
-  qs("#mastery").title = `Mastery ${Math.min(box, MASTERED_BOX)}/${MASTERED_BOX}`;
+  qs("#mastery").title =
+    `Mastery ${Math.min(box, MASTERED_BOX)}/${MASTERED_BOX}`;
 }
 
 function showCard() {
@@ -214,7 +215,9 @@ function showDone() {
 
   const boxes = getBoxes();
   const pool = filteredPool();
-  const mastered = pool.filter((c) => (boxes[c.id] ?? 0) >= MASTERED_BOX).length;
+  const mastered = pool.filter(
+    (c) => (boxes[c.id] ?? 0) >= MASTERED_BOX,
+  ).length;
   const tricky = pool.filter((c) => (boxes[c.id] ?? 0) === 0).length;
   const learning = pool.length - mastered - tricky;
 

@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: npx prettier --check "src/**/*.{html,css,js,json}" "*.md"
+      - run: npx --yes prettier@3 --check "src/**/*.{html,css,js,json}" "scripts/**/*.js" ".github/workflows/**/*.{yml,yaml}" "*.md"
 
   validate-data:
     runs-on: ubuntu-latest

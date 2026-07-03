@@ -22,11 +22,16 @@ for (const topic of manifest.topics) {
       const label = `${topic.topicId}/${q.id}`;
       if (ids.has(q.id)) errors.push(`${label}: duplicate id`);
       ids.add(q.id);
-      if (!q.options || q.options.length < 2)
-        errors.push(`${label}: needs at least 2 options`);
-      for (const answer of q.correctAnswers) {
-        if (!q.options.includes(answer))
-          errors.push(`${label}: correct answer "${answer}" not in options`);
+      const optionsOk = Array.isArray(q.options) && q.options.length >= 2;
+      if (!optionsOk) errors.push(`${label}: needs at least 2 options`);
+      const answersOk =
+        Array.isArray(q.correctAnswers) && q.correctAnswers.length > 0;
+      if (!answersOk) errors.push(`${label}: missing correctAnswers`);
+      if (optionsOk && answersOk) {
+        for (const answer of q.correctAnswers) {
+          if (!q.options.includes(answer))
+            errors.push(`${label}: correct answer "${answer}" not in options`);
+        }
       }
     }
   }

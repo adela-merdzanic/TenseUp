@@ -50,19 +50,18 @@ a {
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 }
 
-/* Pushes the nav/readout and theme toggle to the right edge. */
+/* Pushes the nav and theme toggle to the right edge. */
 .app-header .app-logo {
   margin-right: auto;
 }
 
-.header-right,
 .header-nav {
   display: flex;
   align-items: center;
   gap: calc(var(--spacing-unit) * 2);
 }
 
-/* On narrow screens the nav/readout drops to its own full-width row,
+/* On narrow screens the nav drops to its own full-width row,
    leaving logo + theme toggle on the first row. */
 @media (max-width: 560px) {
   .app-header {
@@ -71,16 +70,16 @@ a {
     row-gap: calc(var(--spacing-unit) * 1.5);
   }
 
-  .header-nav,
-  .header-right {
+  .header-nav {
     order: 3;
     width: 100%;
     justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: var(--spacing-unit);
   }
 }
 
-.header-nav a:not(.btn),
-.header-link {
+.header-nav a:not(.btn) {
   color: var(--color-header-muted);
   text-decoration: none;
   font-size: 0.9rem;
@@ -88,8 +87,7 @@ a {
   transition: color 0.15s ease;
 }
 
-.header-nav a:not(.btn):hover,
-.header-link:hover {
+.header-nav a:not(.btn):hover {
   color: var(--color-header-text);
 }
 

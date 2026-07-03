@@ -1,0 +1,160 @@
+.question-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: calc(var(--spacing-unit) * 3);
+  margin-top: calc(var(--spacing-unit) * 2);
+  box-shadow: var(--shadow-card);
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-unit);
+}
+
+.essay-category {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-muted);
+  margin: 0;
+}
+
+/* Per-card mastery ring: fills by thirds with each "Knew it". */
+.mastery {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+}
+
+.mastery svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.mastery-track,
+.mastery-fill {
+  fill: none;
+  stroke-width: 5;
+}
+
+.mastery-track {
+  stroke: var(--color-border);
+}
+
+.mastery-fill {
+  stroke: var(--color-primary);
+  stroke-linecap: round;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  transition: stroke-dashoffset 0.3s ease;
+}
+
+.essay-question {
+  font-size: 1.3rem;
+  margin: 0 0 calc(var(--spacing-unit) * 2);
+}
+
+.answer-core {
+  padding-left: 1.2rem;
+  margin: 0;
+}
+
+.answer-core li {
+  margin-bottom: var(--spacing-unit);
+}
+
+.mnemonic {
+  background: color-mix(in srgb, var(--color-primary) 8%, var(--color-surface));
+  border-left: 3px solid var(--color-primary);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: var(--spacing-unit) calc(var(--spacing-unit) * 1.5);
+  margin: calc(var(--spacing-unit) * 2) 0 0;
+  font-size: 0.95rem;
+}
+
+.card-diagram {
+  margin-top: calc(var(--spacing-unit) * 2);
+  text-align: center;
+}
+
+.card-diagram svg {
+  width: 100%;
+  max-width: 320px;
+}
+
+.diag-bus {
+  stroke: var(--color-primary);
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.diag-line {
+  stroke: var(--color-muted);
+  stroke-width: 2;
+}
+
+.diag-node {
+  fill: var(--color-surface-2);
+  stroke: var(--color-border);
+  stroke-width: 1.5;
+}
+
+.diag-hub {
+  fill: var(--color-primary);
+}
+
+.answer-more {
+  margin-top: calc(var(--spacing-unit) * 2);
+}
+
+.answer-more summary {
+  cursor: pointer;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.answer-more ul {
+  color: var(--color-muted);
+  padding-left: 1.2rem;
+  margin: var(--spacing-unit) 0 0;
+}
+
+.answer-more li {
+  margin-bottom: calc(var(--spacing-unit) / 2);
+}
+
+.grade-actions {
+  margin-top: calc(var(--spacing-unit) * 3);
+}
+
+.grade-actions .btn {
+  flex: 1 1 0;
+  text-align: center;
+}
+
+.grade-pass {
+  border-color: var(--color-correct);
+  color: var(--color-correct);
+}
+
+.grade-pass:hover {
+  background: var(--color-correct-bg);
+  border-color: var(--color-correct);
+}
+
+.grade-fail {
+  border-color: var(--color-incorrect);
+  color: var(--color-incorrect);
+}
+
+.grade-fail:hover {
+  background: var(--color-incorrect-bg);
+  border-color: var(--color-incorrect);
+}

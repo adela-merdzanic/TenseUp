@@ -26,13 +26,8 @@
   margin-top: calc(var(--spacing-unit) * 4);
 }
 
-.home-side {
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--spacing-unit) * 3);
-}
-
-/* Laptop: wider container, left-aligned hero, setup card beside a sidebar. */
+/* Laptop: wider container, left-aligned hero, the two feature cards
+   side by side. */
 @media (min-width: 880px) {
   .container.home-screen {
     max-width: 960px;
@@ -42,13 +37,14 @@
     text-align: left;
   }
 
-  .app-subtitle {
+  .app-subtitle,
+  .stats-text {
     margin-left: 0;
   }
 
   .home-grid {
     display: grid;
-    grid-template-columns: 1.6fr 1fr;
+    grid-template-columns: 1fr 1fr;
     align-items: start;
   }
 }
@@ -61,9 +57,30 @@
   box-shadow: var(--shadow-card);
 }
 
+/* Each feature card carries its own accent color (top edge + icon). */
+.setup-card {
+  border-top: 3px solid var(--card-accent, var(--color-border));
+}
+
+.card-grammar {
+  --card-accent: var(--color-primary);
+}
+
+.card-essay {
+  --card-accent: var(--color-accent-essay);
+}
+
 .card-title {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-unit);
   font-size: 1.05rem;
   margin: 0 0 calc(var(--spacing-unit) * 2);
+}
+
+.card-icon {
+  flex-shrink: 0;
+  color: var(--card-accent, var(--color-muted));
 }
 
 /* --- Practice setup card --- */
@@ -210,20 +227,43 @@
   font-weight: 600;
 }
 
-/* --- Progress card --- */
+/* --- Essay prep card --- */
 
-.progress-count {
-  font-size: 2rem;
-  font-weight: 700;
-  line-height: 1.2;
-  font-variant-numeric: tabular-nums;
-  margin: 0;
+.card-desc {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  margin: 0 0 var(--spacing-unit);
 }
 
-.progress-total {
-  font-size: 1rem;
-  font-weight: 600;
+/* --- Mastery strip (progress bar + stats + reset inside each card) --- */
+
+.mastery {
+  margin-bottom: calc(var(--spacing-unit) * 2);
+}
+
+.mastery-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-unit);
+}
+
+.mastery-stats {
+  font-size: 0.9rem;
   color: var(--color-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.mastery-stats strong {
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+/* First click arms the reset button, second click confirms. */
+.btn-reset.is-armed {
+  border-color: var(--color-incorrect);
+  background: var(--color-incorrect-bg);
+  color: var(--color-incorrect);
 }
 
 .overall-bar {
@@ -232,7 +272,7 @@
   background: var(--color-surface-2);
   border: 1px solid var(--color-border);
   overflow: hidden;
-  margin: calc(var(--spacing-unit) * 1.5) 0;
+  margin: var(--spacing-unit) 0;
 }
 
 .overall-bar__fill {
@@ -243,26 +283,25 @@
   transition: width 0.3s ease;
 }
 
+/* Load-error message under the hero. */
 .stats-text {
-  color: var(--color-muted);
+  color: var(--color-incorrect);
   font-size: 0.9rem;
-  margin: 0 0 calc(var(--spacing-unit) * 2);
+  max-width: 620px;
+  margin: var(--spacing-unit) auto 0;
 }
 
-/* --- How it works card --- */
-
-.info-list {
-  color: var(--color-muted);
-  padding-left: 1.2rem;
-  margin: 0;
-}
-
-.info-list li {
-  margin-bottom: var(--spacing-unit);
-}
-
-.info-list li:last-child {
-  margin-bottom: 0;
+/* Keep the start button reachable while the topic list runs past the
+   viewport: it pins to the bottom of the screen until its own spot at
+   the end of the card scrolls into view. The card-colored halo masks
+   the rows behind it so it reads as a docked bar, not an overlap. */
+.setup-card .btn-block {
+  position: sticky;
+  bottom: var(--spacing-unit);
+  z-index: 1;
+  box-shadow:
+    0 0 0 var(--spacing-unit) var(--color-surface),
+    0 4px 18px rgba(15, 23, 42, 0.28);
 }
 
 @media (max-width: 480px) {

@@ -141,3 +141,33 @@ s {
   justify-content: center;
   margin-top: calc(var(--spacing-unit) * 4);
 }
+
+/* Floating back-to-top button; visible only after the TOC scrolls away.
+   Toggled via a class because base.css forces [hidden] to display:none,
+   which would skip the fade. */
+.back-to-top {
+  position: fixed;
+  right: calc(var(--spacing-unit) * 3);
+  bottom: calc(var(--spacing-unit) * 3);
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--spacing-unit) * 0.75);
+  border-radius: 999px;
+  box-shadow: var(--shadow-card);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  pointer-events: none;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0.2s;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}

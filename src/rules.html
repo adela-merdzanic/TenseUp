@@ -45,7 +45,7 @@
     <header class="app-header">
       <a href="index.html" class="app-logo">TenseUp</a>
       <nav class="header-nav">
-        <a href="quiz.html">Practice</a>
+        <a href="index.html">Home</a>
         <a href="rules.html" class="is-active">Grammar rules</a>
         <a href="contribute.html">Contribute</a>
       </nav>
@@ -60,7 +60,7 @@
     </header>
 
     <main class="container rules-screen">
-      <h1>Grammar rules</h1>
+      <h1 id="rules-heading" tabindex="-1">Grammar rules</h1>
       <p class="rules-intro">
         A compact cheat sheet covering the grammar behind every exercise in the
         question pool. Read it before a session, or come back to a section after
@@ -1235,9 +1235,31 @@
       </div>
     </main>
 
+    <button
+      type="button"
+      id="back-to-top"
+      class="btn back-to-top"
+      aria-label="Back to top"
+    >
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+      Top
+    </button>
+
     <footer class="app-footer">
       <p>
-        © 2026 Adela Merdžanić · Open source under the MIT license ·
+        © 2026 TenseUp · Open source under the MIT license ·
         <a href="contribute.html">Contribute</a>
       </p>
     </footer>

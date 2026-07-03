@@ -27,3 +27,35 @@ export function saveSettings(settings) {
     // localStorage unavailable - settings just won't persist.
   }
 }
+
+const ESSAY_STORAGE_KEY = "essaySettings";
+
+export const ESSAY_SHORT_SESSION_SIZE = 5;
+
+// categoryIds: null means "all categories" (so categories added later are
+// included automatically); an array means an explicit selection.
+const ESSAY_DEFAULTS = { sessionSize: "all", categoryIds: null };
+
+export function getEssaySettings() {
+  try {
+    const raw = localStorage.getItem(ESSAY_STORAGE_KEY);
+    if (!raw) return { ...ESSAY_DEFAULTS };
+    const parsed = JSON.parse(raw);
+    return {
+      sessionSize: parsed.sessionSize === "short" ? "short" : "all",
+      categoryIds: Array.isArray(parsed.categoryIds)
+        ? parsed.categoryIds
+        : null,
+    };
+  } catch {
+    return { ...ESSAY_DEFAULTS };
+  }
+}
+
+export function saveEssaySettings(settings) {
+  try {
+    localStorage.setItem(ESSAY_STORAGE_KEY, JSON.stringify(settings));
+  } catch {
+    // localStorage unavailable - settings just won't persist.
+  }
+}

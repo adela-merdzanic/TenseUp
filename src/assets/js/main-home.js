@@ -1,7 +1,13 @@
 import { loadAllTopics } from "./data-loader.js";
 import { buildMixedPool } from "./quiz-engine.js";
 import { getSolvedIds, resetProgress } from "./progress-store.js";
-import { getSettings, saveSettings } from "./settings-store.js";
+import {
+  getSettings,
+  saveSettings,
+  getEssaySettings,
+  saveEssaySettings,
+} from "./settings-store.js";
+import { getBoxes, resetBoxes, MASTERED_BOX } from "./essay-store.js";
 import { qs, qsa, escapeHtml } from "./utils.js";
 import { initTheme, wireThemeToggle } from "./theme.js";
 
@@ -10,6 +16,8 @@ wireThemeToggle();
 
 let pool = [];
 let topicsMeta = []; // [{ topicId, title }] in manifest order
+let essayCards = [];
+let essayCategories = [];
 
 function computeTopicStats() {
   const solved = getSolvedIds();
@@ -25,18 +33,113 @@ function computeTopicStats() {
   return stats;
 }
 
-function renderProgressCard() {
+function renderMasteryBars() {
   const solved = getSolvedIds();
   const solvedCount = pool.filter((question) =>
     solved.has(question.namespacedId),
   ).length;
   const total = pool.length;
-  const percent = total === 0 ? 0 : Math.round((solvedCount / total) * 100);
+  const grammarPercent =
+    total === 0 ? 0 : Math.round((solvedCount / total) * 100);
+  qs("#grammar-count").textContent = `${solvedCount}/${total}`;
+  qs("#grammar-percent").textContent = `${grammarPercent}%`;
+  qs("#grammar-bar-fill").style.width = `${grammarPercent}%`;
 
-  qs("#solved-count").textContent = solvedCount;
-  qs("#total-count").textContent = `/ ${total}`;
-  qs("#overall-bar-fill").style.width = `${percent}%`;
-  qs("#stats-text").textContent = `${percent}% of the question pool mastered.`;
+  const boxes = getBoxes();
+  const mastered = essayCards.filter(
+    (card) => (boxes[card.id] ?? 0) >= MASTERED_BOX,
+  ).length;
+  const cardTotal = essayCards.length;
+  const essayPercent =
+    cardTotal === 0 ? 0 : Math.round((mastered / cardTotal) * 100);
+  qs("#essay-count").textContent = `${mastered}/${cardTotal}`;
+  qs("#essay-percent").textContent = `${essayPercent}%`;
+  qs("#essay-bar-fill").style.width = `${essayPercent}%`;
+}
+
+function computeEssayCategoryStats() {
+  const boxes = getBoxes();
+  const stats = new Map();
+  for (const card of essayCards) {
+    if (!stats.has(card.category)) {
+      stats.set(card.category, { total: 0, mastered: 0 });
+    }
+    const entry = stats.get(card.category);
+    entry.total += 1;
+    if ((boxes[card.id] ?? 0) >= MASTERED_BOX) entry.mastered += 1;
+  }
+  return stats;
+}
+
+function renderEssayCategoryList() {
+  const stats = computeEssayCategoryStats();
+  const selected = getEssaySettings().categoryIds; // null = all selected
+
+  qs("#essay-topic-list").innerHTML = essayCategories
+    .map(({ id, title }) => {
+      const entry = stats.get(id) || { total: 0, mastered: 0 };
+      const checked = !selected || selected.includes(id) ? "checked" : "";
+      const doneClass =
+        entry.total > 0 && entry.mastered === entry.total
+          ? " topic-row--done"
+          : "";
+      return `
+        <label class="topic-row${doneClass}">
+          <input type="checkbox" value="${escapeHtml(id)}" ${checked} />
+          <span class="topic-name">${escapeHtml(title)}</span>
+          <span class="topic-progress">${entry.mastered}/${entry.total}</span>
+        </label>`;
+    })
+    .join("");
+
+  qsa("#essay-topic-list input").forEach((input) =>
+    input.addEventListener("change", onEssaySelectionChange),
+  );
+  updateEssaySummary();
+}
+
+function readSelectedEssayCategoryIds() {
+  return qsa("#essay-topic-list input:checked").map((input) => input.value);
+}
+
+function updateEssaySummary() {
+  const selectedCount = readSelectedEssayCategoryIds().length;
+  qs("#essay-topic-count").textContent =
+    `${selectedCount}/${essayCategories.length} selected`;
+  qs("#essay-toggle-all-btn").textContent =
+    selectedCount === essayCategories.length ? "Clear all" : "Select all";
+}
+
+function onEssaySelectionChange() {
+  const selected = readSelectedEssayCategoryIds();
+  const settings = getEssaySettings();
+  // Store null when everything is checked, so categories added later join automatically.
+  settings.categoryIds =
+    selected.length === essayCategories.length ? null : selected;
+  saveEssaySettings(settings);
+  if (selected.length > 0) qs("#essay-topic-hint").hidden = true;
+  updateEssaySummary();
+}
+
+function setAllEssayCategories(checked) {
+  qsa("#essay-topic-list input").forEach((input) => (input.checked = checked));
+  onEssaySelectionChange();
+}
+
+function wireEssaySessionSize() {
+  const settings = getEssaySettings();
+  const current = qs(
+    `input[name="essay-session-size"][value="${settings.sessionSize}"]`,
+  );
+  if (current) current.checked = true;
+
+  qsa('input[name="essay-session-size"]').forEach((input) =>
+    input.addEventListener("change", () => {
+      const updated = getEssaySettings();
+      updated.sessionSize = input.value === "short" ? "short" : "all";
+      saveEssaySettings(updated);
+    }),
+  );
 }
 
 function renderTopicList() {
@@ -109,28 +212,95 @@ function wireSessionSize() {
   );
 }
 
+async function loadEssayCards() {
+  const response = await fetch("data/essay-cards.json");
+  if (!response.ok) {
+    throw new Error(`Failed to load essay-cards.json (${response.status})`);
+  }
+  return response.json();
+}
+
 async function init() {
   try {
-    const topics = await loadAllTopics();
+    const [topics, essayData] = await Promise.all([
+      loadAllTopics(),
+      loadEssayCards(),
+    ]);
     pool = buildMixedPool(topics);
     topicsMeta = topics.map((topic) => ({
       topicId: topic.topicId,
       title: topic.title,
     }));
+    essayCards = essayData.cards;
+    essayCategories = essayData.categories;
   } catch (err) {
-    qs("#stats-text").textContent =
-      `Could not load quiz content: ${err.message}`;
+    const statsText = qs("#stats-text");
+    statsText.hidden = false;
+    statsText.textContent = `Could not load content: ${err.message}`;
     return;
   }
-  renderProgressCard();
+  renderMasteryBars();
   renderTopicList();
+  renderEssayCategoryList();
   wireSessionSize();
+  wireEssaySessionSize();
 }
 
-qs("#reset-btn").addEventListener("click", () => {
+// Reset wipes stored progress, so it takes two clicks: the first arms the
+// button, the second (within 4 seconds) confirms. Anything else disarms it.
+function wireResetButton(button, onReset) {
+  let armed = false;
+  let disarmTimer = 0;
+
+  const disarm = () => {
+    armed = false;
+    clearTimeout(disarmTimer);
+    button.textContent = "Reset";
+    button.classList.remove("is-armed");
+  };
+
+  button.addEventListener("click", () => {
+    if (!armed) {
+      armed = true;
+      button.textContent = "Confirm reset";
+      button.classList.add("is-armed");
+      disarmTimer = setTimeout(disarm, 4000);
+      return;
+    }
+    disarm();
+    onReset();
+  });
+
+  button.addEventListener("blur", disarm);
+}
+
+wireResetButton(qs("#reset-btn"), () => {
   resetProgress();
-  renderProgressCard();
+  renderMasteryBars();
   renderTopicList();
+});
+
+wireResetButton(qs("#reset-essay-btn"), () => {
+  resetBoxes();
+  renderMasteryBars();
+  renderEssayCategoryList();
+});
+
+qs("#essay-toggle-all-btn").addEventListener("click", () => {
+  const allSelected =
+    essayCategories.length > 0 &&
+    readSelectedEssayCategoryIds().length === essayCategories.length;
+  setAllEssayCategories(!allSelected);
+});
+
+qs("#start-essay-btn").addEventListener("click", (event) => {
+  if (
+    essayCategories.length > 0 &&
+    readSelectedEssayCategoryIds().length === 0
+  ) {
+    event.preventDefault();
+    qs("#essay-topic-hint").hidden = false;
+  }
 });
 
 qs("#toggle-all-btn").addEventListener("click", () => {

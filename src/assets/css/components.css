@@ -78,24 +78,29 @@
   margin-top: calc(var(--spacing-unit) * 3);
 }
 
-.progress-bar {
-  flex-shrink: 0;
-  height: 6px;
-  background: var(--color-border);
-  transition: background-color 0.15s ease;
+/* Shared in-page progress: text line + thin rounded bar (quiz and essay pages). */
+.deck-progress {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+  min-height: 1.4em;
+  margin-bottom: var(--spacing-unit);
 }
 
-.progress-bar__fill {
+.deck-bar {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+.deck-bar__fill {
   height: 100%;
   width: 0%;
   background: var(--color-primary);
-  transition: width 0.2s ease;
-}
-
-.score-readout {
-  font-size: 0.9rem;
-  color: var(--color-header-muted);
-  font-variant-numeric: tabular-nums;
+  border-radius: 999px;
+  transition: width 0.25s ease;
 }
 
 .select-hint {
@@ -110,3 +115,4 @@
   font-size: 0.85rem;
   font-weight: 500;
 }
+

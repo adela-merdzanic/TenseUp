@@ -45,7 +45,7 @@
     <header class="app-header">
       <a href="index.html" class="app-logo">TenseUp</a>
       <nav class="header-nav">
-        <a href="quiz.html">Practice</a>
+        <a href="index.html" class="is-active">Home</a>
         <a href="rules.html">Grammar rules</a>
         <a href="contribute.html">Contribute</a>
       </nav>
@@ -61,20 +61,66 @@
 
     <main class="container home-screen">
       <section class="hero">
-        <h1 class="app-title">English grammar practice</h1>
+        <h1 class="app-title">English exam practice</h1>
         <p class="app-subtitle">
-          Randomized questions from the FIT English II exercises. Solved
-          questions drop out of the pool, so every session focuses on what you
-          haven't mastered yet.
+          Grammar questions and essay flashcards from the FIT English II
+          materials. What you master drops out of the pool, so every session
+          focuses on what you don't know yet.
         </p>
+        <p id="stats-text" class="stats-text" hidden></p>
       </section>
 
       <div class="home-grid">
         <section
-          class="home-card setup-card"
+          class="home-card setup-card card-grammar"
           aria-labelledby="setup-card-title"
         >
-          <h2 class="card-title" id="setup-card-title">Practice setup</h2>
+          <h2 class="card-title" id="setup-card-title">
+            <svg
+              class="card-icon"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <polyline points="9 11 12 14 22 4"></polyline>
+              <path
+                d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"
+              ></path>
+            </svg>
+            Grammar practice
+          </h2>
+
+          <div class="mastery">
+            <div class="overall-bar">
+              <div class="overall-bar__fill" id="grammar-bar-fill"></div>
+            </div>
+            <div class="mastery-row">
+              <span class="mastery-stats">
+                <strong id="grammar-count">–</strong> mastered ·
+                <span id="grammar-percent">0%</span>
+              </span>
+              <button
+                type="button"
+                id="reset-btn"
+                class="btn btn-sm btn-reset"
+                title="Bring back the full question pool and start over"
+              >
+                Reset
+              </button>
+            </div>
+          </div>
+
+          <p class="card-desc">
+            Multiple-choice questions from the course exercises, shuffled
+            across your selected topics. Answer a question correctly and it is
+            removed from future sessions.
+          </p>
 
           <div class="setup-group">
             <h3 class="setup-title">Session length</h3>
@@ -113,47 +159,110 @@
           >
         </section>
 
-        <aside class="home-side">
-          <section class="home-card" aria-labelledby="progress-card-title">
-            <h2 class="card-title" id="progress-card-title">Your progress</h2>
-            <p class="progress-count">
-              <span id="solved-count">–</span>
-              <span class="progress-total" id="total-count"></span>
-            </p>
-            <div class="overall-bar">
-              <div class="overall-bar__fill" id="overall-bar-fill"></div>
-            </div>
-            <p id="stats-text" class="stats-text">Loading stats...</p>
-            <button type="button" id="reset-btn" class="btn">
-              Reset progress
-            </button>
-          </section>
+        <section
+          class="home-card setup-card card-essay"
+          aria-labelledby="essay-card-title"
+        >
+          <h2 class="card-title" id="essay-card-title">
+            <svg
+              class="card-icon"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+            Essay prep
+          </h2>
 
-          <section class="home-card" aria-labelledby="info-card-title">
-            <h2 class="card-title" id="info-card-title">How it works</h2>
-            <ul class="info-list">
-              <li>
-                Questions are pulled from the selected topics and shuffled
-                together, just like the real exam.
-              </li>
-              <li>
-                Once you answer a question correctly, it's removed from future
-                runs - so each new session only quizzes you on what you haven't
-                mastered yet.
-              </li>
-              <li>
-                Use "Reset progress" any time to bring back the full question
-                pool and start over.
-              </li>
-            </ul>
-          </section>
-        </aside>
+          <div class="mastery">
+            <div class="overall-bar">
+              <div class="overall-bar__fill" id="essay-bar-fill"></div>
+            </div>
+            <div class="mastery-row">
+              <span class="mastery-stats">
+                <strong id="essay-count">–</strong> mastered ·
+                <span id="essay-percent">0%</span>
+              </span>
+              <button
+                type="button"
+                id="reset-essay-btn"
+                class="btn btn-sm btn-reset"
+                title="Bring back the full card deck and start over"
+              >
+                Reset
+              </button>
+            </div>
+          </div>
+
+          <p class="card-desc">
+            Flashcards for the essay questions: read, answer out loud, then
+            grade yourself. Three "Knew it" answers in a row count a card as
+            mastered and retire it from the deck.
+          </p>
+
+          <div class="setup-group">
+            <h3 class="setup-title">Session length</h3>
+            <div class="choice-grid">
+              <label class="choice-card">
+                <input
+                  type="radio"
+                  name="essay-session-size"
+                  value="all"
+                  checked
+                />
+                <span class="choice-title">Full deck</span>
+                <span class="choice-desc">All remaining cards</span>
+              </label>
+              <label class="choice-card">
+                <input type="radio" name="essay-session-size" value="short" />
+                <span class="choice-title">Short session</span>
+                <span class="choice-desc">5 cards you know least</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="setup-group">
+            <div class="setup-heading-row">
+              <h3 class="setup-title">Topics</h3>
+              <div class="topic-bulk">
+                <span id="essay-topic-count" class="topic-count"></span>
+                <button
+                  type="button"
+                  id="essay-toggle-all-btn"
+                  class="btn btn-sm"
+                >
+                  Select all
+                </button>
+              </div>
+            </div>
+            <div id="essay-topic-list" class="topic-list"></div>
+            <p id="essay-topic-hint" class="select-hint" hidden>
+              Select at least one topic first.
+            </p>
+          </div>
+
+          <a
+            href="essay.html"
+            id="start-essay-btn"
+            class="btn btn-primary btn-block"
+            >Start flashcards</a
+          >
+        </section>
       </div>
     </main>
 
     <footer class="app-footer">
       <p>
-        © 2026 Adela Merdžanić · Open source under the MIT license ·
+        © 2026 TenseUp · Open source under the MIT license ·
         <a href="contribute.html">Contribute</a>
       </p>
     </footer>

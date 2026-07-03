@@ -44,10 +44,11 @@
   <body>
     <header class="app-header">
       <a href="index.html" class="app-logo">TenseUp</a>
-      <div class="header-right">
-        <div id="progress-readout" class="score-readout"></div>
-        <a href="rules.html" class="header-link">Grammar rules</a>
-      </div>
+      <nav class="header-nav">
+        <a href="index.html">Home</a>
+        <a href="rules.html">Grammar rules</a>
+        <a href="contribute.html">Contribute</a>
+      </nav>
       <button
         type="button"
         id="theme-toggle"
@@ -58,11 +59,12 @@
       </button>
     </header>
 
-    <div class="progress-bar" id="progress-bar">
-      <div class="progress-bar__fill" id="progress-bar-fill"></div>
-    </div>
-
     <main class="container">
+      <p class="deck-progress" id="progress-readout"></p>
+      <div class="deck-bar">
+        <div class="deck-bar__fill" id="progress-bar-fill"></div>
+      </div>
+
       <section id="question-screen" class="question-card" hidden>
         <p class="sentence" id="sentence"></p>
         <div id="options-form" class="options-list"></div>
@@ -130,7 +132,7 @@
 
     <footer class="app-footer">
       <p>
-        © 2026 Adela Merdžanić · Open source under the MIT license ·
+        © 2026 TenseUp · Open source under the MIT license ·
         <a href="contribute.html">Contribute</a>
       </p>
     </footer>

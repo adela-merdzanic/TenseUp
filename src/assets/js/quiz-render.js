@@ -107,15 +107,21 @@ export function renderNavButtons({ showPrevious, showCheck, showNext }) {
 export function renderProgress(currentIndex, total, score) {
   const position = Math.min(currentIndex + 1, total);
   qs("#progress-readout").textContent =
-    `Question ${position}/${total} | Score: ${score}`;
+    `Question ${position}/${total} · Score: ${score}`;
   const percent = total === 0 ? 0 : (currentIndex / total) * 100;
   qs("#progress-bar-fill").style.width = `${percent}%`;
+}
+
+function clearProgress(fillPercent) {
+  qs("#progress-readout").textContent = "";
+  qs("#progress-bar-fill").style.width = `${fillPercent}%`;
 }
 
 export function renderEmptyState() {
   qs("#question-screen").hidden = true;
   qs("#summary-screen").hidden = true;
   qs("#empty-screen").hidden = false;
+  clearProgress(0);
 }
 
 function renderReviewMarkup(mistakes) {
@@ -146,6 +152,7 @@ export function renderSummary(summary) {
   qs("#summary-text").textContent =
     `You scored ${summary.score}/${summary.total} (${summary.percentage}%).`;
   qs("#summary-review").innerHTML = renderReviewMarkup(summary.mistakes);
+  clearProgress(100);
 }
 
 export function renderError(message) {
@@ -154,4 +161,5 @@ export function renderError(message) {
   qs("#summary-screen").hidden = true;
   qs("#error-screen").hidden = false;
   qs("#error-text").textContent = message;
+  clearProgress(0);
 }

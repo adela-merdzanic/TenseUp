@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TenseUp - Essay Prep</title>
+    <meta
+      name="description"
+      content="Flashcards for the FIT English II essay questions: operating systems, networks, the World Wide Web and more."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="TenseUp" />
+    <meta property="og:title" content="TenseUp - Essay Prep" />
+    <meta
+      property="og:description"
+      content="Flashcards for the FIT English II essay questions: operating systems, networks, the World Wide Web and more."
+    />
+    <meta property="og:url" content="https://tense-up.netlify.app/essay.html" />
+    <meta
+      property="og:image"
+      content="https://tense-up.netlify.app/assets/images/og-image.png"
+    />
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/images/favicon-32.png"
+    />
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("quizTheme");
+          var prefersDark =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+          if (saved === "dark" || (!saved && prefersDark)) {
+            document.documentElement.setAttribute("data-theme", "dark");
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" href="assets/css/variables.css" />
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/components.css" />
+    <link rel="stylesheet" href="assets/css/essay.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="index.html" class="app-logo">TenseUp</a>
+      <nav class="header-nav">
+        <a href="index.html">Home</a>
+        <a href="rules.html">Grammar rules</a>
+        <a href="contribute.html">Contribute</a>
+      </nav>
+      <button
+        type="button"
+        id="theme-toggle"
+        class="btn theme-toggle"
+        aria-label="Toggle dark mode"
+      >
+        🌙
+      </button>
+    </header>
+
+    <main class="container">
+      <p class="deck-progress" id="deck-progress"></p>
+      <div class="deck-bar">
+        <div class="deck-bar__fill" id="deck-bar-fill"></div>
+      </div>
+
+      <section id="card-screen" class="question-card" hidden>
+        <div class="card-top">
+          <p class="essay-category" id="card-category"></p>
+          <div class="mastery" id="mastery" role="img">
+            <svg viewBox="0 0 36 36" aria-hidden="true">
+              <circle class="mastery-track" cx="18" cy="18" r="15.5" />
+              <circle
+                class="mastery-fill"
+                id="mastery-fill"
+                cx="18"
+                cy="18"
+                r="15.5"
+                pathLength="100"
+              />
+            </svg>
+          </div>
+        </div>
+        <h2 class="essay-question" id="card-question"></h2>
+
+        <div id="card-answer" hidden>
+          <ul class="answer-core" id="answer-core"></ul>
+          <p class="mnemonic" id="card-mnemonic" hidden></p>
+          <div class="card-diagram" id="card-diagram" hidden></div>
+          <details class="answer-more" id="card-more" hidden>
+            <summary>More detail</summary>
+            <ul id="answer-more"></ul>
+          </details>
+        </div>
+
+        <div class="actions">
+          <button type="button" id="show-btn" class="btn btn-primary btn-block">
+            Show answer
+          </button>
+        </div>
+        <div class="actions grade-actions" id="grade-actions" hidden>
+          <button type="button" id="fail-btn" class="btn grade-fail">
+            Didn't know it
+          </button>
+          <button type="button" id="pass-btn" class="btn grade-pass">
+            Knew it
+          </button>
+        </div>
+      </section>
+
+      <section id="done-screen" class="question-card" hidden>
+        <h2>Deck complete</h2>
+        <p id="done-text"></p>
+        <div class="actions">
+          <button type="button" id="again-btn" class="btn btn-primary">
+            Go again
+          </button>
+          <button type="button" id="reset-cards-btn" class="btn">
+            Reset card progress
+          </button>
+        </div>
+      </section>
+
+      <section id="error-screen" class="question-card" hidden>
+        <p id="error-text"></p>
+        <a href="index.html" class="btn">Back to start</a>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <p>
+        © 2026 TenseUp · Open source under the MIT license ·
+        <a href="contribute.html">Contribute</a>
+      </p>
+    </footer>
+
+    <script type="module" src="assets/js/main-essay.js"></script>
+    <!-- Cloudflare Web Analytics -->
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "2d894505941446eaa9881d46d337e4bb"}'
+    ></script>
+    <!-- End Cloudflare Web Analytics -->
+  </body>
+</html>

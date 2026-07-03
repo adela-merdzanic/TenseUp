@@ -38,7 +38,9 @@ for (const topic of manifest.topics) {
     }
     for (const q of exercise.questions) {
       if (!q || typeof q.id !== "string" || q.id.trim() === "") {
-        errors.push(`${topic.topicId}: question missing string id (${topic.file})`);
+        errors.push(
+          `${topic.topicId}: question missing string id (${topic.file})`,
+        );
         continue;
       }
       const label = `${topic.topicId}/${q.id}`;
@@ -87,7 +89,8 @@ for (const card of essay.cards) {
   const coreOk = Array.isArray(card.core) && card.core.length > 0;
   if (!coreOk) errors.push(`essay/${card.id}: core must be a non-empty array`);
   const moreOk = card.more === undefined || Array.isArray(card.more);
-  if (!moreOk) errors.push(`essay/${card.id}: more must be an array if present`);
+  if (!moreOk)
+    errors.push(`essay/${card.id}: more must be an array if present`);
 }
 
 if (errors.length) {

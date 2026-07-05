@@ -83,6 +83,15 @@ netlify.toml            Tells Netlify to publish the src/ folder
 2. Add an entry for it in `src/data/manifest.json`.
 3. No code changes needed — the app merges every topic listed in the manifest into one shuffled question pool.
 
+## Contributing
+
+See `src/contribute.html` (or the "Contribute" page on the live site) for the full guide. In short:
+
+- Open pull requests against `develop` - day-to-day work is collected there, and CI (Prettier check + data validation) runs on every PR and push.
+- `main` mirrors the deployed site: Netlify builds only on pushes to `main`, so `develop` is merged into `main` in planned batches, one deploy per release.
+- Dependabot dependency updates also target `develop` and ride along with the next release.
+- Releases and the changelog are managed by Release Please, so commit messages follow Conventional Commits (`feat:`, `fix:`, `chore:`, ...).
+
 ## Progress
 
 Correctly answered questions are excluded from future sessions (tracked in `localStorage`, per browser). Use "Reset progress" on the start screen to clear this and practice the full pool again.

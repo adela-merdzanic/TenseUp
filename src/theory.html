@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TenseUp - Essay Theory</title>
+    <meta
+      name="description"
+      content="Read the theory behind the FIT English II essay questions in one place: operating systems, Linux, networks and the World Wide Web - then practise it as flashcards."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="TenseUp" />
+    <meta property="og:title" content="TenseUp - Essay Theory" />
+    <meta
+      property="og:description"
+      content="Read the theory behind the FIT English II essay questions in one place: operating systems, Linux, networks and the World Wide Web - then practise it as flashcards."
+    />
+    <meta
+      property="og:url"
+      content="https://tense-up.netlify.app/theory.html"
+    />
+    <meta
+      property="og:image"
+      content="https://tense-up.netlify.app/assets/images/og-image.png"
+    />
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/images/favicon-32.png"
+    />
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("quizTheme");
+          var prefersDark =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+          if (saved === "dark" || (!saved && prefersDark)) {
+            document.documentElement.setAttribute("data-theme", "dark");
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" href="assets/css/variables.css" />
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/components.css" />
+    <link rel="stylesheet" href="assets/css/rules.css" />
+    <link rel="stylesheet" href="assets/css/essay.css" />
+    <link rel="stylesheet" href="assets/css/theory.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="index.html" class="app-logo">TenseUp</a>
+      <nav class="header-nav">
+        <a href="index.html">Home</a>
+        <a href="rules.html">Grammar rules</a>
+        <a href="theory.html" class="is-active">Essay theory</a>
+        <a href="contribute.html">Contribute</a>
+      </nav>
+      <button
+        type="button"
+        id="theme-toggle"
+        class="btn theme-toggle"
+        aria-label="Toggle dark mode"
+      >
+        🌙
+      </button>
+    </header>
+
+    <main class="container rules-screen">
+      <h1 id="theory-heading" tabindex="-1">Essay theory</h1>
+      <p class="rules-intro">
+        Everything the essay flashcards test, in one readable page.
+      </p>
+
+      <nav class="rules-toc" id="theory-toc" aria-label="Topics"></nav>
+
+      <div id="theory-content"></div>
+
+      <div class="actions theory-cta">
+        <a href="index.html" class="btn btn-primary">Practise as flashcards</a>
+      </div>
+    </main>
+
+    <button
+      type="button"
+      id="back-to-top"
+      class="btn back-to-top"
+      aria-label="Back to top"
+    >
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+      Top
+    </button>
+
+    <footer class="app-footer">
+      <p>
+        © 2026 TenseUp · Open source under the MIT license ·
+        <a href="contribute.html">Contribute</a>
+      </p>
+    </footer>
+
+    <script type="module" src="assets/js/main-theory.js"></script>
+    <!-- Cloudflare Web Analytics -->
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "2d894505941446eaa9881d46d337e4bb"}'
+    ></script>
+    <!-- End Cloudflare Web Analytics -->
+  </body>
+</html>

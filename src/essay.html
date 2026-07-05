@@ -52,6 +52,7 @@
       <nav class="header-nav">
         <a href="index.html">Home</a>
         <a href="rules.html">Grammar rules</a>
+        <a href="theory.html">Essay theory</a>
         <a href="contribute.html">Contribute</a>
       </nav>
       <button
@@ -88,6 +89,18 @@
           </div>
         </div>
         <h2 class="essay-question" id="card-question"></h2>
+
+        <div class="write-area" id="write-area" hidden>
+          <label class="write-label" for="write-input"
+            >Write your answer from memory</label
+          >
+          <textarea
+            id="write-input"
+            class="write-input"
+            rows="6"
+            placeholder="Type what you remember, then reveal the answer to compare and grade yourself."
+          ></textarea>
+        </div>
 
         <div id="card-answer" hidden>
           <ul class="answer-core" id="answer-core"></ul>

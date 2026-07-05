@@ -52,6 +52,7 @@
       <nav class="header-nav">
         <a href="index.html" class="is-active">Home</a>
         <a href="rules.html">Grammar rules</a>
+        <a href="theory.html">Essay theory</a>
         <a href="contribute.html">Contribute</a>
       </nav>
       <button
@@ -209,10 +210,27 @@
           </div>
 
           <p class="card-desc">
-            Flashcards for the essay questions: read, answer out loud, then
-            grade yourself. Three "Knew it" answers in a row count a card as
-            mastered and retire it from the deck.
+            Flashcards for the essay questions: answer from memory, then grade
+            yourself. Three "Knew it" answers in a row count a card as mastered
+            and retire it from the deck. New to a topic?
+            <a href="theory.html">Read the theory first</a>.
           </p>
+
+          <div class="setup-group">
+            <h3 class="setup-title">Study mode</h3>
+            <div class="choice-grid">
+              <label class="choice-card">
+                <input type="radio" name="essay-mode" value="recall" checked />
+                <span class="choice-title">Recall</span>
+                <span class="choice-desc">Answer out loud, then grade</span>
+              </label>
+              <label class="choice-card">
+                <input type="radio" name="essay-mode" value="write" />
+                <span class="choice-title">Write</span>
+                <span class="choice-desc">Type your answer, then grade</span>
+              </label>
+            </div>
+          </div>
 
           <div class="setup-group">
             <h3 class="setup-title">Session length</h3>

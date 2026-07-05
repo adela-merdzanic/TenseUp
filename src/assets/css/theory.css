@@ -1,0 +1,26 @@
+/* Theory page: each topic is a .rule-section holding several .theory-card
+   blocks, one per essay question. Reuses .mnemonic, .card-diagram and
+   .answer-more from essay.css and the section/toc/back-to-top from rules.css. */
+
+.theory-card + .theory-card {
+  margin-top: calc(var(--spacing-unit) * 3);
+  padding-top: calc(var(--spacing-unit) * 3);
+  border-top: 1px solid var(--color-border);
+}
+
+.theory-card h3 {
+  font-size: 1.1rem;
+  margin: 0 0 var(--spacing-unit);
+  color: var(--color-primary);
+  /* Offset so a question isn't hidden under the top edge when linked to. */
+  scroll-margin-top: calc(var(--spacing-unit) * 2);
+}
+
+.theory-card .answer-core li {
+  margin-bottom: var(--spacing-unit);
+}
+
+.theory-cta {
+  margin-top: calc(var(--spacing-unit) * 3);
+  justify-content: center;
+}

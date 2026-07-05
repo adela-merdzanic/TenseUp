@@ -11,15 +11,14 @@
       "category": "os",
       "question": "What is an operating system and what are its main functions?",
       "core": [
-        "A set of programs that sits between applications software and the computer hardware and manages the computer's resources.",
-        "Three main functions: manage the computer's Resources (CPU, memory, devices), establish a user Interface, and execute and provide services for Applications software.",
-        "The lowest level of every OS is the kernel - the first layer loaded into memory when the system boots."
+        "An operating system is a set of programs that sits between the applications software and the computer hardware, and manages the computer's resources.",
+        "It has three main functions: it manages the computer's resources (CPU, memory, devices), it establishes a user interface, and it executes and provides services for applications software.",
+        "The lowest level of every operating system is the kernel - the first layer of software loaded into memory when the system boots. It provides the core services: task scheduling, memory management, disk access and access to hardware devices."
       ],
-      "mnemonic": "R-I-A: Resources, Interface, Applications.",
       "more": [
-        "Key tasks: processor management, memory management, device management (drivers translate signals between the OS and hardware), application interface (APIs), user interface.",
-        "Four general types: real-time (RTOS, controls machinery), single-user single-task (PDAs), single-user multi-tasking (most PCs), multi-user multi-tasking.",
-        "Examples of operating systems: Windows, Linux, macOS, FreeBSD, Android, iOS."
+        "The most important program in the OS is the supervisor program. Most of it stays in memory all the time (resident), and it loads other OS programs (non-resident) from disk when they are needed.",
+        "The five main tasks of an OS: processor management, memory management, device management (drivers translate signals between the OS and the hardware), application interface (APIs for programmers) and user interface (GUI in Windows and Mac, shell in Unix).",
+        "Four general types: real-time (controls machinery), single-user single-task (old PDAs), single-user multi-tasking (most desktops and laptops) and multi-user multi-tasking. Examples: Windows, Linux, macOS, Android, iOS."
       ]
     },
     {
@@ -27,14 +26,14 @@
       "category": "os",
       "question": "Compare Windows and Linux.",
       "core": [
-        "Windows is proprietary, closed-source, paid software developed by Microsoft; first released on November 20, 1985; holds about 80% of the desktop market.",
-        "Linux is free, open-source software developed by a community (Linus Torvalds and the GNU Project); its source code is freely available; it dominates servers and supercomputers.",
-        "Windows offers a GUI with limited customization and grew out of MS-DOS; Linux offers both GUI (KDE, Gnome) and command line, is highly customizable, and is based on Unix."
+        "Windows is a proprietary, closed-source operating system that users pay for. It is developed and sold by Microsoft, was first released on November 20, 1985, and holds about 80% of the desktop market.",
+        "Linux is free, open-source software developed by a community: Linus Torvalds wrote the kernel and the GNU Project supplied the rest. Its source code is freely available, and it dominates servers and supercomputers.",
+        "Windows grew out of MS-DOS and offers a GUI with limited customization. Linux is based on Unix, offers both a GUI (KDE, Gnome) and a command line, and is highly customizable."
       ],
-      "mnemonic": "Windows: closed, paid, desktops. Linux: open, free, servers.",
       "more": [
-        "Dates: Windows first release 1985; Linux kernel 1991, first distribution 1992.",
-        "Fun fact: the Linux mascot is Tux the penguin, and effectively all of the world's top supercomputers run Linux."
+        "Key dates: Windows 1.0 in 1985, the Linux kernel in 1991, the first Linux distribution in 1992.",
+        "Microsoft follows a dual route in development: versions for home users (more visual effects, less networking and security) and versions for professional IT users (less visual effects, better networking and security).",
+        "Windows leads on desktops, but it is not the most used OS overall - Android, which is based on Linux, wins when mobile devices are counted. The Linux mascot is Tux the penguin."
       ]
     },
     {
@@ -42,15 +41,14 @@
       "category": "unix",
       "question": "Tell the short history of Linux.",
       "core": [
-        "1983: Richard Stallman announces the GNU Project (Free Software Foundation) - a fully free operating system; development starts in January 1984.",
-        "1991: Linus Torvalds, a computer science student in Helsinki, annoyed by the shortcomings of Minix, writes his own kernel.",
-        "1992: the GNU system's missing piece - a kernel - is filled by Linux, and the first Linux distribution appears."
+        "In 1983 Richard Stallman announced the GNU Project (Free Software Foundation) with one goal: a fully free operating system. Development started in January 1984.",
+        "In 1991 Linus Torvalds, a computer science student in Helsinki, was annoyed by the shortcomings of Minix, so he wrote his own kernel.",
+        "In 1992 the last missing piece of the GNU system - a kernel - was filled by Linux, and the first Linux distribution appeared."
       ],
-      "mnemonic": "'83 announced, '84 started, '91 kernel, '92 distro - GNU waited eight years for its kernel.",
       "more": [
-        "A kernel is the core of an OS: it handles memory allocation, talks to hardware devices and keeps everything running.",
-        "Today Linux powers phones, tablets, routers, game consoles, desktops, mainframes and supercomputers; the Linux Foundation is the non-profit fostering its growth.",
-        "In short: a Finnish student wrote the kernel as a hobby project in the early 90s, the free-software GNU Project supplied the rest, and the combination became GNU/Linux."
+        "Minix was a compact Unix clone written as a teaching aid by professor Andy Tannenbaum.",
+        "Strictly speaking, 'Linux' is only the kernel. In popular use, the name means a complete Linux distribution with GUI components and utilities, many of them supplied by the GNU Project.",
+        "Since 1991 Linux has grown to power mobile phones, tablets, routers, game consoles, desktops, mainframes and supercomputers. The Linux Foundation is the non-profit organization that supports its growth."
       ]
     },
     {
@@ -58,13 +56,12 @@
       "category": "unix",
       "question": "What is a Linux distribution?",
       "core": [
-        "A distribution is a complete Linux operating system kit: the kernel + a GUI (such as KDE or Gnome) + utilities (many supplied by the GNU Project) + a large collection of applications (word processors, spreadsheets, media players, databases).",
-        "Popular mainstream distributions: Debian (and derivatives such as Ubuntu), Fedora, openSUSE."
+        "A Linux distribution is a complete Linux operating system package: the kernel + a GUI (such as KDE or Gnome) + utilities (many supplied by the GNU Project) + a large collection of applications (word processors, spreadsheets, media players, databases).",
+        "Popular distributions: Debian (and its derivatives such as Ubuntu), Fedora and openSUSE."
       ],
-      "mnemonic": "Distro = kernel + GUI + utilities + apps.",
       "more": [
-        "Distributions exist because Linux by itself is only a kernel - someone has to package everything else around it.",
-        "X is the distributed windowing system on which graphical interfaces for Linux (KDE, Gnome) are implemented."
+        "Distributions exist because Linux itself is only a kernel - someone has to package everything else around it.",
+        "X is the distributed windowing system on which the graphical interfaces for Linux (KDE, Gnome) are built."
       ]
     },
     {
@@ -72,14 +69,13 @@
       "category": "unix",
       "question": "What is the Free Software Foundation?",
       "core": [
-        "An organization of volunteers founded by Richard Stallman in 1983.",
+        "The Free Software Foundation is an organization of volunteers founded by Richard Stallman in 1983.",
         "Its ideal: making good software that anyone can use without paying.",
-        "It initiated development of the GNU operating system in January 1984; the goal of a fully free OS was achieved in 1992, when Linus Torvalds' Linux kernel filled the last gap."
+        "It started the development of the GNU operating system in January 1984. The goal of a fully free OS was reached in 1992, when the Linux kernel filled the last gap."
       ],
-      "mnemonic": "GNU = \"GNU's Not Unix\" - a recursive acronym.",
       "more": [
-        "GNU supplied the compiler, utilities and tools; Linux supplied the kernel - together they form GNU/Linux.",
-        "Key pairing: Stallman = ideology and GNU; Torvalds = the kernel."
+        "GNU is a recursive acronym: 'GNU's Not Unix'.",
+        "The division of work: GNU supplied the compiler, the utilities and the tools; Linux supplied the kernel. Together they form GNU/Linux."
       ]
     },
     {
@@ -87,12 +83,13 @@
       "category": "unix",
       "question": "Who is Richard Stallman?",
       "core": [
-        "The founder of the Free Software Foundation and initiator of the GNU Project (announced in 1983).",
+        "Richard Stallman is the founder of the Free Software Foundation and the initiator of the GNU Project, announced in 1983.",
         "He believed software should be freely available for anyone to use, modify and share.",
-        "His work led to the GNU/Linux operating system ecosystem and the open-source movement as we know it."
+        "His work led to the GNU/Linux operating system and to the open-source movement as we know it today."
       ],
       "more": [
-        "Stallman and Torvalds are two different people - Stallman started the free-software movement and GNU, Torvalds wrote the Linux kernel eight years later."
+        "Do not mix them up: Stallman started the free-software movement and GNU; Torvalds wrote the Linux kernel eight years later.",
+        "The open-source model: anyone can have the source code, contribute to it, extend it and fix bugs in it. Without the source code you cannot modify a program at all - which is why most companies never sell it."
       ]
     },
     {
@@ -100,25 +97,25 @@
       "category": "unix",
       "question": "What is BSD?",
       "core": [
-        "BSD stands for Berkeley Software Distribution.",
+        "BSD stands for Berkeley Software Distribution, also known as Berkeley Unix.",
         "It is a Unix derivative distributed by the University of California, Berkeley, starting in the 1970s.",
-        "The name is also used collectively for its modern descendants - one of several branches of Unix operating systems."
+        "The name is also used collectively for its modern descendants - BSD is one of several branches of Unix operating systems."
       ],
-      "mnemonic": "BSD = Berkeley + Unix + the 1970s.",
-      "more": ["Modern descendants: FreeBSD, OpenBSD, NetBSD."]
+      "more": ["The modern descendants are FreeBSD, OpenBSD and NetBSD."]
     },
     {
       "id": "what-is-freebsd",
       "category": "unix",
       "question": "What is FreeBSD?",
       "core": [
-        "An advanced, free, open-source operating system for modern server, desktop and embedded platforms, with a code base under continuous development for decades.",
-        "It is developed as a complete operating system: the kernel, device drivers and all utilities are held in the same source code tree.",
-        "It is regarded as very reliable and robust - the most common free OS on Netcraft's list of the 50 web servers with the longest uptime."
+        "FreeBSD is an advanced, free, open-source operating system for modern server, desktop and embedded platforms. Its code base has been in continuous development for decades.",
+        "It is developed as a complete operating system: the kernel, the device drivers and all the utilities are kept in the same source code tree.",
+        "It is regarded as very reliable and robust - it is the most common free OS on Netcraft's list of the 50 web servers with the longest uptime."
       ],
       "more": [
-        "Key features: preemptive multitasking, multi-user facilities, strong TCP/IP networking, memory protection, X Window System (GUI), thousands of ready-to-run applications, extensive documentation.",
-        "It can also run most Linux programs thanks to binary compatibility."
+        "Key features: preemptive multitasking, multi-user facilities, strong TCP/IP networking, memory protection (one crashing application does not affect the others), the X Window System (GUI), thousands of ready-to-run applications and full source code for the entire system.",
+        "You can install FreeBSD on an unlimited number of computers for free - free does not mean low quality.",
+        "Fun fact: the special effects for The Matrix were rendered on a cluster of multiprocessor FreeBSD systems."
       ]
     },
     {
@@ -126,14 +123,13 @@
       "category": "unix",
       "question": "What is the difference between Linux and FreeBSD?",
       "core": [
-        "Development model: FreeBSD is developed as a complete OS - kernel, drivers and utilities in one source tree; Linux is a kernel developed by one group, utilities by others (GNU), packaged into distributions by third groups.",
-        "Origin: Linux began as Linus Torvalds' student project (1991); FreeBSD descends from Berkeley Unix (1970s).",
-        "Licensing: Linux uses the GPL; BSD systems use the more permissive BSD license. FreeBSD can run most Linux applications via binary compatibility."
+        "The main difference is the development model. FreeBSD is developed as one complete OS: the kernel, the drivers and the utilities live in a single source tree. Linux is only a kernel, developed by one group; the utilities come from others (mainly the GNU Project), and third groups package everything into distributions.",
+        "Origin: Linux started as Linus Torvalds' student project in 1991; FreeBSD descends from Berkeley Unix from the 1970s.",
+        "Licensing: Linux uses the GPL; BSD systems use the more permissive BSD license. Thanks to binary compatibility, FreeBSD can run most Linux applications."
       ],
-      "mnemonic": "FreeBSD = one tree, whole OS; Linux = kernel + kit of parts.",
       "more": [
-        "Both are considered very stable; FreeBSD's reputation comes from those record server uptimes (Netcraft list).",
-        "BSD variants: FreeBSD, OpenBSD, NetBSD; Linux distributions: Ubuntu, Fedora, openSUSE."
+        "Both are considered very stable. FreeBSD's reputation comes from record server uptimes - and a long uptime also means no kernel update was needed, because installing a new kernel requires a reboot.",
+        "BSD variants: FreeBSD, OpenBSD, NetBSD. Linux distributions: Debian/Ubuntu, Fedora, openSUSE."
       ]
     },
     {
@@ -141,12 +137,12 @@
       "category": "unix",
       "question": "What is the binary compatibility between FreeBSD and Linux?",
       "core": [
-        "Binary compatibility means FreeBSD can run most programs built for Linux without modification.",
-        "It runs them as well as - and sometimes even better than - Linux itself; the classic example is running the Linux version of Oracle on FreeBSD.",
-        "This makes FreeBSD very flexible: users get the large Linux software ecosystem without running Linux natively."
+        "Binary compatibility means that FreeBSD can run most programs built for Linux without any modification.",
+        "It runs them as well as - and sometimes even better than - Linux itself. The classic example is running the Linux version of Oracle on FreeBSD.",
+        "The result: users get the large Linux software ecosystem without actually running Linux."
       ],
       "more": [
-        "In plain words: FreeBSD can run Linux software directly, so you don't have to choose between the two ecosystems."
+        "The BSD license is very liberal, so its code can be reused royalty-free - Apple, for example, used BSD code in Mac OS X."
       ]
     },
     {
@@ -154,14 +150,14 @@
       "category": "unix",
       "question": "What is Mac OS X and what does the X mean?",
       "core": [
-        "Mac OS is the trademarked name for Apple's series of graphical operating systems for Macintosh computers; it is credited with popularizing the graphical user interface, introduced with the first Macintosh in 1984.",
-        "The X is the Roman numeral 10, officially pronounced \"ten\" - it continues the numbering after Mac OS 8 and 9 (though people often say the letter X).",
-        "There are two families: the \"classic\" Mac OS (from 1984, fully graphical, no command line) and OS X, which is Unix-based and was renamed macOS in 2016."
+        "Mac OS is the trademarked name for Apple's series of graphical operating systems for Macintosh computers. It is credited with popularizing the graphical user interface, introduced with the first Macintosh in 1984.",
+        "The X is the Roman numeral 10, officially pronounced 'ten' - it continues the numbering after Mac OS 8 and 9 (although people often say the letter X).",
+        "There are two families: the classic Mac OS (from 1984 to Mac OS 9, fully graphical, with no command line at all) and OS X, which is a Unix-based system, renamed macOS in 2016."
       ],
-      "mnemonic": "X = ten (Roman numeral), not the letter.",
       "more": [
-        "Deeper detail: OS X is built on NeXTSTEP and the Mach kernel, and it is the basis for iOS on iPhones and iPads.",
-        "Fun fact: Apple introduced the Macintosh with the famous \"1984\" commercial aired during the Super Bowl."
+        "OS X is built on NeXTSTEP and the Mach kernel, which Apple got by buying NeXT Computer - the moment Steve Jobs returned to Apple. It also uses BSD code.",
+        "OS X is also the basis for iOS, used on the iPhone and the iPad.",
+        "Version names: big cats up to Mountain Lion (Cheetah, Puma, Jaguar, Panther, Tiger, Leopard...), then California place names from Mavericks on (Yosemite, Sierra, Monterey...)."
       ]
     },
     {
@@ -169,11 +165,12 @@
       "category": "networks",
       "question": "What is a computer network?",
       "core": [
-        "A number of computers and peripherals linked together so they can share resources and communicate.",
-        "Networks allow sharing of data and files, sharing of peripherals (printers, scanners), communication between users, and access to shared processing power."
+        "A computer network is a number of computers and peripherals linked together so they can share resources and communicate.",
+        "A network allows four things: sharing data and files, sharing peripherals (printers, scanners), communication between users, and access to shared processing power."
       ],
       "more": [
-        "Key components: file servers, bridges, routers, gateways, backbones, LANs, modems, hubs."
+        "Key network components: file servers, bridges, routers, gateways, backbones, LANs, modems and hubs.",
+        "Quick definitions for possible follow-up questions: a file server stores the shared files and programs; a modem converts digital signals to analogue and back so data can travel over a telephone line; a hub connects all the data cabling in a network; a backbone is the main transmission path that carries the major data traffic."
       ]
     },
     {
@@ -181,12 +178,11 @@
       "category": "networks",
       "question": "What are the advantages and disadvantages of computer networks?",
       "core": [
-        "Advantages: sharing resources (files, printers, internet connection), communication between users (email, chat), centralized data storage and management, cost savings through shared hardware, easier collaboration.",
-        "Disadvantages: security risks (unauthorized access, viruses), dependence on infrastructure (if the server goes down, clients cannot work), installation and maintenance costs, risk of data loss or corruption, traffic congestion with many simultaneous users."
+        "Advantages: sharing resources (files, printers, Internet connection), communication between users (email, chat), centralized data storage and management, cost savings through shared hardware, and easier collaboration.",
+        "Disadvantages: security risks (unauthorized access, viruses), dependence on the infrastructure (if the server goes down, clients cannot work), installation and maintenance costs, risk of data loss, and traffic congestion when many users work at the same time."
       ],
-      "mnemonic": "Advantages = sharing + communication; disadvantages = security + dependence + cost.",
       "more": [
-        "Most disadvantages (security, congestion, server dependence) can be managed with firewalls, backups and good administration, so the benefits usually outweigh them."
+        "Most of the disadvantages can be managed with firewalls, backups and good administration - so in practice the benefits usually win."
       ]
     },
     {
@@ -194,12 +190,10 @@
       "category": "networks",
       "question": "What is network topology?",
       "core": [
-        "The physical or logical arrangement of computers and devices in a network - how they are connected and how data flows between them."
+        "Network topology is the physical or logical arrangement of computers and devices in a network - how they are connected and how data flows between them.",
+        "Physical topology describes how the cables are laid out; logical topology describes how the data actually travels."
       ],
-      "more": [
-        "Physical topology = how the cables are laid out; logical topology = how the data actually travels.",
-        "The common topologies: bus, star, ring, mesh."
-      ]
+      "more": ["The four common topologies are bus, star, ring and mesh."]
     },
     {
       "id": "common-topologies",
@@ -207,14 +201,13 @@
       "question": "Briefly explain the most common network topologies.",
       "diagram": "ring",
       "core": [
-        "Bus: all computers on one main cable - simple and cheap, but if the cable fails the entire network goes down.",
-        "Star: all computers connect to a central hub or switch - one failed cable affects one device, but a failed hub takes down the whole network.",
-        "Ring: each computer connects to exactly two others, forming a loop; data travels in one direction; a failure at any point can disrupt the entire network.",
-        "Mesh: every device connects to every other device - very reliable with no single point of failure, but expensive and complex."
+        "Bus: all computers share one main cable. It is simple and cheap, but if that cable fails, the whole network goes down.",
+        "Star: all computers connect to a central hub or switch. One failed cable affects only one device, but a failed hub takes down the whole network.",
+        "Ring: each computer connects to exactly two neighbours, forming a loop, and data travels in one direction. A failure at any point can disrupt the whole network.",
+        "Mesh: every device connects to every other device. It is very reliable, with no single point of failure, but expensive and complex."
       ],
-      "mnemonic": "Bus = one cable, star = one hub, ring = one loop, mesh = everything to everything.",
       "more": [
-        "Choosing between them is a cost-versus-reliability trade-off: bus is the cheapest, mesh is the most reliable, and star is the practical middle ground used in most modern LANs."
+        "The choice is a trade-off between cost and reliability: bus is the cheapest, mesh is the most reliable, and star is the practical middle ground used in most modern LANs."
       ]
     },
     {
@@ -223,13 +216,12 @@
       "question": "Describe the bus topology, with advantages and disadvantages.",
       "diagram": "bus",
       "core": [
-        "All computers and devices connect to one central cable - the bus or backbone. Data travels along the cable and every device receives each signal, but only the intended recipient processes it.",
+        "In a bus topology, all computers and devices connect to one central cable - the bus or backbone. Data travels along this cable, every device receives every signal, but only the intended recipient processes it.",
         "Advantages: simple and cheap to set up, needs the least cabling, easy to extend.",
-        "Disadvantages: if the main cable fails, the entire network goes down; performance degrades as devices are added; difficult to troubleshoot; not suitable for large networks."
+        "Disadvantages: if the main cable fails, the entire network goes down; performance drops as more devices are added; it is difficult to troubleshoot and not suitable for large networks."
       ],
-      "mnemonic": "One cable = one point of failure.",
       "more": [
-        "Historical note: early Ethernet networks really were a bus on coaxial cable, before star wiring with hubs and switches took over."
+        "Historical note: early Ethernet networks really were a bus on a coaxial cable, before star wiring with hubs and switches took over."
       ]
     },
     {
@@ -238,13 +230,12 @@
       "question": "Describe the mesh topology.",
       "diagram": "mesh",
       "core": [
-        "Every device is connected directly to every other device in the network.",
-        "Two types: full mesh (every node to every other node) and partial mesh (some nodes fully interconnected, others connected only to the nodes they exchange the most data with).",
-        "Advantages: very reliable and fault-tolerant - if one link fails, data reroutes through another path; no single point of failure; dedicated links give high performance. Disadvantages: very expensive (a lot of cabling), complex to set up and manage, impractical for large networks."
+        "In a mesh topology, every device is connected directly to every other device in the network.",
+        "There are two types: full mesh (every node connects to every other node) and partial mesh (some nodes are fully interconnected, others connect only to the nodes they exchange the most data with).",
+        "Advantages: very reliable and fault-tolerant - if one link fails, data takes another path, so there is no single point of failure. Disadvantages: very expensive (a lot of cabling), complex to set up and manage, impractical for large networks."
       ],
-      "mnemonic": "Mesh = maximum reliability for maximum cost.",
       "more": [
-        "Real-world example: the Internet backbone itself is a partial mesh - multiple routes exist between major nodes, so traffic reroutes around failures."
+        "Real-world example: the Internet backbone is a partial mesh - several routes exist between major nodes, so traffic reroutes around failures."
       ]
     },
     {
@@ -253,11 +244,10 @@
       "question": "Describe the star topology, with advantages and disadvantages.",
       "diagram": "star",
       "core": [
-        "All devices connect to a central hub or switch.",
-        "Advantages: easy to add or remove devices without affecting the rest; a failed cable or device affects only that device; easy to troubleshoot and manage; better performance than bus.",
-        "Disadvantages: if the central hub or switch fails, the entire network goes down (single point of failure); needs more cabling than bus; the hub adds cost."
+        "In a star topology, all devices connect to a central hub or switch.",
+        "Advantages: devices are easy to add or remove without affecting the rest; a failed cable or device affects only that one device; the network is easy to troubleshoot and manage.",
+        "Disadvantages: if the central hub or switch fails, the entire network goes down - it is a single point of failure. Star also needs more cabling than bus, and the hub adds cost."
       ],
-      "mnemonic": "Hub down = network down.",
       "more": [
         "Star is the most common topology in modern LANs - a home Wi-Fi network is logically a star with the router in the middle."
       ]
@@ -267,13 +257,13 @@
       "category": "networks",
       "question": "What is a PAN (Personal Area Network)?",
       "core": [
-        "A network used for communication among devices close to one person - its reach is typically a few meters.",
-        "It connects personal devices to each other (intrapersonal communication) or links them to a higher-level network and the Internet.",
-        "PANs can be wired (USB, FireWire) or wireless (Bluetooth, IrDA) - the wireless kind is called a WPAN."
+        "A PAN is a network for communication among devices close to one person - its reach is typically a few meters.",
+        "It connects personal devices to each other, or links them to a higher-level network and the Internet.",
+        "A PAN can be wired (USB, FireWire) or wireless (Bluetooth, IrDA) - the wireless kind is called a WPAN."
       ],
-      "mnemonic": "PAN = one Person, a few meters.",
       "more": [
-        "Everyday example: your phone, smartwatch and wireless earbuds connected over Bluetooth form a PAN."
+        "Detail worth mentioning: the devices may or may not belong to that one person.",
+        "Everyday example: a phone, a smartwatch and wireless earbuds connected over Bluetooth form a PAN."
       ]
     },
     {
@@ -281,22 +271,24 @@
       "category": "networks",
       "question": "What is a LAN (Local Area Network)?",
       "core": [
-        "A network covering a small geographic area such as a home, an office, or a group of buildings.",
-        "Each computer has its own computing power but can also access other devices on the network, subject to permissions.",
-        "Three defining characteristics: much higher data transfer rates than WANs, smaller geographic range, and no need for leased telecommunication lines."
+        "A LAN is a network that covers a small geographic area, such as a home, an office or a group of buildings.",
+        "Each computer has its own computing power, but it can also access other devices on the network, depending on permissions.",
+        "Three characteristics separate a LAN from a WAN: much higher data transfer rates, a smaller geographic range, and no need for leased telecommunication lines."
       ],
-      "more": ["The first LANs were created in the late 1970s."]
+      "more": [
+        "The first LANs appeared in the late 1970s. The original attraction was sharing disk space and laser printers, which were expensive at the time.",
+        "The scale hierarchy of networks: PAN (one person) < LAN (a building) < CAN (a campus) < MAN (a city) < WAN (a country or the world - the Internet is the largest WAN)."
+      ]
     },
     {
       "id": "what-is-intranet",
       "category": "networks",
       "question": "What is an intranet?",
       "core": [
-        "A private network limited in scope to a single organization or entity.",
-        "It uses the same technology as the Internet - the TCP/IP protocol suite, HTTP, FTP - but is not publicly accessible.",
-        "Depending on its size, an intranet may be categorized as a LAN, CAN, MAN or WAN."
+        "An intranet is a private network limited to a single organization.",
+        "It uses the same technology as the Internet - the TCP/IP protocol suite, HTTP, FTP - but it is not publicly accessible.",
+        "Depending on its size, an intranet can be categorized as a LAN, CAN, MAN or WAN."
       ],
-      "mnemonic": "Intranet = Internet technology, internal use only.",
       "more": [
         "Everyday example: a company portal with documents and internal tools that employees can open, but nobody outside the company can reach."
       ]
@@ -306,12 +298,12 @@
       "category": "networks",
       "question": "What is an extranet?",
       "core": [
-        "A private network that uses Internet technology and the public telecommunication system to securely share part of a business's information or operations with suppliers, vendors, partners and customers.",
-        "It can be viewed as the part of a company's intranet that has been extended to users outside the company.",
-        "It requires security and privacy: firewall server management, digital certificates, user authentication, message encryption, VPNs (Virtual Private Networks)."
+        "An extranet is a private network that uses Internet technology and the public telecommunication system to securely share part of a business's information and operations with suppliers, vendors, partners and customers.",
+        "It can be seen as the part of a company's intranet that is extended to users outside the company.",
+        "Because outsiders connect to it, it needs security and privacy: firewalls, digital certificates, user authentication, message encryption and VPNs (Virtual Private Networks)."
       ],
       "more": [
-        "Example: a supplier logging into a company's ordering system - an outsider working securely inside one part of the company network."
+        "Example: a supplier logs into a company's ordering system - an outside user working securely inside one part of the company network."
       ]
     },
     {
@@ -319,11 +311,10 @@
       "category": "networks",
       "question": "What is the difference between an intranet and an extranet?",
       "core": [
-        "Intranet: internal users only (employees), for internal communication and resource sharing, within a single organization.",
-        "Extranet: access extended to external partners, customers and vendors, for collaboration across organizations.",
-        "Because outsiders connect over public infrastructure, the extranet needs stronger security: VPNs, encryption, certificates, authentication."
+        "An intranet is for internal users only (employees): internal communication and resource sharing inside a single organization.",
+        "An extranet extends access to external partners, customers and vendors, for collaboration across organizations.",
+        "Because outsiders connect over public infrastructure, the extranet needs stronger security: VPNs, encryption, certificates and authentication."
       ],
-      "mnemonic": "Intra = inside the company; extra = extended outside.",
       "more": [
         "One-line summary: an extranet is an intranet extended to trusted outsiders."
       ]
@@ -333,12 +324,13 @@
       "category": "web",
       "question": "What is the World Wide Web?",
       "core": [
-        "A network of documents that works in a hypertext environment - text that contains links (hyperlinks) to other documents.",
-        "Web pages are stored on computers acting as servers; your computer is the client and uses a web browser to access and download them.",
-        "Pages are organized into websites, maintained by a webmaster; the Web carries interactive multimedia information and has become a real information highway."
+        "The World Wide Web is a network of documents that works in a hypertext environment - text that contains links (hyperlinks) to other documents.",
+        "Web pages are stored on computers acting as servers. Your computer is the client, and it uses a web browser to access and download the pages.",
+        "Pages are organized into websites, maintained by a webmaster. The Web carries interactive multimedia information - it is often described as an information highway."
       ],
       "more": [
         "The Web was invented by Tim Berners-Lee at CERN around 1990.",
+        "To find sites, you use search engines (their data is collected by programs called spiders), web indexes (subject directories organized by people) or web portals (sites that offer many services in one place: email, forums, search engines).",
         "Key vocabulary: hypertext, hyperlink, client, server, browser, website, webmaster."
       ]
     },
@@ -347,11 +339,10 @@
       "category": "web",
       "question": "What is the difference between the WWW and the Internet?",
       "core": [
-        "The Internet is the global network infrastructure - the physical network connecting millions of computers using TCP/IP.",
-        "The WWW is a service that runs on top of the Internet: a collection of hyperlinked documents accessed with a browser over HTTP/HTTPS.",
-        "The Internet is broader - it also carries email, FTP, VoIP, online gaming - while the Web is specifically web pages and hyperlinks."
+        "The Internet is the global network infrastructure - the physical network that connects millions of computers using TCP/IP.",
+        "The WWW is a service that runs on top of the Internet: a collection of hyperlinked documents accessed with a browser over HTTP or HTTPS.",
+        "The Internet is broader - it also carries email, FTP, VoIP and online gaming. The Web is specifically web pages and hyperlinks."
       ],
-      "mnemonic": "Internet = infrastructure (TCP/IP); Web = one service on it (HTTP).",
       "more": [
         "One-sentence version: the Internet is the network; the Web is one of the services that uses it."
       ]
@@ -361,13 +352,12 @@
       "category": "web",
       "question": "What is an IP address?",
       "core": [
-        "A unique numerical label assigned to each device connected to a computer network.",
-        "It serves two main functions: identifying the host and providing the location of that host in the network.",
-        "A DNS server converts human-readable domain names (www.google.com) into IP addresses (like 205.136.145.101) so browsers can find the correct web server."
+        "An IP address is a unique numerical label assigned to each device connected to a network.",
+        "It has two main functions: it identifies the host, and it gives the host's location in the network.",
+        "A DNS server converts human-readable domain names (www.google.com) into IP addresses (like 205.136.145.101) so browsers can find the right web server."
       ],
-      "mnemonic": "IP = who you are + where you are on the network.",
       "more": [
-        "Versions: IPv4 (numbers like 192.168.0.1) and the newer IPv6, introduced because IPv4 addresses were running out."
+        "Versions: IPv4 (addresses like 192.168.0.1) and the newer IPv6, introduced because IPv4 addresses were running out."
       ]
     },
     {
@@ -379,9 +369,8 @@
         "It provides reliable, ordered and error-checked delivery of data between applications communicating over an IP network.",
         "It is used for web browsing (HTTP/HTTPS), email and file transfers."
       ],
-      "mnemonic": "TCP = packets arrive, correct and in order.",
       "more": [
-        "The suite is usually named TCP/IP: IP finds the way to the destination, TCP makes sure the data arrives intact."
+        "The suite is usually called TCP/IP, and the division of work is simple: IP finds the route to the destination, TCP makes sure the data arrives intact."
       ]
     },
     {
@@ -389,11 +378,11 @@
       "category": "web",
       "question": "What is DNS?",
       "core": [
-        "DNS (Domain Name System) translates human-readable domain names (www.fit.ba) into the IP addresses (205.136.145.101) that computers use to identify each other.",
-        "When you type a URL, the browser first contacts a DNS server to get the IP address, then connects to the web server at that address."
+        "DNS (Domain Name System) translates human-readable domain names (www.fit.ba) into the IP addresses (like 205.136.145.101) that computers use to identify each other.",
+        "When you type a URL, the browser first contacts a DNS server to get the IP address, and only then connects to the web server at that address."
       ],
       "more": [
-        "DNS is often described as the phonebook of the Internet: you look up a name and get back a number.",
+        "DNS is often called the phonebook of the Internet: you look up a name and get back a number.",
         "Without DNS the Web would still work - but you would have to memorize numeric addresses for every site."
       ]
     },
@@ -402,12 +391,12 @@
       "category": "networks",
       "question": "What is a router and what is its function?",
       "core": [
-        "A special computer that directs communication messages when several networks are connected together.",
-        "It examines the destination IP address of each data packet and forwards it toward its destination along the most efficient path.",
-        "High-speed routers can serve as part of the Internet backbone; at each end of a WAN leased line, a router connects the LAN on one side and a hub within the WAN on the other."
+        "A router is a special computer that directs communication messages when several networks are connected together.",
+        "It reads the destination IP address of each data packet and forwards the packet toward its destination along the most efficient path.",
+        "High-speed routers can serve as part of the Internet backbone. At each end of a WAN leased line, a router connects the LAN on one side to the WAN on the other."
       ],
       "more": [
-        "Relatable example: your home \"router\" does several jobs at once - routing, Wi-Fi access point, and usually the gateway to your Internet provider."
+        "Your home router actually does several jobs at once: routing, Wi-Fi access point, and the gateway to your Internet provider."
       ]
     },
     {
@@ -415,12 +404,12 @@
       "category": "networks",
       "question": "What is a gateway?",
       "core": [
-        "An interface that enables dissimilar networks to communicate - for example, two LANs based on different topologies or different network operating systems.",
-        "It acts as a \"door\" between two different types of networks, translating between them so data can pass through.",
-        "In everyday use it also names the device (often a router) that gives a local network access to the Internet."
+        "A gateway is an interface that enables dissimilar networks to communicate - for example, two LANs with different topologies or different network operating systems.",
+        "It translates between the two networks so data can pass through.",
+        "In everyday use, the word also names the device (usually a router) that gives a local network access to the Internet."
       ],
       "more": [
-        "In practice your home router acts as the default gateway - every packet leaving your network passes through it."
+        "At home, your router acts as the default gateway - every packet leaving your network passes through it."
       ]
     },
     {
@@ -428,23 +417,24 @@
       "category": "web",
       "question": "What is a URL?",
       "core": [
-        "A URL (Uniform Resource Locator) is the address of a resource on the World Wide Web - it tells the browser exactly where to find a web page.",
-        "Example breakdown of http://www.hw.ac.uk/libWWW/irn/irn.html: protocol prefix (http://), web service indicator (www), domain name (hw.ac), country code (uk), directory path (libWWW/irn/), document name (irn.html)."
+        "A URL (Uniform Resource Locator) is the address of a resource on the World Wide Web - it tells the browser exactly where to find a page.",
+        "Example breakdown of http://www.hw.ac.uk/libWWW/irn/irn.html: protocol prefix (http://), web service (www), domain name (hw.ac), country code (uk), directory path (libWWW/irn/) and document name (irn.html)."
       ],
-      "mnemonic": "Protocol + www + domain + country + path + document."
+      "more": [
+        "Common domain extensions: .com = commercial (.co in the UK), .edu = education and research (.ac in the UK), .gov = government, .org = non-profit organisation, .net = gateway or host, .mil = military agency, .info = general use, .biz = businesses, .name = individuals."
+      ]
     },
     {
       "id": "gateway-and-url",
       "category": "web",
       "question": "Explain gateway and URL and how they work together.",
       "core": [
-        "A gateway is the interface that enables dissimilar networks to communicate - the device that lets your local network connect to the Internet.",
+        "A gateway is the interface that enables dissimilar networks to communicate - in practice, the device that connects your local network to the Internet.",
         "A URL is the web address you type into the browser to reach a specific resource on the Web.",
-        "Together: when you type a URL, the request travels through your network's gateway (usually a router) out onto the Internet and reaches the web server hosting the resource - the gateway handles the routing out, the URL specifies the exact destination."
+        "Together: when you type a URL, the request leaves your network through the gateway (usually a router), travels across the Internet and reaches the web server. The gateway handles the way out; the URL specifies the exact destination."
       ],
-      "mnemonic": "Gateway = the way out of your network; URL = the destination address.",
       "more": [
-        "The split: a gateway is a network device, a URL is a text address - they meet only in the browsing process."
+        "The key difference: a gateway is a network device, a URL is a text address - they meet only in the browsing process."
       ]
     },
     {
@@ -452,12 +442,12 @@
       "category": "networks",
       "question": "What is a bridge?",
       "core": [
-        "A hardware and software combination used to connect networks of the same type.",
+        "A bridge is a hardware and software combination used to connect networks of the same type.",
         "It can also partition a large network into two smaller ones, or connect two LANs that are near each other.",
-        "Unlike a gateway, a bridge connects networks of the same type - not dissimilar ones."
+        "This is the opposite of a gateway: a bridge connects networks of the same type, a gateway connects dissimilar ones."
       ],
       "more": [
-        "Why partition a network with a bridge: splitting a large network into two smaller ones reduces the traffic on each half."
+        "Why partition a network: splitting one large network into two smaller ones reduces the traffic on each half."
       ]
     },
     {
@@ -465,13 +455,12 @@
       "category": "networks",
       "question": "What is the difference between a bridge, a gateway and a router?",
       "core": [
-        "A bridge connects networks of the same type, and can also partition a large network into two smaller ones.",
+        "A bridge connects networks of the same type, and it can also partition a large network into two smaller ones.",
         "A gateway is an interface that enables dissimilar networks to communicate (different topologies or network operating systems).",
-        "A router directs communication messages between connected networks: it reads each packet's destination IP address and forwards it along the most efficient path."
+        "A router directs messages between several connected networks: it reads each packet's destination IP address and forwards it along the most efficient path."
       ],
-      "mnemonic": "Bridge = same + same; gateway = different + different; router = reads IPs, picks the path.",
       "more": [
-        "All three connect networks - what differs is what they connect and how smart they are: bridge (same type), gateway (different types), router (chooses paths by IP address)."
+        "All three connect networks. The difference is what they connect and how smart they are: bridge = same type; gateway = different types; router = chooses paths by IP address."
       ]
     },
     {
@@ -479,12 +468,12 @@
       "category": "networks",
       "question": "What is a peer-to-peer network?",
       "core": [
-        "A distributed system in which all component nodes participate in similar roles - they are peers to each other.",
-        "There is no central server: each node can act as both client and server, finds its peers, and helps maintain the system structure.",
-        "It is a decentralized network architecture."
+        "A peer-to-peer network is a distributed system in which all nodes play similar roles - they are peers to each other.",
+        "There is no central server: each node acts as both client and server, finds its peers, and helps maintain the structure of the system.",
+        "It is a decentralized network architecture - the opposite of client-server, where clients request services and servers provide them."
       ],
       "more": [
-        "Examples of P2P in practice: file sharing (BitTorrent) and cryptocurrency networks."
+        "Examples in practice: file sharing (BitTorrent) and cryptocurrency networks."
       ]
     },
     {
@@ -492,12 +481,11 @@
       "category": "networks",
       "question": "What are the advantages and disadvantages of a peer-to-peer network?",
       "core": [
-        "Advantages: all clients contribute resources (bandwidth, storage, computing power), so total capacity grows as nodes join (scalability); data replicated over multiple peers makes it fault-tolerant with no single point of failure; no expensive dedicated servers.",
-        "Disadvantages: nodes are more complex (each must find peers and maintain the system); security is harder to control without a central authority; performance can vary with what individual peers provide."
+        "Advantages: all nodes contribute resources (bandwidth, storage, computing power), so the total capacity grows as new nodes join; data is replicated over multiple peers, which makes the system fault-tolerant with no single point of failure; there are no expensive dedicated servers.",
+        "Disadvantages: the nodes are more complex (each one must find peers and help maintain the system); security is harder to control without a central authority; performance depends on what individual peers provide."
       ],
-      "mnemonic": "More peers = more capacity; no boss = harder security.",
       "more": [
-        "Known example: BitTorrent file sharing - each downloader also uploads, which is exactly why capacity grows as more peers join."
+        "BitTorrent shows the main advantage perfectly: every downloader also uploads, which is exactly why capacity grows as more peers join."
       ]
     },
     {
@@ -506,7 +494,7 @@
       "question": "Compare peer-to-peer and client-server systems.",
       "core": [
         "P2P is decentralized: every node is both client and server and contributes resources - so more nodes means more total capacity, and there is no single point of failure.",
-        "Client-server is centralized: servers provide the resources and control access - better security and easier management, but the server is a single point of failure and congests when many clients send requests at once.",
+        "Client-server is centralized: servers provide the resources and control access - better security and easier management, but the server is a single point of failure and it congests when many clients send requests at once.",
         "In one line: P2P scales and survives failures; client-server is easier to secure and manage."
       ],
       "more": [
@@ -518,12 +506,13 @@
       "category": "networks",
       "question": "What are the advantages and disadvantages of a client-server system?",
       "core": [
-        "Advantages: better security - data is stored on servers with centralized access control; the server controls who can access and change data; centralized data management and backups; consistent performance for all clients.",
-        "Disadvantages: traffic congestion when many clients send requests simultaneously; single point of failure (if the server is down, client requests cannot be fulfilled); higher cost of server hardware and maintenance; less robust than P2P."
+        "Advantages: all data is stored on servers, which gives better security control - the server decides who can access and change the data; centralized data management and backups are easier; clients get consistent performance.",
+        "Disadvantages: traffic congestion when many clients send requests at the same time (more clients = more trouble); the server is a single point of failure - if it goes down, client requests cannot be fulfilled; server hardware and maintenance are expensive."
       ],
-      "mnemonic": "Client-server wins on control, loses on the single point of failure.",
       "more": [
-        "Everyday examples: web servers, email servers, a school's information system - almost every website you use is client-server."
+        "Server types: web servers, application servers, file servers, terminal servers and mail servers.",
+        "Example from the lecture: reading a Wikipedia article - your browser is the client, and Wikipedia's computers, databases and applications are the server.",
+        "Bonus detail - tiered architecture: two-tier means just clients and servers; three-tier adds application servers between the clients and the database servers, which balances the load better but is harder to program and test."
       ]
     },
     {
@@ -531,13 +520,12 @@
       "category": "networks",
       "question": "What is a mobile network?",
       "core": [
-        "A mobile (cellular) network is a radio network distributed over land areas called \"cells\", each served by at least one base station.",
-        "It allows mobile devices (phones, tablets) to communicate and access the Internet without a fixed physical connection.",
+        "A mobile (cellular) network is a radio network distributed over land areas called cells, where each cell is served by at least one base station.",
+        "It lets mobile devices (phones, tablets) communicate and access the Internet without any fixed physical connection.",
         "The technology generations are 2G, 3G, 4G (LTE) and 5G."
       ],
-      "mnemonic": "Cells + base stations = cellular network.",
       "more": [
-        "Why \"cells\": coverage is divided into cell areas so the same radio frequencies can be reused in non-adjacent cells, which multiplies capacity."
+        "Why cells: coverage is divided into cell areas so the same radio frequencies can be reused in non-adjacent cells - this multiplies the network's capacity."
       ]
     },
     {
@@ -545,11 +533,11 @@
       "category": "networks",
       "question": "What are the advantages and disadvantages of mobile networks?",
       "core": [
-        "Advantages: mobility (communicate from virtually anywhere), wide coverage across cities and countries, Internet and data services on the go, voice + SMS + data at the same time.",
-        "Disadvantages: coverage gaps in remote areas, security risks (wireless transmission can be intercepted), cost of data plans, speeds slower than wired connections in congested areas, and an ongoing debate about radiation and health."
+        "Advantages: mobility (you can communicate from almost anywhere), wide coverage across cities and countries, Internet and data services on the go, and voice, SMS and data at the same time.",
+        "Disadvantages: coverage gaps in remote areas, security risks (wireless transmission can be intercepted), the cost of data plans, slower speeds than wired connections in congested areas, and the ongoing debate about radiation and health."
       ],
       "more": [
-        "What each generation added, in one line: 2G brought SMS and basic data, 3G mobile Internet, 4G video streaming, 5G high speed with low latency."
+        "What each generation added: 2G brought SMS and basic data, 3G brought mobile Internet, 4G brought video streaming, 5G brought high speed with low latency."
       ]
     },
     {
@@ -557,13 +545,12 @@
       "category": "networks",
       "question": "What is Wi-Fi?",
       "core": [
-        "A wireless networking technology that uses radio waves to provide high-speed Internet and network connections.",
+        "Wi-Fi is a wireless networking technology that uses radio waves to provide high-speed Internet and network connections.",
         "It allows devices to connect to a local area network (LAN) without physical cables.",
-        "Wi-Fi is based on the IEEE 802.11 standards and is the most common wireless connectivity in homes, offices and public spaces."
+        "Wi-Fi is based on the IEEE 802.11 standards and is the most common wireless connection in homes, offices and public spaces."
       ],
-      "mnemonic": "Wi-Fi = wireless LAN, standard IEEE 802.11.",
       "more": [
-        "\"Wi-Fi\" is a brand name certified by the Wi-Fi Alliance - devices carrying the logo are tested to work together."
+        "Wi-Fi is a brand name certified by the Wi-Fi Alliance - devices carrying the logo are tested to work together."
       ]
     },
     {
@@ -572,11 +559,11 @@
       "question": "What are wireless connections? Give examples of wireless services.",
       "core": [
         "Wireless connections let devices communicate without physical cables, using radio waves, infrared or microwave signals.",
-        "Examples: Wi-Fi (wireless LAN in homes, offices, cafes), Bluetooth (short-range - headphones, keyboards; used in PANs), mobile data 2G/3G/4G/5G (cellular Internet), GPS (satellite positioning), satellite Internet (remote areas), IrDA (infrared, line-of-sight, e.g. TV remotes), WiMAX (wide-area wireless broadband)."
+        "Examples: Wi-Fi (wireless LAN in homes, offices and cafes), Bluetooth (short range - headphones, keyboards; used in PANs), mobile data 2G/3G/4G/5G (cellular Internet), GPS (satellite positioning), satellite Internet (remote areas), IrDA (infrared, needs line of sight - TV remotes) and WiMAX (wide-area wireless broadband)."
       ],
       "more": [
-        "One use for each example: Wi-Fi at home and in cafes, Bluetooth for accessories, GPS for navigation, satellite Internet where cables don't reach.",
-        "Fun fact: Bluetooth is named after the 10th-century Scandinavian king Harald Bluetooth."
+        "One use for each: Wi-Fi at home and in cafes, Bluetooth for accessories, mobile data on the move, GPS for navigation, satellite Internet where cables do not reach.",
+        "Fun fact: Bluetooth is named after Harald Bluetooth, a Scandinavian king from the 10th century."
       ]
     },
     {
@@ -586,11 +573,10 @@
       "core": [
         "GPS (Global Positioning System) is a satellite-based navigation system that provides location and time information to a GPS receiver anywhere on Earth.",
         "It requires an unobstructed line of sight to four or more GPS satellites.",
-        "Uses: navigation (car GPS, phone maps), surveying, aviation, military applications, location-based services."
+        "Uses: navigation (car GPS, phone maps), surveying, aviation, military applications and location-based services."
       ],
-      "mnemonic": "Four satellites in sight = a fix on your position.",
       "more": [
-        "Why four satellites: three are enough to compute a position, and the fourth corrects the receiver's clock."
+        "Why four satellites: three are enough to compute the position, and the fourth corrects the receiver's clock."
       ]
     },
     {
@@ -598,11 +584,12 @@
       "category": "web",
       "question": "What is cloud computing?",
       "core": [
-        "The delivery of computing services over the Internet (\"the cloud\"): servers, storage, databases, networking, software, analytics.",
-        "Instead of owning their own infrastructure, organizations rent access to computing resources from a cloud provider, typically pay-as-you-go."
+        "Cloud computing is the delivery of computing services over the Internet ('the cloud'): servers, storage, databases, networking, software and analytics.",
+        "Instead of owning their own infrastructure, organizations rent computing resources from a cloud provider, typically on a pay-as-you-go basis."
       ],
       "more": [
-        "Examples: Google Drive, Dropbox, Microsoft OneDrive as everyday cloud storage; AWS and Microsoft Azure as cloud platforms."
+        "Everyday examples: Google Drive, Dropbox and OneDrive for storage; AWS and Microsoft Azure as cloud platforms.",
+        "Related terms worth knowing: public, private and hybrid cloud; the service models IaaS, PaaS and SaaS."
       ]
     },
     {
@@ -610,12 +597,11 @@
       "category": "web",
       "question": "What are the advantages and disadvantages of cloud computing?",
       "core": [
-        "Advantages: cost savings (no own servers to buy or maintain), scalability (resources up or down as needed), accessibility from anywhere, automatic updates by the provider, easier disaster recovery and backups, collaboration on the same files.",
-        "Disadvantages: dependence on the Internet (no connection = no access), security and privacy risks (data on third-party servers), less control over data and infrastructure, vendor lock-in (switching providers is hard), subscription costs add up, provider downtime blocks your access."
+        "Advantages: cost savings (no own servers to buy and maintain), scalability (resources scale up or down as needed), access from anywhere, automatic updates by the provider, easier disaster recovery and backups, and collaboration on the same files.",
+        "Disadvantages: dependence on the Internet connection (no connection = no access), security and privacy risks (your data sits on third-party servers), less control over data and infrastructure, vendor lock-in (switching providers is hard), subscription costs that add up, and provider downtime that blocks your access."
       ],
-      "mnemonic": "The cloud trades control for convenience.",
       "more": [
-        "Related terms: public, private and hybrid cloud; service models IaaS, PaaS and SaaS."
+        "A useful way to sum it up: the cloud trades control for convenience."
       ]
     },
     {
@@ -623,13 +609,12 @@
       "category": "web",
       "question": "What are the main email protocols?",
       "core": [
-        "SMTP (Simple Mail Transfer Protocol) - for sending email, from client to server and between servers.",
-        "POP3 (Post Office Protocol 3) - for receiving: downloads messages to one device and typically deletes them from the server.",
-        "IMAP (Internet Message Access Protocol) - for receiving: messages stay on the server, so several devices see the same mailbox."
+        "SMTP (Simple Mail Transfer Protocol) is used for sending email - from the client to the server, and between servers.",
+        "POP3 (Post Office Protocol 3) is used for receiving: it downloads the messages to one device and typically deletes them from the server.",
+        "IMAP (Internet Message Access Protocol) is also used for receiving, but the messages stay on the server - so several devices see the same mailbox."
       ],
-      "mnemonic": "SMTP Sends; POP Pulls off the post; IMAP stays In place.",
       "more": [
-        "In practice: modern mail apps use IMAP because people read mail on both phone and laptop."
+        "In practice, modern mail apps use IMAP, because people read their mail on both a phone and a laptop."
       ]
     },
     {
@@ -637,13 +622,12 @@
       "category": "web",
       "question": "What makes a good website?",
       "core": [
-        "Good design: consistent layout, menus in the same place on every page, consistent colors and fonts, a clearly visible logo.",
-        "Easy navigation, ease of use, and fast loading - pages should not be too complex or slow.",
-        "Accurate and up-to-date content, helpful graphics that support the content, compatibility across browsers and devices, and visible contact information."
+        "Good design: a consistent layout, menus in the same place on every page, consistent colors and fonts, and a clearly visible logo.",
+        "Easy navigation and ease of use, with fast loading - pages should not be too complex or too slow.",
+        "Accurate and regularly updated content, helpful graphics that support the content (not just decorate it), compatibility across browsers and devices, and clearly visible contact information."
       ],
-      "mnemonic": "Design, navigation, accuracy, freshness, speed, contact.",
       "more": [
-        "An easy structure to remember: design + navigation + content (accurate, updated) + technical (fast, compatible) + contact information."
+        "The seven evaluation points from the lecture: design, navigation and ease of use, accuracy, up-to-date content, helpful graphics, compatibility, and contact information."
       ]
     },
     {
@@ -652,11 +636,12 @@
       "question": "What are the features (basic elements) of a web page?",
       "core": [
         "Web pages are created with HTML (HyperText Markup Language) and interpreted by a web browser.",
-        "Basic elements: text (various sizes, styles, fonts), links (hyperlinks to other pages or files), graphics (JPEG for photos with many colors, GIF for simpler graphics like buttons and icons), tables (for data or layout), frames (multiple HTML documents on one page), multimedia (animations, audio such as MIDI/WAV/MP3, video), and plug-ins (extra software for specific content)."
+        "The basic elements: text (various sizes, styles and fonts), links (to other parts of the page, other sites or files), graphics (JPEG for photos with many colors, GIF for simpler graphics like buttons and icons), tables (for data, and often for page layout) and frames (several HTML documents shown on one page).",
+        "Pages can also include multimedia - audio (MIDI, WAV, MP3), video and animation (Shockwave, Flash), Java applets for interactivity - and plug-ins, extra software that lets the browser support new content types."
       ],
-      "mnemonic": "JPEG = photos with many colors; GIF = simple graphics and icons.",
       "more": [
-        "A practical way to recall the list: walk through any web page you know and name what you see - text, links, images, tables, video."
+        "Three ways to build a website: write the HTML tags yourself, use a WYSIWYG editor (What You See Is What You Get - it converts a visual layout into HTML code), or fill in a ready-made web template.",
+        "You can see the raw HTML of any page with the browser's View Source option."
       ]
     },
     {
@@ -664,13 +649,13 @@
       "category": "web",
       "question": "What are common mistakes made in the development of web pages?",
       "core": [
-        "Inappropriate domain name (too long, vague or unrelated to the business) and poor design or functionality (inconsistent menus, mixed link colors and fonts).",
-        "Too complicated or too slow (heavy animations that confuse casual users), a stagnant site that is never updated, broken links and 404 error messages.",
-        "No contact information, ignoring visitor statistics (missed chances to improve), and free or cheap hosting whose downtime damages credibility."
+        "An inappropriate domain name (too long, vague or unrelated to the business) and poor design or functionality (inconsistent menus, mixed link colors and fonts).",
+        "A site that is too complicated or too slow (heavy animations confuse casual users and slow down loading), a stagnant site that is never updated, and broken links with 404 error messages.",
+        "No contact information, ignoring visitor statistics (missed chances to improve the site), and free or cheap hosting whose downtime damages the site's credibility."
       ],
-      "mnemonic": "Eight sins: bad name, bad design, slow, stale, broken, unreachable, unmeasured, cheap hosting.",
       "more": [
-        "Each mistake is the negation of a rule from \"what makes a good website\" - the two lists mirror each other."
+        "Each mistake is the negation of a rule from 'what makes a good website' - the two lists mirror each other.",
+        "Details for bonus points: a good domain name is short and memorable; large sites can offer a 'submit a broken link' form; a contact page should be reachable from anywhere on the site, and messages should actually be answered."
       ]
     },
     {
@@ -678,14 +663,13 @@
       "category": "web",
       "question": "What happens in the background when we open a website?",
       "core": [
-        "You type the URL into the browser; the browser sends it to a DNS server, which translates the domain name into an IP address.",
-        "The request goes through your router/gateway and travels across the Internet, passing through various routers, until it reaches the remote web server.",
-        "The server looks for the requested document and sends the web page back to your browser (the client), which displays it on screen. Clicking a hyperlink repeats the process - after checking the cache first."
+        "You type the URL into the browser. The browser sends the domain name to a DNS server, which translates it into an IP address.",
+        "The request goes out through your router/gateway and travels across the Internet, passing through several routers, until it reaches the remote web server.",
+        "The server finds the requested document and sends the web page back to your browser (the client), which displays it on screen. Clicking a hyperlink repeats the process - but the browser first checks whether the page is already stored in the cache."
       ],
-      "mnemonic": "URL, DNS, IP, routers, server, page, display.",
       "more": [
-        "Extra detail: you can bookmark a page to return to it easily, or use the Home button to go back to your start page.",
-        "The roles: your computer is the client, the DNS server resolves the name, routers forward packets, the web server hosts the page."
+        "The roles: your computer is the client, the DNS server resolves the name, the routers forward the packets, and the web server hosts the page.",
+        "Extra detail: bookmarking a page lets you return to it easily, and the Home button takes you back to your starting page."
       ]
     },
     {
@@ -694,11 +678,11 @@
       "question": "Explain TCP, DNS, and the advantages and disadvantages of the star topology.",
       "core": [
         "TCP provides reliable, ordered and error-checked delivery of data packets across the Internet - data sent from one computer arrives correctly at the other.",
-        "DNS translates human-readable domain names (www.fit.ba) into the IP addresses computers use to locate each other.",
-        "Star topology: easy to add or remove devices, one failure affects only that device, easy to troubleshoot; but the central hub is a single point of failure and it needs more cabling and cost than bus."
+        "DNS translates human-readable domain names (www.fit.ba) into the IP addresses that computers use to locate each other.",
+        "Star topology - advantages: devices are easy to add or remove, one failure affects only that device, and the network is easy to troubleshoot. Disadvantages: the central hub is a single point of failure, and it needs more cabling and cost than bus."
       ],
       "more": [
-        "This combines three earlier cards - answer each part separately and briefly."
+        "This question combines three earlier cards - answer each part separately and briefly."
       ]
     }
   ]

@@ -11,7 +11,8 @@ Randomized English grammar practice, built with plain HTML/CSS/JS (no build step
 - Single-answer (radio) and multiple-answer (checkbox) questions, with the grammar rule shown after each answer.
 - End-of-session review: every mistake is listed with the correct answer and the relevant rule.
 - A hand-written grammar cheat sheet (`rules.html`) covering the areas the exercises test: tenses, future forms, conditionals, participle clauses, both/either/neither, passive, modals, prepositions, collocations, question formation, the e-/cyber- prefixes, and an irregular-verbs table (all verbs used in the exercises + other common ones).
-- Essay-prep flashcards (`essay.html`) for the descriptive exam questions (operating systems, networks, WWW): active-recall cards with self-grading, compact "exam answer" bullets, mnemonics, topology diagrams, and Leitner-style repetition (cards you don't know come back first; three "Knew it" answers master a card). The topic area is chosen on the start screen, like the grammar topics.
+- Essay-prep flashcards (`essay.html`) for the descriptive exam questions (operating systems, networks, WWW): active-recall cards with self-grading, compact "exam answer" bullets, mnemonics, topology diagrams, and Leitner-style repetition (cards you don't know come back first; three "Knew it" answers master a card). The topic area is chosen on the start screen, like the grammar topics. Two study modes: recall (answer out loud) or write (type your answer before revealing).
+- Essay theory page (`theory.html`) that renders the same content as one readable article, grouped by topic, so you can learn the material before drilling it as flashcards. It is generated from `essay-cards.json`, so it never drifts from the cards.
 - Correctly answered questions are excluded from future sessions (tracked in `localStorage`), with per-topic progress shown on the start screen.
 - You can navigate back to review already-answered questions in the current session.
 - Light/dark theme with a toggle, following the system preference by default.
@@ -42,6 +43,7 @@ src/                    Everything the browser loads (Netlify publishes this fol
   quiz.html             Quiz screen (question, feedback, summary + mistake review)
   rules.html            Grammar cheat sheet for the exam topics
   essay.html            Flashcards for the essay questions (self-graded, Leitner repetition)
+  theory.html           Essay theory as one readable page (generated from essay-cards.json)
   contribute.html       How to use, fork and contribute to the project
   assets/
     css/
@@ -52,11 +54,14 @@ src/                    Everything the browser loads (Netlify publishes this fol
       quiz.css          Quiz-screen styles (options, feedback states, review)
       rules.css         Rules + contribute page styles
       essay.css         Flashcards page styles (chips, card, diagrams, grading)
+      theory.css        Theory page styles (per-question blocks within a topic)
     js/
       main-home.js      Entry point for the start screen
       main-quiz.js      Entry point for the quiz screen (wires everything together)
       main-static.js    Entry point for the rules/contribute pages (theme only)
       main-essay.js     Entry point for the flashcards page (deck, grading, diagrams)
+      main-theory.js    Entry point for the theory page (renders cards as an article)
+      essay-diagrams.js Shared topology SVGs used by the flashcards and theory page
       essay-store.js    localStorage persistence of flashcard Leitner boxes
       data-loader.js    Fetches the manifest and topic JSON files
       quiz-engine.js    Pure logic: pool building, topic filtering, answer checking

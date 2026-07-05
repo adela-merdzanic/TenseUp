@@ -34,7 +34,12 @@ export const ESSAY_SHORT_SESSION_SIZE = 5;
 
 // categoryIds: null means "all categories" (so categories added later are
 // included automatically); an array means an explicit selection.
-const ESSAY_DEFAULTS = { sessionSize: "all", categoryIds: null };
+// mode: "recall" (read and answer out loud) or "write" (type the answer first).
+const ESSAY_DEFAULTS = {
+  sessionSize: "all",
+  categoryIds: null,
+  mode: "recall",
+};
 
 export function getEssaySettings() {
   try {
@@ -46,6 +51,7 @@ export function getEssaySettings() {
       categoryIds: Array.isArray(parsed.categoryIds)
         ? parsed.categoryIds
         : null,
+      mode: parsed.mode === "write" ? "write" : "recall",
     };
   } catch {
     return { ...ESSAY_DEFAULTS };

@@ -142,6 +142,20 @@ function wireEssaySessionSize() {
   );
 }
 
+function wireEssayMode() {
+  const settings = getEssaySettings();
+  const current = qs(`input[name="essay-mode"][value="${settings.mode}"]`);
+  if (current) current.checked = true;
+
+  qsa('input[name="essay-mode"]').forEach((input) =>
+    input.addEventListener("change", () => {
+      const updated = getEssaySettings();
+      updated.mode = input.value === "write" ? "write" : "recall";
+      saveEssaySettings(updated);
+    }),
+  );
+}
+
 function renderTopicList() {
   const stats = computeTopicStats();
   const selected = getSettings().topicIds; // null = all selected
@@ -244,6 +258,7 @@ async function init() {
   renderEssayCategoryList();
   wireSessionSize();
   wireEssaySessionSize();
+  wireEssayMode();
 }
 
 // Reset wipes stored progress, so it takes two clicks: the first arms the

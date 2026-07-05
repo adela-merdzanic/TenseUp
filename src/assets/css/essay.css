@@ -60,6 +60,42 @@
   margin: 0 0 calc(var(--spacing-unit) * 2);
 }
 
+.write-area {
+  margin-bottom: calc(var(--spacing-unit) * 2);
+}
+
+.write-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-muted);
+  margin-bottom: var(--spacing-unit);
+}
+
+.write-input {
+  width: 100%;
+  box-sizing: border-box;
+  font: inherit;
+  color: var(--color-text);
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: calc(var(--spacing-unit) * 1.5);
+  resize: vertical;
+}
+
+.write-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px
+    color-mix(in srgb, var(--color-primary) 25%, transparent);
+}
+
+.write-input:read-only {
+  opacity: 0.75;
+  cursor: default;
+}
+
 .answer-core {
   padding-left: 1.2rem;
   margin: 0;

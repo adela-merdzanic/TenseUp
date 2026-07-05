@@ -8,12 +8,126 @@
   border-top: 1px solid var(--color-border);
 }
 
+.theory-card {
+  /* Keep the sticky listen bar from covering a card scrolled into view. */
+  scroll-margin-top: calc(var(--spacing-unit) * 10);
+  border-radius: var(--radius);
+}
+
+.theory-card__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--spacing-unit);
+  margin-bottom: var(--spacing-unit);
+}
+
 .theory-card h3 {
   font-size: 1.1rem;
-  margin: 0 0 var(--spacing-unit);
+  margin: 0;
   color: var(--color-primary);
-  /* Offset so a question isn't hidden under the top edge when linked to. */
-  scroll-margin-top: calc(var(--spacing-unit) * 2);
+}
+
+.theory-card__audio {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-unit);
+  flex-shrink: 0;
+}
+
+/* Checkbox that includes the card in "Play selected". */
+.theory-card__pick {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.theory-card__pick input {
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+  accent-color: var(--color-primary);
+}
+
+.theory-card__listen {
+  flex-shrink: 0;
+  white-space: nowrap;
+  color: var(--color-muted);
+}
+
+.theory-card__listen:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+/* The card currently playing: soft tint + accent, like .mnemonic. */
+.theory-card.is-speaking {
+  background: color-mix(in srgb, var(--color-primary) 7%, transparent);
+  box-shadow: inset 3px 0 0 var(--color-primary);
+  padding-left: calc(var(--spacing-unit) * 1.5);
+  padding-right: calc(var(--spacing-unit) * 1.5);
+  margin-left: calc(var(--spacing-unit) * -1.5);
+  margin-right: calc(var(--spacing-unit) * -1.5);
+}
+
+/* Sticky podcast-style control strip. */
+.listen-bar {
+  position: sticky;
+  top: var(--spacing-unit);
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-unit) calc(var(--spacing-unit) * 2);
+  margin: calc(var(--spacing-unit) * 2) 0;
+  padding: var(--spacing-unit) calc(var(--spacing-unit) * 1.5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+}
+
+.listen-controls {
+  display: flex;
+  gap: var(--spacing-unit);
+}
+
+.listen-now {
+  flex: 1 1 10rem;
+  min-width: 0;
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Prev/next skip buttons: compact icon-only squares. */
+.listen-skip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.listen-skip svg {
+  display: block;
+}
+
+/* Speed chip: tap to cycle 0.75x-2x, like podcast apps. */
+.listen-rate {
+  margin-left: auto;
+  min-width: 3.6em;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-muted);
+}
+
+.listen-rate:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
 }
 
 .theory-card .answer-core li {

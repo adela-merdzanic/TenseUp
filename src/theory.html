@@ -76,6 +76,72 @@
         Everything the essay flashcards test, in one readable page.
       </p>
 
+      <div id="listen-bar" class="listen-bar" hidden>
+        <div class="listen-controls">
+          <button
+            type="button"
+            id="listen-play"
+            class="btn btn-sm btn-primary"
+          ></button>
+          <button type="button" id="listen-select-all" class="btn btn-sm">
+            Clear all
+          </button>
+          <button
+            type="button"
+            id="listen-prev"
+            class="btn btn-sm listen-skip"
+            aria-label="Previous card"
+            title="Previous card"
+            hidden
+          >
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path d="M6 5h2v14H6zM20 5v14L9.5 12z" />
+            </svg>
+          </button>
+          <button type="button" id="listen-toggle" class="btn btn-sm" hidden>
+            Pause
+          </button>
+          <button
+            type="button"
+            id="listen-next"
+            class="btn btn-sm listen-skip"
+            aria-label="Next card"
+            title="Next card"
+            hidden
+          >
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path d="M16 5h2v14h-2zM4 5v14l10.5-7z" />
+            </svg>
+          </button>
+          <button type="button" id="listen-stop" class="btn btn-sm" hidden>
+            Stop
+          </button>
+        </div>
+        <p class="listen-now" id="listen-now" aria-live="polite"></p>
+        <button
+          type="button"
+          id="listen-rate"
+          class="btn btn-sm listen-rate"
+          aria-label="Playback speed"
+          title="Playback speed"
+        >
+          1x
+        </button>
+      </div>
+      <audio id="listen-audio" preload="none"></audio>
+
       <nav class="rules-toc" id="theory-toc" aria-label="Topics"></nav>
 
       <div id="theory-content"></div>

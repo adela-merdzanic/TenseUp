@@ -13,6 +13,7 @@ Randomized English grammar practice, built with plain HTML/CSS/JS (no build step
 - A hand-written grammar cheat sheet (`rules.html`) covering the areas the exercises test: tenses, future forms, conditionals, participle clauses, both/either/neither, passive, modals, prepositions, collocations, question formation, the e-/cyber- prefixes, and an irregular-verbs table (all verbs used in the exercises + other common ones).
 - Essay-prep flashcards (`essay.html`) for the descriptive exam questions (operating systems, networks, WWW): active-recall cards with self-grading, compact "exam answer" bullets, mnemonics, topology diagrams, and Leitner-style repetition (cards you don't know come back first; three "Knew it" answers master a card). The topic area is chosen on the start screen, like the grammar topics. Two study modes: recall (answer out loud) or write (type your answer before revealing).
 - Essay theory page (`theory.html`) that renders the same content as one readable article, grouped by topic, so you can learn the material before drilling it as flashcards. It is generated from `essay-cards.json`, so it never drifts from the cards.
+- Audio narration on the theory page: pre-made MP3s in `src/assets/voice/`, one per card, played like a podcast. Every narrated card has an include-checkbox (all selected by default, with a select all/clear all toggle) and Play walks the selection in page order, while a per-card Listen button plays the whole narrated list from that card's position. Pause, previous/next card, stop, and a tap-to-cycle speed chip (0.75x-2x) included. A card's file must be named `<card-id>.mp3` - the page detects which files exist, so partial coverage works and adding narration for a new card needs no code changes.
 - Correctly answered questions are excluded from future sessions (tracked in `localStorage`), with per-topic progress shown on the start screen.
 - You can navigate back to review already-answered questions in the current session.
 - Light/dark theme with a toggle, following the system preference by default.
@@ -61,6 +62,7 @@ src/                    Everything the browser loads (Netlify publishes this fol
       main-static.js    Entry point for the rules/contribute pages (theme only)
       main-essay.js     Entry point for the flashcards page (deck, grading, diagrams)
       main-theory.js    Entry point for the theory page (renders cards as an article)
+      audio-player.js   Plays the narration MP3s as a playlist (theory page)
       essay-diagrams.js Shared topology SVGs used by the flashcards and theory page
       essay-store.js    localStorage persistence of flashcard Leitner boxes
       data-loader.js    Fetches the manifest and topic JSON files
@@ -72,6 +74,7 @@ src/                    Everything the browser loads (Netlify publishes this fol
       theme.js          Light/dark theme init and toggle
       utils.js          Small helpers (shuffle, escapeHtml, ...)
     images/             Favicons and the social preview image
+    voice/              Narration MP3s for the theory page, one per card (<card-id>.mp3)
   data/
     manifest.json       List of topics the app loads
     topics/*.json       One file per topic (see schema below)

@@ -170,7 +170,7 @@
       ],
       "more": [
         "Key network components: file servers, bridges, routers, gateways, backbones, LANs, modems and hubs.",
-        "Quick definitions for possible follow-up questions: a file server stores the shared files and programs; a modem converts digital signals to analogue and back so data can travel over a telephone line; a hub connects all the data cabling in a network; a backbone is the main transmission path that carries the major data traffic."
+        "A file server stores the shared files and programs; a modem converts digital signals to analogue and back so data can travel over a telephone line; a hub connects all the data cabling in a network; a backbone is the main transmission path that carries the major data traffic."
       ]
     },
     {
@@ -301,9 +301,6 @@
         "An extranet is a private network that uses Internet technology and the public telecommunication system to securely share part of a business's information and operations with suppliers, vendors, partners and customers.",
         "It can be seen as the part of a company's intranet that is extended to users outside the company.",
         "Because outsiders connect to it, it needs security and privacy: firewalls, digital certificates, user authentication, message encryption and VPNs (Virtual Private Networks)."
-      ],
-      "more": [
-        "Example: a supplier logs into a company's ordering system - an outside user working securely inside one part of the company network."
       ]
     },
     {
@@ -511,8 +508,7 @@
       ],
       "more": [
         "Server types: web servers, application servers, file servers, terminal servers and mail servers.",
-        "Example from the lecture: reading a Wikipedia article - your browser is the client, and Wikipedia's computers, databases and applications are the server.",
-        "Bonus detail - tiered architecture: two-tier means just clients and servers; three-tier adds application servers between the clients and the database servers, which balances the load better but is harder to program and test."
+        "Example: reading a Wikipedia article - your browser is the client, and Wikipedia's computers, databases and applications are the server."
       ]
     },
     {
@@ -663,13 +659,13 @@
       "category": "web",
       "question": "What happens in the background when we open a website?",
       "core": [
-        "You type the URL into the browser. The browser sends the domain name to a DNS server, which translates it into an IP address.",
-        "The request goes out through your router/gateway and travels across the Internet, passing through several routers, until it reaches the remote web server.",
-        "The server finds the requested document and sends the web page back to your browser (the client), which displays it on screen. Clicking a hyperlink repeats the process - but the browser first checks whether the page is already stored in the cache."
+        "When the user enters a URL, the browser sends the domain name to a DNS server, which translates it into an IP address.",
+        "The request then leaves the local network through the router/gateway and travels across the Internet, passing through several routers, until it reaches the remote web server.",
+        "The server finds the requested document and sends the web page back to the browser (the client), which displays it on the screen. Clicking a hyperlink repeats the same process - but the browser first checks whether the page is already stored in the cache."
       ],
       "more": [
-        "The roles: your computer is the client, the DNS server resolves the name, the routers forward the packets, and the web server hosts the page.",
-        "Extra detail: bookmarking a page lets you return to it easily, and the Home button takes you back to your starting page."
+        "The roles in the process: the user's computer is the client, the DNS server resolves the name, the routers forward the packets, and the web server hosts the page.",
+        "Extra detail: a bookmark saves the address of a page so it is easy to return to, and the Home button leads back to the browser's starting page."
       ]
     },
     {

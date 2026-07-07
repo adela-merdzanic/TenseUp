@@ -76,70 +76,141 @@
         Everything the essay flashcards test, in one readable page.
       </p>
 
-      <div id="listen-bar" class="listen-bar" hidden>
-        <div class="listen-controls">
-          <button
-            type="button"
-            id="listen-play"
-            class="btn btn-sm btn-primary"
-          ></button>
-          <button type="button" id="listen-select-all" class="btn btn-sm">
-            Clear all
-          </button>
-          <button
-            type="button"
-            id="listen-prev"
-            class="btn btn-sm listen-skip"
-            aria-label="Previous card"
-            title="Previous card"
-            hidden
-          >
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              aria-hidden="true"
+      <aside class="theory-sidebar">
+        <nav
+          class="theory-playlist"
+          id="theory-playlist"
+          aria-label="All cards"
+        ></nav>
+        <div id="listen-bar" class="listen-bar" hidden>
+          <div class="listen-controls">
+            <button
+              type="button"
+              id="listen-play"
+              class="btn btn-sm btn-primary"
+            ></button>
+            <button type="button" id="listen-select-all" class="btn btn-sm">
+              Clear all
+            </button>
+            <button
+              type="button"
+              id="listen-prev"
+              class="btn btn-sm listen-skip"
+              aria-label="Previous card"
+              title="Previous card"
+              hidden
             >
-              <path d="M6 5h2v14H6zM20 5v14L9.5 12z" />
-            </svg>
-          </button>
-          <button type="button" id="listen-toggle" class="btn btn-sm" hidden>
-            Pause
-          </button>
-          <button
-            type="button"
-            id="listen-next"
-            class="btn btn-sm listen-skip"
-            aria-label="Next card"
-            title="Next card"
-            hidden
-          >
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              aria-hidden="true"
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path d="M6 5h2v14H6zM20 5v14L9.5 12z" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              id="listen-toggle"
+              class="btn btn-sm listen-skip"
+              aria-label="Pause"
+              title="Pause"
+              hidden
             >
-              <path d="M16 5h2v14h-2zM4 5v14l10.5-7z" />
-            </svg>
-          </button>
-          <button type="button" id="listen-stop" class="btn btn-sm" hidden>
-            Stop
-          </button>
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              id="listen-next"
+              class="btn btn-sm listen-skip"
+              aria-label="Next card"
+              title="Next card"
+              hidden
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path d="M16 5h2v14h-2zM4 5v14l10.5-7z" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              id="listen-stop"
+              class="btn btn-sm listen-skip"
+              aria-label="Stop"
+              title="Stop"
+              hidden
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path d="M6 6h12v12H6z" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              id="listen-replay"
+              class="btn btn-sm listen-skip"
+              aria-label="Replay this card"
+              title="Replay this card"
+              hidden
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"
+                />
+              </svg>
+            </button>
+            <button
+              type="button"
+              id="listen-rate"
+              class="btn btn-sm listen-rate"
+              aria-label="Playback speed"
+              title="Playback speed"
+            >
+              1x
+            </button>
+          </div>
+          <p class="listen-now" id="listen-now" aria-live="polite"></p>
+          <div class="listen-seek" id="listen-seek" hidden>
+            <span class="listen-time" id="listen-time-current">0:00</span>
+            <input
+              type="range"
+              id="listen-seek-input"
+              class="listen-seek-line"
+              min="0"
+              max="0"
+              step="0.1"
+              value="0"
+              aria-label="Seek within the current card"
+            />
+            <span class="listen-time" id="listen-time-total">0:00</span>
+          </div>
         </div>
-        <p class="listen-now" id="listen-now" aria-live="polite"></p>
-        <button
-          type="button"
-          id="listen-rate"
-          class="btn btn-sm listen-rate"
-          aria-label="Playback speed"
-          title="Playback speed"
-        >
-          1x
-        </button>
-      </div>
+      </aside>
       <audio id="listen-audio" preload="none"></audio>
 
       <nav class="rules-toc" id="theory-toc" aria-label="Topics"></nav>

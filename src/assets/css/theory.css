@@ -60,6 +60,27 @@
   border-color: var(--color-primary);
 }
 
+/* Replay-from-the-top icon next to the listen button. */
+.theory-card__replay {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 30px;
+  padding-left: 0;
+  padding-right: 0;
+  color: var(--color-muted);
+}
+
+.theory-card__replay svg {
+  display: block;
+}
+
+.theory-card__replay:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
 /* The card currently playing: soft tint + accent, like .mnemonic. */
 .theory-card.is-speaking {
   background: color-mix(in srgb, var(--color-primary) 7%, transparent);
@@ -89,7 +110,10 @@
 
 .listen-controls {
   display: flex;
+  align-items: center;
   gap: var(--spacing-unit);
+  /* Fill the bar row so the speed chip can sit at its right edge. */
+  flex: 1 1 auto;
 }
 
 .listen-now {
@@ -130,6 +154,55 @@
   border-color: var(--color-primary);
 }
 
+/* Streaming-style seek line: full-width row under the controls, thin track
+   with the played part filled (--seek-fill is set from JS). */
+.listen-seek {
+  flex: 1 1 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-unit);
+}
+
+.listen-time {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.listen-seek-line {
+  flex: 1;
+  min-width: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  height: 4px;
+  margin: 0;
+  border-radius: 2px;
+  background: linear-gradient(
+    to right,
+    var(--color-primary) var(--seek-fill, 0%),
+    var(--color-border) var(--seek-fill, 0%)
+  );
+  cursor: pointer;
+}
+
+.listen-seek-line::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border: none;
+  border-radius: 50%;
+  background: var(--color-primary);
+}
+
+.listen-seek-line::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: none;
+  border-radius: 50%;
+  background: var(--color-primary);
+}
+
 .theory-card .answer-core li {
   margin-bottom: var(--spacing-unit);
 }
@@ -137,4 +210,131 @@
 .theory-cta {
   margin-top: calc(var(--spacing-unit) * 3);
   justify-content: center;
+}
+
+/* On narrow screens the sidebar wrapper adds no box, so the listen bar keeps
+   its sticky-strip behavior and the playlist stays hidden (the chip TOC
+   covers navigation there). */
+.theory-sidebar {
+  display: contents;
+}
+
+.theory-playlist {
+  display: none;
+}
+
+.theory-playlist__category {
+  margin: calc(var(--spacing-unit) * 2) 0 calc(var(--spacing-unit) / 2);
+  padding: 0 var(--spacing-unit);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-muted);
+}
+
+.theory-playlist__category:first-child {
+  margin-top: 0;
+}
+
+.theory-playlist__item {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-unit);
+  width: 100%;
+  padding: calc(var(--spacing-unit) * 0.75) var(--spacing-unit);
+  border: 0;
+  border-radius: calc(var(--radius) / 2);
+  background: none;
+  font: inherit;
+  font-size: 0.85rem;
+  text-align: left;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.theory-playlist__item:hover {
+  background: var(--color-surface-2);
+  color: var(--color-primary);
+}
+
+.theory-playlist__num {
+  flex-shrink: 0;
+  min-width: 1.6em;
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-muted);
+}
+
+/* The row of the card currently playing, YouTube-playlist style. */
+.theory-playlist__item.is-playing {
+  background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  box-shadow: inset 2px 0 0 var(--color-primary);
+  color: var(--color-primary);
+}
+
+.theory-playlist__item.is-playing .theory-playlist__num {
+  color: var(--color-primary);
+}
+
+/* Wide screens: two columns, reading pane + sticky playlist sidebar with the
+   player controls docked above the list. The chip TOC is redundant there. */
+@media (min-width: 1100px) {
+  .container.rules-screen {
+    max-width: 1160px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    column-gap: calc(var(--spacing-unit) * 3);
+    align-items: start;
+  }
+
+  #theory-heading,
+  .rules-intro {
+    grid-column: 1 / -1;
+  }
+
+  #theory-content {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .theory-cta {
+    grid-column: 1;
+  }
+
+  .rules-toc {
+    display: none;
+  }
+
+  .theory-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing-unit) * 2);
+    grid-column: 2;
+    grid-row: 3;
+    position: sticky;
+    top: calc(var(--spacing-unit) * 2);
+    max-height: calc(100vh - var(--spacing-unit) * 4);
+  }
+
+  /* Controls above the list, so Play is visible before any scrolling. */
+  .theory-playlist {
+    display: block;
+    order: 2;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    padding: var(--spacing-unit);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Inside the sticky sidebar the bar no longer needs to stick on its own. */
+  .listen-bar {
+    order: 1;
+    position: static;
+    margin: 0;
+  }
 }

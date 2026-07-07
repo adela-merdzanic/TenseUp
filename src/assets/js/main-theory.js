@@ -216,6 +216,7 @@ async function wireListen(cards) {
   const seekInput = qs("#listen-seek-input");
   const timeCurrent = qs("#listen-time-current");
   const timeTotal = qs("#listen-time-total");
+  const totalLabel = qs("#listen-total");
 
   // Tap the speed chip to cycle through rates, podcast-app style.
   const RATES = [0.75, 1, 1.25, 1.5, 1.75, 2];
@@ -230,6 +231,63 @@ async function wireListen(cards) {
   const selectedItems = () =>
     playlist.filter((item) => checkboxOf(item).checked);
 
+  // Card lengths load in the background (metadata only, no audio data) so the
+  // bar can show the selected total and the time left to the end of the queue.
+  let durationsReady = false;
+  Promise.all(
+    playlist.map(
+      (item) =>
+        new Promise((resolve) => {
+          const probe = new Audio();
+          probe.preload = "metadata";
+          probe.addEventListener(
+            "loadedmetadata",
+            () => {
+              item.duration = probe.duration;
+              resolve();
+            },
+            { once: true },
+          );
+          probe.addEventListener(
+            "error",
+            () => {
+              item.duration = 0;
+              resolve();
+            },
+            { once: true },
+          );
+          probe.src = item.src;
+        }),
+    ),
+  ).then(() => {
+    durationsReady = true;
+    renderTotal();
+  });
+
+  // Idle: the length of everything ticked. Playing: what is left of the
+  // current card plus the ticked cards after it.
+  function renderTotal() {
+    if (!durationsReady) {
+      totalLabel.textContent = "";
+      return;
+    }
+    if (player.isActive() && currentIndex >= 0) {
+      const cardLength =
+        audioEl.duration || playlist[currentIndex].duration || 0;
+      let left = Math.max(0, cardLength - audioEl.currentTime);
+      for (let i = currentIndex + 1; i < playlist.length; i += 1) {
+        if (checkboxOf(playlist[i]).checked) left += playlist[i].duration || 0;
+      }
+      totalLabel.textContent = `${formatTime(left)} left`;
+    } else {
+      const total = selectedItems().reduce(
+        (sum, item) => sum + (item.duration || 0),
+        0,
+      );
+      totalLabel.textContent = `${formatTime(total)} selected`;
+    }
+  }
+
   // Play button shows how many cards are queued; the toggle flips between
   // select-all and clear-all (same convention as the start screen topic list).
   const updateSelectionUI = () => {
@@ -238,6 +296,7 @@ async function wireListen(cards) {
     playBtn.disabled = count === 0;
     selectAllBtn.textContent =
       count === playlist.length ? "Clear all" : "Select all";
+    renderTotal();
   };
 
   // Seek line: mirror the audio position onto the slider; dragging or
@@ -245,7 +304,10 @@ async function wireListen(cards) {
   const formatTime = (seconds) => {
     if (!Number.isFinite(seconds)) return "0:00";
     const whole = Math.floor(seconds);
-    return `${Math.floor(whole / 60)}:${String(whole % 60).padStart(2, "0")}`;
+    const minutes = Math.floor(whole / 60);
+    const secs = String(whole % 60).padStart(2, "0");
+    if (minutes < 60) return `${minutes}:${secs}`;
+    return `${Math.floor(minutes / 60)}:${String(minutes % 60).padStart(2, "0")}:${secs}`;
   };
 
   const renderSeek = () => {
@@ -262,6 +324,7 @@ async function wireListen(cards) {
 
   audioEl.addEventListener("loadedmetadata", renderSeek);
   audioEl.addEventListener("timeupdate", renderSeek);
+  audioEl.addEventListener("timeupdate", renderTotal);
   seekInput.addEventListener("input", () => {
     if (!Number.isFinite(audioEl.duration)) return;
     audioEl.currentTime = Number(seekInput.value);
@@ -366,6 +429,7 @@ async function wireListen(cards) {
       currentIndex = index;
       paused = false;
       renderPlayState();
+      renderTotal();
     },
     onStop: () => {
       currentIndex = -1;

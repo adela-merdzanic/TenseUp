@@ -169,6 +169,13 @@
   font-variant-numeric: tabular-nums;
 }
 
+/* Selected total when idle / time left to the end of the queue while
+   playing; sits at the right edge of the "Now playing" row. */
+.listen-total {
+  margin-left: auto;
+  white-space: nowrap;
+}
+
 .listen-seek-line {
   flex: 1;
   min-width: 0;

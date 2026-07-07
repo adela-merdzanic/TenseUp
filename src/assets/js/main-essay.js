@@ -121,7 +121,6 @@ function showCard() {
   writeArea.hidden = mode !== "write";
   if (mode === "write") {
     writeInput.value = "";
-    writeInput.readOnly = false;
   }
 
   qs("#card-answer").hidden = true;
@@ -134,8 +133,6 @@ function showCard() {
 }
 
 function revealAnswer() {
-  // In write mode, lock the typed answer so it stays as a comparison.
-  if (mode === "write") qs("#write-input").readOnly = true;
   qs("#card-answer").hidden = false;
   qs("#show-btn").hidden = true;
   qs("#grade-actions").hidden = false;

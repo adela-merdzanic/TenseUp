@@ -278,13 +278,15 @@ async function wireListen(cards) {
       for (let i = currentIndex + 1; i < playlist.length; i += 1) {
         if (checkboxOf(playlist[i]).checked) left += playlist[i].duration || 0;
       }
-      totalLabel.textContent = `${formatTime(left)} left`;
+      totalLabel.textContent = formatTime(left);
+      totalLabel.title = "Time left";
     } else {
       const total = selectedItems().reduce(
         (sum, item) => sum + (item.duration || 0),
         0,
       );
-      totalLabel.textContent = `${formatTime(total)} selected`;
+      totalLabel.textContent = formatTime(total);
+      totalLabel.title = "Total length of the selected cards";
     }
   }
 

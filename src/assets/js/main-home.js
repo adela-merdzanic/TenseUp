@@ -227,6 +227,20 @@ function wireSessionSize() {
   );
 }
 
+function wireOrder() {
+  const settings = getSettings();
+  const current = qs(`input[name="order"][value="${settings.order}"]`);
+  if (current) current.checked = true;
+
+  qsa('input[name="order"]').forEach((input) =>
+    input.addEventListener("change", () => {
+      const updated = getSettings();
+      updated.order = input.value === "sequential" ? "sequential" : "shuffle";
+      saveSettings(updated);
+    }),
+  );
+}
+
 // Fill the hero, card title and start-button links from the subject, and hide
 // the quiz/essay card for subjects that don't have that feature.
 function applySubject(config, hasQuiz, hasEssay) {
@@ -277,6 +291,7 @@ async function init() {
   renderTopicList();
   renderEssayCategoryList();
   wireSessionSize();
+  wireOrder();
   wireEssaySessionSize();
   wireEssayMode();
 }

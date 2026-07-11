@@ -64,6 +64,78 @@
       "topicId": "hardver-arhitektura-razno",
       "title": "Hardver, arhitektura i razno",
       "file": "topics/hardver-arhitektura-razno.json"
+    },
+    {
+      "topicId": "custom-sistemski-pozivi",
+      "title": "Dodatna pitanja: sistemski pozivi",
+      "file": "topics/custom-sistemski-pozivi.json",
+      "custom": true
+    },
+    {
+      "topicId": "arhiva-2018-zadrzati",
+      "title": "2018 ispit: za zadržati (u gradivu)",
+      "file": "topics/arhiva-2018-zadrzati.json",
+      "custom": true
+    },
+    {
+      "topicId": "arhiva-2018-ostalo",
+      "title": "2018 ispit: ostalo (van gradiva)",
+      "file": "topics/arhiva-2018-ostalo.json",
+      "custom": true
+    },
+    {
+      "topicId": "gradivo-uvod",
+      "title": "Gradivo: Uvod u OS (P1, P2)",
+      "file": "topics/gradivo-uvod.json",
+      "custom": true
+    },
+    {
+      "topicId": "gradivo-hardver",
+      "title": "Gradivo: Računarski hardver",
+      "file": "topics/gradivo-hardver.json",
+      "custom": true
+    },
+    {
+      "topicId": "gradivo-koncepti",
+      "title": "Gradivo: Osnovni koncepti, sistemski pozivi i usluge OS-a",
+      "file": "topics/gradivo-koncepti.json",
+      "custom": true
+    },
+    {
+      "topicId": "gradivo-procesi",
+      "title": "Gradivo: Upravljanje procesima i niti",
+      "file": "topics/gradivo-procesi.json",
+      "custom": true
+    },
+    {
+      "topicId": "gradivo-rasporedjivanje",
+      "title": "Gradivo: Raspoređivanje procesa",
+      "file": "topics/gradivo-rasporedjivanje.json",
+      "custom": true
+    },
+    {
+      "topicId": "gradivo-memorija",
+      "title": "Gradivo: Upravljanje memorijom i virtualna memorija",
+      "file": "topics/gradivo-memorija.json",
+      "custom": true
+    },
+    {
+      "topicId": "gradivo-fajl-sistemi",
+      "title": "Gradivo: Fajl sistemi (diskovi, inode/NTFS, alokacija, VFS)",
+      "file": "topics/gradivo-fajl-sistemi.json",
+      "custom": true
+    },
+    {
+      "topicId": "gradivo-arhitektura",
+      "title": "Gradivo: Arhitektura OS-a (Windows 11 i Linux)",
+      "file": "topics/gradivo-arhitektura.json",
+      "custom": true
+    },
+    {
+      "topicId": "gradivo-vjezbe",
+      "title": "Gradivo: Vježbe (Linux/CMD komande, procesi, korisnici, shell)",
+      "file": "topics/gradivo-vjezbe.json",
+      "custom": true
     }
   ]
 }

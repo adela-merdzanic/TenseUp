@@ -28,8 +28,30 @@
             "45"
           ],
           "correctAnswers": ["45"],
-          "context": "'Ukupno vrijeme izvršavanja' = turnaround = trenutak završetka — trenutak ulaska. P2 završava u t=70, ušao u t=25 — 70–25 = 45. CPU raspored (kvantum 10, prioritetna preempcija, manji broj = viši prioritet): P1[0-20] → idle[20-25] → P2[25-35] → P3[35-45] → P2[45-55] → P3[55-65] → P2[65-70] → P4[70-80] → P3[80-85] → P4[85-90]. Završeci: P1=20, P2=70, P3=85, P4=90.",
-          "note": "Citat (definicija): 'Ukupno vrijeme izvršavanja procesa (Turnaround time)... zbir perioda provedenih u čekanju... i izvršavanja.' Rezultat potvrđen ručnom simulacijom RR-a."
+          "taskSetup": {
+            "text": "Procesi se raspoređuju RR algoritmom sa suspenzijom (kvantum 10). Manji broj = viši prioritet. Idle zadatak Pidle (prioritet 100) radi kad nema drugih procesa; proces koji suspenduje proces višeg prioriteta ide na kraj reda.",
+            "table": {
+              "headers": ["Proces", "Prioritet", "Burst", "Ulazak"],
+              "rows": [
+                ["P1", "40", "20", "0"],
+                ["P2", "30", "25", "25"],
+                ["P3", "30", "25", "30"],
+                ["P4", "35", "15", "60"],
+                ["P5", "5", "10", "100"],
+                ["P6", "10", "10", "105"]
+              ]
+            }
+          },
+          "context": "Ukupno vrijeme izvršavanja (turnaround) = trenutak završetka minus trenutak ulaska. P2 ušao u t=25, završava u t=70, pa je turnaround 70 - 25 = 45.",
+          "details": [
+            "Raspored: P1[0-20], idle[20-25], P2[25-35], P3[35-45], P2[45-55], P3[55-65], P2[65-70], P3[70-75], P4[75-90], idle[90-100], P5[100-110], P6[110-120].",
+            "Trenuci završetka: P1=20, P2=70, P3=75, P4=90, P5=110, P6=120.",
+            "Turnaround je od ulaska do završetka (čekanje + izvršavanje)."
+          ],
+          "note": "Definicija (RasporedjivanjeProcesa): turnaround = 'zbir perioda provedenih u čekanju i izvršavanja'. Postavka i raspored iz ispitnog zadatka (prioritetni RR, kvantum 10).",
+          "readMore": [
+            "RasporedjivanjeProcesa.pdf (turnaround i vrijeme čekanja; RR raspoređivanje)"
+          ]
         },
         {
           "id": "e27",
@@ -51,9 +73,31 @@
             "55",
             "ništa od navedenog"
           ],
-          "correctAnswers": ["55"],
-          "context": "Turnaround = završetak — ulazak. P3 završava u t=85, ušao u t=30 — 85–30 = 55. CPU raspored (kvantum 10, prioritetna preempcija, manji broj = viši prioritet): P1[0-20] → idle[20-25] → P2[25-35] → P3[35-45] → P2[45-55] → P3[55-65] → P2[65-70] → P4[70-80] → P3[80-85] → P4[85-90]. Završeci: P1=20, P2=70, P3=85, P4=90.",
-          "note": "Rezultat potvrđen ručnom simulacijom RR-a (kvantum 10, prioritetna preempcija)."
+          "correctAnswers": ["45"],
+          "taskSetup": {
+            "text": "Procesi se raspoređuju RR algoritmom sa suspenzijom (kvantum 10). Manji broj = viši prioritet. Idle zadatak Pidle (prioritet 100) radi kad nema drugih procesa; proces koji suspenduje proces višeg prioriteta ide na kraj reda.",
+            "table": {
+              "headers": ["Proces", "Prioritet", "Burst", "Ulazak"],
+              "rows": [
+                ["P1", "40", "20", "0"],
+                ["P2", "30", "25", "25"],
+                ["P3", "30", "25", "30"],
+                ["P4", "35", "15", "60"],
+                ["P5", "5", "10", "100"],
+                ["P6", "10", "10", "105"]
+              ]
+            }
+          },
+          "context": "Turnaround = završetak minus ulazak. P3 ušao u t=30, završava u t=75, pa je 75 - 30 = 45.",
+          "details": [
+            "Raspored: P1[0-20], idle[20-25], P2[25-35], P3[35-45], P2[45-55], P3[55-65], P2[65-70], P3[70-75], P4[75-90], idle[90-100], P5[100-110], P6[110-120].",
+            "Zašto P3 završava u t=75: u t=70 je CPU slobodan, a u redu su P4 (prioritet 35) i P3 (prioritet 30, ostalo mu 5). Pošto P3 ima viši prioritet, ide prvi i završava u t=75; tek onda P4.",
+            "Trenuci završetka: P1=20, P2=70, P3=75, P4=90, P5=110, P6=120."
+          ],
+          "note": "Postavka i raspored iz ispitnog zadatka (prioritetni RR, kvantum 10). P3 ima viši prioritet od P4, pa u t=70 preuzima CPU i završava u t=75.",
+          "readMore": [
+            "RasporedjivanjeProcesa.pdf (turnaround i vrijeme čekanja; RR raspoređivanje)"
+          ]
         },
         {
           "id": "e28",
@@ -76,8 +120,29 @@
             "0"
           ],
           "correctAnswers": ["20"],
-          "context": "Vrijeme čekanja = turnaround — burst = 45 — 25 = 20. (Vrijeme provedeno u redu spremnih, ne računajuči izvršavanje.) CPU raspored (kvantum 10, prioritetna preempcija, manji broj = viši prioritet): P1[0-20] → idle[20-25] → P2[25-35] → P3[35-45] → P2[45-55] → P3[55-65] → P2[65-70] → P4[70-80] → P3[80-85] → P4[85-90]. Završeci: P1=20, P2=70, P3=85, P4=90.",
-          "note": "Citat (definicija): 'Vrijeme čekanja je zbir vremenskih perioda provedenih u redu čekanja na procesor.' Potvrđeno simulacijom."
+          "taskSetup": {
+            "text": "Procesi se raspoređuju RR algoritmom sa suspenzijom (kvantum 10). Manji broj = viši prioritet. Idle zadatak Pidle (prioritet 100) radi kad nema drugih procesa; proces koji suspenduje proces višeg prioriteta ide na kraj reda.",
+            "table": {
+              "headers": ["Proces", "Prioritet", "Burst", "Ulazak"],
+              "rows": [
+                ["P1", "40", "20", "0"],
+                ["P2", "30", "25", "25"],
+                ["P3", "30", "25", "30"],
+                ["P4", "35", "15", "60"],
+                ["P5", "5", "10", "100"],
+                ["P6", "10", "10", "105"]
+              ]
+            }
+          },
+          "context": "Vrijeme čekanja = turnaround minus burst (vrijeme izvršavanja). Za P2: (70 - 25) - 25 = 20 (vrijeme u redu spremnih, bez izvršavanja).",
+          "details": [
+            "Raspored: P1[0-20], idle[20-25], P2[25-35], P3[35-45], P2[45-55], P3[55-65], P2[65-70], P3[70-75], P4[75-90], idle[90-100], P5[100-110], P6[110-120].",
+            "Trenuci završetka: P1=20, P2=70, P3=75, P4=90, P5=110, P6=120."
+          ],
+          "note": "Definicija (RasporedjivanjeProcesa): 'Vrijeme čekanja je zbir vremenskih perioda provedenih u redu čekanja na procesor.' Postavka iz ispitnog zadatka (prioritetni RR).",
+          "readMore": [
+            "RasporedjivanjeProcesa.pdf (turnaround i vrijeme čekanja; RR raspoređivanje)"
+          ]
         },
         {
           "id": "e29",
@@ -100,8 +165,29 @@
             "20"
           ],
           "correctAnswers": ["15"],
-          "context": "Vrijeme čekanja = turnaround — burst. P4 završava u t=90, ušao u t=60 — turnaround 30; 30 — 15 = 15. CPU raspored (kvantum 10, prioritetna preempcija, manji broj = viši prioritet): P1[0-20] → idle[20-25] → P2[25-35] → P3[35-45] → P2[45-55] → P3[55-65] → P2[65-70] → P4[70-80] → P3[80-85] → P4[85-90]. Završeci: P1=20, P2=70, P3=85, P4=90.",
-          "note": "Potvrđeno ručnom simulacijom RR-a."
+          "taskSetup": {
+            "text": "Procesi se raspoređuju RR algoritmom sa suspenzijom (kvantum 10). Manji broj = viši prioritet. Idle zadatak Pidle (prioritet 100) radi kad nema drugih procesa; proces koji suspenduje proces višeg prioriteta ide na kraj reda.",
+            "table": {
+              "headers": ["Proces", "Prioritet", "Burst", "Ulazak"],
+              "rows": [
+                ["P1", "40", "20", "0"],
+                ["P2", "30", "25", "25"],
+                ["P3", "30", "25", "30"],
+                ["P4", "35", "15", "60"],
+                ["P5", "5", "10", "100"],
+                ["P6", "10", "10", "105"]
+              ]
+            }
+          },
+          "context": "Vrijeme čekanja = turnaround minus burst. P4 ušao u t=60, završava u t=90 (turnaround 30), burst 15, pa je 30 - 15 = 15.",
+          "details": [
+            "Raspored: P1[0-20], idle[20-25], P2[25-35], P3[35-45], P2[45-55], P3[55-65], P2[65-70], P3[70-75], P4[75-90], idle[90-100], P5[100-110], P6[110-120].",
+            "Trenuci završetka: P1=20, P2=70, P3=75, P4=90, P5=110, P6=120."
+          ],
+          "note": "Postavka iz ispitnog zadatka (prioritetni RR, kvantum 10). P4 završava u t=90.",
+          "readMore": [
+            "RasporedjivanjeProcesa.pdf (turnaround i vrijeme čekanja; RR raspoređivanje)"
+          ]
         }
       ]
     }

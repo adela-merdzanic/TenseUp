@@ -17,21 +17,41 @@
           "type": "single",
           "options": ["Tačno", "Netačno"],
           "correctAnswers": ["Tačno"],
-          "context": "Za paljenje računara nužna je PRIMARNA memorija (RAM/ROM), ne sekundarna (disk). Bez diska računar prođe POST i uđe u BIOS, ali nema odakle učitati OS. Memorijska hijerarhija: primarnu (RAM = volatile, gubi sadržaj bez struje; ROM = non-volatile, tu su bootstrap/BIOS) CPU adresira direktno, dok sekundarnoj (HDD/SSD) CPU ne pristupa direktno — sadržaj se prvo mora učitati u RAM. Zato je disk 'trajno skladište', a RAM 'radni prostor'. Poveznica: ova podjela je i osnova virtuelne memorije — kad tražena stranica nije u RAM-u (page fault), OS je dohvaća s diska u RAM.",
-          "note": "Citat: 'prilikom bootanja sistema, ako primarna memorija nije prisutna računarski sistem se neće upaliti.' Napomena: vrijedi ako 'upaliti' znači uključiti računar; ako bi se tumačilo kao 'potpuno pokrenuti OS s diska', onda bez diska ne bi išlo — ali standardno tumačenje je Tačno."
+          "context": "Za paljenje računara nužna je primarna memorija (RAM i ROM sa bootstrap programom), ne sekundarna (disk). Bez diska računar se upali i izvrši bootstrap, ali nema odakle učitati operativni sistem.",
+          "details": [
+            "Primarna vs sekundarna: primarnu memoriju (RAM, ROM) CPU adresira direktno preko memorijskog kontrolera; sekundarnoj (HDD, SSD) ne pristupa direktno, nego se sadržaj prvo mora učitati u RAM.",
+            "Šta se dešava bez diska: bootstrap iz ROM-a inicijalizira CPU registre i kontrolere i prođe POST, ali ne može locirati i učitati jezgro OS-a jer ono stoji na disku.",
+            "Zašto je primarna nužna: prema materijalu, ako primarna memorija nije prisutna sistem se uopšte neće upaliti; disk nije uslov za samo paljenje.",
+            "volatile vs non-volatile: RAM je volatile (gubi sadržaj kad nestane napajanja), ROM je non-volatile (čuva sadržaj, tu je bootstrap/firmware).",
+            "Veza sa virtuelnom memorijom: ista podjela je osnova za paging; kad tražena stranica nije u RAM-u (page fault), OS je dohvaća sa diska u RAM."
+          ],
+          "note": "Citat (FajlSistemi1, Sekundarna memorija): 'prilikom bootanja sistema, ako primarna memorija nije prisutna računarski sistem se neće upaliti.' Napomena: tvrdnja vrijedi za samo paljenje računara; bez diska OS se ne može do kraja pokrenuti jer se učitava sa diska.",
+          "readMore": [
+            "FajlSistemi1.pdf, str. 1 (primarna vs sekundarna memorija, volatile/non-volatile)",
+            "Prikaz računarskog hardvera.pdf, str. 8 (bootstrap), str. 11-12 (RAM, ROM, memorijska hijerarhija)"
+          ]
         },
         {
           "id": "q3",
           "promptParts": {
-            "before": "Ako se izvadi sekundarna memorija iz računara, računar se NE može upaliti.",
+            "before": "Ako se izvadi sekundarna memorija iz računara, računar se ne može upaliti.",
             "blank": "",
             "after": ""
           },
           "type": "single",
           "options": ["Tačno", "Netačno"],
           "correctAnswers": ["Netačno"],
-          "context": "Računar se MOŽE upaliti bez sekundarne memorije, jer je za paljenje nužna primarna (RAM), a ne disk — zato je tvrdnja 'NE može' netačna. Bez diska prođe POST i uđe u BIOS, samo nema odakle učitati OS. Ključno razlikovanje: primarna memorija = uslov za paljenje; sekundarna = trajno skladište koje nije nužno za sam start. Poveznica na ispitnu taktiku: pazi na negaciju — ista činjenica se pita i pozitivno ('može') i negativno ('ne može'), pa tačan odgovor mijenja stranu (Tačno — Netačno) iako je činjenica ista.",
-          "note": "Citat: 'prilikom bootanja sistema, ako primarna memorija nije prisutna računarski sistem se neće upaliti.' (Uslov za paljenje je primarna, ne sekundarna memorija.)"
+          "context": "Za paljenje je nužna primarna memorija (RAM i ROM sa bootstrap programom), a disk nije uslov; bez njega bootstrap prođe, ali nema odakle učitati operativni sistem.",
+          "details": [
+            "Uslov za paljenje: primarna memorija (RAM, ROM), ne sekundarna. Bez primarne se sistem uopšte ne bi upalio; bez diska se upali.",
+            "Bez diska: bootstrap iz ROM-a inicijalizira CPU i kontrolere i prođe POST, ali ne može učitati jezgro OS-a jer ono stoji na disku.",
+            "Primarna vs sekundarna: primarnu (RAM, ROM) CPU adresira direktno; sekundarnoj (HDD, SSD) ne pristupa direktno, nego se sadržaj prvo učita u RAM."
+          ],
+          "note": "Citat (FajlSistemi1, Sekundarna memorija): 'prilikom bootanja sistema, ako primarna memorija nije prisutna računarski sistem se neće upaliti.' Uslov za paljenje je primarna, ne sekundarna memorija.",
+          "readMore": [
+            "FajlSistemi1.pdf, str. 1 (primarna vs sekundarna memorija, volatile/non-volatile)",
+            "Prikaz računarskog hardvera.pdf, str. 8 (bootstrap), str. 11-12 (RAM, ROM)"
+          ]
         },
         {
           "id": "q4",
@@ -43,8 +63,17 @@
           "type": "single",
           "options": ["Tačno", "Netačno"],
           "correctAnswers": ["Tačno"],
-          "context": "CPU je 'mozak' računara — jedini izvršava instrukcije, pa bez njega nema pokretanja. Osnovni ciklus je fetch–decode–execute (dohvati → dekodiraj → izvrši → sljedeća). Boot sekvenca koju izvršava baš CPU: nakon uključenja pokreće bootstrap (iz ROM/firmware) → inicijalizira registre i kontrolere → locira kernel i učita ga u RAM → predaje mu kontrolu. Svaki od tih koraka je izvršavanje instrukcija, a to radi procesor. Poveznica: CPU ima dva moda rada (kernel/user) čime OS štiti hardver — ali i to počiva na tome da CPU uopšte izvršava instrukcije.",
-          "note": "Citat: 'Da bi se računar pokrenuo mora se izvršiti početni program tzv. bootstrap'; CPU 'dobavlja instrukcije iz memorije i izvršava ih'."
+          "context": "CPU je jedina komponenta koja izvršava instrukcije. I sam bootstrap, kojim počinje pokretanje, izvršava procesor, pa bez njega nema nikakvog izvršavanja ni pokretanja.",
+          "details": [
+            "Osnovni ciklus procesora: fetch (dohvati instrukciju iz memorije), decode (dekodiraj), execute (izvrši), pa sljedeća instrukcija. Ponavlja se do kraja programa.",
+            "Uloga pri pokretanju: nakon uključenja CPU izvršava bootstrap iz ROM-a, koji inicijalizira registre i kontrolere, locira jezgro OS-a i učita ga u RAM. Svaki taj korak je izvršavanje instrukcija.",
+            "Glavni dijelovi CPU-a: kontrolna jedinica (upravlja radom), ALU (aritmetičko-logičke operacije) i registri (najbrža pohrana unutar CPU-a).",
+            "Specijalni registri: programski brojač (adresa sljedeće instrukcije), stek pokazivač (vrh steka) i PSW (bitovi stanja, uključujući kernel/user mod)."
+          ],
+          "note": "Citat (Prikaz računarskog hardvera): 'Da bi se računar pokrenuo mora se izvršiti početni program tzv. bootstrap'; CPU 'dobavlja instrukcije iz memorije i izvršava ih'.",
+          "readMore": [
+            "Prikaz računarskog hardvera.pdf, str. 8-9 (bootstrap, CPU ciklus fetch-decode-execute, registri, PSW)"
+          ]
         },
         {
           "id": "q5",
@@ -58,11 +87,20 @@
             "Pokretnu glavu za čitanje/pisanje",
             "Rotirajuće ploče (platters)",
             "Elektromotor",
-            "Nijedan — SSD nema mehaničkih dijelova"
+            "Nijedan (SSD nema mehaničkih dijelova)"
           ],
-          "correctAnswers": ["Nijedan — SSD nema mehaničkih dijelova"],
-          "context": "SSD (Solid State Disk) koristi čisto elektroničku NAND Flash tehnologiju i nema nijedan pokretni dio. Nasuprot tome HDD ima ploče koje se vrte (5400–7200 o/min), pokretnu glavu i elektromotor — pa ima seek-time, veću latenciju, potrošnju i buku. Posljedica za OS: pošto SSD nema glavu koja putuje po ploči, algoritmi raspoređivanja diska su drugačiji (NOOP/FIFO umjesto SSTF/SCAN koji kod HDD-a minimiziraju pomak glave). Razvoj interfejsa: SATA → M.2 → NVMe preko PCIe (dizajniran za paralelni rad s flashom). Poveznica: 'nema mehaničkih dijelova' je razlog i veće pouzdanosti i drugačijeg tretmana u scheduleru diska.",
-          "note": "Citat: 'pošto ovi mediji nemaju pokretnih dijelova oni su nazvani Solid State Diskovi ili SSD'."
+          "correctAnswers": ["Nijedan (SSD nema mehaničkih dijelova)"],
+          "context": "SSD nema nijedan mehanički dio. Radi na NAND Flash tehnologiji (čisto elektronički), pa nema pokretne glave, ploča ni elektromotora koje ima HDD.",
+          "details": [
+            "HDD (mehanički disk) ima tri pokretna dijela: pokretnu glavu za čitanje i pisanje, rotirajuće ploče (platters) i elektromotor koji ih vrti.",
+            "Posljedice mehanike kod HDD-a: veća latencija, slabija pouzdanost (dijelovi se kvare), veća potrošnja (elektromotor) i buka.",
+            "SSD: koristi NAND Flash i nema pokretnih dijelova, pa je brži, tiši, otporniji i troši manje.",
+            "Interfejsi: SATA (AHCI protokol, razvijen za mehaničke diskove), pa NVMe preko PCIe (za paralelan rad s flashom). M.2 je form-faktor (fizički oblik), ne protokol."
+          ],
+          "note": "Citat (FajlSistemi1): 'pošto ovi mediji nemaju pokretnih dijelova oni su nazvani Solid State Diskovi ili SSD.'",
+          "readMore": [
+            "FajlSistemi1.pdf, str. 1-3 (mehanički diskovi, SSD/NAND Flash, interfejsi SATA/M.2/NVMe)"
+          ]
         }
       ]
     }

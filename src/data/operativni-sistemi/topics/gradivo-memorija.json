@@ -1,0 +1,661 @@
+{
+  "topicId": "gradivo-memorija",
+  "title": "Gradivo: Upravljanje memorijom i virtualna memorija",
+  "custom": true,
+  "sourcePdf": "Upravljanje memorijom.pdf, Memorija2.pdf",
+  "exercises": [
+    {
+      "exerciseNumber": 1,
+      "sourceTaskName": "Osnove upravljanja memorijom",
+      "questions": [
+        {
+          "id": "mem-01",
+          "promptParts": {
+            "before": "Kojim memorijskim uređajima procesor pristupa direktno i čemu služi keš (cache)?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Direktno pristupa disku; keš je vrsta diska",
+            "Direktno pristupa samo radnoj memoriji i registrima; keš je brza memorija između procesora i glavne memorije koja amortizuje razliku u brzinama",
+            "Direktno pristupa samo disku i traci",
+            "Procesor ne pristupa memoriji"
+          ],
+          "correctAnswers": [
+            "Direktno pristupa samo radnoj memoriji i registrima; keš je brza memorija između procesora i glavne memorije koja amortizuje razliku u brzinama"
+          ],
+          "context": "Procesor direktno pristupa samo radnoj (glavnoj) memoriji i svojim registrima. Registrima pristupa unutar jednog radnog takta, dok pristup radnoj memoriji (preko sabirnice) traje više taktova - pa procesor miruje. Zato se dodaje keš (cache): brza memorija između procesora i glavne memorije koja amortizuje razliku u brzinama.",
+          "details": [
+            "Disku i drugim sekundarnim uređajima procesor ne pristupa direktno - podaci se prvo moraju učitati u radnu memoriju.",
+            "Uz dijeljenje memorije i usklađivanje brzina, važna je i zaštita: mehanizmi koji sprječavaju da jedan proces slučajno ili namjerno mijenja kod/podatke drugog procesa ili OS-a.",
+            "Upravljanje memorijom sprovodi memorijski menadžer preko apstrakcije stvarne fizičke memorije."
+          ],
+          "note": "Citat (Upravljanje memorijom): 'Tip memorije koji se koristi kao svojevrstan amortizer između različitih brzina procesora i glavne memorije zove se keš (cache).'",
+          "readMore": [
+            "Upravljanje memorijom.pdf, str. 1 (uloga memorije, keš)"
+          ]
+        },
+        {
+          "id": "mem-02",
+          "promptParts": {
+            "before": "Zašto izlaganje fizičke memorije direktno procesima (bez apstrakcije) predstavlja problem?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Jer je fizička memorija prespora",
+            "Jer korisnički programi mogu (ne)namjerno oboriti OS adresirajući bilo koji bajt, i teško je istovremeno izvršavati više programa (jedan program prepiše memoriju drugog)",
+            "Jer nema dovoljno registara",
+            "Nema nikakvih problema"
+          ],
+          "correctAnswers": [
+            "Jer korisnički programi mogu (ne)namjerno oboriti OS adresirajući bilo koji bajt, i teško je istovremeno izvršavati više programa (jedan program prepiše memoriju drugog)"
+          ],
+          "context": "Direktno izlaganje fizičke memorije ima dva glavna nedostatka: korisnički programi mogu adresirati bilo koji bajt pa lako (ne)namjerno obore OS, i teško je istovremeno izvršavati više programa (ako jedan upiše na lokaciju koju koristi drugi, oba padnu). Rješenje je apstrakcija - adresni prostor.",
+          "details": [
+            "Rani mainframe (prije 1960), miniračunari (prije 1970) i PC (prije 1980) nisu imali memorijsku apstrakciju - svaki program je vidio čistu fizičku memoriju.",
+            "IBM 360 je dijelio memoriju u 2 KB blokove sa 4-bitnim zaštitnim ključem u PSW-u; hardver bi zaustavio pristup ako se ključ procesa razlikuje od PSW ključa.",
+            "Statička relokacija: kod učitavanja programa na adresu 16384, ta konstanta se dodavala svakoj adresi - ali to usporava učitavanje i traži razlikovanje adresa od konstanti."
+          ],
+          "note": "Citat (Upravljanje memorijom): 'ako korisnički programi mogu adresirati svaki bajt memorije, onda lako mogu oboriti operativni sistem ... teško je postići istovremeno izvršavanje više programa.'",
+          "readMore": [
+            "Upravljanje memorijom.pdf, str. 2-3 (upravljanje bez apstrakcije)"
+          ]
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 2,
+      "sourceTaskName": "Adresni prostor, MMU, logičke i fizičke adrese",
+      "questions": [
+        {
+          "id": "mem-03",
+          "promptParts": {
+            "before": "Čemu služe bazni (base) i granični (limit) registar?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Za mjerenje brzine procesora",
+            "Bazni sadrži fizičku adresu gdje program počinje, granični dužinu programa; hardver provjerava da svaka generisana adresa ostane u tom opsegu (zaštita memorije)",
+            "Za pohranu privremenih rezultata računanja",
+            "Za komunikaciju sa diskom"
+          ],
+          "correctAnswers": [
+            "Bazni sadrži fizičku adresu gdje program počinje, granični dužinu programa; hardver provjerava da svaka generisana adresa ostane u tom opsegu (zaštita memorije)"
+          ],
+          "context": "Bazni (base) registar sadrži fizičku adresu na kojoj program počinje u memoriji, a granični (limit) registar dužinu programa. Pri svakom pristupu memoriji hardver dodaje bazni registar na generisanu adresu i provjerava da rezultat ostane između bazne i (bazna + granična) vrijednosti - inače je pristup greška.",
+          "details": [
+            "Ovim se svakom procesu daje vlastiti opseg adresa; pokušaj pristupa tuđem prostoru ili OS-u se tretira kao greška.",
+            "Bazne i granične registre učitava OS specijalnim privilegovanim instrukcijama, pa ih korisnički programi ne mogu mijenjati.",
+            "Programi se učitavaju u uzastopne lokacije gdje god ima mjesta, bez relociranja tokom učitavanja."
+          ],
+          "note": "Citat (Upravljanje memorijom): 'u baznom registru je fizička adresa u kojoj program počinje u memoriji, a granični registar sadržava dužinu programa.'",
+          "readMore": [
+            "Upravljanje memorijom.pdf, str. 3-4 (adresni prostor, bazni/granični registar)"
+          ]
+        },
+        {
+          "id": "mem-04",
+          "promptParts": {
+            "before": "Koja je razlika između logičke (virtualne) i fizičke adrese, i šta ih preslikava?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Logička adresa je na disku, fizička u registru; preslikava ih kompajler",
+            "Logičku adresu generiše CPU (vidi je program), fizičku vidi memorijska jedinica; preslikavanje u vrijeme izvršavanja obavlja MMU (memory management unit)",
+            "Nema razlike",
+            "Fizičku adresu generiše korisnik, logičku hardver"
+          ],
+          "correctAnswers": [
+            "Logičku adresu generiše CPU (vidi je program), fizičku vidi memorijska jedinica; preslikavanje u vrijeme izvršavanja obavlja MMU (memory management unit)"
+          ],
+          "context": "Logičku (virtualnu) adresu generiše CPU i s njom radi program; fizička adresa je ona koju vidi memorijska jedinica (učitava se u memorijski adresni registar). Kod povezivanja u vrijeme izvršavanja one se razlikuju, a preslikavanje logičkih u fizičke adrese obavlja poseban hardver - MMU (memory management unit).",
+          "details": [
+            "Jednostavna MMU šema: relokacijski registar (uopćeni bazni registar) čija se vrijednost dodaje svakoj logičkoj adresi (npr. vrijednost 14000: logička 0 → fizička 14000, logička 346 → fizička 14346).",
+            "Korisnički program nikad ne vidi stvarnu fizičku adresu - radi sa logičkim adresama.",
+            "Skup svih logičkih adresa je logički adresni prostor, a odgovarajućih fizičkih je fizički adresni prostor.",
+            "Vezivanje (binding) adresa može biti u vrijeme prevođenja (apsolutne adrese), učitavanja (relativne pa apsolutne pri punjenju) ili izvršavanja (mijenjaju se u toku rada, traži poseban hardver)."
+          ],
+          "note": "Citat (Upravljanje memorijom): 'preslikavanje ... iz logičkog u fizički adresni prostor vrši poseban hardver za upravljanje memorijom (memory management unit - MMU).'",
+          "readMore": [
+            "Upravljanje memorijom.pdf, str. 5-6 (logičke i fizičke adrese, MMU)"
+          ]
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 3,
+      "sourceTaskName": "Tehnike učitavanja i prebacivanja",
+      "questions": [
+        {
+          "id": "mem-05",
+          "promptParts": {
+            "before": "Šta je dinamičko učitavanje (dynamic loading)?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Učitavanje cijelog programa u memoriju odjednom",
+            "Potprogrami stoje na disku i učitavaju se u memoriju tek kada ih glavni program pozove, pa se nekorištene rutine nikad ne učitaju",
+            "Automatsko brisanje programa",
+            "Kopiranje programa na drugi računar"
+          ],
+          "correctAnswers": [
+            "Potprogrami stoje na disku i učitavaju se u memoriju tek kada ih glavni program pozove, pa se nekorištene rutine nikad ne učitaju"
+          ],
+          "context": "Kod dinamičkog učitavanja potprogrami/rutine stoje na disku i učitavaju se u memoriju tek kad ih glavni program pozove. Prednost: rutine koje se nikad ne pozovu nikad se ne učitaju - štedi memoriju, korisno kad se veliki dio koda rijetko koristi (npr. procedure za obradu grešaka).",
+          "details": [
+            "Kod poziva potprograma provjerava se je li u memoriji; ako nije, program za dinamičko učitavanje i povezivanje ga učita i ažurira tabele adresa.",
+            "Ne zahtijeva posebnu podršku OS-a; programer samo prilagodi program (OS može ponuditi biblioteku rutina).",
+            "Srodne tehnike: preklapanje/overlay (u memoriji se drži samo trenutno potreban dio programa, ostalo se izmjenjuje s diska)."
+          ],
+          "note": "Citat (Upravljanje memorijom): 'Bolje korištenje memorijskog prostora postiže se dinamičkim učitavanjem ... potprogrami ili rutine smještene su na disku, a učitavaju se u memoriju tek nakon što ih glavni program pozove.'",
+          "readMore": [
+            "Upravljanje memorijom.pdf, str. 6 (dinamičko učitavanje, overlay)"
+          ]
+        },
+        {
+          "id": "mem-06",
+          "promptParts": {
+            "before": "Šta je dinamičko povezivanje (dynamic linking) i čemu služi 'stub' (opušak)?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Povezivanje računara u mrežu; stub je kabl",
+            "Povezivanje sa bibliotekama se odgađa do izvršavanja; stub je mali kod koji pokazuje na sistemsku proceduru i pri prvom pozivu je učita/pronađe, pa se u memoriji drži samo jedna kopija procedure",
+            "Statičko spajanje svih biblioteka u program",
+            "Brisanje biblioteka iz memorije"
+          ],
+          "correctAnswers": [
+            "Povezivanje sa bibliotekama se odgađa do izvršavanja; stub je mali kod koji pokazuje na sistemsku proceduru i pri prvom pozivu je učita/pronađe, pa se u memoriji drži samo jedna kopija procedure"
+          ],
+          "context": "Kod dinamičkog povezivanja (dynamic linking) povezivanje sa sistemskim bibliotekama se odgađa do izvršavanja. Koristi se mali kod (stub/opušak) koji pokazuje na sistemsku proceduru: pri prvom pozivu provjeri je li procedura u memoriji, po potrebi je učita, pa se stub zamijeni adresom procedure. Tako se u memoriji drži samo jedna kopija procedure za sve programe.",
+          "details": [
+            "Prednost nad dinamičkim učitavanjem: bolja iskoristivost memorije i diska - više programa dijeli istu kopiju procedure (dynamically linked libraries, DLL).",
+            "Kod statičkog povezivanja (static linking) biblioteke se spoje u jedinstven program koji punjač učita cijeli.",
+            "Za razliku od dinamičkog učitavanja, dinamičko povezivanje traži uslugu OS-a (da provjeri/dozvoli pristup dijeljenoj proceduri kad se izvršava više programa)."
+          ],
+          "note": "Citat (Upravljanje memorijom): 'Kod dinamičkog povezivanja koristi se mali segment koda (opušak, stub) koji pokazuje na sistemsku proceduru.'",
+          "readMore": [
+            "Upravljanje memorijom.pdf, str. 7 (dinamičko povezivanje, stub)"
+          ]
+        },
+        {
+          "id": "mem-07",
+          "promptParts": {
+            "before": "Šta je prebacivanje (swapping) i koji mu je glavni nedostatak?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Kopiranje datoteka; nema nedostataka",
+            "Izbacivanje cijelog procesa iz radne memorije na disk (i vraćanje kasnije); glavni nedostatak je relativno veliko vrijeme izmjene konteksta",
+            "Brisanje procesa iz sistema; nedostatak je gubitak podataka",
+            "Dijeljenje memorije između procesa; nedostatak je sporost mreže"
+          ],
+          "correctAnswers": [
+            "Izbacivanje cijelog procesa iz radne memorije na disk (i vraćanje kasnije); glavni nedostatak je relativno veliko vrijeme izmjene konteksta"
+          ],
+          "context": "Prebacivanje (swapping) je izbacivanje cijelog procesa iz radne memorije na disk (npr. kad mu istekne CPU vrijeme), čime se oslobađa memorija za drugi proces iz reda spremnih. Glavni nedostatak je relativno veliko vrijeme izmjene konteksta (prebacivanje cijelog procesa na disk i nazad je sporo).",
+          "details": [
+            "Ako je vrijeme prebacivanja reda veličine vremena obrade procesa, swapping postaje neprihvatljiv.",
+            "Proces mora biti potpuno neaktivan da bi bio izbačen: ako je tražio U/I, mora ga prvo dovršiti (inače bi podaci s uređaja pripali pogrešnom procesu).",
+            "Danas se čisti swapping praktično ne koristi, ali je osnova modernim algoritmima (npr. paging na zahtjev)."
+          ],
+          "note": "Citat (Upravljanje memorijom): 'Nedostatak je što je vrijeme potrebno za izmjenu konteksta (context-switch) relativno veliko.'",
+          "readMore": ["Upravljanje memorijom.pdf, str. 7-8 (swapping)"]
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 4,
+      "sourceTaskName": "Particije, algoritmi dodjele i fragmentacija",
+      "questions": [
+        {
+          "id": "mem-08",
+          "promptParts": {
+            "before": "Koja je razlika između fiksnih (statičkih) i dinamičkih particija?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Nema razlike",
+            "Kod fiksnih particija memorija je unaprijed podijeljena na dijelove stalne veličine (npr. MFT, svaka particija ima svoj red); kod dinamičkih su particije promjenljive veličine i broja - proces dobija tačno onoliko koliko traži",
+            "Fiksne particije su promjenljive veličine, dinamičke su stalne",
+            "Fiksne particije se koriste samo za mrežu"
+          ],
+          "correctAnswers": [
+            "Kod fiksnih particija memorija je unaprijed podijeljena na dijelove stalne veličine (npr. MFT, svaka particija ima svoj red); kod dinamičkih su particije promjenljive veličine i broja - proces dobija tačno onoliko koliko traži"
+          ],
+          "context": "Kod fiksnih (statičkih) particija memorija je unaprijed podijeljena na dijelove stalne veličine; svaka particija drži jedan proces, pa je stepen multiprogramiranja ograničen brojem particija (npr. IBM 360 MFT - Multiprogramming with Fixed number of Tasks, svaka particija ima svoj red čekanja). Kod dinamičkih particija one su promjenljive veličine i broja - proces dobija tačno onoliko memorije koliko traži.",
+          "details": [
+            "Mana fiksnih particija: neke particije prazne dok za druge postoje veliki redovi; program veći od svih particija se ne može izvršiti iako ukupno ima dovoljno memorije.",
+            "Kod dinamičkih particija OS vodi evidenciju o zauzetim i slobodnim dijelovima; kad proces završi, oslobođena memorija se može dati drugom.",
+            "Fiksne particije daju unutrašnju, a dinamičke vanjsku fragmentaciju."
+          ],
+          "note": "Citat (Upravljanje memorijom): 'Kod dinamičkog dijeljenja memorije, particije su promjenljive dužine i broja.' / MFT = 'Multiprogramming with Fixed number of Tasks'.",
+          "readMore": [
+            "Upravljanje memorijom.pdf, str. 8-9 (particije, MFT, dinamičke particije)"
+          ]
+        },
+        {
+          "id": "mem-09",
+          "promptParts": {
+            "before": "Koja je razlika između algoritama first-fit, best-fit i worst-fit za dodjelu memorijskog segmenta?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Svi rade isto",
+            "First-fit dodjeljuje prvi segment koji zadovoljava; best-fit dodjeljuje najmanji segment koji odgovara; worst-fit dodjeljuje najveći slobodni segment",
+            "First-fit dodjeljuje najveći, best-fit prvi, worst-fit najmanji",
+            "Svi biraju nasumično"
+          ],
+          "correctAnswers": [
+            "First-fit dodjeljuje prvi segment koji zadovoljava; best-fit dodjeljuje najmanji segment koji odgovara; worst-fit dodjeljuje najveći slobodni segment"
+          ],
+          "context": "First-fit dodjeljuje prvi slobodni segment koji zadovoljava zahtjev (brz). Best-fit dodjeljuje najmanji segment koji odgovara zahtjevu (stvara sitne šupljine). Worst-fit dodjeljuje najveći slobodni segment (cilj mu je stvoriti veće preostale šupljine).",
+          "details": [
+            "Simulacije pokazuju da su first-fit i best-fit bolji od worst-fit po iskoristivosti memorije; među prva dva first-fit je generalno brži.",
+            "Next-fit je varijanta first-fit koja pretragu nastavlja od mjesta gdje je prethodno stala.",
+            "Kad je šupljina veća od potrebe, dijeli se: dio se dodijeli procesu, ostatak se vraća u skup slobodnih; susjedne slobodne šupljine se spajaju."
+          ],
+          "note": "Citat (Upravljanje memorijom): 'Prvi koji zadovoljava (first-fit) ... Najbolje poklapanje (best-fit) ... Najlošije poklapanje (worst-fit): procesu se dodjeljuje najveći slobodni segment.'",
+          "readMore": [
+            "Upravljanje memorijom.pdf, str. 9-10 (first-fit, best-fit, worst-fit)"
+          ]
+        },
+        {
+          "id": "mem-10",
+          "promptParts": {
+            "before": "Koja je razlika između vanjske (spoljašnje) i unutrašnje fragmentacije?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Nema razlike",
+            "Vanjska fragmentacija: slobodna memorija je razbijena u male šupljine razbacane po memoriji (ukupno dovoljno, ali nema kontinuiranog bloka); unutrašnja: procesu se dodijeli malo više nego traži, pa dio unutar dodijeljenog bloka ostane neiskorišten",
+            "Vanjska je unutar particije, unutrašnja izvan nje",
+            "Obje se odnose samo na disk"
+          ],
+          "correctAnswers": [
+            "Vanjska fragmentacija: slobodna memorija je razbijena u male šupljine razbacane po memoriji (ukupno dovoljno, ali nema kontinuiranog bloka); unutrašnja: procesu se dodijeli malo više nego traži, pa dio unutar dodijeljenog bloka ostane neiskorišten"
+          ],
+          "context": "Vanjska (spoljašnja) fragmentacija: slobodna memorija je razbijena u male šupljine razbacane po memoriji, pa iako je ukupno dovoljno, nema dovoljno velikog kontinuiranog bloka za novi proces. Unutrašnja fragmentacija: procesu se dodijeli nešto više memorije nego što traži, pa dio unutar dodijeljenog bloka ostane neiskorišten.",
+          "details": [
+            "50% pravilo (za first-fit): ako je dodijeljeno N blokova, prosječno 0.5·N blokova ostane neiskorišteno zbog fragmentacije - oko trećine memorije je neupotrebljivo.",
+            "Primjer unutrašnje: slobodan blok 18464 KB, program traži 18460 KB - dodijeli se cijeli blok, 4 KB ostane neiskorišteno unutar particije (jeftinije nego voditi evidenciju o 4 KB šupljini).",
+            "Rješenje vanjske fragmentacije: sažimanje (compaction) - premještanje procesa i spajanje slobodnih blokova u jedan kontinuirani (moguće samo ako se fizičke adrese generišu dinamički, u vrijeme izvršavanja)."
+          ],
+          "note": "Citat (Upravljanje memorijom): 'ova pojava naziva spoljašnja ili vanjska fragmentacija ... Razlika u zahtjevanoj i dodijeljenoj memoriji naziva se unutrašnja fragmentacija.'",
+          "readMore": [
+            "Upravljanje memorijom.pdf, str. 10-11 (fragmentacija, compaction)"
+          ]
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 5,
+      "sourceTaskName": "Paging i segmentacija",
+      "questions": [
+        {
+          "id": "mem-11",
+          "promptParts": {
+            "before": "Kako radi paging?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Proces mora biti u jednom kontinuiranom bloku memorije",
+            "Radna memorija se dijeli na okvire (frames) fiksne veličine, logički prostor programa na stranice (pages) iste veličine; stranice se upisuju u slobodne okvire (ne moraju biti susjedni), a mapiranje čuva tablica stranica",
+            "Program se dijeli na segmente promjenljive veličine",
+            "Cijeli program se drži na disku"
+          ],
+          "correctAnswers": [
+            "Radna memorija se dijeli na okvire (frames) fiksne veličine, logički prostor programa na stranice (pages) iste veličine; stranice se upisuju u slobodne okvire (ne moraju biti susjedni), a mapiranje čuva tablica stranica"
+          ],
+          "context": "Kod paginga radna memorija se dijeli na okvire (frames) fiksne veličine, a logički adresni prostor programa na stranice (pages) iste veličine. Stranice se upisuju u slobodne okvire koji ne moraju biti susjedni, a mapiranje stranica na okvire čuva tablica stranica. Time nestaje vanjska fragmentacija.",
+          "details": [
+            "Adresa se dijeli na broj stranice (page number p) i pomak unutar stranice (page offset d). Broj stranice je indeks reda u tablici stranica, koja daje osnovnu adresu okvira; osnovna adresa + pomak = fizička adresa.",
+            "Veličina stranice je obično stepen broja 2 (od 512 B do 16 MB; danas obično 4-8 KB), što olakšava prelaz logičke adrese u broj stranice i pomak.",
+            "Paging uklanja vanjsku fragmentaciju, ali uvodi unutrašnju (posljednji okvir procesa obično nije popunjen; prosječno pola stranice po procesu).",
+            "OS vodi tablicu okvira (frame table) - koji su okviri zauzeti/slobodni i koji ih proces koristi. Zbog čuvanja tablice stranica po procesu, raste vrijeme izmjene konteksta."
+          ],
+          "note": "Citat (Upravljanje memorijom): 'radna memorija dijeli se na manje blokove fiksne veličine koji se nazivaju okviri (frames). Logički adresni prostor ... na blokove iste veličine koji se nazivaju stranice (pages).'",
+          "readMore": ["Upravljanje memorijom.pdf, str. 12-14 (paging)"]
+        },
+        {
+          "id": "mem-12",
+          "promptParts": {
+            "before": "Neka je veličina stranice 4 bajta. Stranica 0 je u okviru 5. U koju fizičku adresu se preslikava logička adresa 3 (stranica 0, pomak 3)?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "taskSetup": {
+            "text": "Veličina stranice = 4 bajta. Tablica stranica (stranica -> okvir):",
+            "table": {
+              "headers": ["Stranica", "Okvir"],
+              "rows": [
+                ["0", "5"],
+                ["1", "6"],
+                ["2", "1"],
+                ["3", "2"]
+              ]
+            }
+          },
+          "options": ["23", "20", "3", "12"],
+          "correctAnswers": ["23"],
+          "context": "Fizička adresa = (broj okvira × veličina stranice) + pomak = (5 × 4) + 3 = 23. Logička adresa 3 je na stranici 0 sa pomakom 3; stranica 0 je u okviru 5.",
+          "details": [
+            "Formula: fizička adresa = (okvir × veličina_stranice) + pomak.",
+            "Provjera drugih: logička 0 (str 0, pomak 0) → (5×4)+0 = 20; logička 4 (str 1, pomak 0) → (6×4)+0 = 24; logička 13 (str 3, pomak 1) → (2×4)+1 = 9.",
+            "Korisnik memoriju vidi kao kontinuiranu, iako su stranice razbacane po fizičkoj memoriji - hardver (MMU) skriva tu razliku."
+          ],
+          "note": "Citat (Upravljanje memorijom): 'logička adresa 3 (slovo d) (stranica 0, pomak 3) preslikava u fizičku adresu [(5x4)+3] = 23.'",
+          "readMore": [
+            "Upravljanje memorijom.pdf, str. 13 (primjer preslikavanja stranica)"
+          ]
+        },
+        {
+          "id": "mem-13",
+          "promptParts": {
+            "before": "Koja je ključna razlika između paginga i segmentacije?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Nema razlike",
+            "Paging dijeli memoriju na blokove fiksne veličine (stranice/okviri) i nevidljivo je programeru; segmentacija dijeli program na segmente različite veličine (kod, podaci, stek...) i vidljiva je programeru",
+            "Paging koristi segmente različite veličine, segmentacija stranice iste veličine",
+            "Paging je za disk, segmentacija za RAM"
+          ],
+          "correctAnswers": [
+            "Paging dijeli memoriju na blokove fiksne veličine (stranice/okviri) i nevidljivo je programeru; segmentacija dijeli program na segmente različite veličine (kod, podaci, stek...) i vidljiva je programeru"
+          ],
+          "context": "Paging dijeli memoriju na blokove fiksne veličine (stranice i okviri) i nevidljivo je programeru. Segmentacija dijeli program na segmente različite veličine (npr. kod, podaci, stek) koji odgovaraju logičkim cjelinama programa i vidljiva je programeru/kompajleru.",
+          "details": [
+            "Logička adresa kod segmentacije se sastoji od broja segmenta i pomaka unutar segmenta; koristi se tabela segmenata (početna adresa + dužina svakog segmenta).",
+            "Segmentacija rješava unutrašnju fragmentaciju, ali (kao dinamičke particije) ostaje vanjska - doduše obično manja jer se proces dijeli na više manjih dijelova.",
+            "Loša strana: programer mora znati ograničenje maksimalne veličine segmenta; prednost: pogodna za modularnu organizaciju programa i podataka."
+          ],
+          "note": "Citat (Upravljanje memorijom): 'Za razliku od paginga koje je nevidljivo za programera, segmentacija je obično vidljiva i pogodna za organizaciju programa i podataka.'",
+          "readMore": ["Upravljanje memorijom.pdf, str. 14 (segmentacija)"]
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 6,
+      "sourceTaskName": "Virtualna memorija i paging na zahtjev",
+      "questions": [
+        {
+          "id": "mem-14",
+          "promptParts": {
+            "before": "Šta je virtualna memorija i koja joj je osnovna prednost?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Vrsta brze keš memorije; prednost je brzina",
+            "Strategija koja dozvoljava da samo dio programa bude u radnoj memoriji (ostatak na disku); osnovna prednost je da program može biti veći od radne memorije",
+            "Fizička memorija na matičnoj ploči; prednost je kapacitet",
+            "Memorija u oblaku; prednost je dijeljenje"
+          ],
+          "correctAnswers": [
+            "Strategija koja dozvoljava da samo dio programa bude u radnoj memoriji (ostatak na disku); osnovna prednost je da program može biti veći od radne memorije"
+          ],
+          "context": "Virtualna memorija je strategija koja dozvoljava da samo dio programa koji se izvodi bude u radnoj memoriji (ostatak na disku). Osnovna prednost je da program može biti veći od radne memorije - razdvaja logički adresni prostor (koji vidi korisnik) od fizičkog u kojem se program stvarno izvodi.",
+          "details": [
+            "Analize pokazuju da cijeli program obično nije istovremeno potreban (procedure za greške se rijetko zovu, strukture rezervišu više nego trebaju, neke opcije se rijetko koriste).",
+            "Prednosti: veličina programa nije ograničena RAM-om; program radi sa manje fizičke memorije (veći stepen multiprogramiranja, veće CPU iskorištenje); manje U/I za prebacivanje.",
+            "Dvije osnovne tehnike virtualne memorije su paging i segmentacija; traži hardversku (MMU, prevođenje adresa, prekid za nedostajuću stranicu) i softversku podršku.",
+            "Virtualna memorija se obično realizuje kao paging na zahtjev (demand paging)."
+          ],
+          "note": "Citat (Upravljanje memorijom): 'virtualna memorija je strategija dodjele memorije koja dozvoljava da samo dio programa koji se izvodi bude u radnoj memoriji ... program može biti i veći od radne memorije.'",
+          "readMore": [
+            "Upravljanje memorijom.pdf, str. 15-16 (virtualna memorija)"
+          ]
+        },
+        {
+          "id": "mem-15",
+          "promptParts": {
+            "before": "Šta je paging na zahtjev (demand paging) i uloga 'lijenog' pager-a?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Učitavanje cijelog procesa odjednom pomoću swapper-a",
+            "Stranica se učitava u memoriju tek kada je potrebna (lazy pager); bit prisustva u tablici stranica govori je li stranica u RAM-u ili samo na disku",
+            "Brisanje svih stranica pri gašenju",
+            "Kopiranje stranica na drugi računar"
+          ],
+          "correctAnswers": [
+            "Stranica se učitava u memoriju tek kada je potrebna (lazy pager); bit prisustva u tablici stranica govori je li stranica u RAM-u ili samo na disku"
+          ],
+          "context": "Kod paginga na zahtjev (demand paging) stranica se učitava u radnu memoriju tek kada je stvarno potrebna - to radi 'lijeni' pager (za razliku od swapper-a koji bi prebacio cijeli proces). Tablica stranica se proširuje bitom prisustva koji govori je li stranica u RAM-u (1) ili samo na disku (0).",
+          "details": [
+            "Termin 'pager' (za stranicu) je precizniji od 'swapper' (za cijeli proces) - zato se ovdje koristi pager.",
+            "Ako je bit prisustva 1, izračuna se fizička adresa i pristupa podatku; ako je 0, to je promašaj (page fault)."
+          ],
+          "note": "Citat (Upravljanje memorijom): 'Kod učitavanja procesa u memoriju uobičajeno se koristi tzv. lijeni prebacivač (lazy swapper) koji upisuje stranicu u memoriju tek kada je ona potrebna ... koristi se termin pager, a ne swapper.'",
+          "readMore": [
+            "Upravljanje memorijom.pdf, str. 16-17 (paging na zahtjev)"
+          ]
+        },
+        {
+          "id": "mem-16",
+          "promptParts": {
+            "before": "Šta se dešava kod promašaja stranice (page fault), tj. kad adresirana stranica nije u memoriji?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Sistem se odmah gasi",
+            "Generiše se prekid, OS pronalazi slobodan okvir, učita traženu stranicu s diska u okvir, ažurira tablicu stranica, pa se prekinuta instrukcija ponovo izvrši",
+            "Proces se trajno briše",
+            "Stranica se ignoriše i nastavlja se dalje"
+          ],
+          "correctAnswers": [
+            "Generiše se prekid, OS pronalazi slobodan okvir, učita traženu stranicu s diska u okvir, ažurira tablicu stranica, pa se prekinuta instrukcija ponovo izvrši"
+          ],
+          "context": "Kod promašaja stranice (page fault): hardver preko bita prisustva vidi da stranica nije u memoriji i generiše prekid; proces ide u red čekanja na disk; OS pronalazi slobodan okvir, prebacuje traženu stranicu s diska u taj okvir, ažurira tablicu stranica (stranica ↔ okvir), pa se prekinuta instrukcija ponovo izvrši - kao da je stranica oduvijek bila u memoriji.",
+          "details": [
+            "Prije prekida se sačuva stanje procesa (programski brojač i baferi), pa se nakon učitavanja stranice proces uredno nastavi.",
+            "Teoretski jedna instrukcija može izazvati više promašaja (npr. program na jednoj stranici, podaci na drugoj) - rijetko, ali bi to jako usporilo sistem.",
+            "Osnovni arhitekturni zahtjev: mogućnost ponavljanja instrukcije nakon što se stranica učita (promašaj može doći pri dohvatu instrukcije ili operanda)."
+          ],
+          "note": "Citat (Upravljanje memorijom): 'Ukoliko stranica nije u memoriji (došlo je do tzv. promašaja) generira se prekid koji dojavljuje OS-u da treba pronaći stranicu ... Prekinuta instrukcija se ponovo izvodi.'",
+          "readMore": [
+            "Upravljanje memorijom.pdf, str. 17-18 (procedura pristupa stranici, page fault)"
+          ]
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 7,
+      "sourceTaskName": "Napredni koncepti: PTE, TLB, ASLR, thrashing, CoW",
+      "questions": [
+        {
+          "id": "mem-17",
+          "promptParts": {
+            "before": "Šta sadrži unos u tablici stranica (PTE - Page Table Entry)?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Samo broj okvira",
+            "Broj okvira (frame number), zaštitne bitove (protection: R/W/X, NX, U/S) i statusne bitove (Valid/Present, Accessed, Dirty...)",
+            "Samo ime procesa",
+            "Cijeli sadržaj stranice"
+          ],
+          "correctAnswers": [
+            "Broj okvira (frame number), zaštitne bitove (protection: R/W/X, NX, U/S) i statusne bitove (Valid/Present, Accessed, Dirty...)"
+          ],
+          "context": "Unos u tablici stranica (PTE) sadrži: broj okvira (frame number - identifikator okvira u RAM-u), zaštitne bitove (protection) i statusne bitove (status). MMU ih koristi pri prevođenju virtualne adrese.",
+          "details": [
+            "Protection biti: R (Read), W (Write), X (Execute) i NX (No-Execute, sprječava izvršavanje koda iz RW memorije, npr. stack/heap zloupotrebe); U/S (User/Supervisor - ko smije pristupiti). Npr. kod je RX (čita/izvršava, ne mijenja), podaci su RW.",
+            "Status biti: Valid/Present (je li stranica u RAM-u; 0 → page fault), Accessed (praćenje korištenja), Dirty (treba li stranicu snimiti na disk prije izbacivanja), Cache disable, Global (je li stranica dijeljena, ostaje li u TLB-u nakon promjene konteksta).",
+            "MMU koristi PTBR (Page Table Base Register) - pokazivač na fizičku adresu tablice stranica procesa u RAM-u; OS ga puni na osnovu PCB-a."
+          ],
+          "note": "Citat (Memorija2): 'Page table sadrži specijalizirane bite za PTE (Page Table Enteries) a to su Frame Number, Protection i Status biti.'",
+          "readMore": [
+            "Memorija2.pdf, str. 1-2 (PTE, protection i status biti, PTBR)"
+          ]
+        },
+        {
+          "id": "mem-18",
+          "promptParts": {
+            "before": "Šta je TLB (Translation Lookaside Buffer) u kontekstu paginga?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Vrsta diska za virtualnu memoriju",
+            "Keš unutar MMU-a koji ubrzava prevođenje virtualnih adresa pamteći nedavna mapiranja stranica na okvire (izbjegava čitanje tablice stranica iz RAM-a)",
+            "Registar za aritmetiku",
+            "Tabela svih procesa"
+          ],
+          "correctAnswers": [
+            "Keš unutar MMU-a koji ubrzava prevođenje virtualnih adresa pamteći nedavna mapiranja stranica na okvire (izbjegava čitanje tablice stranica iz RAM-a)"
+          ],
+          "context": "TLB (Translation Lookaside Buffer) je keš unutar MMU-a koji ubrzava prevođenje virtualnih adresa: pamti nedavna mapiranja stranica na okvire, pa se ne mora svaki put čitati tablica stranica iz RAM-a. Ako mapiranje nije u TLB-u (TLB miss), MMU koristi PTBR da nađe tablicu stranica.",
+          "details": [
+            "TLB se dijeli na Data TLB (mapiranja za podatke) i Instruction TLB (mapiranja za instrukcije).",
+            "TLB unosi su slični PTE, ali imaju i ASID (Address Space Identifier) koji povezuje unos sa određenim procesom - pa TLB može držati mapiranja više procesa istovremeno.",
+            "Redoslijed pretrage kod dohvata podatka: L1/L2/L3 keš → (cache miss) → TLB → (TLB miss) → tablica stranica → (page fault ako nije u RAM-u)."
+          ],
+          "note": "Citat (Memorija2): 'MMU ima sopstveni cache koji treba da ubrza proces translacije TLB (Translation Lookaside Buffer).'",
+          "readMore": ["Memorija2.pdf, str. 2-3 (TLB, pristupanje podacima)"]
+        },
+        {
+          "id": "mem-19",
+          "promptParts": {
+            "before": "Zašto se koriste višenivojske (hijerarhijske) tablice stranica?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Da uspore sistem",
+            "Da se smanji potrošnja memorije na tablice stranica: velika tablica se dijeli na manje koje se kreiraju tek kad zatrebaju, pa OS ne alocira nepotrebne dijelove",
+            "Da procesi dijele istu tablicu",
+            "Da se izbjegne TLB"
+          ],
+          "correctAnswers": [
+            "Da se smanji potrošnja memorije na tablice stranica: velika tablica se dijeli na manje koje se kreiraju tek kad zatrebaju, pa OS ne alocira nepotrebne dijelove"
+          ],
+          "context": "Višenivojske (hijerarhijske) tablice stranica smanjuju potrošnju memorije: jedna velika tablica se hijerarhijski dijeli na manje, koje se kreiraju tek kad se pojavi potreba za mapiranjem tog dijela virtualne memorije. Tako OS ne alocira nepotrebne dijelove tablice.",
+          "details": [
+            "Problem: 4 GB prostora sa 4 KB stranicama daje ~milion PTE po procesu (~4 MB samo za tablicu); kod 64-bitnih sistema još gore.",
+            "Virtualna adresa se dijeli na indekse više nivoa (npr. [Page Directory | Page Table | Offset]); viši nivoi su pokazivači na niže, posljednji nivo drži broj okvira. Cijena: dodatna očitanja memorije pri prevođenju.",
+            "Windows i Linux prate x86-64 arhitekturu sa 4-nivovskim tablicama stranica.",
+            "Alternativa: veće stranice (2 MB umjesto 4 KB) smanjuju broj unosa u tablici; Linux koristi THP (Transparent Huge Pages), Windows Large Pages (na zahtjev programa)."
+          ],
+          "note": "Citat (Memorija2): 'Odgovor je multi level page tabele ... jednu veliku page tabelu hijerarhijski podijeliti na manje tabele koje se kreiraju tek kada se pojavi potreba.'",
+          "readMore": [
+            "Memorija2.pdf, str. 3-4 (savremene page tabele, velike stranice)"
+          ]
+        },
+        {
+          "id": "mem-20",
+          "promptParts": {
+            "before": "Šta je thrashing (zagušenje memorije)?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Kad je procesor 100% iskorišten korisnim radom",
+            "Stanje u kojem OS troši više vremena na zamjenu stranica između RAM-a i diska nego na stvarno izvršavanje, jer radni skup stranica prelazi kapacitet RAM-a (mnogo page faultova, CPU čeka disk)",
+            "Brisanje svih stranica iz memorije",
+            "Vrsta virusa"
+          ],
+          "correctAnswers": [
+            "Stanje u kojem OS troši više vremena na zamjenu stranica između RAM-a i diska nego na stvarno izvršavanje, jer radni skup stranica prelazi kapacitet RAM-a (mnogo page faultova, CPU čeka disk)"
+          ],
+          "context": "Thrashing (zagušenje) nastaje kad OS troši više vremena na zamjenu stranica između RAM-a i diska nego na stvarno izvršavanje procesa. Dešava se kad radni skup aktivnih stranica prelazi kapacitet fizičke memorije, pa OS neprestano učitava i izbacuje stranice (mnoštvo page faultova), a CPU većinom stoji čekajući disk.",
+          "details": [
+            "Prepoznaje se po vrlo visokoj stopi page faultova i intenzivnoj disk aktivnosti (swap) uz nisku iskorištenost procesora.",
+            "Prevencija: smanjenje memorijskog pritiska - ograničiti broj istovremeno aktivnih procesa ili veličine radnih skupova, bolji algoritmi (radni set model, kontrola stope page faultova), ili više RAM-a.",
+            "Kad nema slobodnog okvira, PMM (Physical Memory Manager) algoritmom (LRU, Clock, Working Set) bira stranicu za izbacivanje u swap na disku."
+          ],
+          "note": "Citat (Memorija2): 'Thrashing (zagušenje memorije) nastaje kada operativni sistem troši više vremena na zamjenu stranica između RAM-a i diska nego na stvarno izvršavanje procesa.'",
+          "readMore": ["Memorija2.pdf, str. 4 (thrashing)"]
+        },
+        {
+          "id": "mem-21",
+          "promptParts": {
+            "before": "Šta je ASLR (Address Space Layout Randomization)?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Algoritam za zamjenu stranica",
+            "Sigurnosni mehanizam koji pri svakom pokretanju procesa nasumično raspoređuje pozicije stacka, heap-a i biblioteka u virtualnom adresnom prostoru, pa napadač ne zna tačnu adresu zlonamjernog koda",
+            "Tehnika za ubrzavanje TLB-a",
+            "Vrsta fajl sistema"
+          ],
+          "correctAnswers": [
+            "Sigurnosni mehanizam koji pri svakom pokretanju procesa nasumično raspoređuje pozicije stacka, heap-a i biblioteka u virtualnom adresnom prostoru, pa napadač ne zna tačnu adresu zlonamjernog koda"
+          ],
+          "context": "ASLR (Address Space Layout Randomization) je sigurnosni mehanizam koji pri svakom pokretanju procesa nasumično raspoređuje pozicije stacka, heap-a i biblioteka u virtualnom adresnom prostoru. Čak i ako napadač zna kako iskoristiti propust, ne zna tačnu adresu svog koda - što otežava napade poput buffer overflow-a.",
+          "details": [
+            "Windows: dinamičke relokacije modula pri učitavanju (izvršni fajlovi kompajlirani sa /DYNAMICBASE), bez značajnog uticaja na brzinu.",
+            "Linux: pozicijski neovisni izvršni fajlovi (PIE); na starijim 32-bitnim sistemima ~5-10% overhead, na 64-bitnim zanemariv.",
+            "Danas je ASLR standard u Windows, Linux i macOS sistemima.",
+            "Povezan koncept: NX bit (No-Execute) sprječava izvršavanje koda iz RW memorije (stack/heap)."
+          ],
+          "note": "Citat (Memorija2): 'ASLR je mehanizam kojim se prilikom svakog pokretanja procesa nasumično raspoređuje pozicija stacka, heap a i biblioteka u Virtualnom adresnom prostoru.'",
+          "readMore": ["Memorija2.pdf, str. 4 (ASLR)"]
+        },
+        {
+          "id": "mem-22",
+          "promptParts": {
+            "before": "Šta je Copy-on-Write (CoW)?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Kopiranje cijele memorije procesa pri svakom fork()",
+            "Tehnika u kojoj više procesa dijeli iste stranice (read-only) sve dok neki ne pokuša pisati; tek tada se, preko page fault-a, kopira ta stranica u novi okvir za proces koji piše",
+            "Šifrovanje stranica prije pisanja",
+            "Brisanje stranica nakon čitanja"
+          ],
+          "correctAnswers": [
+            "Tehnika u kojoj više procesa dijeli iste stranice (read-only) sve dok neki ne pokuša pisati; tek tada se, preko page fault-a, kopira ta stranica u novi okvir za proces koji piše"
+          ],
+          "context": "Copy-on-Write (CoW) je optimizacija u kojoj više procesa dijeli iste fizičke stranice označene kao read-only, sve dok neki proces ne pokuša pisati. Tada se pokreće page fault (jer je stranica read-only), OS dodijeli novi fizički okvir i kopira sadržaj u njega samo za proces koji piše.",
+          "details": [
+            "Primjer: na Linuxu nakon fork(), dijete dijeli sve stranice sa roditeljem (read-only); tek kad neko od njih pokuša upisati, OS kopira tu stranicu u novi okvir i ažurira tablicu stranica za taj proces.",
+            "Prednost: štedi memoriju i ubrzava kreiranje procesa (ne dupliraju se odmah svi podaci).",
+            "Nedostatak: prva izmjena stranice nosi dodatni trošak (obrada page fault-a i kopiranje) - mali overhead u odnosu na ukupnu uštedu."
+          ],
+          "note": "Citat (Memorija2): 'Copy-on-Write (CoW) je tehnika ... kojom operativni sistem omogućava da više procesa dijeli iste stranice memorije sve dok neki od njih ne pokuša izmijeniti sadržaj.'",
+          "readMore": ["Memorija2.pdf, str. 4-5 (Copy-on-Write)"]
+        }
+      ]
+    }
+  ]
+}

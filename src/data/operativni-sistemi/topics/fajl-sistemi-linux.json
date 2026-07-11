@@ -17,8 +17,19 @@
           "type": "single",
           "options": ["777", "771", "666", "661", "ništa od navedenog"],
           "correctAnswers": ["777"],
-          "context": "Simbolički (soft) link uvijek ima dozvole lrwxrwxrwx = 777, ali se te dozvole ionako ne provjeravaju — kontrola pristupa ide nad ciljnim fajlom. Soft link je zasebna datoteka (različit inode) koja sadrži samo putanju do originala, poput 'prečice'. Razlika od hard linka: hard link dijeli ISTI inode kao original (isti fajl pod dva imena), radi samo za fajlove i ne prelazi granicu fajl sistema; soft link radi i za foldere i može pokazivati preko fajl sistema. Ostale ponuđene vrijednosti (771/666/661) nemaju osnova kao default. Poveznica: inode drži metapodatke, a ime je u direktoriju — link count u inodeu broji koliko imena pokazuje na taj fajl.",
-          "note": "Odgovor 777 je standardno Linux ponašanje (opšte znanje), potvrđeno strukturom lrwxrwxrwx. Materijal potvrđuje 'l' oznaku i različit inode, ali ne ispisuje eksplicitno broj 777 — ako profesor traži baš 'iz materijala', provjeri."
+          "context": "Simbolički (soft) link uvijek ima dozvole lrwxrwxrwx, što je 777. One se ionako ne provjeravaju: pristup se kontroliše nad ciljnim fajlom, ne nad samim linkom.",
+          "details": [
+            "Šta je soft link: zasebna datoteka (svoj, različit inode) koja sadrži samo putanju do originala, poput prečice. Može pokazivati na fajl i na folder, i preko granice fajl sistema.",
+            "Hard link (za razliku): dijeli isti inode kao original (isti fajl pod dva imena), radi samo za fajlove. Ako se original obriše, hard link i dalje radi dok link count ne padne na 0.",
+            "Zašto default 777 nije sigurnosni problem: dozvole linka se ne provjeravaju; presudne su dozvole ciljnog fajla, pa chmod nad linkom ne mijenja stvarni pristup.",
+            "Prepoznavanje u ls -l: soft link ima 'l' na početku (lrwxrwxrwx) i strelicu 'link -> /putanja/original'; u grafičkom okruženju strelicu u uglu ikone.",
+            "Ponuđene 771, 666, 661 su validne oktalne dozvole (r=4, w=2, x=1 po kategoriji), ali nisu default za simbolički link; default je uvijek 777."
+          ],
+          "note": "Materijal (OS_V_S5_S6) potvrđuje oznaku 'l', strelicu na original i različit inode. Broj 777 (lrwxrwxrwx) je standardno Linux ponašanje i nije eksplicitno ispisan u materijalu.",
+          "readMore": [
+            "OS_V_S5_S6.pdf, str. 6 (soft vs hard link: inode, ln i ln -s, prepoznavanje po slovu 'l')",
+            "Fajl Sistemi2.pdf, str. 1 (inode, metapodaci, link count)"
+          ]
         },
         {
           "id": "q6b",
@@ -28,10 +39,20 @@
             "after": ""
           },
           "type": "single",
-          "options": ["Da", "Ne — bitne su dozvole ciljnog fajla"],
-          "correctAnswers": ["Ne — bitne su dozvole ciljnog fajla"],
-          "context": "Simbolički link je samo prečica koja sadrži putanju; njegove vlastite dozvole (uvijek 777) sistem ignoriše i pristup provjerava nad ciljnim fajlom. Zato chmod nad linkom nema efekta na stvarni pristup — treba mijenjati dozvole originala. To je i razlog zašto default 777 nije sigurnosni problem: prava linka nikoga ne puštaju mimo prava cilja. Poveznica: hard link se ponaša drugačije — pošto dijeli inode s originalom, dijeli i njegove stvarne dozvole.",
-          "note": "Opšte Linux znanje, u skladu s opisom soft linka kao prečice do izvornog fajla (s različitim inodeom)."
+          "options": ["Da", "Ne (bitne su dozvole ciljnog fajla)"],
+          "correctAnswers": ["Ne (bitne su dozvole ciljnog fajla)"],
+          "context": "Dozvole samog linka (uvijek 777) sistem ignoriše; pristup se provjerava nad ciljnim fajlom. Zato chmod nad linkom ne mijenja stvarni pristup, nego se mijenjaju dozvole originala.",
+          "details": [
+            "Kako to radi: soft link sadrži samo putanju do cilja; kad mu pristupiš, sistem slijedi putanju i provjerava dozvole ciljnog fajla, ne linka.",
+            "Posljedica: chmod nad simboličkim linkom nema efekta na pristup; da ograničiš pristup, mijenjaj dozvole originala.",
+            "Zato default 777 na linku nije rizik: prava linka nikoga ne puštaju mimo prava cilja.",
+            "Hard link se ponaša drugačije: pošto dijeli isti inode s originalom, dijeli i njegove stvarne dozvole."
+          ],
+          "note": "Opšte Linux znanje, u skladu s opisom soft linka kao prečice do izvornog fajla (različit inode) iz OS_V_S5_S6.",
+          "readMore": [
+            "OS_V_S5_S6.pdf, str. 6 (soft link je prečica, različit inode; hard link dijeli inode)",
+            "Fajl Sistemi2.pdf, str. 7-8 (kontrola pristupa nad fajlom: DAC, owner/group/others)"
+          ]
         },
         {
           "id": "q6c",
@@ -48,8 +69,17 @@
             "Po slovu 's' na početku"
           ],
           "correctAnswers": ["Po slovu 'l' na početku (npr. lrwxrwxrwx)"],
-          "context": "Prvi znak u redu ls -l označava TIP objekta: '-' običan fajl, 'd' direktorij, 'l' simbolički link, 'b'/'c' blok/karakter uređaj. Soft link u ls -l dodatno pokazuje strelicu 'link -> /putanja/original', a u grafičkom okruženju ima strelicu u uglu ikone. Nakon tog prvog znaka slijedi 9 znakova dozvola (rwx za vlasnika/grupu/ostale). Poveznica: to prvo slovo je najbrži način da iz jednog ls -l ispisa razlikuješ fajl, folder i link.",
-          "note": "Citat: 'soft link ćete prepoznati po slovu l prije permisija'. Za tipove: 'slovo d - folder', '-' regularni fajl."
+          "context": "Prvi znak u redu ls -l označava tip objekta; za simbolički link to je slovo 'l' (npr. lrwxrwxrwx). Dodatno, soft link u ls -l pokazuje strelicu 'link -> /putanja/original'.",
+          "details": [
+            "Prvi znak = tip objekta: '-' običan fajl, 'd' direktorij, 'l' simbolički link, 'b'/'c' blok/karakter uređaj.",
+            "Distraktori: 'd' je direktorij, '-' običan fajl, 's' (kao prvi znak) je socket. Nijedan nije simbolički link.",
+            "Poslije prvog znaka slijedi 9 znakova dozvola (rwx za vlasnika, grupu i ostale), pa je puni prikaz npr. lrwxrwxrwx.",
+            "U grafičkom okruženju soft link ima strelicu u uglu ikone i svijetlo plavu boju."
+          ],
+          "note": "Citat (OS_V_S5_S6): 'soft link ćete prepoznati po slovu l (malo slovo L) prije permisija.' Za tipove: 'slovo d - folder', '-' regularni fajl.",
+          "readMore": [
+            "OS_V_S5_S6.pdf, str. 6 (prepoznavanje soft linka: slovo 'l', strelica na original, boja)"
+          ]
         },
         {
           "id": "q7",
@@ -66,8 +96,19 @@
             "U registre procesora"
           ],
           "correctAnswers": ["U RAM (page cache), pa tek kasnije na disk"],
-          "context": "Kod lazy writinga (write-back) OS pri write() NE piše odmah na disk, nego u RAM (page cache / file system cache). Te stranice se označe kao 'dirty' i tek se kasnije skupno upišu na disk, u sekvenci. Motiv: disk je red veličine sporiji od RAM-a, pa je efikasnije grupisati upise. Suprotan pristup je write-through (odmah i u keš i na disk — sigurnije, ali sporije). Poveznica: isti princip keširanja OS koristi i za čitanje — drži često korištene fajlove u RAM-u da izbjegne ponovni dohvat s diska.",
-          "note": "Citat: 'Operativni sistem ne piše odmah na disk nego u RAM i označava se kao dirty pages.'"
+          "context": "Kod lazy writinga (write-back) OS pri write() ne piše odmah na disk, nego u RAM, u page cache (file system cache). Te stranice se označe kao 'dirty' i tek se kasnije skupno upišu na disk.",
+          "details": [
+            "Zašto: disk je red veličine sporiji od RAM-a, pa OS skuplja izmjene i upisuje ih odjednom, u sekvenci, umjesto stalnih sitnih upisa.",
+            "Kada se dirty stranice stvarno upišu na disk: kad sistem nije opterećen, kad se cache napuni, kad istekne tajmer ili kad OS uradi flush (sync).",
+            "Tri nivoa keša pri upisu: OS page cache (RAM), device/driver cache i hardverski cache na samom disku (DRAM u kontroleru).",
+            "Suprotan pristup je write-through: podaci idu odmah i u keš i na disk. Sigurnije, ali sporije.",
+            "Distraktori: ROM je samo za čitanje, a registri procesora služe za trenutne CPU operacije; nijedno nije odredište podataka iz write()."
+          ],
+          "note": "Citat (Fajl Sistemi2): 'Operativni sistem ne piše odmah na disk nego u RAM i označava se kao dirty pages'; podatke 'najprije smješta u page cache u RAM-u'.",
+          "readMore": [
+            "Fajl Sistemi2.pdf, str. 1-2 (page cache, dirty pages, write-back, tri nivoa keša)",
+            "Fajl Sistemi2.pdf, str. 5 (kada se dirty stranice upisuju: idle, cache pun, timeout, flush)"
+          ]
         },
         {
           "id": "q7b",
@@ -84,8 +125,17 @@
             "Cached instructions"
           ],
           "correctAnswers": ["Dirty pages"],
-          "context": "Dirty pages su stranice u RAM-u čiji je sadržaj izmijenjen ali još nije zapisan na disk (za razliku od 'clean' stranica koje su identične disku). OS ih drži u page cache-u i flush-uje na disk kad: sistem nije opterećen, keš se napuni, istekne tajmer, ili na eksplicitni sync/flush. Poveznica: baš postojanje dirty stranica je razlog i za rizik gubitka podataka pri padu i za potrebu journalinga; isti pojam 'dirty bit' postoji i kod cache linija procesora.",
-          "note": "Citat: '...u RAM i označava se kao dirty pages.'"
+          "context": "Dirty pages su stranice u page cache-u (RAM) čiji je sadržaj izmijenjen, ali još nije zapisan na disk. Nasuprot njima, 'clean' stranice su identične onome na disku.",
+          "details": [
+            "Kako nastaju: pri write() OS upiše podatke u page cache i te stranice označi kao dirty (write-back).",
+            "Kada postaju clean: kad se flush-uju na disk (kad sistem nije opterećen, kad se cache napuni, kad istekne tajmer ili na eksplicitni sync/flush).",
+            "Distraktori: free pages su slobodne (neiskorištene) stranice; swap pages su stranice izbačene iz RAM-a u swap prostor na disku; 'cached instructions' su instrukcije u kešu procesora, ne podaci fajla.",
+            "Isti pojam 'dirty bit' postoji i kod cache linija procesora i kod stranica virtuelne memorije: znači da je sadržaj izmijenjen i mora se zapisati nazad."
+          ],
+          "note": "Citat (Fajl Sistemi2): OS pri write() podatke smješta u RAM i 'označava se kao dirty pages'; stranice u page cache-u se 'označavaju kao dirty'.",
+          "readMore": [
+            "Fajl Sistemi2.pdf, str. 1-2 (page cache, dirty pages, write-back)"
+          ]
         },
         {
           "id": "q7c",
@@ -96,16 +146,25 @@
           },
           "type": "single",
           "options": [
-            "Bolje performanse — upisi se skupljaju i rade skupno umjesto stalnog pristupa disku",
+            "Bolje performanse: upisi se skupljaju i rade skupno umjesto stalnog pristupa disku",
             "Nema mogućnosti gubitka podataka",
             "Ne troši RAM",
             "Radi bez procesora"
           ],
           "correctAnswers": [
-            "Bolje performanse — upisi se skupljaju i rade skupno umjesto stalnog pristupa disku"
+            "Bolje performanse: upisi se skupljaju i rade skupno umjesto stalnog pristupa disku"
           ],
-          "context": "Glavna prednost je performansa: umjesto pristupanja sporom disku za svaki mali upis, OS skupi više izmjena u RAM-u i upiše ih odjednom, u sekvenci (što je disku brže od nasumičnih upisa). Time se smanjuje broj U/I operacija i procesi se brže izvode. Poveznica: to je isti razlog zbog kojeg OS na svakom koraku koristi keširanje — brzi RAM kao međusloj ispred sporog diska.",
-          "note": "Citat: 'Umjesto da svako malo upisuje po disku Operativni sistem sakupi i kasnije ih sve upisuje u sekvenci.'"
+          "context": "Glavna prednost je performansa: umjesto pristupanja sporom disku za svaki mali upis, OS skupi više izmjena u RAM-u i upiše ih odjednom, u sekvenci.",
+          "details": [
+            "Zašto je brže: disk je red veličine sporiji od RAM-a, a sekvencijalni skupni upis je disku brži od mnogo nasumičnih sitnih upisa, pa se smanjuje broj U/I operacija.",
+            "Dodatna korist: procesi ne čekaju na disk pri svakom write(), nego nastavljaju rad čim podatak uđe u page cache.",
+            "Cijena te prednosti: rizik gubitka podataka ako sistem padne prije nego se dirty stranice upišu; write-back je kompromis performanse i sigurnosti.",
+            "Distraktori: 'nema gubitka podataka' je netačno (upravo je to rizik write-backa); 'ne troši RAM' je netačno (podaci stoje u page cache-u); 'radi bez procesora' nema smisla jer write() i keširanje izvršava OS na CPU-u."
+          ],
+          "note": "Citat (Fajl Sistemi2): 'Umjesto da svako malo upisuje po disku Operativni sistem sakupi i kasnije ih sve upisuje u sekvenci.'",
+          "readMore": [
+            "Fajl Sistemi2.pdf, str. 1-2 (write-back, skupni sekvencijalni upis), str. 5 (kada se dirty stranice upisuju)"
+          ]
         },
         {
           "id": "q7d",
@@ -124,21 +183,41 @@
           "correctAnswers": [
             "Gubitak podataka ako sistem padne prije nego se dirty stranice upišu na disk"
           ],
-          "context": "Glavni rizik je gubitak podataka: pošto dirty stranice neko vrijeme stoje samo u RAM-u (volatile), pad sistema ili nestanak struje prije upisa znači da se te izmjene gube. Zato ozbiljni fajl sistemi (NTFS, ext3/4) koriste journaling — prvo zapišu namjeru promjene u dnevnik (journal), pa tek onda mijenjaju podatke, da bi se nakon pada mogli oporaviti u konzistentno stanje. Poveznica: to je klasičan kompromis performanse vs. sigurnosti — write-back je brži ali rizičniji, write-through sporiji ali sigurniji.",
-          "note": "Opšte znanje (rizik volatilnosti RAM-a) + koncept dirty pages iz materijala; journaling se obrađuje uz NTFS/ext."
+          "context": "Glavni rizik je gubitak podataka: dirty stranice neko vrijeme stoje samo u RAM-u (volatile), pa pad sistema ili nestanak struje prije upisa znači da se te izmjene gube.",
+          "details": [
+            "Zašto: RAM je volatile; dok dirty stranice nisu flush-ovane na disk, postoje samo u memoriji i nestaju pri padu ili gubitku napajanja.",
+            "Kako se rizik ublažava: journaling (NTFS, ext3/4) prvo zapiše namjeru promjene u dnevnik (journal), pa tek onda mijenja podatke, da bi se sistem nakon pada vratio u konzistentno stanje.",
+            "Ručno smanjenje rizika: sync/flush ili isključivanje write-cache (upis na disk na zahtjev) forsira raniji upis, po cijenu performansi.",
+            "Distraktori: write-back ne troši značajno više procesora, ne sprječava čitanje fajlova niti uzrokuje fragmentaciju RAM-a; to nisu njegove mane."
+          ],
+          "note": "Citat (Fajl Sistemi2): 'ako nestane struje gubi se i sadržaj cache-a a time i gubitak datoteke.' Journaling (NTFS/ext) se koristi da se ovaj rizik ublaži.",
+          "readMore": [
+            "Fajl Sistemi2.pdf, str. 2 (rizik: nestanak struje = gubitak cache-a; isključivanje write-cache)",
+            "FajlSistemi1.pdf, str. 7 (NTFS $LogFile, journaling)"
+          ]
         },
         {
           "id": "q8",
           "promptParts": {
-            "before": "Koja od navedenih oznaka NE postoji kao opcija komande ps? (a, x, r, s, z)",
+            "before": "Koja od navedenih oznaka ne postoji kao opcija komande ps? (a, x, r, s, z)",
             "blank": "",
             "after": ""
           },
           "type": "single",
           "options": ["a", "x", "r", "s", "z"],
           "correctAnswers": ["z"],
-          "context": "Malo slovo 'z' ne postoji kao BSD opcija komande ps. — ta radi svako od ponuđenih (BSD stil, bez crtice): a = podiže ograničenje 'samo tvoji procesi' (prikazuje procese svih korisnika koji imaju terminal); x = podiže ograničenje 'mora imati tty' (uključuje i procese bez kontrolnog terminala); r = ograničava selekciju samo na procese koji se izvršavaju (running); s = prikaz u signal formatu. Zamka: postoji veliko 'Z' (SELinux security context) — ali to je drugo slovo. VAŽNO: kod Linux komandi veliko i malo slovo NISU ista opcija ('z' vs 'Z', -u vs -U, -g vs -G) — uvijek pažljivo gledaj veličinu slova. Dodatno, ne miješaj opcije komande sa STAT oznakama STANJA procesa: R/I/Z (running/idle/zombie) su validna stanja, ali to nije isto što i opcija.",
-          "note": "Izvor van tema-PDF-ova: zvanična ps(1) man stranica (procps-ng, man7.org) — potvrđuje da a/x/r/s postoje, a malo 'z' ne. Materijal s vježbi (OS_V_Procesi.pdf) navodi opcije -a/-e/-f/-u i stanja R/I/Z."
+          "context": "U BSD stilu (bez crtice) postoje opcije a, x, r i s; malo slovo 'z' nije opcija komande ps. Lako se pomiješa sa STAT oznakom stanja procesa Z (zombie), koja jeste validno stanje, ali nije opcija.",
+          "details": [
+            "Šta rade te opcije (BSD stil): a = prikaži procese svih korisnika koji imaju terminal; x = uključi i procese bez kontrolnog terminala; r = samo procese koji se izvršavaju (running); s = prikaz u signal formatu.",
+            "Zašto 'z' zbunjuje: veliko Z se u STAT koloni koristi za zombie proces, a na SELinux sistemima veliko 'Z' prikazuje sigurnosni kontekst. Malo 'z' kao opcija ne postoji.",
+            "Kod ps-a veliko i malo slovo su različite opcije (npr. 'z' vs 'Z', -u vs -U, -g vs -G).",
+            "Ne miješati opcije sa STAT oznakama stanja procesa: R (running), I (idle), Z (zombie) su stanja, ne opcije."
+          ],
+          "note": "Izvor: zvanična ps(1) man stranica (procps-ng) potvrđuje da a/x/r/s postoje, a malo 'z' ne. Materijal s vježbi (OS_V_Procesi) navodi opcije -a/-e/-f/-u i stanja procesa R/I/Z.",
+          "readMore": [
+            "OS_V_Procesi.pdf (ps: opcije -a/-e/-f/-u i stanja procesa R/I/Z)",
+            "man ps (procps-ng): BSD opcije a, x, r, s"
+          ]
         },
         {
           "id": "q9",
@@ -150,8 +229,17 @@
           "type": "single",
           "options": ["Tačno", "Netačno"],
           "correctAnswers": ["Tačno"],
-          "context": "Kod ext fajl sistema broj inodova se određuje UNAPRIJED pri instalaciji (formatiranju) i fiksan je (pravilo ~1 inode na 16 KB kapaciteta); veličina jednog zapisa je 128 B kod ext2/3, a 256 B kod ext4. Bitna posljedica: možeš ostati bez slobodnih inodova (npr. milioni sićušnih fajlova) iako na disku ima slobodnog prostora — jer se inode tabela ne može naknadno proširiti. Inode čuva metapodatke (tip, veličinu, dozvole, vlasnika, timestamps, link count, pointere na blokove), ali NE i ime — ime je u direktoriju koji mapira ime — inode broj. Poveznica: zato hard link (novo ime za isti inode) ne troši novi inode, dok svaki novi fajl troši.",
-          "note": "Citat: 'Veličina inode tabele je predefinisana tokom instalacije sistema.' (Obično 1 inode zapis na 16 KB kapaciteta.)"
+          "context": "Kod ext fajl sistema broj inodova se određuje unaprijed pri instalaciji (formatiranju) i fiksan je. Pravilo je otprilike jedan inode na svakih 16 KB kapaciteta.",
+          "details": [
+            "Posljedica: možeš ostati bez slobodnih inodova (npr. milioni sićušnih fajlova) iako na disku ima slobodnog prostora, jer se inode tabela ne može naknadno proširiti.",
+            "Veličina jednog inode zapisa: 128 B kod ext2 i ext3, a 256 B kod ext4.",
+            "Šta inode čuva: tip datoteke, veličinu, dozvole, vlasnika (UID/GID), timestamps, link count i pointere na blokove. Ne čuva ime, ime je u direktoriju koji mapira ime na inode broj.",
+            "Zato hard link (novo ime za isti inode) ne troši novi inode, dok svaki novi fajl troši."
+          ],
+          "note": "Citat (FajlSistemi1, str. 5): 'Veličina inode tabele je predefinisana tokom instalacije sistema.' Obično 1 inode zapis na 16 KB kapaciteta; zapis je 128 B (ext2/3) ili 256 B (ext4).",
+          "readMore": [
+            "FajlSistemi1.pdf, str. 5 (inode tabela, veličina zapisa ext2/3/4, sadržaj inodea)"
+          ]
         },
         {
           "id": "q10",
@@ -163,13 +251,21 @@
           "type": "single",
           "options": ["-r", "-u", "-n", "-d"],
           "correctAnswers": ["-u"],
-          "context": "sort podrazumijevano ređa redove abecedno/leksikografski, uzlazno. Ključne opcije: -u (unique — izbacuje duplikate), -r (reverse — opadajuće), -n (numeričko — po vrijednosti broja, a ne po znaku, pa je '10' veće od '9'). Radi nad standardnim ulazom/izlazom pa se prirodno veže u lanac preko cijevi: 'ps -A | sort', 'sort fajl | uniq'. Poveznica: -u i zasebna komanda uniq rade sličan posao, ali uniq uklanja samo SUSJEDNE duplikate — zato se često prvo sortira pa provuče kroz uniq.",
-          "note": "Citat: '-u ... kombinacija za prikazivanje bez duplih riječi'; '-r za sortiranje u opadajućem nizu'."
+          "context": "sort podrazumijevano slaže redove po abecedi (leksikografski), uzlazno. Opcija -u (unique) uz to izbacuje duplikate iz rezultata.",
+          "details": [
+            "Ostale ponuđene opcije: -r (reverse) sortira opadajuće; -n (numeric) sortira po brojčanoj vrijednosti (pa je '10' veće od '9'); -d (dictionary order) posmatra samo slova, brojeve i razmake. Nijedna ne uklanja duplikate.",
+            "sort radi nad standardnim ulazom/izlazom pa se lako veže u pipeline: npr. 'sort godina', 'ps -A | sort', 'sort fajl | uniq'.",
+            "-u vs komanda uniq: uniq uklanja samo susjedne duplikate, pa se često prvo sortira pa provuče kroz uniq; 'sort -u' uradi oboje odjednom."
+          ],
+          "note": "Citat (UbuntuKomande_2, str. 2): '-u uz komandu sort kombinacija za prikazivanje bez duplih riječi odnosno ponavljanja, a ... -r za sortiranje u opadajućem nizu.' (-n i -d su iz man stranice.)",
+          "readMore": [
+            "UbuntuKomande_2.pdf, str. 2 (sort: -u bez duplikata, -r opadajuće; pipeline)"
+          ]
         },
         {
           "id": "q11",
           "promptParts": {
-            "before": "Koji simbolički izraz komande chmod svim kategorijama (vlasnik/grupa/ostali) daje SAMO pravo čitanja?",
+            "before": "Koji simbolički izraz komande chmod svim kategorijama (vlasnik/grupa/ostali) daje samo pravo čitanja?",
             "blank": "",
             "after": ""
           },
@@ -181,8 +277,17 @@
             "chmod u-r fajl"
           ],
           "correctAnswers": ["chmod ugo=r fajl"],
-          "context": "chmod ima dva moda. Oktalni (brojčani): svaka kategorija je zbir r=4, w=2, x=1 (npr. 444 = svi čitaju, 777 = svima sve). Simbolički: sintaksa (ko)(akcija)(permisije), gdje je ko = u/g/o/a, akcija = '=' (postavi tačno), '+' (dodaj), '-' (oduzmi), a permisije = r/w/x. Primjeri: 'u+x' (dodaj vlasniku izvršavanje), 'go-w' (oduzmi grupi i ostalima pisanje), 'ugo=r' (svima tačno samo čitanje, isto kao 444). Dozvole se čitaju iz ls -l (9 znakova nakon tipa). Pažnja: chmod 'simbolički mod' je dodjela dozvola i nema veze sa 'simboličkim linkom' (prečicom) — samo dijele riječ 'simbolički'.",
-          "note": "Citat: 'U simboličkom modu napisali bismo chmod ugo=r index.jpeg. Simbolički izrazi koriste sintaksu (ko)(akcija)(permisije).'"
+          "context": "chmod ugo=r fajl svim kategorijama (u=vlasnik, g=grupa, o=ostali) postavlja tačno pravo čitanja i ništa drugo. To je isto što i oktalni chmod 444 fajl.",
+          "details": [
+            "Simbolički mod: sintaksa (ko)(akcija)(permisije). Ko = u/g/o/a; akcija = '=' (postavi tačno), '+' (dodaj), '-' (oduzmi); permisije = r/w/x. Npr. u+x doda vlasniku izvršavanje, go-w oduzme grupi i ostalima pisanje.",
+            "Oktalni mod: svaka kategorija je zbir r=4, w=2, x=1. Npr. 444 = svi samo čitaju, 777 = svima sve. Primjer iz materijala: -rw-rw-r-- je 664.",
+            "Zašto ostale nisu tačne: 'chmod 777 fajl' daje svima sve (rwx); 'chmod a+x fajl' dodaje izvršavanje svima, ne postavlja samo čitanje; 'chmod u-r fajl' oduzima čitanje vlasniku.",
+            "Napomena: simbolički mod chmod-a nema veze sa simboličkim linkom; samo dijele riječ 'simbolički'."
+          ],
+          "note": "Citat (Ubuntu_osnovneKomande, str. 10): 'da svi mogu samo čitati to bi bio broj 444... U simboličkom modu napisali bismo samo chmod ugo=r index.jpeg. Simbolički izrazi koriste sintaksu (ko)(akcija)(permisije).'",
+          "readMore": [
+            "Ubuntu_osnovneKomande.pdf, str. 10 (dozvole rwx, oktalni i simbolički chmod, r=4/w=2/x=1)"
+          ]
         }
       ]
     }

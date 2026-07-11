@@ -24,8 +24,16 @@
           "correctAnswers": [
             "kojim se obezbjeđuje nezavisno izvršavanje jednog zadatka unutar procesa"
           ],
-          "context": "Nit je mehanizam za nezavisno izvršavanje jednog zadatka UNUTAR procesa; osnovna je jedinica korištenja CPU-a. Niti istog procesa dijele resurse i segment koda, ali svaka ima SVOJE registre i stek (zato je zadnja opcija netačna). Poveznica: niti su 'laki procesi' (lightweight) jer je njihovo kreiranje jeftinije od kreiranja procesa-djece.",
-          "note": "Citat: 'Nit je mehanizam kojim se obezbjeđuje nezavisno izvršavanje jednog zadatka unutar procesa.'"
+          "context": "Nit je mehanizam za nezavisno izvršavanje jednog zadatka unutar procesa; osnovna je jedinica korištenja CPU-a.",
+          "details": [
+            "Niti istog procesa dijele resurse i segment koda, ali svaka ima svoje registre i stek. Zato je opcija 'dijeli registre i stek s procesom' netačna.",
+            "Distraktori: prelazak između različitih procesa nije nit; niti istog procesa mogu komunicirati bez posredovanja jezgre (dijele memoriju), pa je i to netačno.",
+            "Niti su 'laki procesi' (lightweight) jer je njihovo kreiranje jeftinije od kreiranja procesa-djece."
+          ],
+          "note": "Citat (Upravljanje procesima): 'Nit je mehanizam kojim se obezbjeđuje nezavisno izvršavanje jednog zadatka unutar procesa.'",
+          "readMore": [
+            "Upravljanje procesima.pdf, str. 7-9 (niti: definicija, dijeljeni vs vlastiti resursi, laki procesi)"
+          ]
         },
         {
           "id": "e19",
@@ -42,8 +50,16 @@
           "correctAnswers": [
             "Implementacija korisničkih niti ne zahtijeva privilegije izvršavanja u sistemskom režimu jer se sve strukture podataka za upravljanje nitima nalaze u adresnom prostoru jednog procesa"
           ],
-          "context": "Korisničke (user-level) niti se upravljaju u korisničkom prostoru (biblioteka), bez potrebe za kernel privilegijama, jer su sve strukture u adresnom prostoru procesa. Mana: blokirajući sistemski poziv jedne niti blokira sve niti procesa, i ne mogu iskoristiti više jezgara. Poveznica: kernel niti nemaju tu manu, ali su skuplje za upravljanje.",
-          "note": "Opšte OS znanje; materijal navodi da su kod korisničkih niti 'mnogi sistemski pozivi blokirajući' i da ne mogu iskoristiti multiprocesiranje."
+          "context": "Korisničke (user-level) niti se upravljaju u korisničkom prostoru (bibliotekom), bez kernel privilegija, jer su sve strukture za upravljanje nitima u adresnom prostoru jednog procesa.",
+          "details": [
+            "Prva opcija je netačna: baš zato što ne diraju jezgro, korisničke niti mogu se izvršavati na bilo kojem OS-u bez izmjena jezgre.",
+            "Mana korisničkih niti: blokirajući sistemski poziv jedne niti blokira sve niti procesa, i ne mogu iskoristiti više jezgara (jezgro procesu dodjeljuje jedan procesor).",
+            "Kernel niti nemaju te mane, ali su skuplje za upravljanje jer prelazak zahtijeva kernel režim."
+          ],
+          "note": "Citat (Upravljanje procesima): korisničke niti 'ne zahtijeva privilegije ... jer se sve strukture ... nalaze u adresnom prostoru jednog procesa'; mane: 'mnogi sistemski pozivi su blokirajući' i ne mogu iskoristiti multiprocesiranje.",
+          "readMore": [
+            "Upravljanje procesima.pdf, str. 10-11 (korisničke vs kernel niti, prednosti i mane)"
+          ]
         },
         {
           "id": "e20",
@@ -55,8 +71,15 @@
           "type": "single",
           "options": ["da", "ne"],
           "correctAnswers": ["da"],
-          "context": "Da. Niti istog procesa dijele resurse procesa — uključujuči otvorene datoteke, adresni prostor i segment koda. Zato jedna nit vidi datoteku koju je otvorila druga. Poveznica: baš to dijeljenje resursa čini niti efikasnijim od zasebnih procesa, ali zahtijeva sinhronizaciju kod istovremenog pristupa.",
-          "note": "Citat: 'sve niti istog procesa međusobno dijele njegove resurse i segment koda, nalaze se u istom adresnom prostoru i pristupaju istim podacima.'"
+          "context": "Niti istog procesa dijele resurse procesa, uključujući otvorene datoteke, adresni prostor i segment koda. Zato jedna nit vidi datoteku koju je otvorila druga.",
+          "details": [
+            "To dijeljenje resursa čini niti efikasnijim od zasebnih procesa, ali zahtijeva sinhronizaciju kad više niti istovremeno pristupa istom podatku.",
+            "Ono što nije dijeljeno: svaka nit ima vlastite registre, stek, programski brojač i TID."
+          ],
+          "note": "Citat (Upravljanje procesima): 'sve niti istog procesa međusobno dijele njegove resurse i segment koda, nalaze se u istom adresnom prostoru i pristupaju istim podacima.'",
+          "readMore": [
+            "Upravljanje procesima.pdf, str. 7-9 (dijeljeni resursi niti)"
+          ]
         },
         {
           "id": "e21",
@@ -68,8 +91,15 @@
           "type": "single",
           "options": ["ne", "da"],
           "correctAnswers": ["ne"],
-          "context": "Ne. Svaka nit ima SVOJ jedinstveni identifikator (thread ID, TID). Niti istog procesa dijele adresni prostor, segment koda, resurse i otvorene datoteke, ali svaka ima vlastiti kontekst izvršavanja: TID, registre, stek i programski brojač. Zato nit ne dijeli identifikator sa procesom (proces ima svoj PID, nit svoj TID). Poveznica: to je ista logika po kojoj niti imaju SVOJE registre i stek — identifikator spada u vlastiti kontekst niti, ne u dijeljene resurse.",
-          "note": "Citat: 'sve niti istog procesa međusobno dijele njegove resurse i segment koda ... Međutim, svaka nit unutar procesa ima sopstveni identifikator, stanje, programski brojač, skup registara i stek.' Izvor: Upravljanje_procesima.pdf."
+          "context": "Svaka nit ima svoj jedinstveni identifikator (thread ID, TID) i ne dijeli ga s procesom. Proces ima svoj PID, a nit svoj TID.",
+          "details": [
+            "Niti istog procesa dijele adresni prostor, segment koda, resurse i otvorene datoteke, ali svaka ima vlastiti kontekst: TID, registre, stek i programski brojač.",
+            "Identifikator spada u vlastiti kontekst niti, ne u dijeljene resurse (ista logika po kojoj niti imaju svoje registre i stek)."
+          ],
+          "note": "Citat (Upravljanje procesima): 'sve niti istog procesa međusobno dijele njegove resurse i segment koda ... Međutim, svaka nit unutar procesa ima sopstveni identifikator, stanje, programski brojač, skup registara i stek.'",
+          "readMore": [
+            "Upravljanje procesima.pdf, str. 7 (nit ima sopstveni identifikator, registre, stek)"
+          ]
         }
       ]
     }

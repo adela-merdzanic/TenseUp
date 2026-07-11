@@ -1,0 +1,513 @@
+{
+  "topicId": "gradivo-procesi",
+  "title": "Gradivo: Upravljanje procesima i niti",
+  "custom": true,
+  "sourcePdf": "Upravljanje procesima.pdf",
+  "exercises": [
+    {
+      "exerciseNumber": 1,
+      "sourceTaskName": "Proces: pojam, program vs proces, memorija procesa",
+      "questions": [
+        {
+          "id": "proc-01",
+          "promptParts": {
+            "before": "Šta je proces i kako se razlikuje od programa?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Proces i program su isto",
+            "Proces je program u izvršenju (aktivan entitet sa stanjem i resursima), a program je pasivan entitet (fajl sa instrukcijama na disku)",
+            "Program je u izvršenju, a proces je fajl na disku",
+            "Proces je dio hardvera"
+          ],
+          "correctAnswers": [
+            "Proces je program u izvršenju (aktivan entitet sa stanjem i resursima), a program je pasivan entitet (fajl sa instrukcijama na disku)"
+          ],
+          "context": "Proces je program u izvršenju - aktivan entitet sa programskim brojačem, stanjem i pridruženim resursima. Program je pasivan entitet: fajl sa nizom instrukcija koji se čuva na disku (izvršni fajl). Program postaje proces kad se učita u memoriju.",
+          "details": [
+            "Isti program može pokrenuti više nezavisnih procesa (npr. više kopija web pregledača): dijele segment koda, ali imaju odvojene podatke, hrpu i stek.",
+            "Dvije česte tehnike učitavanja izvršnog fajla: dupli klik na ikonu i unos imena fajla u komandnu liniju (npr. prog.exe).",
+            "Proces je osnovna jedinica rada u sistemima sa vremenskom raspodjelom (time-sharing)."
+          ],
+          "note": "Citat (Upravljanje procesima): 'program je pasivan entitet ... dok je proces aktivan entitet ... Program postaje proces kada se njegov izvršni fajl učita u memoriju.'",
+          "readMore": ["Upravljanje procesima.pdf, str. 3 (proces vs program)"]
+        },
+        {
+          "id": "proc-02",
+          "promptParts": {
+            "before": "Šta je multiprogramiranje i pseudoparalelizam?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Pisanje programa u više jezika",
+            "Brzo premještanje jednog CPU-a naprijed-nazad između procesa, čime se stvara iluzija paralelnog (istovremenog) izvršavanja",
+            "Korištenje više monitora",
+            "Izvršavanje samo jednog programa"
+          ],
+          "correctAnswers": [
+            "Brzo premještanje jednog CPU-a naprijed-nazad između procesa, čime se stvara iluzija paralelnog (istovremenog) izvršavanja"
+          ],
+          "context": "Multiprogramiranje je brzo premještanje jednog CPU-a naprijed-nazad između procesa. U datom trenutku se izvršava samo jedan proces, ali u sekundi CPU radi na više njih, stvarajući iluziju paralelizma - pa se govori o pseudoparalelizmu.",
+          "details": [
+            "Pseudoparalelizam se razlikuje od stvarnog hardverskog paralelizma višeprocesorskih/višejezgrenih sistema, gdje dva ili više CPU-a dijele istu fizičku memoriju i stvarno rade istovremeno.",
+            "Konceptualno svaki proces ima svoj virtuelni CPU; stvarni CPU se premješta između njih.",
+            "Model 'sekvencijalnih procesa' olakšava rad sa paralelizmom, ali zahtijeva čvršću kontrolu i modularnost programa."
+          ],
+          "note": "Citat (Upravljanje procesima): 'Ovo brzo premještanje CPU-a naprijed-nazad se naziva multiprogramiranje ... stvarati iluziju paralelizma ... pseudoparalelizmu.'",
+          "readMore": [
+            "Upravljanje procesima.pdf, str. 1 (multiprogramiranje, pseudoparalelizam)"
+          ]
+        },
+        {
+          "id": "proc-03",
+          "promptParts": {
+            "before": "Koja četiri dijela (vrste) memorije mogu biti potrebna za izvršavanje procesa?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "ROM, RAM, keš i disk",
+            "Stek (stack), hrpa (heap), memorija za globalne promjenljive (data), i memorija za kod procesa (text)",
+            "Registri, sabirnica, ALU i kontrolna jedinica",
+            "Ulaz, izlaz, obrada i pohrana"
+          ],
+          "correctAnswers": [
+            "Stek (stack), hrpa (heap), memorija za globalne promjenljive (data), i memorija za kod procesa (text)"
+          ],
+          "context": "Za izvršavanje procesa mogu biti potrebna četiri dijela memorije: stek (privremeni podaci - parametri funkcija, povratne adrese, lokalne promjenljive), hrpa/heap (dinamički alocirana memorija tokom izvršavanja), segment podataka/data (globalne promjenljive) i segment koda/text (kod procesa).",
+          "details": [
+            "Segment koda (text section) sadrži same instrukcije programa.",
+            "Stek radi po principu LIFO (last in, first out); koristan je za pozive funkcija i rekurziju.",
+            "Heap je dio memorije rezervisan za dinamičke promjenljive (npr. objekti kreirani tokom rada).",
+            "Kad dva procesa pokreću isti program, dijele isti segment koda, ali imaju odvojene stek, heap i podatke."
+          ],
+          "note": "Citat (Upravljanje procesima): 'za izvršavanje nekog procesa, mogu biti potrebna 4 dijela memorije: stack, heap, memorija za globalne promenljive, i memorija za kod procesa.'",
+          "readMore": [
+            "Upravljanje procesima.pdf, str. 3 (segmenti memorije procesa)"
+          ]
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 2,
+      "sourceTaskName": "Stanja procesa i prelazi",
+      "questions": [
+        {
+          "id": "proc-04",
+          "promptParts": {
+            "before": "Koja su moguća stanja procesa?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Otvoren, Zatvoren, Pauziran, Obrisan",
+            "New, Ready, Running, Waiting, Terminated",
+            "Brz, Spor, Blokiran, Slobodan",
+            "Ulaz, Obrada, Izlaz, Kraj"
+          ],
+          "correctAnswers": ["New, Ready, Running, Waiting, Terminated"],
+          "context": "Proces može biti u pet stanja: New (kreira se), Ready (čeka da mu se dodijeli procesor), Running (instrukcije se izvršavaju), Waiting (čeka na događaj, npr. U/I) i Terminated (izvršavanje je završeno).",
+          "details": [
+            "U bilo kojem trenutku jedan procesor izvršava samo jedan proces (samo jedan u stanju Running), dok više njih može biti u Ready i Waiting.",
+            "New: OS je obavio operacije kreiranja (dodijelio identifikator), ali proces još nije u radnoj memoriji (obično je na disku).",
+            "Terminated: izvršena posljednja instrukcija ili prekid zbog greške; OS još čuva podatke o procesu radi pomoćnih programa, pa ih briše.",
+            "Nazivi stanja variraju od sistema do sistema, ali sama stanja postoje u svim OS-ima."
+          ],
+          "note": "Citat (Upravljanje procesima): stanja procesa - New, Running, Waiting, Ready, Terminated.",
+          "readMore": ["Upravljanje procesima.pdf, str. 4 (stanja procesa)"]
+        },
+        {
+          "id": "proc-05",
+          "promptParts": {
+            "before": "Šta uzrokuje prelaz Running -> Ready (a ne Running -> Waiting)?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Proces je zatražio U/I operaciju",
+            "Proces je potrošio dodijeljeno vrijeme (kvantum) ili se prijavio proces višeg prioriteta, pa ga procesor privremeno napušta iako je i dalje spreman",
+            "Proces je završio posljednju instrukciju",
+            "Proces je tek kreiran"
+          ],
+          "correctAnswers": [
+            "Proces je potrošio dodijeljeno vrijeme (kvantum) ili se prijavio proces višeg prioriteta, pa ga procesor privremeno napušta iako je i dalje spreman"
+          ],
+          "context": "Prelaz Running -> Ready se dešava kad proces potroši svoje dodijeljeno vrijeme (kvantum), ili kad se za izvršavanje prijavi proces višeg prioriteta. Proces je i dalje spreman, samo privremeno napušta procesor.",
+          "details": [
+            "Razlika od Running -> Waiting: tamo proces mora čekati na nešto (U/I, resurs, uslugu), pa nije spreman dok se to ne desi.",
+            "Waiting -> Ready se dešava kad se desi događaj na koji je proces čekao (npr. U/I je gotov).",
+            "Ready -> Running bira raspoređivač (scheduler) između procesa u stanju Ready.",
+            "Skoro svi sistemi sa vremenskom raspodjelom podržavaju Running -> Ready radi pravedne podjele CPU-a."
+          ],
+          "note": "Citat (Upravljanje procesima): 'Running - Ready: Najčešći razlog ... je to što je proces ... potrošio svoje vrijeme ... ili ... proces sa višim prioritetom.'",
+          "readMore": [
+            "Upravljanje procesima.pdf, str. 4-5 (prelazi između stanja)"
+          ]
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 3,
+      "sourceTaskName": "PCB i promjena konteksta",
+      "questions": [
+        {
+          "id": "proc-06",
+          "promptParts": {
+            "before": "Šta je PCB (Process Control Block) i šta sadrži?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Fizička ploča procesora",
+            "Struktura podataka koja predstavlja proces u OS-u: sadrži PID, stanje, programski brojač, registre, informacije o raspoređivanju, memoriji, U/I statusu",
+            "Vrsta keš memorije",
+            "Datoteka na disku sa izvornim kodom"
+          ],
+          "correctAnswers": [
+            "Struktura podataka koja predstavlja proces u OS-u: sadrži PID, stanje, programski brojač, registre, informacije o raspoređivanju, memoriji, U/I statusu"
+          ],
+          "context": "PCB (Process Control Block, ili Task Control Block) je struktura podataka kojom OS predstavlja svaki proces. Sadrži: identifikator procesa (PID), stanje procesa, programski brojač, sadržaj registara, informacije o raspoređivanju, informacije o upravljanju memorijom, informacije za praćenje, i informacije o U/I statusu.",
+          "details": [
+            "PCB je najvažnija struktura podataka u OS-u; čitaju je i mijenjaju gotovo svi moduli (raspoređivanje, alokacija resursa, obrada prekida).",
+            "Programski brojač u PCB-u drži adresu sljedeće instrukcije koju proces treba izvršiti.",
+            "U slučaju prekida, registri i programski brojač se spašavaju u PCB da bi se izvršavanje kasnije pravilno nastavilo.",
+            "PID (process ID) je jedinstveni identifikator koji razlikuje proces od svih ostalih."
+          ],
+          "note": "Citat (Upravljanje procesima): 'Svaki proces je u operativnom sistemu predstavljen blokom za kontrolu procesa (PCB) ... najvažnija struktura podataka u operativnom sistemu.'",
+          "readMore": ["Upravljanje procesima.pdf, str. 5-6 (PCB)"]
+        },
+        {
+          "id": "proc-07",
+          "promptParts": {
+            "before": "Šta je promjena konteksta (context switch) i zašto se kaže da je 'čist gubitak' vremena?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Promjena teme na ekranu; nije gubitak",
+            "Spašavanje stanja tekućeg procesa (u njegov PCB) i rekonstruisanje stanja drugog procesa; gubitak je jer u tom periodu sistem ne radi ništa korisno",
+            "Brisanje procesa iz memorije",
+            "Kopiranje datoteke na disk"
+          ],
+          "correctAnswers": [
+            "Spašavanje stanja tekućeg procesa (u njegov PCB) i rekonstruisanje stanja drugog procesa; gubitak je jer u tom periodu sistem ne radi ništa korisno"
+          ],
+          "context": "Promjena konteksta je spašavanje stanja tekućeg procesa (u njegov PCB) i rekonstruisanje stanja drugog procesa koji treba da se izvrši. Vrijeme utrošeno na nju je čist gubitak, jer u tom periodu sistem ne radi ništa korisno (samo prebacuje kontekste).",
+          "details": [
+            "Kontekst je zapravo PCB: vrijednosti procesorskih registara, stanje procesa i informacije o upravljanju memorijom.",
+            "Prekidi izazivaju context switch: procesor prekida trenutni proces, prelazi u prekidnu rutinu jezgre, pa se kasnije vraća.",
+            "Tipično vrijeme promjene konteksta je nekoliko milisekundi; zavisi od brzine memorije, broja registara i hardverske podrške."
+          ],
+          "note": "Citat (Upravljanje procesima): 'Ovaj postupak se zove promjena konteksta ... Vrijeme utrošeno na promjenu konteksta je čist gubitak, jer sistem u tom periodu ne radi ništa korisno.'",
+          "readMore": [
+            "Upravljanje procesima.pdf, str. 12-13 (promjena konteksta)"
+          ]
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 4,
+      "sourceTaskName": "Niti (threads)",
+      "questions": [
+        {
+          "id": "proc-08",
+          "promptParts": {
+            "before": "Šta je nit (thread) i zašto se niti nazivaju 'laki' procesi?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Nit je poseban računar; laka je jer je mala",
+            "Nit je osnovna jedinica korištenja CPU-a (tok kontrole unutar procesa); 'laka' je jer se kreira i uništava mnogo brže i jeftinije od procesa",
+            "Nit je vrsta datoteke",
+            "Nit je fizička žica u računaru"
+          ],
+          "correctAnswers": [
+            "Nit je osnovna jedinica korištenja CPU-a (tok kontrole unutar procesa); 'laka' je jer se kreira i uništava mnogo brže i jeftinije od procesa"
+          ],
+          "context": "Nit je osnovna jedinica korištenja CPU-a - nezavisni tok kontrole unutar procesa. Niti se nazivaju 'laki' procesi (lightweight) jer se kreiraju i uništavaju mnogo brže i jeftinije od standardnih 'teških' procesa (heavyweight). Kod mnogih sistema kreiranje niti je 10-100 puta brže od kreiranja procesa.",
+          "details": [
+            "Sve niti istog procesa dijele njegov adresni prostor, segment koda, podatke i resurse (npr. otvorene datoteke).",
+            "Ali svaka nit ima sopstveni identifikator, stanje, programski brojač, skup registara i stek.",
+            "Prije niti se za istu svrhu koristilo kreiranje procesa-djece, što je sporije i skuplje.",
+            "Pošto niti dijele resurse, ako jedna nit izmijeni resurs to utiče na sve druge niti istog procesa - zato ih treba sinhronizovati."
+          ],
+          "note": "Citat (Upravljanje procesima): 'Nit je osnovna jedinica korištenja CPU-a ... za niti kaže da su laki procesi (lightweight processes), za razliku od ... teški procesi (heavyweight).'",
+          "readMore": ["Upravljanje procesima.pdf, str. 6-7 (niti)"]
+        },
+        {
+          "id": "proc-09",
+          "promptParts": {
+            "before": "Koje su četiri kategorije prednosti korištenja niti?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Cijena, veličina, boja, oblik",
+            "Odziv, dijeljenje resursa, ekonomičnost i skalabilnost",
+            "Brzina diska, veličina RAM-a, jačina napajanja, hlađenje",
+            "Ulaz, izlaz, obrada, pohrana"
+          ],
+          "correctAnswers": [
+            "Odziv, dijeljenje resursa, ekonomičnost i skalabilnost"
+          ],
+          "context": "Četiri kategorije prednosti niti su: odziv (program reaguje čak i kad je jedan dio blokiran), dijeljenje resursa (niti prirodno dijele memoriju i resurse procesa), ekonomičnost (jeftinije kreiranje i izmjena konteksta od procesa) i skalabilnost (niti se izvode paralelno na više jezgri).",
+          "details": [
+            "Odziv: ako se duga operacija izvodi u zasebnoj niti, korisnički interfejs ostaje odziван (npr. dugme ne 'zamrzne' aplikaciju).",
+            "Dijeljenje resursa: niti dijele kod i podatke bez posebnih tehnika (dok procesi moraju koristiti dijeljenu memoriju ili prosljeđivanje poruka).",
+            "Ekonomičnost: kreiranje/upravljanje nitima je 10-100 puta brže i jeftinije od procesa.",
+            "Skalabilnost: jednonitni proces koristi samo jedan procesor, ma koliko ih ima; višenitni iskorištava više jezgri."
+          ],
+          "note": "Citat (Upravljanje procesima): prednosti niti - 'Odziv ... Dijeljenje resursa ... Ekonomičnost ... Skalabilnost.'",
+          "readMore": ["Upravljanje procesima.pdf, str. 7 (prednosti niti)"]
+        },
+        {
+          "id": "proc-10",
+          "promptParts": {
+            "before": "Koja je razlika između paralelizma i konkurentnosti?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Nema razlike",
+            "Paralelan sistem stvarno izvršava više zadataka istovremeno (više jezgri); konkurentan sistem dopušta da svi zadaci napreduju (i na jednoj jezgri, izmjenom) - konkurentnost je moguća bez paralelizma",
+            "Paralelizam je moguć samo na jednoj jezgri",
+            "Konkurentnost zahtijeva bar dva računara"
+          ],
+          "correctAnswers": [
+            "Paralelan sistem stvarno izvršava više zadataka istovremeno (više jezgri); konkurentan sistem dopušta da svi zadaci napreduju (i na jednoj jezgri, izmjenom) - konkurentnost je moguća bez paralelizma"
+          ],
+          "context": "Paralelan sistem stvarno izvršava više zadataka istovremeno (moguće samo sa više jezgri/procesora). Konkurentan sistem dopušta da više zadataka napreduje - i na jednoj jezgri, izmjenjujući ih na procesoru. Zato je konkurentnost moguća bez paralelizma.",
+          "details": [
+            "Kod jednojezgrenog sistema niti se samo izmjenjuju na procesoru (konkurentnost bez pravog paralelizma).",
+            "Kod višejezgrenog sistema svakoj jezgri se može dodijeliti zasebna nit, pa se stvarno izvode paralelno.",
+            "Izvršavanje prelazi s jedne niti na drugu kad se nit blokira ili istekne njen vremenski kvantum."
+          ],
+          "note": "Citat (Upravljanje procesima): 'paralelnom sistemu ako on može izvršavati više zadataka istovremeno ... konkurentan sistem podržava da jedan zadatak dopušta ostalim da napreduju ... konkurentnost bez paralelizma.'",
+          "readMore": [
+            "Upravljanje procesima.pdf, str. 9 (paralelizam vs konkurentnost)"
+          ]
+        },
+        {
+          "id": "proc-11",
+          "promptParts": {
+            "before": "Koja je razlika između korisničkih niti i niti jezgre (kernel threads)?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Nema razlike",
+            "Korisničkim nitima upravlja aplikacija (biblioteka niti) bez znanja jezgre; nitima jezgre direktno upravlja OS i može ih raspoređivati na više procesora",
+            "Korisničke niti su brže od svih, ali ih OS uvijek vidi",
+            "Niti jezgre postoje samo na jednom OS-u"
+          ],
+          "correctAnswers": [
+            "Korisničkim nitima upravlja aplikacija (biblioteka niti) bez znanja jezgre; nitima jezgre direktno upravlja OS i može ih raspoređivati na više procesora"
+          ],
+          "context": "Korisničkim nitima upravlja sama aplikacija preko biblioteke niti (thread library), a jezgro uopšte ne zna za njih. Nitima jezgre (kernel threads) direktno upravlja OS. Skoro svi OS-i podržavaju niti jezgre.",
+          "details": [
+            "Prednosti korisničkih niti: izmjena niti ne traži sistemski režim, raspoređivanje se prilagođava aplikaciji, rade na bilo kojem OS-u bez izmjena jezgre.",
+            "Nedostaci korisničkih niti: ako jedna nit napravi blokirajući sistemski poziv, blokiraju se sve niti procesa; ne mogu iskoristiti multiprocesiranje (jezgro procesu daje samo jedan procesor).",
+            "Niti jezgre: jezgro može raspoređivati niti istog procesa na više procesora, i ako je jedna blokirana, drugu istog procesa pošalje na izvršavanje.",
+            "Kombinovani pristup (npr. Solaris): korisničke niti se mapiraju na manji ili jednak broj niti jezgre."
+          ],
+          "note": "Citat (Upravljanje procesima): 'Korisničkim nitima upravlja se bez podrške jezgra, dok nitima jezgra direktno upravlja operativni sistem.'",
+          "readMore": [
+            "Upravljanje procesima.pdf, str. 9-11 (korisničke i sistemske niti)"
+          ]
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 5,
+      "sourceTaskName": "Raspoređivanje: redovi i raspoređivači",
+      "questions": [
+        {
+          "id": "proc-12",
+          "promptParts": {
+            "before": "Koje redove (queues) za raspoređivanje procesa razlikujemo?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Samo jedan red za sve procese",
+            "Red poslova (job queue), red spremnih poslova (ready queue) i redovi uređaja (device queue)",
+            "Ulazni, izlazni i mrežni red",
+            "Brzi, spori i srednji red"
+          ],
+          "correctAnswers": [
+            "Red poslova (job queue), red spremnih poslova (ready queue) i redovi uređaja (device queue)"
+          ],
+          "context": "Razlikujemo: red poslova (job queue - svi procesi u sistemu), red spremnih poslova (ready queue - procesi u memoriji koji su spremni i čekaju procesor) i redove uređaja (device queue - procesi koji čekaju na određeni U/I uređaj, poseban red za svaki uređaj).",
+          "details": [
+            "Ready queue se obično čuva kao ulančana (povezana) lista PCB-ova; zaglavlje ima pokazivače na prvi i posljednji PCB.",
+            "Kad proces zatraži zauzet U/I uređaj (npr. disk), mora čekati u redu tog uređaja dok se ne oslobodi.",
+            "Ciklus procesa: iz ready queue -> na CPU -> zatraži U/I (u device queue) ili napravi potproces ili bude prekinut (nazad u ready queue) -> ... dok se ne završi."
+          ],
+          "note": "Citat (Upravljanje procesima): 'red poslova (job queue) ... red spremnih poslova (ready queue) ... Spisak procesa koji čekaju na određeni U/I uređaj zove se red uređaja (device queue).'",
+          "readMore": [
+            "Upravljanje procesima.pdf, str. 11-12 (redovi za raspoređivanje)"
+          ]
+        },
+        {
+          "id": "proc-13",
+          "promptParts": {
+            "before": "Koja je razlika između dugoročnog i kratkoročnog raspoređivača?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Nema razlike",
+            "Dugoročni (job scheduler) bira procese sa diska i učitava ih u memoriju (rjeđe se izvršava); kratkoročni (CPU scheduler) bira između Ready procesa i dodjeljuje procesor (vrlo često, mora biti brz)",
+            "Kratkoročni učitava sa diska, dugoročni dodjeljuje CPU",
+            "Oba rade isto, samo se drugačije zovu"
+          ],
+          "correctAnswers": [
+            "Dugoročni (job scheduler) bira procese sa diska i učitava ih u memoriju (rjeđe se izvršava); kratkoročni (CPU scheduler) bira između Ready procesa i dodjeljuje procesor (vrlo često, mora biti brz)"
+          ],
+          "context": "Dugoročni raspoređivač (job scheduler) bira procese sa diska i učitava ih u memoriju; izvršava se rijetko (između dva kreiranja može proći i par minuta). Kratkoročni raspoređivač (CPU scheduler) bira između procesa u stanju Ready i dodjeljuje im procesor; izvršava se vrlo često (svakih ~100 ms), pa mora biti brz.",
+          "details": [
+            "Dugoročni upravlja stepenom multiprogramiranja (degree of multiprogramming - broj procesa u memoriji).",
+            "Ako dugoročnom raspoređivaču treba 10 ms za odluku, a proces se izvršava 100 ms, gubi se 10/(100+10) ≈ 9% CPU vremena - zato mora biti brz.",
+            "Dugoročni treba izabrati dobru kombinaciju I/O-bound procesa (troše vrijeme na U/I) i CPU-bound procesa (troše vrijeme na računanje) da sistem bude izbalansiran."
+          ],
+          "note": "Citat (Upravljanje procesima): 'Dugoročni raspoređivač ... bira procese sa diska i učitava ih u memoriju. Kratkoročni raspoređivač ... bira između procesa koji su u stanju Ready.'",
+          "readMore": ["Upravljanje procesima.pdf, str. 12 (raspoređivači)"]
+        },
+        {
+          "id": "proc-14",
+          "promptParts": {
+            "before": "Koja je razlika između I/O-bound i CPU-bound procesa?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "I/O-bound proces troši više vremena na računanje, a CPU-bound na U/I",
+            "I/O-bound proces većinu vremena troši na U/I operacije, a CPU-bound proces većinu vremena provodi u izračunavanjima",
+            "Nema razlike",
+            "Oba tipa troše vrijeme samo na disk"
+          ],
+          "correctAnswers": [
+            "I/O-bound proces većinu vremena troši na U/I operacije, a CPU-bound proces većinu vremena provodi u izračunavanjima"
+          ],
+          "context": "I/O-bound proces troši više vremena na U/I operacije (rijetko računa). CPU-bound proces rijetko traži U/I, a većinu vremena provodi u izračunavanjima na procesoru.",
+          "details": [
+            "Za dobre performanse sistem treba dobru kombinaciju obje vrste.",
+            "Ako su svi procesi I/O-bound, ready red je skoro uvijek prazan, pa kratkoročni raspoređivač nema posla.",
+            "Ako su svi CPU-bound, redovi uređaja su prazni, pa su U/I uređaji neiskorišteni - sistem opet nije balansiran."
+          ],
+          "note": "Citat (Upravljanje procesima): 'procesi koji troše više vremena na U/I operacije (I/O-bound process), kao i procesi koji ... većinu vremena provode u izračunavanjima (CPU bound).'",
+          "readMore": [
+            "Upravljanje procesima.pdf, str. 12 (I/O-bound i CPU-bound)"
+          ]
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 6,
+      "sourceTaskName": "Kreiranje i završavanje procesa (fork/exec/wait/exit)",
+      "questions": [
+        {
+          "id": "proc-15",
+          "promptParts": {
+            "before": "Kako se zovu procesi u odnosu roditelj-dijete i šta je stablo procesa?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Server i klijent; stablo je mreža",
+            "Proces koji pravi nove procese je proces roditelj, a novi proces je potproces (proces dijete); ponavljanjem se dobija stablo procesa",
+            "Glavni i sporedni; stablo je datoteka",
+            "Aktivni i pasivni; stablo je registar"
+          ],
+          "correctAnswers": [
+            "Proces koji pravi nove procese je proces roditelj, a novi proces je potproces (proces dijete); ponavljanjem se dobija stablo procesa"
+          ],
+          "context": "Proces koji kreira nove procese zove se proces roditelj, a novi proces potproces ili proces dijete. Postupak se može nastaviti, pa se dobija stablo procesa.",
+          "details": [
+            "Kod kreiranja OS dodijeli novi PID, alocira memoriju, inicijalizira PCB, stavi proces u red spremnih i ažurira strukture podataka.",
+            "Resursi djeteta: dobija ih direktno od OS-a, ili je ograničen na resurse roditelja (sprječava preopterećenje sistema prevelikim brojem potprocesa).",
+            "Izvršavanje: roditelj može nastaviti konkurentno sa djecom, ili čekati da se dijete završi.",
+            "Adresni prostor djeteta: kopija roditelja, ili dijete izvršava drugi kod."
+          ],
+          "note": "Citat (Upravljanje procesima): 'Proces koji pravi nove procese zove se proces roditelj, a novi proces zove se potproces ili proces dijete ... stablo procesa.'",
+          "readMore": ["Upravljanje procesima.pdf, str. 13 (kreiranje procesa)"]
+        },
+        {
+          "id": "proc-16",
+          "promptParts": {
+            "before": "Čemu služe sistemski pozivi fork(), exec(), wait() i exit() u UNIX sistemima?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Svi rade isto - brišu proces",
+            "fork() kreira dijete (kopiju roditelja), exec() zamjenjuje memorijski prostor novim programom, wait() čeka da se dijete završi, exit() završava proces",
+            "fork() briše, exec() kreira, wait() pauzira, exit() pokreće",
+            "Odnose se samo na datoteke"
+          ],
+          "correctAnswers": [
+            "fork() kreira dijete (kopiju roditelja), exec() zamjenjuje memorijski prostor novim programom, wait() čeka da se dijete završi, exit() završava proces"
+          ],
+          "context": "U UNIX-u: fork() pravi proces dijete kao kopiju adresnog prostora roditelja; exec() zamjenjuje memorijski prostor procesa novim programom (učitava binarni fajl i izvršava ga); wait() omogućava roditelju da sačeka da se dijete završi; exit() završava proces i traži od OS-a da ga obriše.",
+          "details": [
+            "Nakon fork(), oba procesa nastavljaju od instrukcije iza fork(); razlika: fork() vraća 0 djetetu, a roditelju vraća PID djeteta.",
+            "exec() uništava sliku programa koji ga je pozvao i na njegovo mjesto učitava novi program.",
+            "Kad se dijete završi (exit()), roditelj (koji je čekao u wait()) nastavlja gdje je stao.",
+            "Pri završetku OS oslobađa sve resurse procesa (memoriju, fajlove, U/I bafere)."
+          ],
+          "note": "Citat (Upravljanje procesima): 'Proces dijete se pravi pomoću sistemskog poziva fork() ... exec() ... učitava binarni fajl u memoriju ... wait() ... exit().'",
+          "readMore": [
+            "Upravljanje procesima.pdf, str. 13-14 (fork/exec/wait/exit)"
+          ]
+        },
+        {
+          "id": "proc-17",
+          "promptParts": {
+            "before": "Iz kojih razloga proces roditelj može završiti (okončati) svoj proces dijete?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Samo ako je dijete završilo posao",
+            "Dijete koristi više resursa nego mu je dodijeljeno, zadatak djeteta više nije potreban, ili se roditelj završava (a OS ne dozvoljava djetetu nastavak)",
+            "Roditelj nikad ne može završiti dijete",
+            "Samo drugi korisnik može završiti dijete"
+          ],
+          "correctAnswers": [
+            "Dijete koristi više resursa nego mu je dodijeljeno, zadatak djeteta više nije potreban, ili se roditelj završava (a OS ne dozvoljava djetetu nastavak)"
+          ],
+          "context": "Roditelj može okončati dijete jer: dijete koristi više resursa nego mu je dodijeljeno, zadatak dodijeljen djetetu više nije potreban, ili se roditelj završava a OS ne dozvoljava djetetu da nastavi nakon završetka roditelja.",
+          "details": [
+            "Poziv za okončanje drugog procesa obično može uputiti samo njegov roditelj, inače bi korisnici mogli namjerno prekidati tuđe procese.",
+            "Zato roditelj mora znati PID-ove svoje djece - i zato sistemski poziv za kreiranje djeteta vraća njegov PID roditelju.",
+            "Da bi provjerio prekomjerno trošenje resursa, roditelj mora imati mehanizam provjere stanja djeteta."
+          ],
+          "note": "Citat (Upravljanje procesima): razlozi za završavanje djeteta - 'dijete koristi resurse više nego mu je dodijeljeno ... zadatak ... se više ne zahtijeva ... roditelj se završava.'",
+          "readMore": [
+            "Upravljanje procesima.pdf, str. 14 (završavanje procesa)"
+          ]
+        }
+      ]
+    }
+  ]
+}

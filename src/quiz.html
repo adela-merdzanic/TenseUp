@@ -73,6 +73,7 @@
       </div>
 
       <section id="question-screen" class="question-card" hidden>
+        <div id="task-setup" class="task-setup" hidden></div>
         <p class="sentence" id="sentence"></p>
         <div id="options-form" class="options-list"></div>
         <p id="select-hint" class="select-hint" hidden>
@@ -105,8 +106,16 @@
           <p id="feedback-result" class="feedback-result"></p>
           <p id="topic-tag" class="topic-tag"></p>
           <div id="rule-box" class="rule-box"></div>
+          <details class="feedback-more" id="feedback-more" hidden>
+            <summary>Show more</summary>
+            <div id="feedback-details" class="feedback-details"></div>
+          </details>
           <p id="feedback-source" class="feedback-source" hidden></p>
           <p id="feedback-note" class="feedback-source" hidden></p>
+          <div id="feedback-readmore" class="feedback-readmore" hidden>
+            <p class="feedback-readmore__label">Further reading</p>
+            <ul id="feedback-readmore-list"></ul>
+          </div>
         </div>
       </section>
 

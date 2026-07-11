@@ -22,8 +22,18 @@
             "Egzokernel"
           ],
           "correctAnswers": ["Monolitni"],
-          "context": "Linux je monolitni (uz to i modularan). Kod monolita svi ključni podsistemi — procesi, memorija, mrežni stek, fajl sistemi, drajveri — rade u JEDNOM adresnom prostoru u kernel modu (Ring 0). Prednost: maksimalne performanse, jer se komponente pozivaju direktno, bez sporih prelazaka između nivoa privilegija. Mana: nema izolacije unutar kernela — greška u jednom drajveru može srušiti cijeli sistem (Kernel Panic, Linux ekvivalent BSOD-a). Da ublaži krutost, Linux učitava drajvere/fajl sisteme kao module (LKM) u toku rada. Poveznica: suprotnost je mikrokernel (servisi u user prostoru) — spor ali izolovan; zato su moderni sistemi zapravo hibridi.",
-          "note": "Citat: 'Linux koristi monolitnu arhitekturu'; te 'i Linux i Solaris su monolitni ... takođe modularni'."
+          "context": "Linux je monolitni kernel (uz to i modularan). Svi ključni podsistemi (procesi, memorija, mrežni stek, fajl sistemi, drajveri) rade u jednom adresnom prostoru u kernel modu (Ring 0), što daje vrlo dobre performanse.",
+          "details": [
+            "Prednost monolita: maksimalne performanse, jer se komponente pozivaju direktno, bez sporih prelazaka između nivoa privilegija.",
+            "Mana: nema izolacije unutar kernela; greška u jednom drajveru može srušiti cijeli sistem (Kernel Panic, Linux ekvivalent Windows BSOD-a).",
+            "Modularnost: Linux u toku rada učitava drajvere i fajl sisteme kao module (LKM), pa je monolitan ali proširiv. Isto vrijedi i za Solaris.",
+            "Distraktori: mikrokernel drži servise u user prostoru (Linux ne); 'čisti slojeviti' i egzokernel nisu Linuxova arhitektura."
+          ],
+          "note": "Citat (Pregled Arhitektura OS-a): 'Linux koristi monolitnu arhitekturu, što znači da svi ključni podsistemi ... u Ring 0'; 'i Linux i Solaris su monolitni ... takođe modularni'.",
+          "readMore": [
+            "Pregled Arhitektura OS a.pdf, str. 16 (Linux monolitni kernel, Ring 0, Kernel Panic)",
+            "OsnovniKonceptiOS.pdf (monolitni vs mikrokernel, moduli, hibridi)"
+          ]
         },
         {
           "id": "q19",
@@ -33,10 +43,19 @@
             "after": ""
           },
           "type": "single",
-          "options": ["Da", "Ne — Linux je monolitni"],
-          "correctAnswers": ["Ne — Linux je monolitni"],
-          "context": "Linux NIJE mikrokernel — monolitni je (i modularan). Razlika: kod monolita sve je u jezgru (Ring 0) zbog brzine; kod mikrokernela u jezgru ostaje minimum, a servisi (fajl sistem, drajveri) su korisnički procesi koji komuniciraju porukama. Ispitna zamka je baš to miješanje — 'modularan' (što Linux jeste, preko LKM) NIJE isto što i 'mikrokernel' (što nije). Poveznica: i Solaris je monolitni; mikrokernel primjeri su Mach, QNX, macOS.",
-          "note": "Citat: 'Linux koristi monolitnu arhitekturu'."
+          "options": ["Da", "Ne (Linux je monolitni)"],
+          "correctAnswers": ["Ne (Linux je monolitni)"],
+          "context": "Linux nije mikrokernel, nego monolitni (i modularan). Kod monolita sve je u jezgru (Ring 0) zbog brzine; kod mikrokernela u jezgru ostaje minimum, a servisi su korisnički procesi koji komuniciraju porukama.",
+          "details": [
+            "Monolitni vs mikrokernel: monolit drži sve podsisteme u kernel modu (brzo, ali bez izolacije); mikrokernel drži samo minimum u jezgru, ostalo u user prostoru (izolovano, ali sporije).",
+            "Modularan nije isto što i mikrokernel: Linux jeste modularan (učitava LKM module u toku rada), ali moduli i dalje rade u kernel modu, pa ostaje monolitan.",
+            "Primjeri mikrokernela: Mach, QNX, macOS (XNU baziran na Mach-u). Monolitni su Linux i Solaris."
+          ],
+          "note": "Citat (Pregled Arhitektura OS-a): 'Linux koristi monolitnu arhitekturu.' Moduli (LKM) čine ga modularnim, ali ne i mikrokernelom.",
+          "readMore": [
+            "Pregled Arhitektura OS a.pdf, str. 16 (Linux monolitni)",
+            "OsnovniKonceptiOS.pdf (mikrokernel: minimalno jezgro, servisi u user prostoru)"
+          ]
         },
         {
           "id": "q19b",
@@ -48,8 +67,16 @@
           "type": "single",
           "options": ["Mach / QNX / macOS", "Linux", "MS-DOS", "Solaris"],
           "correctAnswers": ["Mach / QNX / macOS"],
-          "context": "Mikrokernel koriste Mach (rodonačelnik, sredina 1980-ih), QNX (real-time sistemi), macOS (kernel XNU baziran na Mach-u) i Tru64 UNIX. Monolitni su Linux i Solaris; MS-DOS je nestrukturiran/monolitan. Kod mikrokernela u jezgru ostaje samo osnovno upravljanje procesima/memorijom i komunikacija porukama, a ostalo je u user prostoru. Poveznica: 'baziran na Mach-u' je čest trag da je riječ o mikrokernelu (macOS/Tru64).",
-          "note": "Citat: 'Mac OS X kernel baziran je na Mach mikrokernelu'; spominju se i mikrokernel QNX-a te Tru64 UNIX s Mach kernelom."
+          "context": "Mikrokernel koriste Mach (rodonačelnik, sredina 1980-ih), QNX (real-time sistemi) i macOS (kernel XNU baziran na Mach-u); tu je i Tru64 UNIX s Mach jezgrom.",
+          "details": [
+            "Kod mikrokernela u jezgru ostaje samo osnovno upravljanje procesima i memorijom te komunikacija porukama; fajl sistem, drajveri i servisi su u user prostoru.",
+            "Distraktori: Linux i Solaris su monolitni (i modularni); MS-DOS je rani nestrukturiran (monolitan) sistem, ne mikrokernel.",
+            "Trag: 'baziran na Mach-u' obično znači mikrokernel (macOS, Tru64)."
+          ],
+          "note": "Citat (OsnovniKonceptiOS): 'Mac OS X kernel baziran je na Mach mikrokernelu'; spominju se i QNX mikrokernel te Tru64 UNIX s Mach kernelom.",
+          "readMore": [
+            "OsnovniKonceptiOS.pdf (mikrokernel: Mach, QNX, Tru64, Mac OS X)"
+          ]
         },
         {
           "id": "q19c",
@@ -68,28 +95,45 @@
           "correctAnswers": [
             "Osnovno upravljanje procesima i memorijom + komunikacija (message passing)"
           ],
-          "context": "Mikrokernel zadržava samo presudno: minimalno upravljanje procesima i memorijom te komunikaciju porukama (message passing). Sve ostalo — fajl sistem, drajveri, mrežni servisi — izmiješteno je u korisnički prostor kao obični procesi koji s jezgrom i međusobno razgovaraju porukama. Zato je jezgro malo i lakše za verifikaciju. Poveznica: baš to prebacivanje servisa u user prostor daje pouzdanost/sigurnost (izolacija), ali i glavnu manu — slabije performanse zbog stalnog prosljeđivanja poruka.",
-          "note": "Citat: 'mikrokernel obično obuhvata samo minimalno upravljanje procesima i memorijom, kao i komuniciranje'."
+          "context": "Mikrokernel zadržava samo minimalno upravljanje procesima i memorijom te komunikaciju porukama (message passing). Sve ostalo (fajl sistem, drajveri, mrežni servisi) izmiješteno je u korisnički prostor.",
+          "details": [
+            "Servisi u user prostoru su obični procesi koji s jezgrom i međusobno razgovaraju porukama, indirektno preko mikrokernela.",
+            "Zašto tako: malo jezgro je lakše za verifikaciju, prenosivije i pouzdanije (greška u servisu ne obara jezgro).",
+            "Distraktori: kompletan fajl sistem i drajveri, kao i GUI, žive u user prostoru, ne u jezgru; 'sve u jednom prostoru' opisuje monolit, ne mikrokernel."
+          ],
+          "note": "Citat (OsnovniKonceptiOS): 'mikrokernel obično obuhvata samo minimalno upravljanje procesima i memorijom, kao i komuniciranje.'",
+          "readMore": [
+            "OsnovniKonceptiOS.pdf (mikrokernel: minimalno jezgro, servisi i message passing u user prostoru)"
+          ]
         },
         {
           "id": "q19d",
           "promptParts": {
-            "before": "Koja je glavna MANA mikrokernel arhitekture (u odnosu na monolitnu)?",
+            "before": "Koja je glavna mana mikrokernel arhitekture (u odnosu na monolitnu)?",
             "blank": "",
             "after": ""
           },
           "type": "single",
           "options": [
-            "Slabije performanse (zbog prosljeđivanja poruka i prelazaka user↔kernel)",
+            "Slabije performanse (zbog prosljeđivanja poruka i prelazaka između user i kernel moda)",
             "Manja sigurnost",
             "Nemogućnost proširivanja",
             "Nemogućnost prenosa na drugu platformu"
           ],
           "correctAnswers": [
-            "Slabije performanse (zbog prosljeđivanja poruka i prelazaka user↔kernel)"
+            "Slabije performanse (zbog prosljeđivanja poruka i prelazaka između user i kernel moda)"
           ],
-          "context": "Glavna mana mikrokernela su performanse: pošto servisi žive u user prostoru, svaka njihova saradnja ide preko prosljeđivanja poruka i prelazaka user↔kernel, što je sporo u odnosu na direktne pozive u monolitu. Prednosti su druga strana istog dizajna: pouzdanost i sigurnost (greška u servisu ne obara jezgro), lakša prenosivost i proširivanje. Poveznica: zbog tog kompromisa 'veliki' sistemi (Linux, Windows) biraju pretežno monolitni pristup radi brzine, uz poneku mikrokernel/modularnu osobinu — dakle hibridi.",
-          "note": "Citat: mikrokerneli 'nemaju dobre performanse zbog opterećenja sistemskim funkcijama' (message passing overhead)."
+          "context": "Glavna mana mikrokernela su slabije performanse: servisi žive u user prostoru, pa svaka njihova saradnja ide preko prosljeđivanja poruka i prelazaka između user i kernel moda, što je sporije od direktnih poziva u monolitu.",
+          "details": [
+            "Druga strana istog dizajna su prednosti: pouzdanost i sigurnost (greška u servisu ne obara jezgro), lakša prenosivost i proširivanje.",
+            "Zbog tog kompromisa veliki sistemi (Linux, Windows) biraju pretežno monolitni pristup radi brzine, uz poneku mikrokernel osobinu, pa su zapravo hibridi.",
+            "Distraktori: mikrokernel je zapravo sigurniji (ne manje siguran), lako proširiv i lako prenosiv; to nisu njegove mane."
+          ],
+          "note": "Citat (OsnovniKonceptiOS): mikrokerneli 'nemaju dobre performanse zbog opterećenja sistemskim funkcijama' (overhead prosljeđivanja poruka).",
+          "readMore": [
+            "OsnovniKonceptiOS.pdf (mikrokernel: performanse vs pouzdanost, primjer Windows NT)",
+            "Pregled Arhitektura OS a.pdf (hibridni pristup)"
+          ]
         }
       ]
     }

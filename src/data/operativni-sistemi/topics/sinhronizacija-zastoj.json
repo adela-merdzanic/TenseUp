@@ -22,13 +22,23 @@
             "Iskorištenje procesora"
           ],
           "correctAnswers": ["Ograničeno čekanje"],
-          "context": "Tri zahtjeva za rješenje kritične sekcije su: međusobno isključenje (mutual exclusion), napredak (progress) i ograničeno čekanje (bounded waiting). 'Propusnost' i 'iskorištenje procesora' su kriteriji raspoređivanja, ne zahtjevi kritične sekcije. Poveznica: ograničeno čekanje sprječava izgladnjivanje (starvation) — nijedan proces ne čeka beskonačno na ulaz u kritičnu sekciju.",
-          "note": "Opšte OS znanje (Silberschatz): mutual exclusion, progress, bounded waiting."
+          "context": "Kritična sekcija je dio koda u kojem proces pristupa dijeljenom resursu (npr. zajedničkoj varijabli ili fajlu) koji istovremeno ne smiju koristiti dva procesa. Rješenje tog problema mora zadovoljiti tri zahtjeva, a jedan od njih je ograničeno čekanje.",
+          "details": [
+            "Zašto postoji problem: ako dva procesa istovremeno mijenjaju isti dijeljeni podatak (npr. oba rade count = count + 1), rezultat zavisi od redoslijeda i podatak se može pokvariti. To se zove utrkivanje (race condition).",
+            "Struktura: kod svakog procesa ima ulaznu sekciju (traži dozvolu), kritičnu sekciju (radi s dijeljenim podatkom), izlaznu sekciju (oslobađa pristup) i ostatak koda.",
+            "Tri zahtjeva rješenja: (1) međusobno isključenje (mutual exclusion) - najviše jedan proces u kritičnoj sekciji; (2) napredak (progress) - ako je sekcija slobodna, izbor ko ulazi ne odgađa se beskonačno; (3) ograničeno čekanje (bounded waiting) - proces ne čeka beskonačno na ulaz, čime se sprječava izgladnjivanje.",
+            "U praksi se kritična sekcija štiti mehanizmima poput brave (lock/mutex), semafora ili monitora.",
+            "Distraktori: 'propusnost sistema', 'iskorištenje procesora' i 'modularnost' su kriteriji raspoređivanja ili dizajna, ne zahtjevi kritične sekcije."
+          ],
+          "note": "Izvor: Silberschatz, Operating System Concepts (kritična sekcija: mutual exclusion, progress, bounded waiting). Ovo nije u dvije navedene lekcije, nego u udžbeniku.",
+          "readMore": [
+            "Silberschatz, Operating System Concepts (poglavlje o sinhronizaciji procesa: kritična sekcija)"
+          ]
         },
         {
           "id": "e23",
           "promptParts": {
-            "before": "Koji od ponuđenih modela se NE koristi za komunikaciju između procesa (IPC)?",
+            "before": "Koji od ponuđenih modela se ne koristi za komunikaciju između procesa (IPC)?",
             "blank": "",
             "after": ""
           },
@@ -39,13 +49,22 @@
             "dijeljenje memorije"
           ],
           "correctAnswers": ["FCFS modela"],
-          "context": "Dva osnovna modela međuprocesne komunikacije (IPC) su: dijeljenje memorije (shared memory) i prosljeđivanje poruka (message passing). FCFS je algoritam RASPOREĐIVANJA procesa, nema veze s komunikacijom. Poveznica: dijeljena memorija je brža (procesi direktno dijele segment), a poruke su lakše za sinhronizaciju.",
-          "note": "Citat: 'Jedno rješenje problema proizvođač-potrošač... je dijeljenje memorije (shared memory)' i model prosljeđivanja poruka; FCFS je raspoređivanje."
+          "context": "Dva osnovna modela međuprocesne komunikacije (IPC) su dijeljenje memorije (shared memory) i prosljeđivanje poruka (message passing). FCFS nije IPC model, nego algoritam raspoređivanja procesa.",
+          "details": [
+            "Dijeljena memorija: procesi dijele memorijski segment (shared memory create i attach) pa direktno razmjenjuju podatke; brže, ali traži pažljivu zaštitu i sinhronizaciju.",
+            "Prosljeđivanje poruka: procesi razmjenjuju poruke preko zajedničkog 'poštanskog sandučeta', bez dijeljenog adresnog prostora; lakše za implementaciju i pogodno za distribuirane sisteme, ali sporije.",
+            "Problem proizvođač-potrošač (klasičan primjer IPC-a): jedan proces (proizvođač) stvara podatke koje drugi proces (potrošač) troši, a dijele zajednički bafer (spremnik) - proizvođač stavlja stavke u bafer, potrošač ih vadi.",
+            "Zašto traži sinhronizaciju: proizvođač ne smije dodavati u pun bafer, potrošač ne smije uzimati iz praznog, i ne smiju istovremeno dirati bafer. Primjeri iz materijala: kompajler pa asembler, asembler pa loader, i klijent-server (web server proizvodi HTML, klijent ga troši)."
+          ],
+          "note": "Citat (Upravljanje procesima): 'Jedno rješenje problema proizvođač-potrošač ... je dijeljenje memorije (shared memory)' te model prosljeđivanja poruka. FCFS je algoritam raspoređivanja.",
+          "readMore": [
+            "Upravljanje procesima.pdf (IPC modeli: dijeljenje memorije i prosljeđivanje poruka, problem proizvođač-potrošač)"
+          ]
         },
         {
           "id": "e24",
           "promptParts": {
-            "before": "Potpuni zastoj nastupa ako su istovremeno ispunjeni određeni uslovi. Koji NE spada u tu grupu?",
+            "before": "Potpuni zastoj nastupa ako su istovremeno ispunjeni određeni uslovi. Koji ne spada u tu grupu?",
             "blank": "",
             "after": ""
           },
@@ -58,8 +77,16 @@
             "dobrovoljno oslobađanje resursa"
           ],
           "correctAnswers": ["ne postojanje prioriteta procesa"],
-          "context": "Četiri uslova zastoja (Coffman) su: međusobno isključenje, zadržavanje resursa tokom čekanja (hold & wait), kružno čekanje i nepostojanje prinudnog oduzimanja (no preemption). Ključno: 'no preemption' znači da se resurs oslobađa SAMO dobrovoljno, ne može se prinudno oduzeti — pa 'dobrovoljno oslobađanje resursa' opisuje baš taj uslov i SPADA u grupu. Jedino 'ne postojanje prioriteta procesa' nema veze ni s jednim uslovom, pa je to onaj koji NE spada. Poveznica: uklanjanjem bilo kojeg od četiri uslova sprječava se zastoj (osnova prevencije).",
-          "note": "Coffmanovi uslovi (Silberschatz, Operating System Concepts, §8.3.1): no preemption uslov formulisan kao 'a resource can be released only voluntarily' — dakle 'dobrovoljno oslobađanje resursa' JE jedan od četiri uslova. 'Ne postojanje prioriteta procesa' nije uslov zastoja ni u jednom standardnom izvoru."
+          "context": "Četiri uslova zastoja (Coffman) su: međusobno isključenje, zadržavanje resursa tokom čekanja (hold and wait), kružno čekanje i nepostojanje prinudnog oduzimanja (no preemption). 'Nepostojanje prioriteta procesa' nije među njima.",
+          "details": [
+            "'No preemption' znači da se resurs oslobađa samo dobrovoljno (ne može se prinudno oduzeti), pa 'dobrovoljno oslobađanje resursa' opisuje baš taj uslov i spada u grupu.",
+            "Zastoj nastupa kad su sva četiri uslova ispunjena istovremeno; uklanjanje bilo kojeg od njih sprječava zastoj (osnova prevencije).",
+            "'Nepostojanje prioriteta procesa' nema veze ni s jednim od četiri uslova, pa je to onaj koji ne spada."
+          ],
+          "note": "Coffmanovi uslovi (Silberschatz): mutual exclusion, hold and wait, no preemption, circular wait. 'No preemption' se formuliše kao 'resurs se oslobađa samo dobrovoljno', pa 'dobrovoljno oslobađanje resursa' jeste jedan od uslova.",
+          "readMore": [
+            "Silberschatz, Operating System Concepts (poglavlje o zastoju: Coffmanovi uslovi)"
+          ]
         },
         {
           "id": "e25",
@@ -71,8 +98,16 @@
           "type": "single",
           "options": ["ne", "da"],
           "correctAnswers": ["ne"],
-          "context": "U općem slučaju nema jednostavnog i efikasnog univerzalnog rješenja. Izbjegavanje (npr. Bankarski algoritam) zahtijeva unaprijed poznate maksimalne potrebe za resursima i skupo je; prevencija ograničava sistem; detekcija+oporavak nose svoje troškove. Poveznica: zato mnogi sistemi koriste 'noj-algoritam' (ignorisanje) jer su zastoji rijetki.",
-          "note": "NESIGURNO oko tačne formulacije pitanja (u PDF-u je nejasno zapisano). Opšte OS znanje: ne postoji efikasno univerzalno rješenje za zastoj. Ako je kurs formulisao drugačije, prilagodi."
+          "context": "U općem slučaju nema jednostavnog i efikasnog univerzalnog rješenja za zastoj; svaki pristup ima svoju cijenu.",
+          "details": [
+            "Izbjegavanje (npr. Bankarski algoritam) traži unaprijed poznate maksimalne potrebe za resursima i skupo je.",
+            "Prevencija ograničava sistem (ukida jedan od četiri uslova), a detekcija i oporavak nose svoje troškove.",
+            "Zato mnogi sistemi jednostavno ignorišu zastoje (ostrich / noj-algoritam) jer su rijetki."
+          ],
+          "note": "Standardno OS gradivo (Silberschatz, Tanenbaum): ne postoji efikasno univerzalno rješenje; pristupi su prevencija, izbjegavanje (bankarski algoritam), detekcija sa oporavkom i ignorisanje.",
+          "readMore": [
+            "Silberschatz, Operating System Concepts (zastoj: prevencija, izbjegavanje, detekcija, oporavak)"
+          ]
         }
       ]
     }

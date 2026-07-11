@@ -6,7 +6,9 @@ export const SHORT_SESSION_SIZE = 20;
 
 // topicIds: null means "all topics" (so newly added topics are included
 // automatically); an array means an explicit selection.
-const DEFAULTS = { sessionSize: "all", topicIds: null };
+// order: "shuffle" (random each session) or "sequential" (questions in the
+// order the manifest and files list them).
+const DEFAULTS = { sessionSize: "all", topicIds: null, order: "shuffle" };
 
 export function getSettings() {
   try {
@@ -16,6 +18,7 @@ export function getSettings() {
     return {
       sessionSize: parsed.sessionSize === "short" ? "short" : "all",
       topicIds: Array.isArray(parsed.topicIds) ? parsed.topicIds : null,
+      order: parsed.order === "sequential" ? "sequential" : "shuffle",
     };
   } catch {
     return { ...DEFAULTS };

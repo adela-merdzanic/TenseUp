@@ -1,0 +1,1630 @@
+{
+  "topicId": "arhiva-2018-ostalo",
+  "title": "2018 ispit: ostalo (van gradiva)",
+  "custom": true,
+  "sourcePdf": "Opšte znanje + Silberschatz/Tanenbaum (van trenutnih predavanja/vježbi)",
+  "exercises": [
+    {
+      "exerciseNumber": 1,
+      "sourceTaskName": "UNIX, BSD i istorija",
+      "questions": [
+        {
+          "id": "hist-01",
+          "promptParts": {
+            "before": "BSD skraćenica znači:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Berkeley Software Design",
+            "Basic Software Distribution",
+            "Ništa od navedenog",
+            "Border Software Design",
+            "Basic Software Design",
+            "Berkeley Software Distribution"
+          ],
+          "correctAnswers": ["Berkeley Software Distribution"],
+          "context": "BSD = Berkeley Software Distribution. To je varijanta UNIX-a razvijena na Univerzitetu California, Berkeley, od kasnih 1970-ih.",
+          "details": [
+            "Iz BSD-a su potekli današnji FreeBSD, OpenBSD i NetBSD, a dijelovi BSD koda su ušli i u macOS.",
+            "BSD je donio niz stvari koje danas smatramo standardnim: TCP/IP mrežni stek, sockete, virtuelnu memoriju, C shell."
+          ],
+          "note": "Opšte znanje: BSD = Berkeley Software Distribution (UNIX varijanta sa Berkeleyja).",
+          "readMore": ["Opšte znanje o istoriji UNIX-a i BSD-a"]
+        },
+        {
+          "id": "hist-02",
+          "promptParts": {
+            "before": "UNIX je pisan u programskom jeziku:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "C#",
+            "C++",
+            "PHP",
+            "Ruby",
+            "C",
+            "Python",
+            "HTML",
+            "Javascript"
+          ],
+          "correctAnswers": ["C"],
+          "context": "UNIX je (nakon prvih verzija u asembleru) prepisan u programskom jeziku C. To je bio prekretnica jer je omogućilo da se UNIX lako prenosi na različite mašine.",
+          "details": [
+            "Jezik C je Dennis Ritchie razvio baš u vezi sa UNIX-om, na osnovu ranijih jezika B i BCPL.",
+            "Pošto je najveći dio UNIX-a napisan u prenosivom C-u (a ne u mašinski-specifičnom asembleru), UNIX se mogao prenijeti (portovati) na novi hardver relativno lako. To je jedna od ključnih razlika u odnosu na tadašnje sisteme."
+          ],
+          "note": "Opšte znanje: UNIX je napisan u jeziku C (Ritchie), što mu je dalo prenosivost.",
+          "readMore": ["Opšte znanje o istoriji UNIX-a i jezika C"]
+        },
+        {
+          "id": "hist-03",
+          "promptParts": {
+            "before": "Prva verzija UNIX-a je nastala na računaru:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["PDP-45", "PDP-3", "PDP-11"],
+          "correctAnswers": ["PDP-11"],
+          "context": "Od ponuđenih, UNIX je nastao na DEC-ovom PDP računaru; PDP-11 je mašina na kojoj je UNIX postao poznat i široko korišten (rane verzije su bile i na PDP-7).",
+          "details": [
+            "PDP (Programmed Data Processor) je serija minikompjutera firme DEC (Digital Equipment Corporation) iz 1960-ih i 1970-ih.",
+            "Prvi UNIX (1969-1970) pravljen je na PDP-7, ali je na PDP-11 (početkom 1970-ih) UNIX prepisan u C i postao prenosiv i popularan. 'PDP-45' i 'PDP-3' iz ponuđenih ne postoje kao relevantne mašine.",
+            "Zato je od ponuđenih opcija PDP-11 tačan odgovor."
+          ],
+          "note": "Opšte znanje: UNIX se vezuje za DEC PDP mašine; PDP-11 je ključna. (Najranije verzije bile su na PDP-7.)",
+          "readMore": ["Opšte znanje o istoriji UNIX-a (PDP-7/PDP-11)"]
+        },
+        {
+          "id": "hist-04",
+          "promptParts": {
+            "before": "UNIX-ovim ocem (pretečom) se smatra Multics?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Da", "Ne"],
+          "correctAnswers": ["Da"],
+          "context": "Da. Multics se smatra pretečom UNIX-a: UNIX su napravili ljudi (Ken Thompson, Dennis Ritchie) koji su radili na Multics projektu i htjeli jednostavniju verziju tih ideja.",
+          "details": [
+            "Multics (Multiplexed Information and Computing Service) je bio ambiciozan sistem s vremenskom raspodjelom, ali velik i složen.",
+            "Kad su se Bell Labs povukli iz Multics projekta, Thompson i Ritchie su napravili manji, jednostavniji sistem; ime UNIX je i igra riječi na Multics ('MULTiplexed' → 'UNIplexed').",
+            "Zato se Multics smatra idejnim ocem UNIX-a."
+          ],
+          "note": "Opšte znanje: UNIX je nastao kao reakcija/pojednostavljenje Multics-a; Multics = preteča UNIX-a.",
+          "readMore": ["Opšte znanje o istoriji UNIX-a i Multics-a"]
+        },
+        {
+          "id": "hist-05",
+          "promptParts": {
+            "before": "BCPL je skraćenica od:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Basic Combined Programming Language",
+            "Binary Combined Programming Language",
+            "Binary Combined Personal Language",
+            "Basic Combined Personal Language",
+            "Basic Combined Personal LAN"
+          ],
+          "correctAnswers": ["Basic Combined Programming Language"],
+          "context": "BCPL = Basic Combined Programming Language. To je stariji programski jezik (Martin Richards, 1966) koji je uticao na jezik B, a preko njega i na C.",
+          "details": [
+            "Lanac uticaja: BCPL → B → C. Zato se BCPL smatra 'pradjedom' jezika C.",
+            "'Combined' u imenu dolazi jer je BCPL izveden iz ranijeg jezika CPL (Combined Programming Language)."
+          ],
+          "note": "Opšte znanje: BCPL = Basic Combined Programming Language (preteča jezika B i C).",
+          "readMore": [
+            "Opšte znanje o istoriji programskih jezika (BCPL → B → C)"
+          ]
+        },
+        {
+          "id": "hist-06",
+          "promptParts": {
+            "before": "Programeri BCPL nazivaju i 'Before C Programming Language'?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Da", "Ne"],
+          "correctAnswers": ["Ne"],
+          "context": "Ne. Zvanično značenje je Basic Combined Programming Language. 'Before C' je samo šaljivi backronim (jer je BCPL prethodio jeziku C), a ne stvarno značenje skraćenice.",
+          "details": [
+            "BCPL zaista jeste bio prije C-a (BCPL → B → C), pa otud šala 'Before C'.",
+            "Ali skraćenica zvanično znači Basic Combined Programming Language, pa je tvrdnja kao definicija netačna."
+          ],
+          "note": "Opšte znanje: 'Before C' je šala/backronim; zvanično BCPL = Basic Combined Programming Language. (Ako je kurs tražio drugačije, provjeriti - formulacija je dvosmislena.)",
+          "readMore": ["Opšte znanje o BCPL-u"],
+          "uncertain": true
+        },
+        {
+          "id": "hist-07",
+          "promptParts": {
+            "before": "Koju verziju UNIX-a mnogi smatraju posljednjom pravom verzijom koja nije komercijalna?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["v8", "v5", "v3", "v4", "v7", "v6"],
+          "correctAnswers": ["v7"],
+          "context": "Version 7 Unix (v7, 1979) mnogi smatraju posljednjom 'pravom' istraživačkom UNIX verzijom prije nego što je UNIX postao komercijalni proizvod.",
+          "details": [
+            "v7 je bila široko rasprostranjena i uticajna; iz nje su izrasle mnoge kasnije komercijalne i BSD grane.",
+            "Nakon v7, UNIX se granao u komercijalne verzije (System III, System V) i akademski BSD."
+          ],
+          "note": "Opšte znanje o istoriji UNIX-a: v7 (1979) = posljednja 'prava' nekomercijalna verzija.",
+          "readMore": ["Opšte znanje o istoriji UNIX-a (Version 7)"]
+        },
+        {
+          "id": "hist-08",
+          "promptParts": {
+            "before": "ROFF je:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "UNIX-ov program za baze podataka",
+            "UNIX-ov program za multimediju",
+            "UNIX-ov program za obradu teksta",
+            "UNIX-ov program za prezentacije"
+          ],
+          "correctAnswers": ["UNIX-ov program za obradu teksta"],
+          "context": "roff je UNIX-ov program za obradu/formatiranje teksta (typesetting). Ime dolazi od 'run off' (odštampati dokument).",
+          "details": [
+            "roff je pretak alata nroff i troff, koji se i danas koriste za formatiranje, npr. man stranica u UNIX-u/Linuxu.",
+            "Nije za baze podataka, multimediju ni prezentacije - služi za pripremu formatiranih tekstualnih dokumenata."
+          ],
+          "note": "Opšte znanje: roff (run off) = UNIX program za formatiranje teksta; iz njega su nroff/troff.",
+          "readMore": ["Opšte znanje o UNIX alatima (roff/nroff/troff)"]
+        },
+        {
+          "id": "hist-09",
+          "promptParts": {
+            "before": "Tradicionalnom UNIX-u najsličniji je:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Linux",
+            "BSD",
+            "Windows",
+            "Ništa od navedenog",
+            "Java",
+            "Kernel"
+          ],
+          "correctAnswers": ["BSD"],
+          "context": "BSD je najsličniji tradicionalnom UNIX-u jer je direktan potomak originalnog UNIX koda (razvijen na Berkeleyju iz AT&T UNIX-a), pa nasljeđuje njegov dizajn i filozofiju.",
+          "details": [
+            "BSD je nastao direktno iz originalnog UNIX-a, dok je Linux napravljen 'ispočetka' kao UNIX-slični sistem (kompatibilan po ponašanju, ali nije potomak originalnog koda).",
+            "Zato se za BSD često kaže da je 'pravi' UNIX naslijeđem, a Linux je UNIX-like."
+          ],
+          "note": "Opšte znanje: BSD je direktni potomak originalnog UNIX-a, pa mu je najsličniji; Linux je UNIX-like (nezavisna implementacija).",
+          "readMore": ["Opšte znanje o odnosu UNIX / BSD / Linux"]
+        },
+        {
+          "id": "hist-10",
+          "promptParts": {
+            "before": "Linux i BSD bi se mogli predstaviti kao red i haos. Koji od njih bi predstavljao haos?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["BSD", "Linux"],
+          "correctAnswers": ["Linux"],
+          "context": "U ovom poređenju Linux predstavlja 'haos', a BSD 'red'. Razlog: BSD se razvija kao jedan kompletan sistem (kernel i osnovni alati zajedno), dok Linux nastaje decentralizovano - kernel plus alati skupljeni s raznih strana (GNU i drugi).",
+          "details": [
+            "BSD: jedna organizacija razvija kompletan osnovni sistem (kernel + userland) kao cjelinu, pa je 'uredan'.",
+            "Linux: kernel razvija jedna zajednica, a alati oko njega (GNU coreutils, shell, biblioteke) dolaze iz mnogo nezavisnih projekata i spajaju se u distribucije, pa je 'haotičniji'.",
+            "Poznata izreka: BSD nastaje kad UNIX hakeri portuju UNIX na PC, a Linux kad PC hakeri pišu UNIX za PC."
+          ],
+          "note": "Opšte znanje (poznata izreka o BSD vs Linux): BSD = red (kompletan sistem zajedno), Linux = haos (decentralizovan razvoj).",
+          "readMore": ["Opšte znanje o modelu razvoja BSD vs Linux"]
+        },
+        {
+          "id": "hist-11",
+          "promptParts": {
+            "before": "BSD je od samog početka samo kernel, a svi alati koje imamo na njemu su skrpljeni s nekih drugih mjesta.",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Tačno", "Netačno"],
+          "correctAnswers": ["Netačno"],
+          "context": "Netačno. To zapravo opisuje Linux, ne BSD. BSD je od početka kompletan sistem: kernel i osnovni alati (userland) razvijaju se zajedno kao jedna cjelina.",
+          "details": [
+            "Kod Linuxa: kernel je jedan projekat, a alati oko njega (GNU alati, shell, biblioteke) dolaze iz drugih projekata i spajaju se u distribuciju.",
+            "Kod BSD-a: jedan projekat (npr. FreeBSD) održava i kernel i osnovne alate zajedno, pa nisu 'skrpljeni sa strane'."
+          ],
+          "note": "Opšte znanje: kompletan osnovni sistem 'zajedno' je osobina BSD-a; opis iz pitanja ('samo kernel + skrpljeni alati') odgovara Linuxu.",
+          "readMore": ["Opšte znanje o BSD vs Linux (base system)"]
+        },
+        {
+          "id": "hist-12",
+          "promptParts": {
+            "before": "Kompletan osnovni sistem ______ je razvijan zajedno.",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["BSD-a", "Windows-a", "Linux-a"],
+          "correctAnswers": ["BSD-a"],
+          "context": "Kompletan osnovni sistem BSD-a razvijan je zajedno: isti projekat održava i kernel i osnovne alate (userland) kao jednu cjelinu.",
+          "details": [
+            "Za razliku od Linuxa (kernel + alati iz raznih projekata spojeni u distribuciju), BSD osnovni sistem dolazi iz jednog izvora, pa je konzistentan i 'uredan'.",
+            "To je jedna od glavnih koncepcijskih razlika BSD-a u odnosu na Linux."
+          ],
+          "note": "Opšte znanje: 'base system razvijan zajedno' = osobina BSD-a.",
+          "readMore": ["Opšte znanje o BSD base sistemu"]
+        },
+        {
+          "id": "hist-13",
+          "promptParts": {
+            "before": "Linux oduvijek ima centraliziran razvojni model.",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Tačno", "Netačno"],
+          "correctAnswers": ["Netačno"],
+          "context": "Netačno. Linux ima decentralizovan razvojni model: kernel i mnoštvo nezavisnih projekata (alati, biblioteke, distribucije) razvijaju se odvojeno i spajaju.",
+          "details": [
+            "Iako Linus Torvalds koordinira kernel, ekosistem oko Linuxa (GNU alati, desktop okruženja, distribucije poput Ubuntu/Fedora) čine mnogi nezavisni timovi.",
+            "Centralizovaniji ('sve zajedno') model je karakterističan za BSD."
+          ],
+          "note": "Opšte znanje: Linux = decentralizovan razvoj; centralizovaniji base-system model je kod BSD-a.",
+          "readMore": ["Opšte znanje o modelu razvoja Linux vs BSD"]
+        },
+        {
+          "id": "hist-14",
+          "promptParts": {
+            "before": "BSD distribucija = Linux distribucija?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Ne", "Da"],
+          "correctAnswers": ["Ne"],
+          "context": "Ne. BSD i Linux su različiti operativni sistemi: različit kernel i različito nasljeđe koda, pa BSD 'distribucija' nije isto što i Linux distribucija.",
+          "details": [
+            "Linux distribucija = Linux kernel + izabrani skup alata i paketa (Ubuntu, Fedora...).",
+            "BSD (npr. FreeBSD) je zaseban kompletan OS sa svojim kernelom, ne varijanta Linuxa.",
+            "Dijele UNIX-sličnu filozofiju i mnoge komande, ali su tehnički odvojeni sistemi."
+          ],
+          "note": "Opšte znanje: BSD i Linux su odvojeni sistemi (različit kernel i nasljeđe); nisu ista stvar.",
+          "readMore": ["Opšte znanje o razlici BSD i Linux"]
+        },
+        {
+          "id": "hist-15",
+          "promptParts": {
+            "before": "Koju vrstu paketa instalira većina Linux korisnika?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Pakete koje prave iz \"source code-a\"",
+            "Ništa od navedenog",
+            "Decimalne pakete",
+            "Binarne pakete"
+          ],
+          "correctAnswers": ["Binarne pakete"],
+          "context": "Većina Linux korisnika instalira binarne pakete: već iskompajlirane programe koje menadžer paketa (apt, dnf/yum, pacman) samo preuzme i postavi.",
+          "details": [
+            "Binarni paket = unaprijed preveden program, spreman za instalaciju bez kompajliranja; brzo i jednostavno.",
+            "Nasuprot tome, na BSD-u je tradicionalno popularno graditi iz izvornog koda (ports sistem), mada i BSD danas ima binarne pakete.",
+            "'Decimalni paketi' ne postoje - to je distraktor."
+          ],
+          "note": "Opšte znanje: Linux korisnici uglavnom koriste binarne pakete (apt/dnf/pacman).",
+          "readMore": ["Opšte znanje o upravljanju paketima na Linuxu"]
+        },
+        {
+          "id": "hist-16",
+          "promptParts": {
+            "before": "Koju vrstu paketa instalira većina BSD korisnika?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Pakete koje se prave iz \"source code-a\"",
+            "Decimalne pakete",
+            "Binarne pakete",
+            "Ništa od navedenog"
+          ],
+          "correctAnswers": ["Pakete koje se prave iz \"source code-a\""],
+          "context": "Tradicionalno se na BSD-u koristi ports sistem: paketi se grade (kompajliraju) iz izvornog koda na samoj mašini.",
+          "details": [
+            "Ports stablo sadrži 'recepte' koji automatski preuzmu izvorni kod, primijene zakrpe, iskompajliraju i instaliraju program.",
+            "Prednost: prilagođavanje opcija i optimizacija za konkretan sistem. Mana: sporije jer se kompajlira.",
+            "BSD danas nudi i binarne pakete (pkg), ali je gradnja iz source-a (ports) prepoznatljiva osobina BSD svijeta."
+          ],
+          "note": "Opšte znanje: BSD tradicionalno gradi iz izvornog koda preko ports sistema.",
+          "readMore": ["Opšte znanje o BSD ports sistemu"]
+        },
+        {
+          "id": "hist-17",
+          "promptParts": {
+            "before": "Instalacija paketa iz source-a čitavo vrijeme je osobina BSD-a?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Tačno", "Netačno"],
+          "correctAnswers": ["Tačno"],
+          "context": "Tačno. Gradnja programa iz izvornog koda (preko ports sistema) je tradicionalna i prepoznatljiva osobina BSD-a.",
+          "details": [
+            "Ports sistem omogućava da se svaki program preuzme kao izvorni kod, iskompajlira i instalira, uz mogućnost biranja opcija.",
+            "Iako BSD ima i binarne pakete, gradnja iz source-a je 'zaštitni znak' BSD pristupa."
+          ],
+          "note": "Opšte znanje: source/ports pristup je karakteristika BSD-a.",
+          "readMore": ["Opšte znanje o BSD ports sistemu"]
+        },
+        {
+          "id": "hist-18",
+          "promptParts": {
+            "before": "Ports sistemom nazivamo:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Programe koji su dodatni paketi u BSD svijetu",
+            "Aplikacije sa GUI-em koji su dodatni paketi u Linux svijetu",
+            "Programe koji su dodatni paketi u Windows svijetu",
+            "Aplikacije sa GUI-em koji su dodatni paketi u BSD svijetu",
+            "Ništa od navedenog",
+            "Programe koji su dodatni paketi u Linux svijetu"
+          ],
+          "correctAnswers": ["Programe koji su dodatni paketi u BSD svijetu"],
+          "context": "Ports sistem je BSD-ov mehanizam za dodatne programe: kolekcija 'recepata' koji preuzmu izvorni kod programa, iskompajliraju ga i instaliraju.",
+          "details": [
+            "Odnosi se na BSD svijet (ne Linux ni Windows), i ne mora biti GUI aplikacija - to su svakakvi dodatni programi (serveri, alati, biblioteke).",
+            "Ports stablo je organizovano po kategorijama; svaki 'port' opisuje kako se taj program gradi i instalira."
+          ],
+          "note": "Opšte znanje: ports = BSD kolekcija dodatnih programa koji se grade iz izvornog koda.",
+          "readMore": ["Opšte znanje o BSD ports sistemu"]
+        },
+        {
+          "id": "hist-19",
+          "promptParts": {
+            "before": "\"Linux ima više programa nego BSD.\"?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Tačno", "Netačno"],
+          "correctAnswers": ["Tačno"],
+          "context": "Tačno (u kontekstu ovog gradiva). Linux ima širi ekosistem i veći broj dostupnih programa i paketa nego BSD, prvenstveno zbog veće zajednice i rasprostranjenosti.",
+          "details": [
+            "Veći broj korisnika i distribucija znači i više dostupnog softvera, drajvera i paketa za Linux.",
+            "BSD ima manji, ali uredan ekosistem; može pokretati i mnoge Linux programe kroz sloj kompatibilnosti."
+          ],
+          "note": "Opšte znanje/tvrdnja iz gradiva: Linux ima širi softverski ekosistem od BSD-a.",
+          "readMore": ["Opšte znanje o ekosistemima Linux vs BSD"]
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 2,
+      "sourceTaskName": "RAID, mreža, FreeBSD, Windows Server",
+      "questions": [
+        {
+          "id": "raid-01",
+          "promptParts": {
+            "before": "Koristi se tehnika nezavisnog pristupa, u kojoj svaki disk radi nezavisno tako da odvojeni U/I zahtjevi mogu da se izvršavaju paralelno. Podaci se dijele u trake, a u odgovarajućim trakama na svim diskovima čuvaju se bitovi parnosti (paritet je raspoređen na sve diskove, kružno). O kojem RAID nivou je riječ?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["RAID 0", "RAID 5", "RAID 10", "RAID 1"],
+          "correctAnswers": ["RAID 5"],
+          "context": "To je RAID 5: podaci se dijele u trake (striping) preko diskova, a bitovi parnosti (za oporavak) su ravnomjerno raspoređeni na sve diskove (round-robin), a ne na jedan namjenski paritetni disk.",
+          "details": [
+            "Paritet je dodatna informacija iz koje se, ako jedan disk otkaže, mogu rekonstruisati izgubljeni podaci.",
+            "Kod RAID 5 se paritet raspoređuje na sve diskove, čime se izbjegava 'usko grlo' koje bi imao jedan namjenski paritetni disk.",
+            "RAID 5 podnosi otkaz jednog diska; treba najmanje 3 diska."
+          ],
+          "note": "Opšte znanje o RAID nivoima: RAID 5 = striping + distribuirani paritet.",
+          "readMore": ["Opšte znanje / Silberschatz (RAID nivoi)"]
+        },
+        {
+          "id": "raid-02",
+          "promptParts": {
+            "before": "U tehnici je svaka logička traka preslikana na dva posebna fizička diska. Za svaki disk postoji disk 'u ogledalu' (mirror) sa identičnim podacima; ako se na jednom pojavi greška, podaci se dobijaju sa drugog. O kojem RAID nivou je riječ?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["RAID 10", "RAID 5", "RAID 1", "RAID 0"],
+          "correctAnswers": ["RAID 1"],
+          "context": "To je RAID 1 (mirroring): svaki disk ima svoj identičan 'mirror' disk. Sve se piše na oba, pa ako jedan otkaže, podaci su netaknuti na drugom.",
+          "details": [
+            "Prednost: velika pouzdanost i brzo čitanje (može se čitati s bilo koje kopije).",
+            "Mana: udvostručen trošak diskova (iskoristivo je samo 50% kapaciteta, jer je sve duplirano).",
+            "RAID 10 kombinuje mirroring (RAID 1) i striping (RAID 0), ali sam opis 'ogledalo' odgovara RAID 1."
+          ],
+          "note": "Opšte znanje o RAID nivoima: RAID 1 = mirroring (disk u ogledalu).",
+          "readMore": ["Opšte znanje / Silberschatz (RAID nivoi)"]
+        },
+        {
+          "id": "raid-03",
+          "promptParts": {
+            "before": "Ovaj nivo jednostavno raspodjeljuje podatke na niz diskova. Diskovi su podijeljeni na 'trake' (strip) mapirane kružno (Round Robin) na susjedne diskove. Prednost je paralelno izvršavanje U/I zahtjeva, ali nema redundanse. O kojem RAID nivou je riječ?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["RAID 10", "RAID 5", "RAID 1", "RAID 0"],
+          "correctAnswers": ["RAID 0"],
+          "context": "To je RAID 0 (striping): podaci se dijele u trake koje se kružno raspoređuju po diskovima. Cilj su performanse (paralelan U/I), a redundanse nema.",
+          "details": [
+            "Pošto se podaci raspodjele po više diskova, čitanje/pisanje ide paralelno, pa je brzina veća.",
+            "Mana: nema zaštite - ako bilo koji disk otkaže, gubi se cijeli niz (nema parnosti ni kopije).",
+            "RAID 0 je za brzinu, ne za sigurnost."
+          ],
+          "note": "Opšte znanje o RAID nivoima: RAID 0 = striping bez redundanse (samo performanse).",
+          "readMore": ["Opšte znanje / Silberschatz (RAID nivoi)"]
+        },
+        {
+          "id": "net-01",
+          "promptParts": {
+            "before": "Port za RDP (Remote Desktop Protocol) je:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["8080", "3389", "3306", "80", "25", "21"],
+          "correctAnswers": ["3389"],
+          "context": "RDP (Remote Desktop Protocol), Microsoftov protokol za udaljenu radnu površinu, koristi TCP port 3389.",
+          "details": [
+            "Za orijentaciju, ostali portovi: 80 (HTTP), 8080 (alternativni HTTP), 3306 (MySQL), 25 (SMTP), 21 (FTP).",
+            "RDP omogućava grafički pristup udaljenom Windows računaru."
+          ],
+          "note": "Opšte znanje o portovima: RDP = 3389.",
+          "readMore": ["Opšte znanje o TCP portovima"]
+        },
+        {
+          "id": "net-02",
+          "promptParts": {
+            "before": "Koju subnet masku ćemo koristiti ako je potrebno adresirati 600 hostova?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "255.255.252.0",
+            "255.255.255.128",
+            "255.255.255.0",
+            "255.255.248.0",
+            "255.255.254.0"
+          ],
+          "correctAnswers": ["255.255.252.0"],
+          "context": "Za 600 hostova treba 10 bitova za host dio (2^10 - 2 = 1022 ≥ 600). To je maska /22, odnosno 255.255.252.0.",
+          "details": [
+            "Broj upotrebljivih hostova u podmreži = 2^(broj host bitova) - 2 (oduzimaju se adresa mreže i broadcast).",
+            "9 host bitova daje 2^9 - 2 = 510 (premalo za 600); 10 bitova daje 1022 (dovoljno).",
+            "10 host bitova znači 22 mrežna bita → /22 → 255.255.252.0. Distraktor 255.255.254.0 je /23 (510 hostova, premalo)."
+          ],
+          "note": "Račun: 600 hostova → 10 host bitova (1022) → /22 → 255.255.252.0.",
+          "readMore": ["Opšte znanje o subnetiranju (broj hostova, maske)"]
+        },
+        {
+          "id": "net-03",
+          "promptParts": {
+            "before": "Kod UNIX-a, socket se koristi za komuniciranje:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Procesa sa isključivo različitih računara",
+            "Procesa sa isključivo istog računara",
+            "Procesa sa istog ili različitih računara"
+          ],
+          "correctAnswers": ["Procesa sa istog ili različitih računara"],
+          "context": "Socket je krajnja tačka komunikacije koja radi i lokalno (procesi na istom računaru, npr. UNIX domain socket) i preko mreže (procesi na različitim računarima, npr. TCP/IP socket).",
+          "details": [
+            "Mrežni socket (IP + port) povezuje procese na različitim mašinama preko mreže.",
+            "UNIX domain socket povezuje procese na istoj mašini (brža lokalna komunikacija).",
+            "Zato socket nije ograničen samo na isti ili samo na različite računare - radi u oba slučaja."
+          ],
+          "note": "Opšte znanje: socket radi i lokalno (isti računar) i preko mreže (različiti računari).",
+          "readMore": ["Opšte znanje o socketima (mrežni i UNIX domain)"]
+        },
+        {
+          "id": "bsd-01",
+          "promptParts": {
+            "before": "Komanda ls -lo datoteka1 služi da bismo:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Stavili topologiju long star na datoteku1",
+            "Vidjeli flagove (zastavice) na datoteci1",
+            "Provjerili permisije nad datotekom1",
+            "Ništa od navedenog"
+          ],
+          "correctAnswers": ["Vidjeli flagove (zastavice) na datoteci1"],
+          "context": "Na BSD/FreeBSD sistemima opcija -o uz ls prikazuje i file flags (zastavice) datoteke, pa 'ls -lo' pokazuje flagove uz uobičajeni prošireni ispis.",
+          "details": [
+            "File flags su dodatni atributi (npr. 'immutable' / neizbrisivo) koji se postavljaju komandom chflags.",
+            "Za razliku od običnih permisija (rwx), flagovi daju dodatnu zaštitu (npr. da ni root ne može obrisati fajl dok je flag postavljen)."
+          ],
+          "note": "Opšte znanje (BSD/FreeBSD): ls -lo prikazuje file flags (zastavice).",
+          "readMore": ["Opšte znanje o FreeBSD file flags (chflags, ls -lo)"]
+        },
+        {
+          "id": "bsd-02",
+          "promptParts": {
+            "before": "File zastavice (flags) se postavljaju komandom:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "shflags",
+            "ioflags",
+            "flags",
+            "Ništa od navedenog",
+            "chflags"
+          ],
+          "correctAnswers": ["chflags"],
+          "context": "Zastavice (file flags) na BSD/FreeBSD-u se postavljaju komandom chflags (change flags).",
+          "details": [
+            "Npr. 'chflags sunlnk datoteka' postavlja zastavicu 'system undeletable' (neizbrisivo), a 'chflags nosunlnk' je uklanja.",
+            "'shflags', 'ioflags', 'flags' nisu prave komande za ovo."
+          ],
+          "note": "Opšte znanje (FreeBSD): chflags postavlja file flags.",
+          "readMore": ["Opšte znanje o FreeBSD chflags"]
+        },
+        {
+          "id": "bsd-03",
+          "promptParts": {
+            "before": "Kojom komandom ćete omogućiti da sistem stavi zastavicu 'neizbrisivo' na datoteku1?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Ništa od navedenog",
+            "# sh flags sunlink datoteka1",
+            "# chflags moonlink datoteka1",
+            "# fhflags moonlink datoteka1",
+            "# shflags moonlink datoteka1",
+            "# chflags sunlnk datoteka1"
+          ],
+          "correctAnswers": ["# chflags sunlnk datoteka1"],
+          "context": "Zastavica 'neizbrisivo' na FreeBSD-u je sunlnk (system undeletable), a postavlja se komandom chflags: '# chflags sunlnk datoteka1'.",
+          "details": [
+            "Dok je sunlnk postavljen, datoteka se ne može obrisati (čak ni root ne može dok ne skine zastavicu).",
+            "Uklanja se sa 'chflags nosunlnk datoteka1'.",
+            "Ostale opcije su izmišljene komande/zastavice (moonlink, sh flags, fhflags...)."
+          ],
+          "note": "Opšte znanje (FreeBSD): chflags sunlnk = zastavica neizbrisivo (system undeletable).",
+          "readMore": ["Opšte znanje o FreeBSD chflags (sunlnk)"]
+        },
+        {
+          "id": "bsd-04",
+          "promptParts": {
+            "before": "Ako komanda chflags sunlnk datoteka1 postavlja zastavicu 'neizbrisivo', da li komanda chflags nosunlnk datoteka1 uklanja (onemogućuje) tu zastavicu?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Da", "Ne"],
+          "correctAnswers": ["Da"],
+          "context": "Da. Prefiks 'no' ispred imena zastavice je isključuje: chflags nosunlnk uklanja sunlnk zastavicu, pa se datoteka opet može brisati.",
+          "details": [
+            "Konvencija chflags-a: 'sunlnk' postavlja, 'nosunlnk' skida istu zastavicu. Isto vrijedi i za druge (schg/noschg itd.).",
+            "Zato se par postavi/skini radi istom komandom, samo sa 'no' prefiksom."
+          ],
+          "note": "Opšte znanje (FreeBSD): 'no' prefiks (nosunlnk) uklanja odgovarajuću zastavicu.",
+          "readMore": ["Opšte znanje o FreeBSD chflags (no-prefiks)"]
+        },
+        {
+          "id": "bsd-05",
+          "promptParts": {
+            "before": "Da li je komandom growfs moguće uvećati veličinu file sistema?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Da", "Ne"],
+          "correctAnswers": ["Da"],
+          "context": "Da. growfs (grow file system) povećava file sistem da zauzme dodatni prostor na particiji (nakon što se particija proširi).",
+          "details": [
+            "Koristi se npr. kad se disk/particija poveća, a fajl sistem treba 'rastegnuti' da iskoristi novi prostor.",
+            "Ime govori samo: grow (rasti) + fs (file system)."
+          ],
+          "note": "Opšte znanje (BSD/UNIX): growfs uvećava fajl sistem.",
+          "readMore": ["Opšte znanje o growfs"]
+        },
+        {
+          "id": "bsd-06",
+          "promptParts": {
+            "before": "Kada pokrećete FreeBSD u single-user modu:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Postoji samo jedna konzola",
+            "Postoji više konzola, gdje ih je 8 po defaultu"
+          ],
+          "correctAnswers": ["Postoji samo jedna konzola"],
+          "context": "U single-user modu postoji samo jedna konzola: sistem je podignut minimalno (za održavanje/oporavak), bez višekorisničkih servisa i višestrukih virtualnih konzola.",
+          "details": [
+            "Single-user mod se koristi za popravke (npr. fsck, resetovanje root lozinke) kad ne želimo pun višekorisnički sistem.",
+            "Tek u multi-user modu se pokreću svi servisi i više virtualnih konzola (npr. 8)."
+          ],
+          "note": "Opšte znanje (FreeBSD): single-user mod = jedna konzola (minimalni sistem za održavanje).",
+          "readMore": ["Opšte znanje o FreeBSD single-user modu"]
+        },
+        {
+          "id": "bsd-07",
+          "promptParts": {
+            "before": "Da li je FreeBSD case sensitive OS?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Da", "Ne"],
+          "correctAnswers": ["Da"],
+          "context": "Da. FreeBSD (kao i drugi UNIX/Linux sistemi) razlikuje velika i mala slova: 'Fajl.txt' i 'fajl.txt' su dvije različite datoteke.",
+          "details": [
+            "Case sensitivity znači da imena fajlova, komande i putanje razlikuju velika/mala slova.",
+            "Zato npr. 'ls' i 'LS' nisu isto, a mnoge greške dolaze od pogrešne veličine slova."
+          ],
+          "note": "Opšte znanje: FreeBSD (UNIX-like) je case sensitive.",
+          "readMore": ["Opšte znanje o UNIX/FreeBSD case sensitivity"]
+        },
+        {
+          "id": "bsd-08",
+          "promptParts": {
+            "before": "FreeBSD je single-user i multitasking sistem?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Ne", "Da"],
+          "correctAnswers": ["Ne"],
+          "context": "Ne. FreeBSD je višekorisnički (multi-user) i višezadaćni (multitasking). Tvrdnja da je single-user je netačna.",
+          "details": [
+            "Multi-user: više korisnika može biti prijavljeno i raditi istovremeno.",
+            "Multitasking: više procesa se izvršava (naizmjenično ili paralelno) u isto vrijeme.",
+            "Single-user mod postoji samo kao poseban mod za održavanje, ali FreeBSD po prirodi jeste višekorisnički."
+          ],
+          "note": "Opšte znanje: FreeBSD je multi-user i multitasking (nije single-user).",
+          "readMore": ["Opšte znanje o FreeBSD-u"]
+        },
+        {
+          "id": "bsd-09",
+          "promptParts": {
+            "before": "Putanja Apache24 konfiguracijskog fajla (na FreeBSD-u) je:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "/usr/local/etc/httpd.conf",
+            "/etc/apache24/httpd.conf",
+            "/usr/local/www/apache24/data/apache24.conf",
+            "/usr/local/etc/apache24/httpd.conf",
+            "/usr/ports/www/apache24/apache24.conf",
+            "/usr/local/apache25/apache.conf"
+          ],
+          "correctAnswers": ["/usr/local/etc/apache24/httpd.conf"],
+          "context": "Na FreeBSD-u Apache24 konfiguracija je u /usr/local/etc/apache24/httpd.conf.",
+          "details": [
+            "FreeBSD dodatni softver (iz portova/paketa) tipično ide pod /usr/local, a konfiguracije pod /usr/local/etc.",
+            "Zato je Apache24 config baš /usr/local/etc/apache24/httpd.conf (ne /etc, koji je za osnovni sistem)."
+          ],
+          "note": "Opšte znanje (FreeBSD): Apache24 config = /usr/local/etc/apache24/httpd.conf.",
+          "readMore": ["Opšte znanje o FreeBSD rasporedu (/usr/local/etc)"]
+        },
+        {
+          "id": "bsd-10",
+          "promptParts": {
+            "before": "Ako želimo restartovati Apache bez prekida trenutnih konekcija, izvršit ćemo komandu (apachectl ...):",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "apachectl reload",
+            "apachectl graceful",
+            "apachectl status",
+            "apachectl restart",
+            "apachectl start",
+            "apachectl configtest"
+          ],
+          "correctAnswers": ["apachectl graceful"],
+          "context": "apachectl graceful ponovo učita konfiguraciju i 'nježno' restartuje Apache bez prekidanja trenutnih konekcija (postojeći zahtjevi se dovrše).",
+          "details": [
+            "'restart' bi naglo prekinuo i trenutne konekcije; 'graceful' čeka da se aktivni zahtjevi završe pa tek onda primijeni promjene.",
+            "'reload' je sličan (ponovo učita config), ali 'graceful' je klasičan odgovor za 'bez prekida konekcija'. (U originalnom ispitu komanda je bila iskrivljeno napisana - suština je flag 'graceful'.)"
+          ],
+          "note": "Opšte znanje: apachectl graceful = restart bez prekida aktivnih konekcija.",
+          "readMore": ["Opšte znanje o apachectl (graceful)"]
+        },
+        {
+          "id": "bsd-11",
+          "promptParts": {
+            "before": "Gdje se nalazi izvorni kod (source) nakon make install komande (FreeBSD ports)?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "U ports stablu",
+            "U binarnom stablu",
+            "U korisničkom direktoriju",
+            "U sistemskom direktoriju",
+            "U temporary direktoriju"
+          ],
+          "correctAnswers": ["U ports stablu"],
+          "context": "Kod FreeBSD portova izvorni kod (i sve za gradnju) nalazi se u ports stablu (obično /usr/ports/...), gdje se program preuzme, iskompajlira i instalira sa make install.",
+          "details": [
+            "Ports stablo je hijerarhija direktorija (po kategorijama) sa 'receptima' za gradnju svakog programa.",
+            "make install u odgovarajućem port direktoriju preuzme source, iskompajlira ga i instalira; sam source i radni fajlovi ostaju u ports stablu."
+          ],
+          "note": "Opšte znanje (FreeBSD): source za portove je u ports stablu (/usr/ports).",
+          "readMore": ["Opšte znanje o FreeBSD ports sistemu"]
+        },
+        {
+          "id": "bsd-12",
+          "promptParts": {
+            "before": "Kako dodijeliti korisniku Adel grupu os (FreeBSD)?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "chmod os:Adel *",
+            "pw groupadd os Adel",
+            "ništa od navedenog",
+            "chgrp os Adel",
+            "pw usermod Adel -G os"
+          ],
+          "correctAnswers": ["pw usermod Adel -G os"],
+          "context": "Na FreeBSD-u se korisnik dodaje u grupu komandom pw usermod: 'pw usermod Adel -G os' dodaje korisnika Adel u (dopunsku) grupu os.",
+          "details": [
+            "pw je FreeBSD alat za upravljanje korisnicima i grupama; usermod mijenja korisnika, -G zadaje (dopunske) grupe.",
+            "'chmod' i 'chgrp' mijenjaju vlasništvo/prava nad fajlovima, ne članstvo korisnika u grupi; 'pw groupadd' pravi grupu, ne dodaje korisnika."
+          ],
+          "note": "Opšte znanje (FreeBSD): pw usermod <korisnik> -G <grupa> dodaje korisnika u grupu.",
+          "readMore": ["Opšte znanje o FreeBSD pw komandi"]
+        },
+        {
+          "id": "bsd-13",
+          "promptParts": {
+            "before": "Komanda koja se koristi za učitavanje (montiranje) file sistema je:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "ls",
+            "mreg",
+            "ls-lo",
+            "ch",
+            "sh",
+            "mount",
+            "arroh",
+            "ništa od navedenog",
+            "root"
+          ],
+          "correctAnswers": ["mount"],
+          "context": "File sistem se učitava (montira) komandom mount, čime se sadržaj nekog uređaja/particije 'zakači' na tačku u stablu direktorija i postane dostupan.",
+          "details": [
+            "Npr. 'mount /dev/... /mnt' montira uređaj na /mnt; 'umount' ga odmontira.",
+            "Montiranje je nužno da bi se fajl sistem sa nekog diska/particije uopšte mogao koristiti."
+          ],
+          "note": "Opšte znanje (UNIX/FreeBSD): mount montira (učitava) fajl sistem.",
+          "readMore": ["Opšte znanje o mount komandi"]
+        },
+        {
+          "id": "bsd-14",
+          "promptParts": {
+            "before": "Kad vidite MOTD (Message of the day), znate da ste:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Ništa od navedenog",
+            "Uspješno unijeli komandu za unos novog korisnika",
+            "Pročitali najvažniju vijest u toku trenutne sesije",
+            "Uspješno se logovali na sistem",
+            "Uspješno unijeli komandu za unos teksta",
+            "Instalirali FreeBSD",
+            "Pronašli grešku na sistemu"
+          ],
+          "correctAnswers": ["Uspješno se logovali na sistem"],
+          "context": "MOTD (Message of the Day) je poruka koju sistem prikaže nakon uspješne prijave (logovanja). Ako je vidiš, znači da si se uspješno prijavio.",
+          "details": [
+            "MOTD se čita iz fajla /etc/motd i služi da administrator prenese poruku korisnicima pri prijavi (npr. obavijesti, pravila).",
+            "Zato pojava MOTD-a signalizira da je prijava prošla."
+          ],
+          "note": "Opšte znanje (UNIX/FreeBSD): MOTD se prikazuje nakon uspješnog logovanja.",
+          "readMore": ["Opšte znanje o /etc/motd"]
+        },
+        {
+          "id": "bsd-15",
+          "promptParts": {
+            "before": "Daemoni su programi koji se javljaju u pozadini (ne vidimo ih) prilikom svakog unosa u shellu?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Tačno", "Netačno"],
+          "correctAnswers": ["Netačno"],
+          "context": "Netačno. Daemoni jesu pozadinski programi, ali se ne 'javljaju prilikom svakog unosa u shellu'. Oni rade kontinuirano u pozadini i čekaju događaje (npr. mrežni zahtjev), nezavisno od toga šta kucaš u shellu.",
+          "details": [
+            "Daemon je servisni proces koji radi u pozadini bez kontrolnog terminala (npr. web server, ssh server, cron).",
+            "Pokreće se obično pri startu sistema i sluša na neki događaj; nema veze sa svakim tvojim unosom u shell."
+          ],
+          "note": "Opšte znanje: daemon = pozadinski servis, ne reaguje 'na svaki unos u shellu'.",
+          "readMore": ["Opšte znanje o daemonima"]
+        },
+        {
+          "id": "bsd-16",
+          "promptParts": {
+            "before": "Signali nam služe za:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Ništa od navedenog",
+            "GUI na shellu",
+            "Komunikaciju s procesima (npr. daemon programima)",
+            "Proces IS"
+          ],
+          "correctAnswers": [
+            "Komunikaciju s procesima (npr. daemon programima)"
+          ],
+          "context": "Signali su jednostavan oblik komunikacije sa procesima: OS ili drugi proces šalje procesu signal (npr. da se ugasi, ponovo učita konfiguraciju, prekine).",
+          "details": [
+            "Primjeri: SIGTERM (ljubazno gašenje), SIGKILL (trenutno ubijanje), SIGHUP (često 'ponovo učitaj config' kod daemona).",
+            "Zato se signalima često upravlja i daemonima (npr. 'kill -HUP <pid>' natjera daemon da ponovo pročita konfiguraciju)."
+          ],
+          "note": "Opšte znanje: signali = mehanizam obavještavanja/kontrole procesa (uklj. daemone). (Formulacija opcija je bila nespretna.)",
+          "readMore": ["Opšte znanje o UNIX signalima"],
+          "uncertain": true
+        },
+        {
+          "id": "bsd-17",
+          "promptParts": {
+            "before": "U FreeBSD-u, 'c:/fit/procitaj.txt' je ispravno napisana putanja/komanda za otvaranje tekstualne datoteke procitaj.txt?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Tačno", "Netačno"],
+          "correctAnswers": ["Netačno"],
+          "context": "Netačno. FreeBSD (kao UNIX) ne koristi slova diskova (c:) ni obrnute kose crte; putanje počinju od korijena '/' (npr. /home/fit/procitaj.txt). Osim toga, sama putanja nije komanda za otvaranje.",
+          "details": [
+            "Windows koristi 'C:\\...' (slovo diska + backslash), a UNIX/FreeBSD jedinstveno stablo od '/' sa kosom crtom '/'.",
+            "Da bi se datoteka otvorila, treba komanda i putanja, npr. 'cat /putanja/procitaj.txt' ili 'ee /putanja/procitaj.txt'; sama putanja nije komanda."
+          ],
+          "note": "Opšte znanje: FreeBSD/UNIX putanje kreću od '/', nema 'c:'; putanja sama nije komanda.",
+          "readMore": ["Opšte znanje o UNIX putanjama"]
+        },
+        {
+          "id": "win-01",
+          "promptParts": {
+            "before": "Alat Regedt32.exe pruža:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Pristup registru u okviru Server Core okruženja",
+            "Korištenje najčešćih administrativnih zadataka na serveru",
+            "Ostvaruje Windows PowerShell sesiju u okviru upravljanja Server Core-om",
+            "Korištenje command-line alata kao ping.exe, ipconfig.exe i netsh.exe",
+            "Pregled detalja sistema o Server Core upravljanju"
+          ],
+          "correctAnswers": ["Pristup registru u okviru Server Core okruženja"],
+          "context": "Regedt32.exe je alat za pristup i uređivanje Windows registra; u Server Core okruženju (Windows Server bez grafičke ljuske) koristi se za rad sa registrom.",
+          "details": [
+            "Windows registar je centralna baza sistemskih i aplikacijskih postavki.",
+            "Server Core je minimalna instalacija Windows Servera bez klasičnog desktopa, pa se administracija radi kroz komandne alate i alate poput regedt32."
+          ],
+          "note": "Opšte znanje (Windows Server): regedt32.exe = pristup registru (i u Server Core okruženju).",
+          "readMore": ["Opšte znanje o Windows Server Core alatima"]
+        },
+        {
+          "id": "win-02",
+          "promptParts": {
+            "before": "Na Windows Server 2012 R2 treba kreirati skriptu koja kreira i montira virtuelni hard disk. Koji alat koristimo?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["fsutil.exe", "vdsldr.exe", "vds.exe", "diskpart.exe"],
+          "correctAnswers": ["diskpart.exe"],
+          "context": "diskpart.exe je command-line alat za upravljanje diskovima i particijama; njime se skriptovano može kreirati i montirati (attach) virtuelni hard disk (VHD).",
+          "details": [
+            "diskpart podržava komande poput create vdisk, attach vdisk, pa se lako stavlja u skriptu.",
+            "fsutil radi sa fajl sistemom (ne pravi VHD), a vds/vdsldr su servisi u pozadini, ne alat za skriptovanje."
+          ],
+          "note": "Opšte znanje (Windows Server): diskpart.exe kreira i montira VHD (skriptabilno).",
+          "readMore": ["Opšte znanje o Windows diskpart"]
+        },
+        {
+          "id": "win-03",
+          "promptParts": {
+            "before": "Greškom smo instalirali punu (GUI) verziju Windows Servera umjesto Core verzije. Koji je najkraći način da to popravimo?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Reinstall-WindowsFeature Server-Gui-Shell, Server-Gui-Mgmt-Infra",
+            "Uninstall-WindowsFeature Server-Gui-Shell, Server-Gui-Mgmt-Infra",
+            "Install-WindowsFeature Server-Gui-Shell, Server-Gui-Mgmt-Infra",
+            "Delete-WindowsFeature Server-Gui-Shell, Server-Gui-Mgmt-Infra",
+            "Deinstall-WindowsFeature Server-Gui-Shell, Server-Gui-Mgmt-Infra"
+          ],
+          "correctAnswers": [
+            "Uninstall-WindowsFeature Server-Gui-Shell, Server-Gui-Mgmt-Infra"
+          ],
+          "context": "Da se sa pune (GUI) verzije pređe na Server Core, uklone se GUI komponente PowerShell komandom Uninstall-WindowsFeature Server-Gui-Shell, Server-Gui-Mgmt-Infra.",
+          "details": [
+            "Server-Gui-Shell i Server-Gui-Mgmt-Infra su feature-i koji čine grafičku ljusku i alate; kad se uklone, ostaje Core.",
+            "Ispravan glagol je Uninstall-WindowsFeature; 'Delete/Deinstall/Reinstall-WindowsFeature' nisu prave komande."
+          ],
+          "note": "Opšte znanje (Windows Server): Uninstall-WindowsFeature Server-Gui-Shell, Server-Gui-Mgmt-Infra prebacuje na Core.",
+          "readMore": [
+            "Opšte znanje o Windows Server Core (Uninstall-WindowsFeature)"
+          ]
+        },
+        {
+          "id": "win-04",
+          "promptParts": {
+            "before": "Administrativni alat koji omogućuje korištenje najčešćih administrativnih zadataka (na Server Core-u) je:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "taskmgr.exe",
+            "scregedit.wsf",
+            "regedt32.exe",
+            "sconfig.cmd",
+            "notepad.exe",
+            "powershell.exe",
+            "msinfo32.exe"
+          ],
+          "correctAnswers": ["sconfig.cmd"],
+          "context": "sconfig.cmd (Server Configuration) je alat sa menijem koji na Server Core-u omogućava najčešće administrativne zadatke (mreža, ime računara, domena, ažuriranja, udaljena administracija).",
+          "details": [
+            "Pošto Server Core nema klasičan desktop, sconfig daje jednostavan tekstualni meni za osnovnu konfiguraciju.",
+            "regedt32 je za registar, taskmgr za procese, powershell je opšta ljuska - ali za 'najčešće admin zadatke' na Core-u je namijenjen baš sconfig."
+          ],
+          "note": "Opšte znanje (Windows Server Core): sconfig.cmd = meni za najčešće administrativne zadatke.",
+          "readMore": ["Opšte znanje o Windows Server Core (sconfig)"]
+        },
+        {
+          "id": "win-05",
+          "promptParts": {
+            "before": "Koje usluge uključuje Windows Server 2012 R2? (označi tačne)",
+            "blank": "",
+            "after": ""
+          },
+          "type": "multiple",
+          "options": [
+            "AD DS",
+            "Mrežna politika i servisi pristupa (NPAS)",
+            "AD RMS",
+            "AD LDS",
+            "AD FS",
+            "Aplikacijski server",
+            "AD CS",
+            "Windows servisi za konfigurisanje"
+          ],
+          "correctAnswers": [
+            "AD DS",
+            "Mrežna politika i servisi pristupa (NPAS)",
+            "AD RMS",
+            "AD LDS",
+            "AD FS",
+            "Aplikacijski server",
+            "AD CS"
+          ],
+          "context": "Windows Server 2012 R2 uključuje pet AD servisa (AD DS, AD CS, AD RMS, AD FS, AD LDS), NPAS (mrežna politika i pristup) i Aplikacijski server. 'Windows servisi za konfigurisanje' nije prava uloga (distraktor).",
+          "details": [
+            "AD DS (Domain Services) - direktorij, prijava, autentifikacija; AD CS (Certificate Services) - sertifikati; AD RMS (Rights Management) - zaštita informacija; AD FS (Federation Services) - jedinstvena prijava/federacija; AD LDS (Lightweight Directory Services) - lagani direktorij.",
+            "NPAS obuhvata mrežne politike i pristup (npr. NPS/RADIUS); Aplikacijski server je uloga za hostovanje aplikacija.",
+            "'Windows servisi za konfigurisanje' je izmišljeni naziv, pa nije tačan."
+          ],
+          "note": "Opšte znanje (Windows Server 2012 R2): 5 AD servisa + NPAS + Aplikacijski server; 'servisi za konfigurisanje' je distraktor.",
+          "readMore": ["Opšte znanje o ulogama Windows Server 2012 R2"],
+          "uncertain": true
+        },
+        {
+          "id": "win-06",
+          "promptParts": {
+            "before": "S kojim Windows OS-om je vraćeno START dugme?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["8.1", "10"],
+          "correctAnswers": ["10"],
+          "context": "Start dugme (Start meni) je vraćeno sa Windows 10. Windows 8 ga je bio uklonio (zamijenio Start ekranom), a puni Start meni se vratio u Windows 10.",
+          "details": [
+            "Windows 8/8.1 je imao Start ekran umjesto klasičnog Start menija (8.1 je vratio samo dugme koje vodi na Start ekran).",
+            "Windows 10 je vratio pravi Start meni koji su korisnici tražili."
+          ],
+          "note": "Opšte znanje: pravi Start meni vraćen u Windows 10.",
+          "readMore": ["Opšte znanje o istoriji Windowsa"]
+        },
+        {
+          "id": "win-07",
+          "promptParts": {
+            "before": "Da li su dvije metode autentifikacije, Windows Hello i Windows Passport, nove u Windowsu 10?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Da", "Ne"],
+          "correctAnswers": ["Da"],
+          "context": "Da. Windows Hello (biometrijska prijava - lice, otisak) i Windows Passport (kasnije Windows Hello for Business) uvedeni su u Windowsu 10.",
+          "details": [
+            "Windows Hello omogućava prijavu licem ili otiskom prsta umjesto lozinke.",
+            "Passport/Hello for Business koristi ključeve/sertifikate umjesto lozinki za sigurniju autentifikaciju."
+          ],
+          "note": "Opšte znanje: Windows Hello i Passport su novost u Windowsu 10.",
+          "readMore": ["Opšte znanje o Windows 10 autentifikaciji"]
+        },
+        {
+          "id": "win-08",
+          "promptParts": {
+            "before": "Da li se više virtuelnih mašina može spojiti na jedan dijeljeni hard disk?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Da", "Ne"],
+          "correctAnswers": ["Da"],
+          "context": "Da. Više virtuelnih mašina može dijeliti isti (shared) virtuelni disk; to se koristi npr. za klastere gdje više VM-ova pristupa istom skladištu.",
+          "details": [
+            "Shared VHD/VHDX omogućava da isti disk bude povezan na više VM-ova istovremeno (npr. za failover klaster).",
+            "Zahtijeva pažnju oko istovremenog pristupa (sinhronizacija/klaster fajl sistem), ali je tehnički moguće i podržano."
+          ],
+          "note": "Opšte znanje (virtualizacija): više VM-ova može dijeliti isti disk (shared VHD, klasteri).",
+          "readMore": ["Opšte znanje o dijeljenom disku u virtualizaciji"]
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 3,
+      "sourceTaskName": "Active Directory, domene, sigurnost",
+      "questions": [
+        {
+          "id": "ad-01",
+          "promptParts": {
+            "before": "Šta je direktorijski servis?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Ništa od navedenog",
+            "Jedinstvena baza podataka koja sadrži sve informacije o korisnicima i resursima dijela mreže",
+            "Skup povezanih različitih baza podataka koje sadrže sve informacije o korisnicima i resursima dijela mreže.",
+            "Jedinstvena baza podataka koja sadrži sve informacije o korisnicima i resursima cjelokupne mreže."
+          ],
+          "correctAnswers": [
+            "Jedinstvena baza podataka koja sadrži sve informacije o korisnicima i resursima dijela mreže"
+          ],
+          "context": "Direktorijski servis je jedinstvena (centralizovana) baza podataka koja sadrži informacije o korisnicima i resursima jednog dijela mreže (npr. domene), i daje administratorima jednu tačku upravljanja.",
+          "details": [
+            "'Direktorij' ovdje znači imenik: ko su korisnici, koje su grupe, printeri, računari, prava pristupa itd.",
+            "Obuhvata dio mreže (npr. domenu), pa je 'dijela mreže' tačnije od 'cjelokupne'. Active Directory je Microsoftova implementacija direktorijskog servisa."
+          ],
+          "note": "Opšte znanje: direktorijski servis = jedinstvena baza informacija o korisnicima i resursima (dijela) mreže.",
+          "readMore": [
+            "Opšte znanje o direktorijskim servisima / Active Directory"
+          ],
+          "uncertain": true
+        },
+        {
+          "id": "ad-02",
+          "promptParts": {
+            "before": "Šta na mreži predstavlja direktorijski servis?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Mrežnu translaciju",
+            "Ništa od navedenog",
+            "Mrežnu bazu podataka",
+            "Mrežni programming",
+            "Mrežnu prezentaciju",
+            "Mrežni multics"
+          ],
+          "correctAnswers": ["Mrežnu bazu podataka"],
+          "context": "Direktorijski servis na mreži predstavlja mrežnu bazu podataka: centralizovanu bazu informacija o korisnicima, računarima i resursima mreže.",
+          "details": [
+            "Ta baza omogućava prijavu, autentifikaciju i pretraživanje resursa iz jednog mjesta.",
+            "Ostale opcije (translacija, programming, prezentacija, multics) nemaju veze sa pojmom direktorijskog servisa."
+          ],
+          "note": "Opšte znanje: direktorijski servis = mrežna baza podataka o korisnicima i resursima.",
+          "readMore": ["Opšte znanje o direktorijskim servisima"]
+        },
+        {
+          "id": "ad-03",
+          "promptParts": {
+            "before": "Koji AD servis pohranjuje direktorijske podatke i upravlja komunikacijom između korisnika i domena, uključujući korisničke procese prijavljivanja, autentifikacije i direktorijskih pretraživanja?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "AD OS",
+            "Ništa od navedenog",
+            "AD DS",
+            "AD CS",
+            "AD RMS"
+          ],
+          "correctAnswers": ["AD DS"],
+          "context": "To je AD DS (Active Directory Domain Services): srce Active Directory-ja koje čuva direktorijske podatke i upravlja prijavom, autentifikacijom i pretraživanjem direktorija.",
+          "details": [
+            "AD DS je uloga koja domenu čini domenom - drži bazu korisnika/računara i sprovodi prijavu i autentifikaciju.",
+            "Drugi AD servisi rade druge stvari: AD CS (sertifikati), AD RMS (zaštita informacija). 'AD OS' ne postoji."
+          ],
+          "note": "Opšte znanje (Windows Server): AD DS (Domain Services) = direktorijski podaci, prijava, autentifikacija.",
+          "readMore": ["Opšte znanje o Active Directory servisima"]
+        },
+        {
+          "id": "ad-04",
+          "promptParts": {
+            "before": "Sigurnosna tehnologija identiteta i pristupnih kontrola koja pruža servise za kreiranje i upravljanje sertifikatima javnih ključeva (koji se koriste u sistemima sa javnim ključem) je:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["AD DS", "AD CS", "Ništa od navedenog", "AD OS"],
+          "correctAnswers": ["AD CS"],
+          "context": "To je AD CS (Active Directory Certificate Services): uloga koja kreira i upravlja digitalnim sertifikatima javnih ključeva (PKI) za sigurnost.",
+          "details": [
+            "Sertifikat javnog ključa povezuje identitet sa javnim ključem; koristi se za šifrovanje, potpise i autentifikaciju.",
+            "AD CS je Microsoftova ugradnja PKI-ja (Public Key Infrastructure) u Windows okruženje."
+          ],
+          "note": "Opšte znanje (Windows Server): AD CS (Certificate Services) = upravljanje sertifikatima javnih ključeva (PKI).",
+          "readMore": ["Opšte znanje o AD CS / PKI"]
+        },
+        {
+          "id": "ad-05",
+          "promptParts": {
+            "before": "AD RMS je tehnologija zaštite informacija koja, zajedno sa RMS-enabled aplikacijama, onemogućava neovlašteno korištenje digitalnih informacija?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Tačno", "Netačno"],
+          "correctAnswers": ["Tačno"],
+          "context": "Tačno. AD RMS (Active Directory Rights Management Services) štiti informacije: uz podržane aplikacije ograničava šta se sa dokumentom smije raditi (npr. zabrana kopiranja, štampe, prosljeđivanja).",
+          "details": [
+            "RMS 'zalijepi' pravila za korištenje uz sam dokument/mejl, pa zaštita putuje s podatkom čak i van organizacije.",
+            "Tako se sprječava neovlašteno korištenje (npr. da primalac proslijedi povjerljiv dokument)."
+          ],
+          "note": "Opšte znanje (Windows Server): AD RMS = zaštita informacija (rights management).",
+          "readMore": ["Opšte znanje o AD RMS"]
+        },
+        {
+          "id": "ad-06",
+          "promptParts": {
+            "before": "Web single sign-on (SSO) pripada kojem AD servisu?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["AD LDS", "AD FS", "AD CS", "AD DS"],
+          "correctAnswers": ["AD FS"],
+          "context": "Web single sign-on pripada AD FS (Active Directory Federation Services): omogućava jednu prijavu za pristup više web aplikacija, i preko granica organizacija.",
+          "details": [
+            "Single sign-on (SSO) znači: prijaviš se jednom, pa pristupaš više servisa bez ponovne prijave.",
+            "AD FS 'federira' identitet: povjerenje između organizacija/aplikacija tako da jedna prijava vrijedi za više njih."
+          ],
+          "note": "Opšte znanje (Windows Server): AD FS (Federation Services) = web single sign-on / federacija identiteta.",
+          "readMore": ["Opšte znanje o AD FS"]
+        },
+        {
+          "id": "ad-07",
+          "promptParts": {
+            "before": "Aktivni direktorijski servis dopušta da objekti unutar njega budu pohranjeni u hijerarhijsku strukturu koja ima dvije strane. Koje su to strane? (označi obje)",
+            "blank": "",
+            "after": ""
+          },
+          "type": "multiple",
+          "options": [
+            "Svi odgovori su tačni",
+            "Broadcast strana",
+            "Komutativna",
+            "Logička",
+            "Psihička",
+            "Asocijativna",
+            "Fizička"
+          ],
+          "correctAnswers": ["Logička", "Fizička"],
+          "context": "Struktura Active Directory-ja ima logičku i fizičku stranu: logička (domene, stabla, šume, OU) opisuje organizaciju, a fizička (sajtovi, domenski kontroleri) opisuje stvarni raspored na mreži.",
+          "details": [
+            "Logička strana: kako su resursi organizovani (domene, domenska stabla, šume, organizacijske jedinice, objekti).",
+            "Fizička strana: gdje su stvarni serveri/kontroleri i kako se replikacija odvija (sajtovi, domenski kontroleri).",
+            "Ostale ponuđene 'strane' (broadcast, komutativna, psihička, asocijativna) su izmišljene."
+          ],
+          "note": "Opšte znanje (Active Directory): dvije strane strukture su logička i fizička.",
+          "readMore": ["Opšte znanje o strukturi Active Directory-ja"]
+        },
+        {
+          "id": "ad-08",
+          "promptParts": {
+            "before": "Domene, domenska stabla, domenske šume, objekti i organizacijske jedinice su:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Fizičke komponente AD-a",
+            "Logičke komponente AD-a",
+            "Ništa od navedenog"
+          ],
+          "correctAnswers": ["Logičke komponente AD-a"],
+          "context": "Domene, domenska stabla, šume, objekti i organizacijske jedinice su logičke komponente Active Directory-ja: opisuju kako je sve organizovano, nezavisno od fizičkog rasporeda servera.",
+          "details": [
+            "Logičke komponente su 'apstrakcija' organizacije (ko pripada kome, kako je struktuirano).",
+            "Fizičke komponente su sajtovi i domenski kontroleri (stvarni serveri i mreža)."
+          ],
+          "note": "Opšte znanje (Active Directory): domene/stabla/šume/OU/objekti = logičke komponente.",
+          "readMore": ["Opšte znanje o logičkim komponentama AD-a"]
+        },
+        {
+          "id": "ad-09",
+          "promptParts": {
+            "before": "Šta je domena (u kontekstu mreže / Active Directory)?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Ništa od navedenog",
+            "Logičko grupiranje operativnih elemenata, a sastoji se od računara, korisnika, printera i drugih komponenti koje čine mrežu i omogućavaju ljudima izvođenje posla.",
+            "Fizičko grupiranje mrežnih elemenata, a sastoji se od računara, korisnika, printera i drugih komponenti koje čine mrežu i omogućavaju ljudima izvođenje posla.",
+            "Logičko grupiranje mrežnih elemenata, a sastoji se od računara, korisnika, printera i drugih komponenti koje čine mrežu i omogućavaju ljudima izvođenje posla."
+          ],
+          "correctAnswers": [
+            "Logičko grupiranje mrežnih elemenata, a sastoji se od računara, korisnika, printera i drugih komponenti koje čine mrežu i omogućavaju ljudima izvođenje posla."
+          ],
+          "context": "Domena je logičko grupiranje mrežnih elemenata (računara, korisnika, printera i drugih resursa) koji dijele zajedničku direktorijsku bazu i administraciju.",
+          "details": [
+            "Ključne riječi: 'logičko' (ne fizičko) i 'mrežnih elemenata'. Domena je jedinica organizacije i sigurnosti u AD-u.",
+            "Distraktori zamjenjuju 'logičko' sa 'fizičko' ili 'mrežnih' sa 'operativnih elemenata'."
+          ],
+          "note": "Opšte znanje (Active Directory): domena = logičko grupiranje mrežnih elemenata sa zajedničkom bazom.",
+          "readMore": ["Opšte znanje o domenama u AD-u"]
+        },
+        {
+          "id": "ad-10",
+          "promptParts": {
+            "before": "Kako se naziva centralna baza podataka korisnika koja daje administratorima jedinstvenu upravljačku tačku za njihov dio mreže?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Ništa od navedenog",
+            "Baza podataka",
+            "Domena",
+            "Stranica",
+            "Domenska šuma",
+            "Domenski kontejner"
+          ],
+          "correctAnswers": ["Domena"],
+          "context": "To je domena: logička cjelina sa zajedničkom (centralnom) direktorijskom bazom, koja administratorima daje jedinstvenu tačku upravljanja za taj dio mreže.",
+          "details": [
+            "Unutar domene se centralizovano upravljaju korisnici, računari, grupe i prava.",
+            "Domenska šuma je skup više domena/stabala (šire), a 'domenski kontejner' i 'stranica' nisu ovdje tačni pojmovi za centralnu bazu."
+          ],
+          "note": "Opšte znanje (Active Directory): domena = centralna baza + jedinstvena upravljačka tačka za dio mreže.",
+          "readMore": ["Opšte znanje o domenama u AD-u"],
+          "uncertain": true
+        },
+        {
+          "id": "ad-11",
+          "promptParts": {
+            "before": "Domene su važan logički element mreže, jer je sve izgrađeno na domenama ili obitava unutar njihove strukture.",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Tačno", "Netačno"],
+          "correctAnswers": ["Tačno"],
+          "context": "Tačno. U AD okruženju je domena osnovni logički element: resursi (korisnici, računari, OU-ovi) postoje unutar domena, pa je 'sve izgrađeno na domenama'.",
+          "details": [
+            "Domena je jedinica organizacije, sigurnosti i administracije; ostale strukture (stabla, šume) grade se od domena.",
+            "Zato je domena centralni logički element mrežne strukture u AD-u."
+          ],
+          "note": "Opšte znanje (Active Directory): domena je temeljni logički element (sve živi unutar domena).",
+          "readMore": ["Opšte znanje o domenama u AD-u"]
+        },
+        {
+          "id": "ad-12",
+          "promptParts": {
+            "before": "Domensko stablo je grafički prikaz jedne domene?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Tačno", "Netačno"],
+          "correctAnswers": ["Netačno"],
+          "context": "Netačno. Domensko stablo (domain tree) nije prikaz jedne domene, nego hijerarhija više povezanih domena koje dijele zajednički (susjedni) imenski prostor.",
+          "details": [
+            "Domensko stablo = više domena u hijerarhiji (npr. firma.com, prodaja.firma.com, it.firma.com).",
+            "Prikaz jedne jedine domene ne bi bio 'stablo' (stablo podrazumijeva grananje na više domena)."
+          ],
+          "note": "Opšte znanje (Active Directory): domensko stablo = hijerarhija više domena, ne jedna domena.",
+          "readMore": ["Opšte znanje o domenskim stablima"]
+        },
+        {
+          "id": "ad-13",
+          "promptParts": {
+            "before": "Domensko stablo podrazumijeva:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Korištenje jedne domene",
+            "Korištenje više domena",
+            "Korištenje maksimalno tri domene",
+            "Ništa od navedenog"
+          ],
+          "correctAnswers": ["Korištenje više domena"],
+          "context": "Domensko stablo podrazumijeva korištenje više domena povezanih u hijerarhiju sa zajedničkim imenskim prostorom.",
+          "details": [
+            "Npr. root domena firma.com i poddomene prodaja.firma.com, it.firma.com čine jedno stablo.",
+            "Nema gornje granice 'tri domene'; stablo može imati proizvoljno mnogo domena."
+          ],
+          "note": "Opšte znanje (Active Directory): domensko stablo = više domena u hijerarhiji.",
+          "readMore": ["Opšte znanje o domenskim stablima"]
+        },
+        {
+          "id": "ad-14",
+          "promptParts": {
+            "before": "Da li se bilo koja komponenta unutar AD okruženja može smatrati objektom tog okruženja?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Da", "Ne"],
+          "correctAnswers": ["Da"],
+          "context": "Da. U Active Directory-ju se sve (korisnici, računari, grupe, printeri, organizacijske jedinice...) predstavlja kao objekat sa svojim atributima.",
+          "details": [
+            "Objekat je zapis u direktoriju sa skupom atributa (npr. korisnik ima ime, lozinku, grupu).",
+            "Pošto se svaki resurs predstavlja kao objekat, AD je jedinstven imenik svih tih objekata."
+          ],
+          "note": "Opšte znanje (Active Directory): sve komponente su objekti (sa atributima).",
+          "readMore": ["Opšte znanje o AD objektima"]
+        },
+        {
+          "id": "ad-15",
+          "promptParts": {
+            "before": "Domena dijeli zajedničku direktorijsku bazu podataka.",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Tačno", "Netačno"],
+          "correctAnswers": ["Tačno"],
+          "context": "Tačno. Svi objekti unutar jedne domene dijele istu (zajedničku) direktorijsku bazu, pa se centralizovano upravljaju i autentifikuju.",
+          "details": [
+            "Zajednička baza znači jedno mjesto sa svim korisnicima, računarima i pravima domene.",
+            "To omogućava jedinstvenu prijavu i administraciju unutar domene."
+          ],
+          "note": "Opšte znanje (Active Directory): domena ima zajedničku direktorijsku bazu.",
+          "readMore": ["Opšte znanje o domenama u AD-u"]
+        },
+        {
+          "id": "ad-16",
+          "promptParts": {
+            "before": "Organizacijske jedinice (OU) se koriste:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Za organiziranje AD objekata unutar više domena",
+            "Ništa od navedenog",
+            "Za organiziranje AD objekata unutar jedne domene"
+          ],
+          "correctAnswers": [
+            "Za organiziranje AD objekata unutar jedne domene"
+          ],
+          "context": "Organizacijske jedinice (OU) služe za organizovanje objekata (korisnika, računara, grupa) unutar jedne domene - u podgrupe radi lakše administracije i primjene politika.",
+          "details": [
+            "OU je kao 'folder' unutar domene: grupiše objekte i omogućava da se na njih primijene grupne politike ili delegira administracija.",
+            "OU ne prelazi granicu domene (za više domena služe stabla i šume)."
+          ],
+          "note": "Opšte znanje (Active Directory): OU organizuje objekte unutar jedne domene.",
+          "readMore": ["Opšte znanje o organizacijskim jedinicama (OU)"]
+        },
+        {
+          "id": "ad-17",
+          "promptParts": {
+            "before": "Direktorijski servisi uvode red, kako u male, tako i u velike mreže.",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Tačno", "Netačno"],
+          "correctAnswers": ["Tačno"],
+          "context": "Tačno. Direktorijski servisi organizuju mrežne resurse (korisnike, računare, printere) na jednom mjestu, pa unose red i u male i u velike mreže.",
+          "details": [
+            "Umjesto da se svaki resurs vodi zasebno, direktorij daje jedinstven, uređen pregled i centralno upravljanje.",
+            "Korist je veća što je mreža veća, ali i male mreže dobijaju uređenost i lakšu administraciju."
+          ],
+          "note": "Opšte znanje: direktorijski servisi uvode red u mreže svih veličina.",
+          "readMore": ["Opšte znanje o direktorijskim servisima"]
+        },
+        {
+          "id": "ad-18",
+          "promptParts": {
+            "before": "Označi tačan odgovor o ulozi direktorija:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Direktorij može biti i korisnički, i upravljački alat.",
+            "Direktorij mora biti samo korisnički alat.",
+            "Ništa od navedenog",
+            "Direktorij mora biti samo upravljački alat."
+          ],
+          "correctAnswers": [
+            "Direktorij može biti i korisnički, i upravljački alat."
+          ],
+          "context": "Direktorij može biti i korisnički i upravljački alat: korisnicima pomaže da nađu resurse (ljude, printere, dijeljene foldere), a administratorima da centralno upravljaju.",
+          "details": [
+            "Korisnička uloga: pretraga i pristup resursima mreže iz jednog imenika.",
+            "Upravljačka uloga: administratori kroz direktorij dodjeljuju prava, primjenjuju politike i vode evidenciju.",
+            "Zato tvrdnje 'mora biti samo korisnički' ili 'samo upravljački' nisu tačne."
+          ],
+          "note": "Opšte znanje: direktorij služi i korisnicima i administratorima (oboje).",
+          "readMore": ["Opšte znanje o ulozi direktorijskih servisa"]
+        },
+        {
+          "id": "ad-19",
+          "promptParts": {
+            "before": "Unutar velike mreže neke organizacije sa nekoliko domena (Windows Server 2012 R2), najveće ovlasti ima korisnik koji pripada grupi:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "DC admins",
+            "Schema Admins",
+            "Domain Admins",
+            "Administrators",
+            "Enterprise Admins"
+          ],
+          "correctAnswers": ["Enterprise Admins"],
+          "context": "U šumi sa više domena, najveće ovlasti (nad cijelom šumom) ima grupa Enterprise Admins.",
+          "details": [
+            "Domain Admins ima pune ovlasti samo unutar SVOJE domene; Enterprise Admins ima ovlasti nad SVIM domenama u šumi.",
+            "Schema Admins mijenja šemu (strukturu) direktorija, ali to nije 'najveće ovlasti' nad resursima; 'DC admins' nije standardna grupa."
+          ],
+          "note": "Opšte znanje (Windows Server): Enterprise Admins = najveće ovlasti u šumi sa više domena.",
+          "readMore": [
+            "Opšte znanje o AD grupama (Enterprise/Domain/Schema Admins)"
+          ]
+        },
+        {
+          "id": "ad-20",
+          "promptParts": {
+            "before": "Koji AD administracijski 'snap-in' alat se koristi za organizaciju i upravljanje replikacijom, mrežnom topologijom i njihovim servisima?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Active Directory Domain Services",
+            "Active Directory Schema",
+            "Active Directory Users and Computers",
+            "Active Directory Domains and Trusts",
+            "Active Directory Sites and Services"
+          ],
+          "correctAnswers": ["Active Directory Sites and Services"],
+          "context": "Za replikaciju i mrežnu topologiju koristi se alat Active Directory Sites and Services (Sajtovi i servisi): tu se definišu sajtovi i upravlja replikacijom između domenskih kontrolera.",
+          "details": [
+            "Sajt predstavlja fizičku lokaciju/mrežu; kroz Sites and Services se optimizuje replikacija po toj topologiji.",
+            "Users and Computers upravlja objektima; Domains and Trusts povjerenjem između domena; Schema strukturom direktorija - ne replikacijom/topologijom."
+          ],
+          "note": "Opšte znanje (Windows Server): AD Sites and Services = replikacija i mrežna topologija.",
+          "readMore": ["Opšte znanje o AD administrativnim alatima"]
+        },
+        {
+          "id": "ad-21",
+          "promptParts": {
+            "before": "Koje usluge NE podržava Windows Server 2012 R2? (označi tačne)",
+            "blank": "",
+            "after": ""
+          },
+          "type": "multiple",
+          "options": [
+            "NPAS",
+            "AD LMS",
+            "AD RMS",
+            "UDDI",
+            "AD DS",
+            "Application server",
+            "AD CS"
+          ],
+          "correctAnswers": ["AD LMS", "UDDI"],
+          "context": "Windows Server 2012 R2 podržava NPAS, AD RMS, AD DS, Application server i AD CS. Ne podržava 'AD LMS' (izmišljeno - postoji AD LDS, ne LMS) ni 'UDDI' (nije AD/serverska uloga u tom kontekstu).",
+          "details": [
+            "AD servisi u WS2012R2 su: AD DS, AD CS, AD RMS, AD FS, AD LDS. 'AD LMS' ne postoji (vjerovatno zamka za AD LDS).",
+            "UDDI (Universal Description, Discovery and Integration) je registar web servisa; nije podržan kao zasebna uloga u ovom kontekstu."
+          ],
+          "note": "Opšte znanje (Windows Server): 'AD LMS' i 'UDDI' nisu uloge WS2012R2 (AD LMS je zamka za AD LDS).",
+          "readMore": ["Opšte znanje o ulogama Windows Server 2012 R2"],
+          "uncertain": true
+        },
+        {
+          "id": "ad-22",
+          "promptParts": {
+            "before": "Da li direktorijski servisi moraju biti u uskoj vezi sa operativnim sistemom?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Da", "Ne"],
+          "correctAnswers": ["Da"],
+          "context": "Da. Direktorijski servis je usko vezan za mrežni operativni sistem: preko njega OS sprovodi prijavu, autentifikaciju i kontrolu pristupa resursima (npr. AD je integrisan u Windows Server).",
+          "details": [
+            "Prijava korisnika, provjera prava i pristup dijeljenim resursima oslanjaju se na direktorij, pa OS i direktorij tijesno sarađuju.",
+            "Zato je npr. Active Directory dio Windows Server platforme, a ne odvojen dodatak."
+          ],
+          "note": "Opšte znanje: direktorijski servis je tijesno integrisan sa (mrežnim) OS-om (npr. AD u Windows Serveru).",
+          "readMore": ["Opšte znanje o direktorijskim servisima i OS-u"],
+          "uncertain": true
+        },
+        {
+          "id": "ad-23",
+          "promptParts": {
+            "before": "Obezbjeđivanje računarskog sistema ne samo od pojave unutrašnjih problema, već i razmatranje vanjske okoline unutar koje sistem radi, naziva se:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Sigurnost", "Zaštita"],
+          "correctAnswers": ["Sigurnost"],
+          "context": "To je sigurnost (security). Sigurnost obuhvata odbranu i od unutrašnjih problema i od vanjskog okruženja (napadača). Zaštita (protection) je uži pojam - kontrola pristupa resursima unutar sistema.",
+          "details": [
+            "Zaštita (protection): interni mehanizmi koji kontrolišu ko (koji proces/korisnik) smije pristupiti kojim resursima sistema.",
+            "Sigurnost (security): šira odbrana koja uključuje i vanjske prijetnje (autentifikacija, šifrovanje, odbrana od napada spolja).",
+            "Pošto pitanje spominje 'vanjsku okolinu', radi se o sigurnosti."
+          ],
+          "note": "Standardno OS gradivo (Silberschatz): zaštita = interna kontrola pristupa; sigurnost = šira odbrana (uklj. vanjsko okruženje).",
+          "readMore": [
+            "Silberschatz, Operating System Concepts (protection vs security)"
+          ]
+        }
+      ]
+    }
+  ]
+}

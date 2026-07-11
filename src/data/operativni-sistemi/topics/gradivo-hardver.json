@@ -1,0 +1,617 @@
+{
+  "topicId": "gradivo-hardver",
+  "title": "Gradivo: Računarski hardver",
+  "custom": true,
+  "sourcePdf": "Prikaz računarskog hardvera.pdf",
+  "exercises": [
+    {
+      "exerciseNumber": 1,
+      "sourceTaskName": "Arhitektura, organizacija, struktura i funkcija",
+      "questions": [
+        {
+          "id": "hw-01",
+          "promptParts": {
+            "before": "Koje su četiri opće (osnovne) funkcije računara?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Obrada, pohranjivanje, kretanje i kontrola podataka",
+            "Sabiranje, oduzimanje, množenje i dijeljenje",
+            "Ulaz, izlaz, mreža i štampanje",
+            "Instalacija, pokretanje, gašenje i ažuriranje"
+          ],
+          "correctAnswers": [
+            "Obrada, pohranjivanje, kretanje i kontrola podataka"
+          ],
+          "context": "Četiri opće funkcije računara su: obrada podataka, pohranjivanje podataka, kretanje podataka i kontrola.",
+          "details": [
+            "Obrada: računar transformiše podatke (osnovnih metoda obrade je malo).",
+            "Pohranjivanje: kratkotrajno (privremeni podaci pri 'obradi u letu') i dugotrajno (datoteke).",
+            "Kretanje: prenos podataka između računara i vanjskog svijeta (U/I sa periferalom, ili podatkovna komunikacija na daljinu).",
+            "Kontrola: kontrolna jedinica upravlja resursima i usklađuje ostale tri funkcije po instrukcijama."
+          ],
+          "note": "Citat (Prikaz hardvera): 'Četiri opće funkcije računara: obrada podataka, pohranjivanje podataka, kretanja podataka, kontrola.'",
+          "readMore": ["Prikaz računarskog hardvera.pdf, str. 2 (funkcija)"]
+        },
+        {
+          "id": "hw-02",
+          "promptParts": {
+            "before": "Koje su četiri osnovne komponente strukture računara?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Tastatura, miš, ekran i štampač",
+            "Centralna procesna jedinica (CPU), glavna memorija, U/I i sistemsko povezivanje",
+            "ROM, RAM, keš i disk",
+            "Kontrolna jedinica, ALU, registri i sabirnica"
+          ],
+          "correctAnswers": [
+            "Centralna procesna jedinica (CPU), glavna memorija, U/I i sistemsko povezivanje"
+          ],
+          "context": "Četiri osnovne komponente strukture računara su: CPU (procesor), glavna memorija, U/I i sistemsko povezivanje (mehanizam koji povezuje elemente).",
+          "details": [
+            "CPU kontroliše rad računara i obrađuje podatke; glavna memorija pohranjuje podatke.",
+            "U/I prebacuje podatke između računara i okoline; sistemsko povezivanje (sabirnica) povezuje sve elemente.",
+            "Unutar CPU-a, glavne strukturne komponente su: kontrolna jedinica, ALU, registri i CPU-povezanost (to je nivo niže u hijerarhiji)."
+          ],
+          "note": "Citat (Prikaz hardvera): 'Četiri su osnovne komponente strukture: CPU, glavna memorija, U/I, sistemsko povezivanje.'",
+          "readMore": ["Prikaz računarskog hardvera.pdf, str. 3 (struktura)"]
+        },
+        {
+          "id": "hw-03",
+          "promptParts": {
+            "before": "Šta opisuje računarska ARHITEKTURA (za razliku od organizacije)?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Operativne jedinice i njihovo povezivanje (kontrolni signali, interfejsi, memorijske tehnologije)",
+            "Sistemske osobine vidljive programeru: instrukcijski set, broj bitova za tipove podataka, U/I mehanizmi i tehnike adresiranja",
+            "Fizički raspored čipova na štampanoj ploči",
+            "Boju i oblik kućišta računara"
+          ],
+          "correctAnswers": [
+            "Sistemske osobine vidljive programeru: instrukcijski set, broj bitova za tipove podataka, U/I mehanizmi i tehnike adresiranja"
+          ],
+          "context": "Računarska arhitektura opisuje sistemske osobine vidljive programeru, koje direktno utiču na logičko izvršavanje programa: instrukcijski set, broj bitova za tipove podataka, U/I mehanizmi i tehnike adresiranja memorije.",
+          "details": [
+            "Organizacija je nasuprot tome nivo ispod: operativne jedinice i njihovo povezivanje (kontrolni signali, interfejsi, memorijske tehnologije) kojima se ostvaruje arhitektura.",
+            "Primjer: arhitekturno pitanje je HOĆE LI računar imati instrukciju za množenje; organizacijsko pitanje je KAKO je ta instrukcija izvedena (posebna jedinica za množenje ili višekratno sabiranje).",
+            "Razlika je važna jer arhitektura definiše 'šta program vidi', a organizacija 'kako je to fizički izvedeno'."
+          ],
+          "note": "Citat (Prikaz hardvera): 'Računarska arhitektura se odnosi na sistemske osobine koje su vidljive programeru ... instrukcijski set, broj bitova ..., U/I mehanizmi, tehnike adresiranja.'",
+          "readMore": [
+            "Prikaz računarskog hardvera.pdf, str. 1 (arhitektura i organizacija)"
+          ]
+        },
+        {
+          "id": "hw-04",
+          "promptParts": {
+            "before": "Zašto se složeni računarski sistem opisuje hijerarhijski (odozgo prema dole)?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Da bi izgledao komplikovanije",
+            "Jer je sistem skup međusobno povezanih podsistema, pa se svaki nivo opisuje svojom strukturom i funkcijom, a ponašanje nivoa zavisi samo od pojednostavljenog prikaza nižeg nivoa",
+            "Jer računar ima samo jednu komponentu",
+            "Zbog estetskih razloga"
+          ],
+          "correctAnswers": [
+            "Jer je sistem skup međusobno povezanih podsistema, pa se svaki nivo opisuje svojom strukturom i funkcijom, a ponašanje nivoa zavisi samo od pojednostavljenog prikaza nižeg nivoa"
+          ],
+          "context": "Računar se sastoji od miliona osnovnih komponenti, pa se opisuje hijerarhijski: kao skup međusobno povezanih podsistema. Svaki nivo ima svoju strukturu (kako su komponente povezane) i funkciju (šta svaka radi), a ponašanje nivoa zavisi samo od pojednostavljenog prikaza nižeg nivoa.",
+          "details": [
+            "Zahvaljujući tome projektant se bavi samo jednim nivoom u datom trenutku (npr. procesor), ne svim milionima tranzistora odjednom.",
+            "Primjer hijerarhije: računarski sistem (CPU, memorija, U/I) → procesor (kontrolna jedinica, ALU, registri) → kontrolna jedinica (kontrolni signali)."
+          ],
+          "note": "Citat (Prikaz hardvera): 'Ključ rješenja: prepoznati hijerarhijsku prirodu složenih sistema ... projektant samo treba da se bavi određenim nivoom sistema.'",
+          "readMore": [
+            "Prikaz računarskog hardvera.pdf, str. 1 (struktura i funkcija)"
+          ]
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 2,
+      "sourceTaskName": "Softverski nivoi, kompajler, asembler, jezici",
+      "questions": [
+        {
+          "id": "hw-05",
+          "promptParts": {
+            "before": "Koja dva tipa sistemskog softvera se navode kao najvažnija (između hardvera i aplikacija)?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Antivirus i firewall",
+            "Operativni sistem i kompajler",
+            "Web pregledač i uređivač teksta",
+            "Drajver i BIOS"
+          ],
+          "correctAnswers": ["Operativni sistem i kompajler"],
+          "context": "Dva najvažnija tipa sistemskog softvera su operativni sistem i kompajler. Sistemski softver je smješten između hardvera i aplikacijskog softvera (koji čini vanjski prsten).",
+          "details": [
+            "OS je sučelje između korisničkog programa i hardvera i pruža usluge/nadzor (Linux, iOS, Windows).",
+            "Najvažnije funkcije OS-a (prema ovom gradivu): upravljanje osnovnim U/I operacijama, alokacija memorije (glavne i sekundarne), i zaštita dijeljenja resursa među konkurentnim aplikacijama.",
+            "Kompajler prevodi programe visokog nivoa (C, C++, Java, Visual Basic) u instrukcije koje hardver može izvršiti."
+          ],
+          "note": "Citat (Prikaz hardvera): 'dva danas su najvažnija ...: operativni sistem i kompajler.'",
+          "readMore": [
+            "Prikaz računarskog hardvera.pdf, str. 6 (šta se nalazi ispod programa)"
+          ]
+        },
+        {
+          "id": "hw-06",
+          "promptParts": {
+            "before": "Šta radi asembler?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Prevodi program visokog nivoa (C, Java) direktno u aplikaciju",
+            "Prevodi simbolički (asemblerski) oblik instrukcije u binarni (mašinski) jezik",
+            "Spaja računare u mrežu",
+            "Šifruje izvorni kod"
+          ],
+          "correctAnswers": [
+            "Prevodi simbolički (asemblerski) oblik instrukcije u binarni (mašinski) jezik"
+          ],
+          "context": "Asembler prevodi simbolički (asemblerski) oblik instrukcije u binarni (mašinski) jezik. Npr. programer napiše add A,B, a asembler to prevede u 1000110010100000 (naredba da se saberu dva broja).",
+          "details": [
+            "Asemblerski jezik je simbolički jezik blizak mašini; mašinski jezik je binarni jezik koji procesor razumije.",
+            "Kompajler ide korak više: A + B (visoki nivo) prevodi u add A,B (asembler), koji asembler onda pretvara u binarne instrukcije.",
+            "Asembler od programera zahtijeva da 'razmišlja kao računar', pa se danas malo programira direktno u asembleru."
+          ],
+          "note": "Citat (Prikaz hardvera): 'Prvi od ovih programa nazvan je asembler. On prevodi simbolički oblik instrukcije u binarni.'",
+          "readMore": [
+            "Prikaz računarskog hardvera.pdf, str. 7 (asembler, mašinski jezik)"
+          ]
+        },
+        {
+          "id": "hw-07",
+          "promptParts": {
+            "before": "Koje su prednosti programskih jezika visokog nivoa? (označi sve tačno)",
+            "blank": "",
+            "after": ""
+          },
+          "type": "multiple",
+          "options": [
+            "Programer razmišlja na 'prirodnijem' jeziku (engleske riječi, algebarska notacija)",
+            "Veća produktivnost (manje linija koda za istu ideju)",
+            "Nezavisnost od računara (isti program se kompajlira za različite mašine)",
+            "Program se izvršava bez ikakvog prevođenja u mašinski jezik"
+          ],
+          "correctAnswers": [
+            "Programer razmišlja na 'prirodnijem' jeziku (engleske riječi, algebarska notacija)",
+            "Veća produktivnost (manje linija koda za istu ideju)",
+            "Nezavisnost od računara (isti program se kompajlira za različite mašine)"
+          ],
+          "context": "Jezici visokog nivoa nude tri glavne prednosti: prirodniji način izražavanja (engleske riječi i algebarska notacija), veću produktivnost (manje linija za istu ideju), i nezavisnost od računara (kompajler/asembler prevede program u binarne instrukcije bilo koje mašine).",
+          "details": [
+            "Program svejedno mora biti preveden u mašinski jezik (kompajlerom/asemblerom) da bi ga hardver izvršio - hardver razumije samo binarne instrukcije.",
+            "Zbog namjene su jezici i specijalizovani: Fortran za naučne obrade, Cobol za poslovnu obradu, Lisp za rad sa simbolima."
+          ],
+          "note": "Citat (Prikaz hardvera): tri prednosti - prirodniji jezik, unapređenje produktivnosti, nezavisnost od računara.",
+          "readMore": [
+            "Prikaz računarskog hardvera.pdf, str. 7 (prednosti jezika visokog nivoa)"
+          ]
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 3,
+      "sourceTaskName": "Procesor: bootstrap, ciklus, registri, pipeline, modovi",
+      "questions": [
+        {
+          "id": "hw-08",
+          "promptParts": {
+            "before": "Šta je bootstrap program i gdje je pohranjen?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Antivirusni program na disku",
+            "Početni program (firmware) u ROM-u/EEPROM-u koji inicijalizira sistem i učitava jezgro OS-a u memoriju",
+            "Korisnička aplikacija koja se pokreće na zahtjev",
+            "Mrežni protokol za podizanje sistema"
+          ],
+          "correctAnswers": [
+            "Početni program (firmware) u ROM-u/EEPROM-u koji inicijalizira sistem i učitava jezgro OS-a u memoriju"
+          ],
+          "context": "Bootstrap je početni program (firmware) koji se izvršava pri pokretanju računara. Obično je pohranjen u ROM-u ili EEPROM-u. Inicijalizira sve dijelove sistema (CPU registre, kontrolere, memoriju), locira jezgro OS-a i učitava ga u memoriju.",
+          "details": [
+            "Težnja je da bootstrap bude jednostavan; zato je u nepromjenjivoj memoriji (ne gubi se gašenjem).",
+            "Kad je jezgro učitano, ono počinje pružati usluge; nakon toga sistem je pokrenut i čeka poslove."
+          ],
+          "note": "Citat (Prikaz hardvera): 'Da bi se računar pokrenuo mora se izvršiti početni program tzv. bootstrap ... pohranjen u ROM-u ili EEPROM-u ... naziva se firmware.'",
+          "readMore": ["Prikaz računarskog hardvera.pdf, str. 8 (bootstrap)"]
+        },
+        {
+          "id": "hw-09",
+          "promptParts": {
+            "before": "Koji je osnovni ciklus rada CPU-a?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Uključivanje, prijava, rad, gašenje",
+            "Prihvatanje instrukcije iz memorije, dekodiranje (tip i operandi), izvršavanje, pa dohvatanje sljedeće instrukcije",
+            "Čitanje diska, pisanje diska, brisanje diska",
+            "Slanje i primanje mrežnih paketa"
+          ],
+          "correctAnswers": [
+            "Prihvatanje instrukcije iz memorije, dekodiranje (tip i operandi), izvršavanje, pa dohvatanje sljedeće instrukcije"
+          ],
+          "context": "Osnovni ciklus CPU-a je: prihvatanje instrukcije iz memorije, dekodiranje (određivanje tipa i operanada), izvršavanje, pa dohvatanje sljedeće instrukcije. Ciklus se ponavlja do kraja programa.",
+          "details": [
+            "Pošto je pristup memoriji sporiji od izvršavanja, CPU koristi registre za ključne varijable i privremene rezultate.",
+            "Zato skup instrukcija sadrži naredbe za prebacivanje riječi iz memorije u registre i obrnuto, te za operacije nad operandima iz registara/memorije."
+          ],
+          "note": "Citat (Prikaz hardvera): 'Osnovni ciklus svakog CPU-a je prihvatanje instrukcije iz memorije, dekodiranje ..., izvršavanje, te ... dohvatanja sljedeće instrukcije.'",
+          "readMore": ["Prikaz računarskog hardvera.pdf, str. 8 (procesori)"]
+        },
+        {
+          "id": "hw-10",
+          "promptParts": {
+            "before": "Koji specijalni registar sadrži memorijsku adresu sljedeće instrukcije koja će biti dobavljena?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Stek pokazivač",
+            "Programski brojač (Program Counter)",
+            "PSW (Program Status Word)",
+            "ALU registar"
+          ],
+          "correctAnswers": ["Programski brojač (Program Counter)"],
+          "context": "Programski brojač (Program Counter) je specijalni registar koji sadrži adresu sljedeće instrukcije koja će biti dobavljena. Nakon prihvatanja instrukcije, ažurira se da pokazuje na sljedeću.",
+          "details": [
+            "Stek pokazivač pokazuje na vrh trenutnog memorijskog steka (okviri procedura sa parametrima i lokalnim varijablama).",
+            "PSW (Program Status Word) sadrži bitove stanja: rezultat poređenja, CPU prioritet, korisnički/kernel mod i druge kontrolne bitove; ključan je za sistemske pozive i U/I.",
+            "Pored ovih, CPU ima registre opće namjene za varijable i privremene rezultate."
+          ],
+          "note": "Citat (Prikaz hardvera): 'programski brojač, koji sadrži memorijsku adresu sljedeće instrukcije koja će biti dobavljena.'",
+          "readMore": [
+            "Prikaz računarskog hardvera.pdf, str. 9 (specijalni registri)"
+          ]
+        },
+        {
+          "id": "hw-11",
+          "promptParts": {
+            "before": "Zašto OS mora sačuvati sadržaj svih registara kad zaustavi jedan program da bi pokrenuo drugi?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Da bi obrisao program iz memorije",
+            "Da bi mogao vratiti (obnoviti) tačno stanje tog programa kad ga kasnije nastavi (promjena konteksta)",
+            "Da bi ubrzao disk",
+            "Registri se ne moraju čuvati"
+          ],
+          "correctAnswers": [
+            "Da bi mogao vratiti (obnoviti) tačno stanje tog programa kad ga kasnije nastavi (promjena konteksta)"
+          ],
+          "context": "Kod multipleksiranja CPU-a, OS često zaustavlja jedan program da pokrene/nastavi drugi. Pri svakom zaustavljanju mora sačuvati sadržaj svih registara, kako bi kasnije mogao obnoviti tačno stanje tog programa i nastaviti ga (promjena konteksta / context switch).",
+          "details": [
+            "Registri (uključujući programski brojač, stek pokazivač, PSW) čine 'stanje' procesa u datom trenutku.",
+            "Ako se ne bi sačuvali, program se ne bi mogao ispravno nastaviti - izgubio bi svoje međurezultate i poziciju izvršavanja.",
+            "Zato OS mora biti 'svjestan' svih registara procesora."
+          ],
+          "note": "Citat (Prikaz hardvera): 'operativni sistem mora sačuvati sadržaj svih registara kako bi mogao povratiti njihovo stanje kad se program kasnije nastavi.'",
+          "readMore": [
+            "Prikaz računarskog hardvera.pdf, str. 9 (multipleksiranje CPU-a)"
+          ]
+        },
+        {
+          "id": "hw-12",
+          "promptParts": {
+            "before": "Šta je pipeline kod procesora?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Jedna instrukcija se izvršava od početka do kraja prije nego počne sljedeća",
+            "Odvojene jedinice za prihvatanje, dekodiranje i izvršavanje rade istovremeno, pa se više instrukcija obrađuje preklopljeno (npr. izvršava n-tu, dekodira n+1, dohvata n+2)",
+            "Više procesora u jednom čipu",
+            "Vrsta keš memorije"
+          ],
+          "correctAnswers": [
+            "Odvojene jedinice za prihvatanje, dekodiranje i izvršavanje rade istovremeno, pa se više instrukcija obrađuje preklopljeno (npr. izvršava n-tu, dekodira n+1, dohvata n+2)"
+          ],
+          "context": "Pipeline znači da CPU ima odvojene jedinice za prihvatanje, dekodiranje i izvršavanje koje rade istovremeno: dok izvršava n-tu instrukciju, dekodira n+1, a dohvata n+2. Time se instrukcije obrađuju preklopljeno i performanse rastu.",
+          "details": [
+            "Napredniji od pipeline-a je superskalarni CPU: ima više izvršnih jedinica (npr. za integer, float-point, Boolean operacije), prihvata više instrukcija u buffer i izvršava ih čim se jedinica oslobodi.",
+            "Projektanti su napustili prosti model 'jedna po jedna instrukcija' radi bržeg rada."
+          ],
+          "note": "Citat (Prikaz hardvera): 'dok izvršava n-tu instrukciju istovremeno može dekodirati n+1, a dohvatati n+2. Ovakva organizacija se naziva pipeline.'",
+          "readMore": [
+            "Prikaz računarskog hardvera.pdf, str. 9 (pipeline, superskalar)"
+          ]
+        },
+        {
+          "id": "hw-13",
+          "promptParts": {
+            "before": "Koja instrukcija prebacuje procesor iz korisničkog u kernel mod prilikom sistemskog poziva?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["JUMP", "TRAP", "ADD", "LOAD"],
+          "correctAnswers": ["TRAP"],
+          "context": "TRAP instrukcija prebacuje procesor iz korisničkog u kernel mod i pokreće operativni sistem. Korisnički program je pravi kroz sistemski poziv da bi dobio uslugu OS-a; po završetku se kontrola vraća korisničkom programu.",
+          "details": [
+            "Većina CPU-a ima dva moda: kernel (OS, pun pristup hardveru i svim instrukcijama) i korisnički (ograničen). Mod kontroliše bit u PSW-u.",
+            "Korisničkom programu nije dozvoljeno da sam postavi mod-bit i uđe u kernel mod; jedini ulaz je kontrolisani sistemski poziv (TRAP) koji hvata kernel.",
+            "To štiti sistem: korisnički program ne može direktno izvršavati privilegovane instrukcije ni dirati hardver."
+          ],
+          "note": "Citat (Prikaz hardvera): 'TRAP instrukcija prebacuje iz korisničkog u kernel mod i pokreće operativni sistem.'",
+          "readMore": [
+            "Prikaz računarskog hardvera.pdf, str. 9 (kernel/korisnički mod, TRAP)"
+          ]
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 4,
+      "sourceTaskName": "Višeprocesorski sistemi",
+      "questions": [
+        {
+          "id": "hw-14",
+          "promptParts": {
+            "before": "Koje su tri prednosti višeprocesorskih sistema?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Niža cijena čipa, manja veličina, tiši rad",
+            "Povećana propusnost, ekonomičnost i povećana pouzdanost",
+            "Veći ekran, bolja grafika, brži internet",
+            "Manja potrošnja, više portova, jača baterija"
+          ],
+          "correctAnswers": [
+            "Povećana propusnost, ekonomičnost i povećana pouzdanost"
+          ],
+          "context": "Tri prednosti višeprocesorskih sistema su: povećana propusnost (više rada za kraće vrijeme), ekonomičnost (dijele periferale, pohranu, napajanje) i povećana pouzdanost (otkaz jednog procesora usporava, ali ne zaustavlja sistem).",
+          "details": [
+            "Povećanje brzine nije proporcionalno broju procesora: dio rada se troši na usklađivanje i dijeljenje resursa (kao kad N programera radi na istom problemu - nije N puta brže).",
+            "Pouzdanost: ako u sistemu sa 10 procesora jedan otkaže, preostali preuzimaju posao, pa sistem radi ~10% sporije umjesto da stane (graceful degradation)."
+          ],
+          "note": "Citat (Prikaz hardvera): 'Višeprocesorski sistemi imaju tri prednosti: povećana propusnost, ekonomičnost, povećana pouzdanost.'",
+          "readMore": [
+            "Prikaz računarskog hardvera.pdf, str. 10 (višeprocesorski sistemi)"
+          ]
+        },
+        {
+          "id": "hw-15",
+          "promptParts": {
+            "before": "Koja je razlika između asimetričnog i simetričnog multiprocesiranja (SMP)?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Kod asimetričnog svaki procesor izvršava sve zadatke; kod SMP jedan glavni upravlja ostalima",
+            "Kod asimetričnog se svakom procesoru dodjeljuje poseban zadatak (glavni kontroliše, ostali dobijaju instrukcije); kod SMP svaki procesor izvršava sve zadatke i svi su ravnopravni",
+            "Nema razlike",
+            "Asimetrično znači jedan procesor, SMP znači jedno jezgro"
+          ],
+          "correctAnswers": [
+            "Kod asimetričnog se svakom procesoru dodjeljuje poseban zadatak (glavni kontroliše, ostali dobijaju instrukcije); kod SMP svaki procesor izvršava sve zadatke i svi su ravnopravni"
+          ],
+          "context": "Kod asimetričnog multiprocesiranja svakom procesoru se dodjeljuje poseban zadatak: glavni procesor kontroliše sistem, a ostali dobijaju instrukcije ili imaju predefinisane zadatke. Kod simetričnog (SMP) svaki procesor izvršava sve zadatke OS-a i svi su ravnopravnog statusa.",
+          "details": [
+            "SMP je danas najčešći: svaki procesor ima vlastiti skup registara i keš, ali svi dijele istu fizičku memoriju.",
+            "Noviji trend je višejezgrenost (multicore): više jezgri na jednom čipu - efikasnije (komunikacija preko čipa je brža nego između čipova) i troši manje energije nego više odvojenih čipova."
+          ],
+          "note": "Citat (Prikaz hardvera): 'najčešće se koristi simetrično multiprocesiranje (SMP) kod kojeg svaki procesor izvršava sve zadatke ... svi procesori su istog statusa.'",
+          "readMore": [
+            "Prikaz računarskog hardvera.pdf, str. 10-11 (asimetrično/SMP, višejezgreni)"
+          ]
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 5,
+      "sourceTaskName": "Memorijska hijerarhija, disk, U/I, sabirnica",
+      "questions": [
+        {
+          "id": "hw-16",
+          "promptParts": {
+            "before": "Zašto je memorija računara organizovana kao hijerarhija nivoa?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Zbog izgleda",
+            "Jer nijedna tehnologija nije istovremeno ekstremno brza, bezgranično velika i veoma jeftina, pa se kombinuju nivoi (viši = brži, manji, skuplji po bitu)",
+            "Jer OS to zahtijeva bez razloga",
+            "Jer postoji samo jedan tip memorije"
+          ],
+          "correctAnswers": [
+            "Jer nijedna tehnologija nije istovremeno ekstremno brza, bezgranično velika i veoma jeftina, pa se kombinuju nivoi (viši = brži, manji, skuplji po bitu)"
+          ],
+          "context": "Idealna memorija bila bi ekstremno brza, bezgranično velika i veoma jeftina, ali nijedna tehnologija to ne ispunjava. Zato se memorija gradi hijerarhijski: viši nivoi su brži, manjeg kapaciteta i skuplji po bitu; niži su sporiji, veći i jeftiniji.",
+          "details": [
+            "Redoslijed od vrha (najbrže/najmanje) prema dnu: registri (u CPU-u, <1KB), keš, glavna memorija (RAM/DRAM), magnetni disk, trake.",
+            "Registri su iste brzine kao CPU (nema kašnjenja); keš ubrzava pristup čestim podacima; RAM drži programe u izvršavanju; disk i trake su spora ali velika i jeftina pohrana."
+          ],
+          "note": "Citat (Prikaz hardvera): 'memorijski sistem konstruisan u obliku hijerarhijskih nivoa. Veći nivoi imaju veću brzinu, manji kapacitet, i veću cijenu po bitu.'",
+          "readMore": [
+            "Prikaz računarskog hardvera.pdf, str. 11 (memorija, hijerarhija)"
+          ]
+        },
+        {
+          "id": "hw-17",
+          "promptParts": {
+            "before": "Šta znače pojmovi cache hit i cache miss?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Hit = keš je pun, miss = keš je prazan",
+            "Cache hit = tražena linija je u kešu (brz pristup); cache miss = nije u kešu, pa treba dodatno vrijeme za pristup glavnoj memoriji",
+            "Hit = greška u kešu, miss = ispravan keš",
+            "Odnose se samo na mrežu"
+          ],
+          "correctAnswers": [
+            "Cache hit = tražena linija je u kešu (brz pristup); cache miss = nije u kešu, pa treba dodatno vrijeme za pristup glavnoj memoriji"
+          ],
+          "context": "Kad program treba pročitati memorijsku riječ, keš hardver provjerava je li tražena linija u kešu. Ako jeste - cache hit (brzo, obično dva ciklusa, bez pristupa glavnoj memoriji). Ako nije - cache miss (potrebno dodatno vrijeme za pristup sporijoj glavnoj memoriji).",
+          "details": [
+            "Keš je brza, ali skupa i zato ograničene veličine memorija između registara i glavne memorije.",
+            "Keširanje je opšti princip u računarstvu: OS drži često korištene fajlove u RAM-u (da izbjegne disk), keširaju se prevodi imenskih putanja u disk adrese, i DNS prevodi URL → IP adrese."
+          ],
+          "note": "Citat (Prikaz hardvera): 'Ako jeste (cache hit) ... Ukoliko linija nije u kešu (cache miss) potrebno je dodatno vrijeme ... za pristup glavnoj memoriji.'",
+          "readMore": [
+            "Prikaz računarskog hardvera.pdf, str. 11 (keš memorija)"
+          ]
+        },
+        {
+          "id": "hw-18",
+          "promptParts": {
+            "before": "Koja je ključna razlika između RAM-a i ROM-a?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "RAM je nepromjenjiv, ROM se stalno mijenja",
+            "RAM gubi sadržaj isključivanjem (privremen); ROM je nepromjenjiv i ne gubi sadržaj (npr. sadrži bootstrap)",
+            "RAM je sporiji od diska",
+            "ROM je veći od diska"
+          ],
+          "correctAnswers": [
+            "RAM gubi sadržaj isključivanjem (privremen); ROM je nepromjenjiv i ne gubi sadržaj (npr. sadrži bootstrap)"
+          ],
+          "context": "RAM (Random Access Memory) drži programe u izvršavanju, ali gubi sadržaj isključivanjem (obično DRAM - dinamički RAM). ROM (Read Only Memory) je nepromjenjiv, ne gubi sadržaj gašenjem i fabrički je programiran (sadrži statičke programe kao bootstrap).",
+          "details": [
+            "ROM se poslije proizvodnje ne može mijenjati; neke U/I kartice imaju ROM za nisko-nivovsku kontrolu uređaja.",
+            "EEPROM (Electrically Erasable Programmable ROM) se može brisati i ponovo upisivati, ali ne često, pa uglavnom drži statičke programe."
+          ],
+          "note": "Citat (Prikaz hardvera): 'Za razliku od RAM-a nepromjenjiva memorija ne gubi svoj sadržaj isključivanjem. ROM ... je fabrički programiran.'",
+          "readMore": [
+            "Prikaz računarskog hardvera.pdf, str. 12 (RAM, ROM, EEPROM)"
+          ]
+        },
+        {
+          "id": "hw-19",
+          "promptParts": {
+            "before": "Kako se nazivaju osnovni geometrijski dijelovi magnetnog (tvrdog) diska?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Redovi, kolone i ćelije",
+            "Traka (koncentrični krug), cilindar (sve trake za dati položaj ruke) i sektor (dio trake, obično 512 bajta)",
+            "Blok, stranica i okvir",
+            "Segment, offset i registar"
+          ],
+          "correctAnswers": [
+            "Traka (koncentrični krug), cilindar (sve trake za dati položaj ruke) i sektor (dio trake, obično 512 bajta)"
+          ],
+          "context": "Informacije na disku su zapisane u koncentričnim krugovima. Traka je kružni dio koji glava čita u datom položaju ruke; cilindar je skup svih traka za dati položaj ruke; svaka traka je podijeljena u sektore (obično 512 bajta).",
+          "details": [
+            "Disk je mehanički uređaj: ploče se vrte (5400/7200/10800 obrtaja/min), a mehanička ruka se pomjera iznad njih (kao igla na gramofonu).",
+            "Zato je pristup spor: nasumično micanje ruke ~5-10 ms, plus ~5-10 ms da sektor dođe pod glavu; brzina čitanja 50-160 MB/s.",
+            "Disk je jeftiniji (dva reda veličine) i veći od RAM-a, ali je pristup skoro tri reda veličine sporiji."
+          ],
+          "note": "Citat (Prikaz hardvera): 'svaka glava može čitati kružni dio koji se zove traka. Sve trake zajedno ... čine cilindar ... podijeljena u ... sektora čija je veličina obično 512 bajta.'",
+          "readMore": ["Prikaz računarskog hardvera.pdf, str. 12 (diskovi)"]
+        },
+        {
+          "id": "hw-20",
+          "promptParts": {
+            "before": "Čemu služi virtuelna memorija (prema ovom gradivu)?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Da ubrza mrežu",
+            "Da omogući pokretanje programa većih od fizičke memorije, smještajući ih na disk, dok glavna memorija služi kao keš za često izvršavane dijelove",
+            "Da zamijeni procesor",
+            "Da šifruje podatke"
+          ],
+          "correctAnswers": [
+            "Da omogući pokretanje programa većih od fizičke memorije, smještajući ih na disk, dok glavna memorija služi kao keš za često izvršavane dijelove"
+          ],
+          "context": "Virtuelna memorija omogućava pokretanje programa koji su veći od fizičke (glavne) memorije: dijelovi programa se drže na disku, a glavna memorija služi kao neka vrsta keša za dijelove koji se najčešće izvršavaju.",
+          "details": [
+            "Time program 'vidi' više memorije nego što je fizički prisutno u RAM-u.",
+            "Detaljno se obrađuje u lekciji o upravljanju memorijom (paging, page tabele, TLB)."
+          ],
+          "note": "Citat (Prikaz hardvera): 'virtualna memorija ... omogućava pokretanje programa koji su veći od fizičke memorije, smještajući ih na disk.'",
+          "readMore": [
+            "Prikaz računarskog hardvera.pdf, str. 12 (virtualna memorija)"
+          ]
+        },
+        {
+          "id": "hw-21",
+          "promptParts": {
+            "before": "Od čega se sastoji U/I (I/O) uređaj i šta je device driver (upravljački program)?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Samo od kabla; driver je vrsta diska",
+            "Od kontrolera i samog uređaja; device driver je softver koji 'razgovara' sa kontrolerom (šalje mu komande i prihvata odzive)",
+            "Od procesora i memorije; driver je aplikacija",
+            "Od trake i ploče; driver je mrežni protokol"
+          ],
+          "correctAnswers": [
+            "Od kontrolera i samog uređaja; device driver je softver koji 'razgovara' sa kontrolerom (šalje mu komande i prihvata odzive)"
+          ],
+          "context": "U/I uređaj se u opštem slučaju sastoji od kontrolera (jedan ili više čipova koji fizički kontroliše uređaj) i samog uređaja. Device driver (upravljački program) je softver koji komunicira sa kontrolerom - izdaje mu komande i prihvata njegove odzive.",
+          "details": [
+            "Kontroler prihvata komande OS-a i izvodi ih; pošto je svaki tip kontrolera drugačiji, za svaki treba drugačiji softver (driver).",
+            "Zato se za svaki uređaj instalira odgovarajući driver da bi ga OS mogao koristiti."
+          ],
+          "note": "Citat (Prikaz hardvera): 'Softver koji razgovara sa kontrolerom ... zove se upravljački program (device driver).'",
+          "readMore": ["Prikaz računarskog hardvera.pdf, str. 13 (I/O uređaji)"]
+        },
+        {
+          "id": "hw-22",
+          "promptParts": {
+            "before": "Iz koja tri dijela se sastoji sabirnica (bus)?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Ulazna, izlazna i mrežna sabirnica",
+            "Adresna, podatkovna i kontrolna sabirnica",
+            "Brza, spora i srednja sabirnica",
+            "Registarska, keš i disk sabirnica"
+          ],
+          "correctAnswers": ["Adresna, podatkovna i kontrolna sabirnica"],
+          "context": "Sabirnica se sastoji iz tri dijela: podatkovne (prenosi stvarne podatke), adresne (identifikuje lokacije/adrese u memoriji, gdje podaci trebaju biti poslani) i kontrolne (kontroliše pristup i korištenje adresne i podatkovne).",
+          "details": [
+            "Sabirnica je skup provodnika i konektora preko kojih putuju podaci (poredi se sa autoputem između komponenti).",
+            "Sabirnica koja povezuje glavne elemente (procesor, memorija, U/I) zove se sistemska sabirnica."
+          ],
+          "note": "Citat (Prikaz hardvera): 'Sabirnica se sastoji iz tri dijela. To su adresna, podatkovna i kontrolna sabirnica.'",
+          "readMore": ["Prikaz računarskog hardvera.pdf, str. 13 (sabirnica)"]
+        }
+      ]
+    }
+  ]
+}

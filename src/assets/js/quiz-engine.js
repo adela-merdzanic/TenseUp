@@ -40,6 +40,16 @@ export function shuffledSession(pool) {
   }));
 }
 
+// Keeps the pool (question) order but still shuffles each question's options,
+// so the "in order" setting and the ?q= deep link preserve which question you
+// are on while the answers stay randomized (correct answer is not a giveaway).
+export function sequentialSession(pool) {
+  return pool.map((question) => ({
+    ...question,
+    options: shuffle(question.options),
+  }));
+}
+
 export function checkAnswer(question, selected) {
   const isCorrect =
     question.type === "single"

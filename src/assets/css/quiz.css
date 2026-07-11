@@ -13,6 +13,44 @@
   margin-bottom: calc(var(--spacing-unit) * 3);
 }
 
+/* Shared task setup (e.g. a process table) shown above the question. */
+.task-setup {
+  margin-bottom: calc(var(--spacing-unit) * 2.5);
+  padding: calc(var(--spacing-unit) * 1.5);
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+}
+
+.task-setup__text {
+  margin: 0 0 calc(var(--spacing-unit) * 1.5);
+  line-height: 1.5;
+}
+
+.task-setup__table-wrap {
+  overflow-x: auto;
+}
+
+.task-setup__table {
+  border-collapse: collapse;
+  width: auto;
+  font-size: 0.85rem;
+}
+
+.task-setup__table th,
+.task-setup__table td {
+  border: 1px solid var(--color-border);
+  padding: calc(var(--spacing-unit) * 0.5) var(--spacing-unit);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.task-setup__table th {
+  background: var(--color-surface);
+  font-weight: 600;
+}
+
 .blank {
   display: inline-block;
   min-width: 90px;
@@ -139,6 +177,37 @@
   padding: calc(var(--spacing-unit) * 1.5);
 }
 
+/* "Show more" disclosure with the wider context (mirrors essay .answer-more). */
+.feedback-more {
+  margin-top: calc(var(--spacing-unit) * 1.5);
+}
+
+.feedback-more summary {
+  cursor: pointer;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.feedback-details {
+  margin-top: var(--spacing-unit);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.feedback-details p {
+  margin: 0;
+}
+
+.feedback-details ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.feedback-details li {
+  margin-bottom: calc(var(--spacing-unit) / 2);
+}
+
 /* Small print under the explanation: source PDF and, when present, the note. */
 .feedback-source {
   margin-top: calc(var(--spacing-unit));
@@ -149,6 +218,28 @@
 
 .feedback-source + .feedback-source {
   margin-top: calc(var(--spacing-unit) * 0.5);
+}
+
+/* "Further reading" pointers to material sections and pages. */
+.feedback-readmore {
+  margin-top: calc(var(--spacing-unit) * 1.5);
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: var(--color-muted);
+}
+
+.feedback-readmore__label {
+  margin: 0 0 calc(var(--spacing-unit) * 0.5);
+  font-weight: 600;
+}
+
+.feedback-readmore ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.feedback-readmore li {
+  margin-bottom: calc(var(--spacing-unit) * 0.25);
 }
 
 .summary-review {

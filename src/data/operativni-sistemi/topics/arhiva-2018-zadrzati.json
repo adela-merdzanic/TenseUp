@@ -1,0 +1,2091 @@
+{
+  "topicId": "arhiva-2018-zadrzati",
+  "title": "2018 ispit: za zadržati (u gradivu)",
+  "custom": true,
+  "sourcePdf": "Upravljanje_procesima.pdf, RasporedjivanjeProcesa.pdf, Upravljanje_memorijom.pdf, Memorija2.pdf",
+  "exercises": [
+    {
+      "exerciseNumber": 1,
+      "sourceTaskName": "Procesi, stanja i raspoređivanje",
+      "questions": [
+        {
+          "id": "proc-01",
+          "promptParts": {
+            "before": "Da li je moguća promjena stanja procesa iz Running u Ready?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Da", "Ne"],
+          "correctAnswers": ["Da"],
+          "context": "Running→Ready je dozvoljen prelaz. Dešava se kad proces potroši svoj kvantum (time slice) ili kad ga prekine proces višeg prioriteta; tada se vraća u red spremnih i čeka novi red na procesor.",
+          "details": [
+            "Model stanja: New (kreiran), Ready (čeka CPU), Running (izvršava se), Waiting/Blocked (čeka U/I ili resurs), Terminated (završen).",
+            "Dozvoljeni prelazi: New→Ready, Ready→Running, Running→Ready, Running→Waiting, Waiting→Ready, Running→Terminated.",
+            "Running→Ready je preempcija: proces nije završen ni blokiran, samo mu je oduzet procesor da bi ga dobio neko drugi."
+          ],
+          "note": "Citat (Upravljanje procesima): 'Running - Ready: Najčešći razlog za ovaj prelaz je to što je proces koji se trenutno izvršava potrošio svoje vrijeme koje mu je dodijeljeno.'",
+          "readMore": [
+            "Upravljanje procesima.pdf, str. 4-5 (stanja procesa i dozvoljeni prelazi)"
+          ]
+        },
+        {
+          "id": "proc-02",
+          "promptParts": {
+            "before": "Da li je moguća promjena stanja procesa iz Ready u Waiting?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Da", "Ne"],
+          "correctAnswers": ["Ne"],
+          "context": "Ready→Waiting nije valjan prelaz. Iz Ready proces može ići samo u Running (kad ga raspoređivač izabere). U Waiting se dolazi isključivo iz Running, kad proces zatraži U/I ili resurs.",
+          "details": [
+            "Waiting znači da proces čeka na neki događaj (npr. završetak U/I). Da bi uopšte zatražio U/I, proces mora prvo biti Running (izvršavati se).",
+            "Proces u Ready samo čeka procesor; ne izvršava instrukcije, pa ne može ni pokrenuti zahtjev koji bi ga blokirao.",
+            "Put do Waiting je uvijek: Ready→Running→Waiting."
+          ],
+          "note": "Prema dijagramu stanja iz materijala, prelazi iz Ready idu samo u Running; Ready→Waiting nije među dozvoljenim prelazima.",
+          "readMore": [
+            "Upravljanje procesima.pdf, str. 4-5 (stanja procesa i dozvoljeni prelazi)"
+          ]
+        },
+        {
+          "id": "proc-03",
+          "promptParts": {
+            "before": "Da li je moguća promjena stanja procesa iz Waiting u Running?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Da", "Ne"],
+          "correctAnswers": ["Ne"],
+          "context": "Waiting→Running nije direktan prelaz. Kad se desi događaj na koji je proces čekao, on prvo ide u Ready (Waiting→Ready), pa tek kad ga raspoređivač izabere prelazi Ready→Running.",
+          "details": [
+            "Procesor uvijek preuzima proces iz stanja Ready, nikad direktno iz Waiting.",
+            "Put je: Waiting→Ready (desio se događaj)→Running (raspoređivač dodijelio CPU).",
+            "Razlog: i kad je događaj gotov, proces se mora natjecati s ostalim spremnim procesima za procesor."
+          ],
+          "note": "Dijagram stanja: iz Waiting je jedini prelaz Waiting→Ready; u Running se ulazi samo iz Ready.",
+          "readMore": [
+            "Upravljanje procesima.pdf, str. 4-5 (stanja procesa i dozvoljeni prelazi)"
+          ]
+        },
+        {
+          "id": "proc-04",
+          "promptParts": {
+            "before": "Kratkoročni raspoređivač:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Bira procese sa diska i učitava ih u memoriju",
+            "Bira procese koji su u stanju Ready i nekom od njih dodjeljuje procesor"
+          ],
+          "correctAnswers": [
+            "Bira procese koji su u stanju Ready i nekom od njih dodjeljuje procesor"
+          ],
+          "context": "Kratkoročni raspoređivač (short-term / CPU scheduler) bira između procesa u stanju Ready i dodjeljuje im procesor. Izvršava se vrlo često (na svakih ~100 ms) pa mora biti brz.",
+          "details": [
+            "Druga opcija opisuje dugoročni raspoređivač (long-term / job scheduler), koji bira procese sa diska i učitava ih u memoriju, i izvršava se rijetko.",
+            "Dugoročni upravlja stepenom multiprogramiranja (koliko procesa je istovremeno u memoriji); kratkoročni upravlja dodjelom CPU-a spremnim procesima."
+          ],
+          "note": "Citat (Upravljanje procesima): 'Kratkoročni raspoređivač ... bira između procesa koji su u stanju Ready i nekom od njih dodjeljuje procesor.'",
+          "readMore": [
+            "Upravljanje procesima.pdf, str. 11-12 (kratkoročni i dugoročni raspoređivač)"
+          ]
+        },
+        {
+          "id": "proc-05",
+          "promptParts": {
+            "before": "Init proces je:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "proces koji je u sredini i svi čekaju njegov odgovor",
+            "komanda u shellu",
+            "sve navedeno je tačno",
+            "proces koji se pokreće nakon što ga pozovemo",
+            "program-proces",
+            "proces koji se automatski pokreće u kernelu",
+            "proces čiji je PID=1",
+            "jedini proces"
+          ],
+          "correctAnswers": ["proces čiji je PID=1"],
+          "context": "init je prvi proces u korisničkom prostoru koji kernel pokreće pri podizanju sistema; ima PID=1 i predak je svih ostalih procesa.",
+          "details": [
+            "Kad se sistem podigne, kernel pokrene init (PID=1), a init zatim pokreće ostale sistemske servise i korisničke procese.",
+            "Pošto je init predak svih procesa, kad neki proces ostane bez roditelja (orphan), init ga 'usvaja'.",
+            "Na modernim Linux sistemima ulogu init-a preuzima systemd, ali i dalje ima PID=1."
+          ],
+          "note": "Opšte OS/Linux znanje: init je prvi proces (PID=1), pokreće ga kernel pri bootanju i predak je svih procesa.",
+          "readMore": [
+            "Silberschatz, Operating System Concepts (kreiranje procesa, init/systemd, stablo procesa)"
+          ]
+        },
+        {
+          "id": "proc-06",
+          "promptParts": {
+            "before": "PID je:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Proces ID",
+            "Komanda u shellu",
+            "Ništa od navedenog",
+            "Program ID"
+          ],
+          "correctAnswers": ["Proces ID"],
+          "context": "PID (Process ID / Process Identifier) je jedinstveni broj koji operativni sistem dodjeljuje svakom procesu da bi ga razlikovao od ostalih.",
+          "details": [
+            "PID se čuva u bloku za kontrolu procesa (PCB/TCB) zajedno sa stanjem procesa, programskim brojačem, registrima i informacijama o raspoređivanju.",
+            "init proces ima PID=1. Komande poput ps prikazuju PID-ove, a kill koristi PID da pošalje signal procesu.",
+            "Nije 'Program ID' - program je pasivan fajl, a proces je program u izvršavanju koji dobija PID tek kad se pokrene."
+          ],
+          "note": "Opšte OS znanje: PID = jedinstveni identifikator procesa, dio PCB-a.",
+          "readMore": [
+            "Upravljanje procesima.pdf, str. 5-6 (PCB/TCB, Identifikator procesa PID)"
+          ]
+        },
+        {
+          "id": "proc-07",
+          "promptParts": {
+            "before": "Prebacivanje procesa na drugi proces zahtijeva izvođenje spašavanja tekućeg procesa i stanja rekonstruisanja drugog procesa. To se zove:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "WDW",
+            "TCB",
+            "Promjena konteksta",
+            "Programski brojač",
+            "PCB"
+          ],
+          "correctAnswers": ["Promjena konteksta"],
+          "context": "To je promjena konteksta (context switch): OS sačuva kontekst (registre, programski brojač, stanje) tekućeg procesa u njegov PCB, pa učita kontekst drugog procesa.",
+          "details": [
+            "Vrijeme context switcha je čist režijski gubitak jer u tom trenu CPU ne radi koristan posao.",
+            "Zbog te cijene prečest Round Robin (premali kvantum) šteti performansama.",
+            "Distraktori: TCB i PCB su strukture podataka (mjesto gdje se kontekst čuva), a programski brojač je jedan registar; nijedno nije naziv same operacije prebacivanja."
+          ],
+          "note": "Citat (Upravljanje procesima): 'Kada se desi prekid, sistem mora da sačuva kontekst procesa ... da bi mogao da ga povrati' (promjena konteksta / context switch).",
+          "readMore": [
+            "Upravljanje procesima.pdf, str. 12 (promjena konteksta / context switch)"
+          ]
+        },
+        {
+          "id": "proc-08",
+          "promptParts": {
+            "before": "Dio procesa u kojem se nalazi kôd naziva se:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Segment podataka",
+            "Izvršni fajl",
+            "Heap",
+            "Stack",
+            "Tekst segment"
+          ],
+          "correctAnswers": ["Tekst segment"],
+          "context": "Kôd (instrukcije) procesa nalazi se u tekst segmentu (text/code segment).",
+          "details": [
+            "Ostali dijelovi adresnog prostora: segment podataka (globalne varijable), heap (dinamički alocirana memorija) i stek (lokalne varijable i pozivi funkcija).",
+            "Tekst segment je obično read-only i može se dijeliti između procesa koji izvršavaju isti program.",
+            "Izvršni fajl je pasivan fajl na disku; tek kad se učita u memoriju, njegov kôd ide u tekst segment procesa."
+          ],
+          "note": "Citat (Upravljanje procesima): proces je više od koda 'poznatog pod imenom tekst segment ili segment kôda (text section)'.",
+          "readMore": [
+            "Upravljanje procesima.pdf, str. 3 (tekst/kod segment, data, heap, stek)"
+          ]
+        },
+        {
+          "id": "proc-09",
+          "promptParts": {
+            "before": "Šta je ispravno (proces roditelj i dijete)?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Proces roditelj se ne može nastaviti dok se izvršava proces dijete",
+            "Proces roditelj može da sačeka dok se neki od procesa dijete ne izvrši"
+          ],
+          "correctAnswers": [
+            "Proces roditelj može da sačeka dok se neki od procesa dijete ne izvrši"
+          ],
+          "context": "Roditelj može (ali ne mora) sačekati dijete, sistemskim pozivom tipa wait(). Prva tvrdnja je netačna jer se roditelj može izvršavati konkurentno s djetetom.",
+          "details": [
+            "Nakon fork(), roditelj i dijete se mogu izvršavati paralelno; roditelj sam bira hoće li pozvati wait() (i blokirati se dok dijete ne završi) ili nastaviti odmah.",
+            "Kad dijete završi, a roditelj nije pokupio njegov izlazni status (wait()), dijete postaje zombie; ako roditelj završi prije djeteta, dijete postaje siroče (orphan) koje preuzima init."
+          ],
+          "note": "Citat (Upravljanje procesima): proces 'može da napravi novi potproces i da sačeka da se on završi'. fork()/wait() su opšte OS znanje.",
+          "readMore": [
+            "Upravljanje procesima.pdf, str. 12 (kreiranje potprocesa i čekanje)"
+          ]
+        },
+        {
+          "id": "proc-10",
+          "promptParts": {
+            "before": "Šta je ispravno (roditelj i dijete, resursi i završetak)?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Proces roditelj ne može završiti izvršavanje svoje djece bez obzira što dijete koristi resurse više nego što mu je dozvoljeno",
+            "Roditelj se završava, a operativni sistem ne dozvoljava djetetu nastavak nakon završetka roditelja"
+          ],
+          "correctAnswers": [
+            "Roditelj se završava, a operativni sistem ne dozvoljava djetetu nastavak nakon završetka roditelja"
+          ],
+          "context": "Tačan je opis kaskadnog završavanja (cascading termination): kod nekih sistema, kad se roditelj završi, OS ne dopušta djeci da nastave, nego i njih završava.",
+          "details": [
+            "Prva tvrdnja je netačna: roditelj MOŽE prekinuti dijete, i to baš npr. kad dijete troši više resursa nego što mu je dozvoljeno (sistemski poziv tipa abort/kill).",
+            "Kaskadno završavanje inicira operativni sistem: ako proces završi, svi njegovi potomci moraju biti završeni. Nema ga svaki sistem, ali je to standardno ponašanje koje se opisuje u drugoj tvrdnji.",
+            "Na sistemima bez kaskadnog završavanja dijete bez roditelja postaje siroče i preuzima ga init."
+          ],
+          "note": "Standardno OS gradivo (Silberschatz): roditelj može prekinuti dijete (npr. zbog prekoračenja resursa); kaskadno završavanje = završetkom roditelja završavaju se i djeca.",
+          "readMore": [
+            "Silberschatz, Operating System Concepts (process termination, cascading termination)"
+          ]
+        },
+        {
+          "id": "proc-11",
+          "promptParts": {
+            "before": "U redu čekanja prolaze procesi P1, P2 i P3 čija su vremena izvršavanja 24, 3 i 3 ms respektivno. Primjenom FCFS algoritma uz zanemarivanje vremena uslijed promjene konteksta, prosječno vrijeme čekanja je:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["15 ms", "17 ms", "18,66 ms", "3 ms"],
+          "correctAnswers": ["17 ms"],
+          "context": "FCFS (First Come First Served) opslužuje procese redom dolaska. Za redoslijed P1, P2, P3 vremena čekanja su: P1=0, P2=24, P3=27, pa je prosjek (0+24+27)/3 = 51/3 = 17 ms.",
+          "details": [
+            "Vrijeme čekanja procesa = trenutak kad počne da se izvršava minus trenutak dolaska (ovdje svi dolaze u 0).",
+            "Raspored (Gantt): P1[0-24], P2[24-27], P3[27-30]. P2 čeka 24, P3 čeka 27.",
+            "Ovo je klasičan primjer 'convoy efekta': jedan dug proces (P1) na početku natjera kratke (P2, P3) da dugo čekaju, pa je prosjek visok. Da su kratki išli prvi (SJF), prosjek bi bio mnogo manji."
+          ],
+          "note": "Definicija (RasporedjivanjeProcesa): 'Vrijeme čekanja je zbir vremenskih perioda provedenih u redu čekanja na procesor.' Račun potvrđen ručno.",
+          "readMore": [
+            "RasporedjivanjeProcesa.pdf (FCFS, prosječno vrijeme čekanja, convoy efekt)"
+          ]
+        },
+        {
+          "id": "proc-12",
+          "promptParts": {
+            "before": "Dati su procesi P1, P2 i P3. Ulaze po RR (Round Robin) algoritmu, 4 ms je smjenjivanje (kvantum), a dužina im je 24, 3 i 3 ms respektivno. Koliko je vrijeme čekanja P2?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["10 ms", "30 ms", "3 ms", "4 ms"],
+          "correctAnswers": ["4 ms"],
+          "context": "Kod RR sa kvantumom 4, redoslijed je P1[0-4], P2[4-7], P3[7-10], pa P1 do kraja. P2 dolazi u 0, čeka do t=4 (dok P1 iskoristi svoj kvantum), pa se izvrši; vrijeme čekanja P2 = 4 ms.",
+          "details": [
+            "Raspored (Gantt): P1[0-4], P2[4-7], P3[7-10], P1[10-30].",
+            "Vrijeme čekanja = turnaround minus burst. P2: turnaround = 7-0 = 7, burst = 3, pa je čekanje 7-3 = 4.",
+            "P2 ima burst 3 (manji od kvantuma 4), pa se izvrši u jednom navratu i završava u t=7."
+          ],
+          "note": "Klasičan Silberschatz RR primjer (P1=24, P2=3, P3=3, kvantum 4). Račun potvrđen ručno.",
+          "readMore": [
+            "RasporedjivanjeProcesa.pdf (Round Robin, kvantum, vrijeme čekanja)"
+          ]
+        },
+        {
+          "id": "proc-13",
+          "promptParts": {
+            "before": "Neka su u redu čekanja procesi P1, P2, P3 i P4 čija su vremena izvršavanja 6, 8, 7, 3 milisekunde respektivno. Uz zanemarivanje vremena promjene konteksta i uz SJF algoritam, koliko je prosječno vrijeme čekanja?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["15,5 ms", "7 ms", "10,25 ms", "9 ms"],
+          "correctAnswers": ["7 ms"],
+          "context": "SJF (Shortest Job First) prvo izvršava najkraći posao. Redoslijed po burstu: P4(3), P1(6), P3(7), P2(8). Vremena čekanja: P4=0, P1=3, P3=9, P2=16, pa je prosjek (0+3+9+16)/4 = 28/4 = 7 ms.",
+          "details": [
+            "Raspored (Gantt): P4[0-3], P1[3-9], P3[9-16], P2[16-24].",
+            "SJF je optimalan po prosječnom vremenu čekanja: nijedan drugi raspored ne daje manji prosjek za dati skup procesa.",
+            "Poređenja radi, FCFS (redom P1,P2,P3,P4) bi ovdje dao 10,25 ms - zato je 10,25 distraktor."
+          ],
+          "note": "Standardni Silberschatz SJF primjer. SJF je optimalan za prosječno vrijeme čekanja. Račun potvrđen ručno.",
+          "readMore": [
+            "RasporedjivanjeProcesa.pdf (SJF, optimalnost po prosječnom čekanju)"
+          ]
+        },
+        {
+          "id": "proc-14",
+          "promptParts": {
+            "before": "U jednoprocesorskom sistemu kao što je Pentium 4, red aktivnih (izvršavajućih) procesa ima:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Više članova",
+            "Dva člana",
+            "Četiri člana",
+            "Samo jedan član"
+          ],
+          "correctAnswers": ["Samo jedan član"],
+          "context": "Na jednoprocesorskom (jednojezgrenom) sistemu u datom trenutku može se izvršavati samo jedan proces, pa je u stanju Running uvijek najviše jedan proces.",
+          "details": [
+            "Više procesa može istovremeno biti u stanju Ready i Waiting, ali samo jedan može biti Running na jednom procesoru.",
+            "Iluzija istovremenosti nastaje jer OS vrlo brzo prebacuje procesor sa jednog procesa na drugi (multiprogramiranje / pseudoparalelizam).",
+            "Tek kod višejezgrenih/višeprocesorskih sistema se više procesa može stvarno izvršavati paralelno (po jedan na svakoj jezgri)."
+          ],
+          "note": "Citat (Upravljanje procesima): 'u bilo kojem trenutku jedan procesor može da izvršava samo jedan proces (samo jedan ... može da bude u stanju Running).'",
+          "readMore": [
+            "Upravljanje procesima.pdf, str. 2-4 (multiprogramiranje, samo jedan Running)"
+          ]
+        },
+        {
+          "id": "proc-15",
+          "promptParts": {
+            "before": "Multiprogramiranje podrazumijeva iskorištenost procesora (CPU utilization)?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Da", "Ne"],
+          "correctAnswers": ["Da"],
+          "context": "Da. Cilj multiprogramiranja je da procesor uvijek ima neki posao: dok jedan proces čeka na U/I, procesor se dodjeljuje drugom spremnom procesu, čime se povećava iskorištenost CPU-a.",
+          "details": [
+            "Bez multiprogramiranja, dok proces čeka na spori U/I, procesor bi stajao neiskorišten.",
+            "Držanjem više procesa u memoriji istovremeno, OS uvijek ima kandidata za CPU, pa je iskorištenost veća.",
+            "Zato veći stepen multiprogramiranja (do neke granice) znači bolju iskorištenost procesora i veću propusnost."
+          ],
+          "note": "Citat (Upravljanje procesima): 'Cilj multiprogramiranja je da se u svakom trenutku izvršava neki proces, da bi se procesor maksimalno iskoristio.'",
+          "readMore": [
+            "Upravljanje procesima.pdf (multiprogramiranje, iskorištenost procesora)"
+          ]
+        },
+        {
+          "id": "proc-16",
+          "promptParts": {
+            "before": "Kod time-sharinga sistem je osposobljen za swapiranje procesa iz glavne memorije na disk i obrnuto:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Da", "Ne"],
+          "correctAnswers": ["Da"],
+          "context": "Da. Kod sistema s vremenskom raspodjelom (time-sharing) OS prebacuje (swap) procese iz glavne memorije na disk i nazad, da bi u memoriji bilo mjesta za više procesa nego što fizički stane odjednom.",
+          "details": [
+            "Swapping: neaktivan ili čekajući proces se privremeno izbaci na disk (swap prostor), a njegovo mjesto u RAM-u dobije drugi proces; kasnije se vraća.",
+            "Time se povećava stepen multiprogramiranja i omogućava interaktivan rad više korisnika.",
+            "Mana je što je prebacivanje sporo (disk je mnogo sporiji od RAM-a), pa se radi samo kad je potrebno."
+          ],
+          "note": "Citat (Upravljanje memorijom): kod time-sharinga proces 'se učita u memoriju, a kada se prekida s njegovim izvršavanjem on se zamijeni s drugim procesom s diska' (swapping).",
+          "readMore": [
+            "Upravljanje memorijom.pdf, str. 7-8 (prebacivanje / swapping)"
+          ]
+        },
+        {
+          "id": "proc-17",
+          "promptParts": {
+            "before": "Multipleksiranje koje se javlja u slučaju kad svaki korisnik dobije dio resursa zove se:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Prostorno multipleksiranje",
+            "Vremensko multipleksiranje"
+          ],
+          "correctAnswers": ["Prostorno multipleksiranje"],
+          "context": "Kad svaki korisnik/proces dobije svoj dio resursa (npr. dio memorije ili diska), radi se o prostornom multipleksiranju: resurs se dijeli u prostoru.",
+          "details": [
+            "Prostorno multipleksiranje: resurs se podijeli na dijelove koji se dodijele istovremeno različitim korisnicima (npr. memorija podijeljena među procesima, disk među korisnicima).",
+            "Vremensko multipleksiranje: isti resurs koriste naizmjenično, jedan po jedan u vremenu (npr. procesor koji se smjenjuje između procesa).",
+            "Procesor se tipično dijeli vremenski, a memorija i disk prostorno."
+          ],
+          "note": "Opšte OS znanje (Tanenbaum): prostorno multipleksiranje = podjela resursa u prostoru; vremensko = naizmjenično korištenje u vremenu.",
+          "readMore": [
+            "Tanenbaum, Modern Operating Systems (space vs time multiplexing)"
+          ]
+        },
+        {
+          "id": "proc-18",
+          "promptParts": {
+            "before": "Multipleksiranje koje se javlja u slučaju kad se različiti programi smjenjuju u korištenju resursa zove se:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Prostorno multipleksiranje",
+            "Vremensko multipleksiranje"
+          ],
+          "correctAnswers": ["Vremensko multipleksiranje"],
+          "context": "Kad se različiti programi naizmjenično (jedan po jedan u vremenu) smjenjuju u korištenju istog resursa, radi se o vremenskom multipleksiranju.",
+          "details": [
+            "Klasičan primjer je procesor: OS ga vrlo brzo prebacuje s jednog programa na drugi, pa svaki dobije 'komad vremena'.",
+            "Nasuprot tome, prostorno multipleksiranje je kad svaki dobije svoj dio resursa istovremeno (npr. dio memorije).",
+            "Vremensko multipleksiranje procesora je osnova multiprogramiranja i time-sharinga."
+          ],
+          "note": "Opšte OS znanje (Tanenbaum): vremensko multipleksiranje = naizmjenično korištenje istog resursa u vremenu (procesor).",
+          "readMore": [
+            "Tanenbaum, Modern Operating Systems (space vs time multiplexing)"
+          ]
+        },
+        {
+          "id": "proc-19",
+          "promptParts": {
+            "before": "Adresni prostor koji koristi program za vrijeme izvršavanja (nakon učitavanja u memoriju) se naziva:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Logički adresni prostor", "Fizički adresni prostor"],
+          "correctAnswers": ["Fizički adresni prostor"],
+          "context": "Skup svih fizičkih adresa koje odgovaraju logičkim, nakon učitavanja programa u memoriju, naziva se fizički adresni prostor.",
+          "details": [
+            "Logičke (virtuelne) adrese generiše procesor tokom izvršavanja; fizičke adrese vidi memorijska jedinica (ono što stvarno postoji u RAM-u).",
+            "Preslikavanje logičke u fizičku adresu radi hardver MMU (Memory Management Unit).",
+            "Kod povezivanja u vrijeme izvršavanja logički i fizički adresni prostor se razlikuju; skup logičkih adresa je logički, a odgovarajućih fizičkih je fizički adresni prostor."
+          ],
+          "note": "Citat (Upravljanje memorijom): 'skup svih fizičkih adresa koje odgovaraju logičkim (nakon učitavanja u memoriju) je fizički adresni prostor.'",
+          "readMore": [
+            "Upravljanje memorijom.pdf, str. 5 (logički i fizički adresni prostor, MMU)"
+          ]
+        },
+        {
+          "id": "proc-20",
+          "promptParts": {
+            "before": "Kad su procesi kooperativni? (označi sve tačno)",
+            "blank": "",
+            "after": ""
+          },
+          "type": "multiple",
+          "options": [
+            "Kad na njih utiču neki drugi procesi",
+            "Kad rade samostalno",
+            "Kad su nezavisni od svih drugih procesa",
+            "Kad oni utiču na neke druge procese"
+          ],
+          "correctAnswers": [
+            "Kad na njih utiču neki drugi procesi",
+            "Kad oni utiču na neke druge procese"
+          ],
+          "context": "Proces je kooperativan (cooperating) ako može uticati na druge procese ili ako drugi procesi mogu uticati na njega. Dakle tačne su obje 'utiču' opcije.",
+          "details": [
+            "Kooperativni procesi dijele podatke ili razmjenjuju informacije (npr. preko dijeljene memorije ili poruka), pa jedan utiče na drugog.",
+            "Nezavisni (independent) procesi su suprotnost: rade samostalno i ne utiču niti na njih utiču drugi procesi.",
+            "Baš zato što kooperativni procesi dijele podatke, javlja se potreba za sinhronizacijom (kritična sekcija, semafori)."
+          ],
+          "note": "Standardno OS gradivo (Silberschatz): kooperativan proces može uticati na druge ili biti pod uticajem drugih; nezavisan ne može.",
+          "readMore": [
+            "Silberschatz, Operating System Concepts (cooperating vs independent processes)"
+          ]
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 2,
+      "sourceTaskName": "Memorija, fragmentacija, adresni prostor",
+      "questions": [
+        {
+          "id": "mem-01",
+          "promptParts": {
+            "before": "Kod segmentacije, program u memoriji je:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Razbacan po fizičkom prostoru memorije",
+            "Smješten u kontinuirani memorijski blok"
+          ],
+          "correctAnswers": ["Razbacan po fizičkom prostoru memorije"],
+          "context": "Kod segmentacije program se dijeli na segmente (npr. kod, podaci, stek) koji se u fizičkoj memoriji mogu smjestiti na različita, nesusjedna mjesta. Dakle program je razbacan po memoriji.",
+          "details": [
+            "Segment je logička cjelina promjenjive veličine; svaki segment ima svoju početnu adresu i dužinu u tabeli segmenata.",
+            "Pošto segmenti ne moraju biti jedan do drugog, program ne mora zauzimati jedan kontinuirani blok - time se izbjegava potreba za velikim susjednim prostorom.",
+            "Slično kao paging, i segmentacija odvaja logički pogled programa od fizičkog rasporeda u memoriji."
+          ],
+          "note": "Standardno OS gradivo (Silberschatz): segmentacija smješta segmente na različite lokacije, pa program nije u jednom kontinuiranom bloku.",
+          "readMore": ["Upravljanje memorijom.pdf, str. 14 (segmentacija)"]
+        },
+        {
+          "id": "mem-02",
+          "promptParts": {
+            "before": "Procesu se dodjeljuje najveći slobodni segment. Ovaj algoritam ima za cilj stvaranje što većih šupljina.",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["first fit", "worst fit", "best fit", "last fit"],
+          "correctAnswers": ["worst fit"],
+          "context": "Dodjeljivanje najvećeg slobodnog segmenta je worst-fit (najlošije poklapanje). Cilj mu je da preostala šupljina bude što veća, pa i dalje upotrebljiva.",
+          "details": [
+            "Worst-fit uzima najveću slobodnu rupu i procesu da koliko treba; ostatak je velik, pa se nada da će i on nekome poslužiti.",
+            "Nasuprot tome, best-fit uzima najmanju rupu koja odgovara (ostaju sitne rupe), a first-fit prvu koja odgovara (najbrži).",
+            "Simulacije pokazuju da su first-fit i best-fit generalno bolji od worst-fit po iskorištenju memorije."
+          ],
+          "note": "Citat (Upravljanje memorijom): 'Najlošije poklapanje (worst-fit): Procesu se dodjeljuje najveći slobodni segment ... cilj stvaranje što većih šupljina.'",
+          "readMore": [
+            "Upravljanje memorijom.pdf, str. 10 (first-fit, best-fit, worst-fit)"
+          ]
+        },
+        {
+          "id": "mem-03",
+          "promptParts": {
+            "before": "Procesu se dodjeljuje onaj segment koji najbolje odgovara njegovim memorijskim zahtjevima. Iako se time naizgled najbolje iskorištava memorija, rezultat je stvaranje malih šupljina (razlika veličine segmenta i programa).",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["last fit", "first fit", "best fit", "worst fit"],
+          "correctAnswers": ["best fit"],
+          "context": "Dodjeljivanje segmenta koji najbolje odgovara zahtjevu je best-fit (najbolje poklapanje). Bira se najmanja slobodna rupa u koju proces stane.",
+          "details": [
+            "Best-fit ostavlja najmanji mogući ostatak, pa naizgled najbolje koristi memoriju.",
+            "Mana: ti sitni ostaci su često premali da bilo šta prime, pa se gomilaju kao neupotrebljive male šupljine (doprinosi spoljašnjoj fragmentaciji).",
+            "Zahtijeva i pretragu cijele liste slobodnih rupa da bi našao najmanju odgovarajuću."
+          ],
+          "note": "Citat (Upravljanje memorijom): 'Najbolje poklapanje (best-fit): Procesu se dodjeljuje onaj segment koji najbolje odgovara ... rezultat je stvaranje malih šupljina.'",
+          "readMore": [
+            "Upravljanje memorijom.pdf, str. 10 (first-fit, best-fit, worst-fit)"
+          ]
+        },
+        {
+          "id": "mem-04",
+          "promptParts": {
+            "before": "Koji se metod koristi da se popuni praznina uzimanjem prvog slobodnog segmenta, pri čemu se kreće od prve slobodne lokacije?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["first fit", "best fit", "next fit", "worst fit"],
+          "correctAnswers": ["first fit"],
+          "context": "Uzimanje prve slobodne rupe koja zadovoljava, počevši od početka liste, je first-fit (prvi koji zadovoljava).",
+          "details": [
+            "First-fit pretražuje slobodne segmente od početka i dodjeljuje prvi dovoljno velik; jednostavan je i najbrži.",
+            "Varijanta next-fit nastavlja pretragu od mjesta gdje je prošli put stala (a ne uvijek od početka).",
+            "Best-fit traži najmanju odgovarajuću, worst-fit najveću."
+          ],
+          "note": "Citat (Upravljanje memorijom): 'Prvi koji zadovoljava (first-fit): Procesu se dodjeljuje prvi segment koji zadovoljava ... pretraživanje počinje od početka liste.'",
+          "readMore": [
+            "Upravljanje memorijom.pdf, str. 10 (first-fit, next-fit)"
+          ]
+        },
+        {
+          "id": "mem-05",
+          "promptParts": {
+            "before": "Moguće rješenje problema fragmentacije:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "dinamičko učitavanje",
+            "paging",
+            "preklapanje",
+            "dinamičko povezivanje"
+          ],
+          "correctAnswers": ["paging"],
+          "context": "Paging je rješenje problema (spoljašnje) fragmentacije: proces ne mora biti u jednom kontinuiranom bloku, nego se dijeli na stranice koje se smještaju u bilo koje slobodne okvire.",
+          "details": [
+            "Memorija se dijeli na okvire (frames) fiksne veličine, a program na stranice (pages) iste veličine; svaka stranica ide u bilo koji slobodan okvir.",
+            "Time nestaje spoljašnja fragmentacija (nema potrebe za velikim susjednim prostorom), mada ostaje mala unutrašnja fragmentacija u posljednjem okviru.",
+            "Distraktori: dinamičko učitavanje/povezivanje i preklapanje (overlay) rješavaju druge probleme (veličinu programa, dijeljenje koda), ne fragmentaciju."
+          ],
+          "note": "Citat (Upravljanje memorijom): 'Moguće rješenje problema fragmentacije je da se dozvoli da proces ne mora biti upisan u kontinuirani memorijski blok' - to je paging.",
+          "readMore": [
+            "Upravljanje memorijom.pdf, str. 12-13 (paging kao rješenje fragmentacije)"
+          ]
+        },
+        {
+          "id": "mem-06",
+          "promptParts": {
+            "before": "Paging ne rješava problem vanjske fragmentacije?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Da", "Ne"],
+          "correctAnswers": ["Ne"],
+          "context": "Paging upravo rješava (uklanja) spoljašnju fragmentaciju, pa je tvrdnja 'ne rješava' netačna. Odgovor je 'Ne' (tvrdnja nije tačna).",
+          "details": [
+            "Kod paginga se svaki slobodan okvir može dodijeliti bilo kojoj stranici, pa nema neupotrebljivih rasutih rupa između procesa (spoljašnje fragmentacije).",
+            "Ostaje samo unutrašnja fragmentacija: posljednji okvir procesa obično nije potpuno popunjen (prosječno pola stranice po procesu).",
+            "Dakle: paging uklanja spoljašnju, ali unosi malu unutrašnju fragmentaciju."
+          ],
+          "note": "Citat (Upravljanje memorijom): 'Primjenom paginga nestaje efekt vanjske fragmentacije.' Zato je tvrdnja da 'ne rješava' netačna.",
+          "readMore": [
+            "Upravljanje memorijom.pdf, str. 13 (paging uklanja vanjsku fragmentaciju)"
+          ]
+        },
+        {
+          "id": "mem-07",
+          "promptParts": {
+            "before": "Segmentacija rješava problem unutrašnje fragmentacije?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Da", "Ne"],
+          "correctAnswers": ["Da"],
+          "context": "Da. Segmentacija uklanja unutrašnju fragmentaciju jer su segmenti promjenjive veličine i dodjeljuju se tačno onoliko koliko treba, bez viška unutar fiksnog bloka.",
+          "details": [
+            "Unutrašnja fragmentacija nastaje kod jedinica fiksne veličine (npr. okviri kod paginga), gdje ostane neiskorišten dio bloka. Segmenti nisu fiksni, pa tog viška nema.",
+            "Ali segmentacija ima drugu manu: spoljašnju fragmentaciju (rasute rupe između segmenata različitih veličina), slično dinamičkim particijama."
+          ],
+          "note": "Citat (Upravljanje memorijom): 'Segmentacija rješava problem unutrašnje fragmentacije, ali ... ostaje problem vanjske fragmentacije.'",
+          "readMore": [
+            "Upravljanje memorijom.pdf, str. 14 (segmentacija i fragmentacija)"
+          ]
+        },
+        {
+          "id": "mem-08",
+          "promptParts": {
+            "before": "Dinamičko povezivanje zahtijeva uslugu operativnog sistema?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Da", "Ne"],
+          "correctAnswers": ["Da"],
+          "context": "Da. Program koristi gotove funkcije iz biblioteka (npr. za ispis na ekran ili matematiku) i mora se sa njima 'povezati' (linkovati). Dinamičko povezivanje znači da se to povezivanje ne radi unaprijed, nego tek kad se program pokrene, pri čemu biblioteka ostaje odvojen fajl koji dijeli više programa (jedna kopija u memoriji za sve). Baš zato traži uslugu OS-a: ta zajednička kopija može biti u memoriji koja 'pripada' drugom procesu, a samo OS smije dozvoliti i kontrolisati takav dijeljeni pristup.",
+          "details": [
+            "Povezivanje (linking) je spajanje tvog programa sa kodom biblioteka koje koristi - to su gotove funkcije koje nisi sam pisao.",
+            "Statičko povezivanje: kod biblioteke se ugradi (kopira) u sam izvršni fajl programa još pri pravljenju, pa svaki program nosi svoju kopiju.",
+            "Dinamičko povezivanje: veza se odgađa do pokretanja. Biblioteka ostaje zaseban fajl (npr. .dll na Windowsu, .so na Linuxu), a pri pokretanju se program spoji na jednu zajedničku kopiju u memoriji koju koriste svi programi. Tako se štedi i memorija i prostor na disku.",
+            "Kako to radi: u programu stoji mali segment koda 'stub' (opušak) koji pokazuje na funkciju iz biblioteke. Pri prvom pozivu stub provjeri je li funkcija već u memoriji, po potrebi je učita, pa se zamijeni njenom adresom - sljedeći put se funkcija poziva direktno.",
+            "Zašto baš to traži OS: kad se izvršava više programa istovremeno, oni su međusobno zaštićeni (jedan ne smije dirati memoriju drugog). Pošto dijele istu biblioteku, samo OS može provjeriti je li tražena funkcija u prostoru drugog procesa i dozvoliti kontrolisan pristup. Nasuprot tome, dinamičko učitavanje (dynamic loading) dešava se unutar memorije jednog istog programa, pa ne treba pomoć OS-a."
+          ],
+          "note": "Citat (Upravljanje memorijom): 'Za razliku od dinamičkog učitavanja, dinamičko povezivanje u općem slučaju zahtijeva uslugu operativnog sistema.'",
+          "readMore": [
+            "Upravljanje memorijom.pdf, str. 7 (dinamičko povezivanje)"
+          ]
+        },
+        {
+          "id": "mem-09",
+          "promptParts": {
+            "before": "Dinamičko učitavanje zahtijeva uslugu operativnog sistema?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Da", "Ne"],
+          "correctAnswers": ["Ne"],
+          "context": "Ne. Dinamičko učitavanje (dynamic loading) ne zahtijeva posebnu podršku operativnog sistema; implementira ga sam program (rutina se učita u memoriju tek kad se prvi put pozove).",
+          "details": [
+            "Dinamičko učitavanje: rutina se ne učita dok se ne pozove, pa se ne troši memorija na dijelove koji se možda neće ni koristiti (npr. rutine za rijetke greške).",
+            "Odgovornost je na programeru/programu (preko biblioteka), a ne na OS-u.",
+            "Suprotno tome, dinamičko povezivanje treba uslugu OS-a (zbog dijeljenih biblioteka među procesima)."
+          ],
+          "note": "Standardno OS gradivo (Silberschatz): 'Dynamic loading does not require special support from the operating system.'",
+          "readMore": [
+            "Upravljanje memorijom.pdf, str. 6-7 (dinamičko učitavanje vs povezivanje)"
+          ]
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 3,
+      "sourceTaskName": "Sinhronizacija, kritična sekcija, zastoj",
+      "questions": [
+        {
+          "id": "sync-01",
+          "promptParts": {
+            "before": "Problem kritične sekcije je način rješavanja stanja trke (race condition)?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Da", "Ne"],
+          "correctAnswers": ["Da"],
+          "context": "Da. Rješavanje problema kritične sekcije upravo služi da se spriječi stanje trke (race condition): osigurava da najviše jedan proces u datom trenutku dira dijeljeni podatak.",
+          "details": [
+            "Stanje trke nastaje kad više procesa istovremeno mijenja isti dijeljeni podatak i krajnji rezultat zavisi od redoslijeda pristupa.",
+            "Kritična sekcija je dio koda gdje se dira taj dijeljeni podatak; ako osiguramo međusobno isključenje (samo jedan proces u kritičnoj sekciji), nema utrkivanja.",
+            "Zato su mehanizmi za kritičnu sekciju (brave/mutex, semafori, monitori) upravo rješenje za race condition."
+          ],
+          "note": "Standardno OS gradivo (Silberschatz): rješenje problema kritične sekcije sprječava race condition.",
+          "readMore": [
+            "Silberschatz, Operating System Concepts (kritična sekcija, race condition)"
+          ]
+        },
+        {
+          "id": "sync-02",
+          "promptParts": {
+            "before": "Stanje trke je:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Kad krajnji rezultat ne zavisi od redoslijeda izvršavanja procesa u istim instrukcijama.",
+            "Kad krajnji rezultat zavisi od redoslijeda izvršavanja procesa u različitim instrukcijama.",
+            "Kad krajnji rezultat ne zavisi od redoslijeda izvršavanja procesa u različitim instrukcijama.",
+            "Kad krajnji rezultat zavisi od redoslijeda izvršavanja procesa u istim instrukcijama."
+          ],
+          "correctAnswers": [
+            "Kad krajnji rezultat zavisi od redoslijeda izvršavanja procesa u istim instrukcijama."
+          ],
+          "context": "Stanje trke (race condition) je situacija kad krajnji rezultat zavisi od redoslijeda kojim se procesi izvršavaju (kojim redoslijedom pristupaju istom dijeljenom podatku).",
+          "details": [
+            "Ključna riječ je 'zavisi': kad ishod ne bi zavisio od redoslijeda, ne bi bilo problema. Race condition znači da različit raspored daje različit (moguće pogrešan) rezultat.",
+            "Primjer: dva procesa oba rade count = count + 1 nad istom varijablom; zavisno od isprepletenosti, jedno uvećanje se može izgubiti."
+          ],
+          "note": "Standardno OS gradivo (Silberschatz): race condition = ishod zavisi od redoslijeda pristupa dijeljenim podacima. Formulacija opcija je dvosmislena.",
+          "readMore": [
+            "Silberschatz, Operating System Concepts (race condition)"
+          ],
+          "uncertain": true
+        },
+        {
+          "id": "sync-03",
+          "promptParts": {
+            "before": "Stanje trke se javlja samo kod operativnih sistema sa prinudnom suspenzijom (preempcijom)?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Da", "Ne"],
+          "correctAnswers": ["Ne"],
+          "context": "Ne. Stanje trke se može javiti kad god više tokova izvršavanja dijeli podatke, ne samo kod preemptivnih sistema. Dovoljno je da postoji konkurentan pristup dijeljenom podatku.",
+          "details": [
+            "Race condition zavisi od isprepletenosti pristupa dijeljenim podacima; to se dešava i na višejezgrenim sistemima (stvarni paralelizam) bez obzira na preempciju.",
+            "Preempcija jeste jedan način da nastane isprepletenost, ali nije jedini uslov - i kod stvarnog paralelizma (više jezgara) procesi rade u isto vrijeme.",
+            "Zato tvrdnja 'samo kod preemptivnih' nije tačna."
+          ],
+          "note": "Standardno OS gradivo: race condition potiče od konkurentnog pristupa dijeljenim podacima, ne isključivo od preempcije.",
+          "readMore": [
+            "Silberschatz, Operating System Concepts (race condition, konkurentnost)"
+          ]
+        },
+        {
+          "id": "sync-04",
+          "promptParts": {
+            "before": "Definicija uzajamne (međusobne) isključivosti: ako jedan proces koristi dijeljivu varijablu ili fajl, ostali procesi su onemogućeni da to rade.",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Da", "Ne"],
+          "correctAnswers": ["Da"],
+          "context": "Da. To je definicija međusobnog isključenja (mutual exclusion): dok jedan proces koristi dijeljeni resurs (varijablu, fajl) u svojoj kritičnoj sekciji, ostali ne smiju istovremeno.",
+          "details": [
+            "Međusobno isključenje je prvi od tri zahtjeva za rješenje kritične sekcije (uz napredak i ograničeno čekanje).",
+            "Time se sprječava race condition: pošto je u kritičnoj sekciji najviše jedan proces, nema isprepletenih izmjena istog podatka."
+          ],
+          "note": "Standardno OS gradivo (Silberschatz): mutual exclusion = samo jedan proces u kritičnoj sekciji nad dijeljenim resursom.",
+          "readMore": [
+            "Silberschatz, Operating System Concepts (mutual exclusion)"
+          ]
+        },
+        {
+          "id": "sync-05",
+          "promptParts": {
+            "before": "Operacija signal kod semafora je suprotna operaciji wait?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Da", "Ne"],
+          "correctAnswers": ["Da"],
+          "context": "Da. Semafor ima dvije operacije: wait (P) smanjuje vrijednost (i blokira ako je 0), a signal (V) je povećava (i budi čekajući proces). One su suprotne.",
+          "details": [
+            "wait(S): ako je S>0 smanji S i nastavi; ako je S=0, proces se blokira i čeka.",
+            "signal(S): povećaj S; ako neko čeka, probudi ga. Time signal 'oslobađa', a wait 'zauzima' resurs.",
+            "Semafor je brojač resursa; wait uzima jedan primjerak, signal vraća jedan."
+          ],
+          "note": "Standardno OS gradivo (Silberschatz): semafor - wait (P) i signal (V) su suprotne operacije.",
+          "readMore": [
+            "Silberschatz, Operating System Concepts (semafori, wait/signal)"
+          ]
+        },
+        {
+          "id": "sync-06",
+          "promptParts": {
+            "before": "Binarni semafori se nazivaju još i:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Binaphor",
+            "Mutex",
+            "Bintex",
+            "Ništa od navedenog",
+            "Twophor"
+          ],
+          "correctAnswers": ["Mutex"],
+          "context": "Binarni semafor (vrijednost samo 0 ili 1) naziva se još i mutex (mutual exclusion lock), jer služi baš za međusobno isključenje.",
+          "details": [
+            "Binarni semafor može biti 0 (zauzeto) ili 1 (slobodno), pa se ponaša kao brava koja pušta tačno jedan proces u kritičnu sekciju.",
+            "Za razliku od njega, brojni (counting) semafor može imati vrijednost veću od 1 i broji dostupne primjerke nekog resursa.",
+            "'Binaphor', 'Bintex', 'Twophor' su izmišljeni nazivi."
+          ],
+          "note": "Standardno OS gradivo (Silberschatz): binarni semafor = mutex.",
+          "readMore": [
+            "Silberschatz, Operating System Concepts (binarni vs brojni semafor, mutex)"
+          ]
+        },
+        {
+          "id": "sync-07",
+          "promptParts": {
+            "before": "Kružna brava (spin lock) koristi nezaposleno (aktivno) čekanje?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Da", "Ne"],
+          "correctAnswers": ["Da"],
+          "context": "Da. Spin lock koristi aktivno (busy / nezaposleno) čekanje: proces koji čeka na bravu vrti se u petlji i stalno provjerava bravu, trošeći procesor dok čeka.",
+          "details": [
+            "Busy waiting znači da proces ne spava, nego 'spinuje' (otud spin lock) provjeravajući uslov u petlji.",
+            "Mana: troši CPU cikluse na čekanje. Prednost: nema troška uspavljivanja/buđenja, pa je koristan kad se očekuje vrlo kratko čekanje (npr. na višeprocesorskim sistemima).",
+            "Nasuprot tome, semafor sa blokiranjem uspava proces umjesto da vrti petlju."
+          ],
+          "note": "Standardno OS gradivo (Silberschatz): spin lock = brava sa aktivnim (busy) čekanjem.",
+          "readMore": [
+            "Silberschatz, Operating System Concepts (spinlock, busy waiting)"
+          ]
+        },
+        {
+          "id": "sync-08",
+          "promptParts": {
+            "before": "Metoda varijable zaključavanja (lock variable) je 100% efikasna u rješavanju problema kritične sekcije?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Da", "Ne"],
+          "correctAnswers": ["Ne"],
+          "context": "Ne. Prosta metoda varijable zaključavanja (obična brava koju provjeravaš pa postaviš) nije 100% ispravna jer i sama ima race condition: dva procesa mogu oba pročitati bravu kao slobodnu prije nego je iko postavi.",
+          "details": [
+            "Problem: provjera brave i njeno postavljanje nisu jedna nedjeljiva (atomska) operacija. Dva procesa se mogu isprepletati baš između 'pročitaj' i 'postavi' i oba uđu u kritičnu sekciju.",
+            "Zato treba hardverska podrška (atomske instrukcije test-and-set, compare-and-swap) ili ispravni softverski algoritmi (npr. Peterson) da bi rješenje bilo korektno.",
+            "Obična lock varijabla je poučan primjer koji NE zadovoljava međusobno isključenje."
+          ],
+          "note": "Standardno OS gradivo (Silberschatz): prosta lock varijabla nije korektno rješenje (i sama ima race); treba atomska operacija.",
+          "readMore": [
+            "Silberschatz, Operating System Concepts (lock variable, test-and-set)"
+          ]
+        },
+        {
+          "id": "sync-09",
+          "promptParts": {
+            "before": "Ako je brava (lock) postavljena na 0:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Ništa od navedenog",
+            "Nema procesa u kritičnoj sekciji",
+            "Ima procesa u kritičnoj sekciji"
+          ],
+          "correctAnswers": ["Nema procesa u kritičnoj sekciji"],
+          "context": "Po uobičajenoj konvenciji, brava = 0 znači da je kritična sekcija slobodna, tj. nema procesa u njoj. Vrijednost 1 znači da je zauzeta (ima procesa).",
+          "details": [
+            "Proces prije ulaska provjeri bravu: ako je 0 (slobodno), postavi je na 1 i uđe; na izlazu je vrati na 0.",
+            "Dakle 0 = slobodno / nema nikog unutra, 1 = zauzeto / neko je unutra."
+          ],
+          "note": "Standardno gradivo: lock=0 slobodno (nema procesa u kritičnoj sekciji), lock=1 zauzeto.",
+          "readMore": [
+            "Silberschatz, Operating System Concepts (lock varijabla)"
+          ]
+        },
+        {
+          "id": "sync-10",
+          "promptParts": {
+            "before": "Ako je brava (lock) postavljena na 2:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Ima procesa u kritičnoj sekciji",
+            "Ništa od navedenog",
+            "Nema procesa u kritičnoj sekciji"
+          ],
+          "correctAnswers": ["Ništa od navedenog"],
+          "context": "Brava (lock) je binarna varijabla i može imati samo vrijednosti 0 (slobodno) ili 1 (zauzeto). Vrijednost 2 nije validna, pa je tačno 'Ništa od navedenog'.",
+          "details": [
+            "Kod obične brave/mutexa postoje samo dva stanja: slobodno i zauzeto.",
+            "Vrijednost 2 bi imala smisla samo kod brojnog (counting) semafora, koji broji primjerke resursa, ali to nije 'brava' iz pitanja."
+          ],
+          "note": "Standardno gradivo: brava je binarna (0/1); vrijednost 2 je nevažeća.",
+          "readMore": [
+            "Silberschatz, Operating System Concepts (binarni semafor / brava)"
+          ]
+        },
+        {
+          "id": "sync-11",
+          "promptParts": {
+            "before": "Print spooler je primjer problema proizvođača i potrošača?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Da", "Ne"],
+          "correctAnswers": ["Da"],
+          "context": "Da. Print spooler je klasičan primjer problema proizvođač-potrošač: procesi (proizvođači) stavljaju poslove za štampu u red (bafer), a štampač/spooler (potrošač) ih vadi i štampa.",
+          "details": [
+            "Bafer je red poslova za štampu; proizvođači dodaju poslove, potrošač (štampač) ih uzima jedan po jedan.",
+            "Treba sinhronizacija: ne dodavati u pun red, ne uzimati iz praznog, i ne dirati red istovremeno - baš problem proizvođač-potrošač."
+          ],
+          "note": "Standardno OS gradivo: print spooler = primjer producer-consumer (bafer poslova za štampu).",
+          "readMore": [
+            "Silberschatz, Operating System Concepts (producer-consumer, spooling)"
+          ]
+        },
+        {
+          "id": "sync-12",
+          "promptParts": {
+            "before": "Ako tri čitača, bez ijednog pisača, istovremeno pristupaju bazi podataka, javlja se problem čitača i pisača?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Da", "Ne"],
+          "correctAnswers": ["Ne"],
+          "context": "Ne. Više čitača bez ijednog pisača ne stvara problem: čitanje ne mijenja podatke, pa proizvoljno mnogo čitača može istovremeno čitati bez konflikta.",
+          "details": [
+            "Problem čitača i pisača nastaje tek kad je uključen pisač: pisanje mijenja podatke, pa se pisač mora izuzeti od svih ostalih (i čitača i pisača).",
+            "Čitač-čitač par nije u konfliktu; samo pisač unosi potrebu za međusobnim isključenjem."
+          ],
+          "note": "Standardno OS gradivo (Silberschatz): više čitača bez pisača = nema konflikta; problem traži prisustvo pisača.",
+          "readMore": [
+            "Silberschatz, Operating System Concepts (readers-writers problem)"
+          ]
+        },
+        {
+          "id": "sync-13",
+          "promptParts": {
+            "before": "Ako pet čitača i jedan pisač istovremeno pristupaju bazi podataka, javlja se problem čitača i pisača?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Da", "Ne"],
+          "correctAnswers": ["Da"],
+          "context": "Da. Čim je uz čitače prisutan i pisač, javlja se problem čitača i pisača: pisač mijenja podatke, pa ne smije pisati dok neko čita (niti smije više njih istovremeno pisati).",
+          "details": [
+            "Pisanje mora biti isključivo: dok pisač piše, nijedan čitač ne smije čitati (mogao bi pročitati polovično izmijenjen podatak).",
+            "Rješenje balansira pristup: dozvoljava više čitača istovremeno, ali pisaču daje isključiv pristup."
+          ],
+          "note": "Standardno OS gradivo (Silberschatz): prisustvo pisača uz čitače stvara problem čitača i pisača.",
+          "readMore": [
+            "Silberschatz, Operating System Concepts (readers-writers problem)"
+          ]
+        },
+        {
+          "id": "sync-14",
+          "promptParts": {
+            "before": "Klasični problemi sinhronizacije su: (označi sve tačno)",
+            "blank": "",
+            "after": ""
+          },
+          "type": "multiple",
+          "options": [
+            "Problem filozofa za ručkom",
+            "Problem miša i tastature",
+            "Problem čitača i pisača",
+            "Problem filozofa za večerom",
+            "Problem monitora i zvučnika"
+          ],
+          "correctAnswers": [
+            "Problem čitača i pisača",
+            "Problem filozofa za večerom"
+          ],
+          "context": "Klasični problemi sinhronizacije u literaturi su: problem čitača i pisača (readers-writers) i problem filozofa za večerom (dining philosophers). (Klasičan je i problem proizvođač-potrošač, ali nije ponuđen.)",
+          "details": [
+            "Problem filozofa za večerom (dining philosophers) ilustruje zastoj i izgladnjivanje pri dijeljenju resursa (viljušaka).",
+            "Problem čitača i pisača ilustruje balansiranje pristupa dijeljenim podacima (više čitača vs isključiv pisač).",
+            "'Miš i tastatura' i 'monitor i zvučnik' su izmišljeni, nisu problemi sinhronizacije. 'Filozofa za ručkom' je nezgrapan prevod istog problema (standardno je 'za večerom')."
+          ],
+          "note": "Standardno OS gradivo (Silberschatz): klasični problemi su bounded-buffer, readers-writers i dining philosophers. Naziv 'za večerom' je standardan.",
+          "readMore": [
+            "Silberschatz, Operating System Concepts (klasični problemi sinhronizacije)"
+          ],
+          "uncertain": true
+        },
+        {
+          "id": "sync-15",
+          "promptParts": {
+            "before": "Problem monitora i zvučnika se rješava:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Tako što se povežu pomoću kablova",
+            "Problem monitora i zvučnika nije problem sinhronizacije procesa.",
+            "Tako što instaliramo drivere"
+          ],
+          "correctAnswers": [
+            "Problem monitora i zvučnika nije problem sinhronizacije procesa."
+          ],
+          "context": "'Problem monitora i zvučnika' nije stvarni problem sinhronizacije procesa - izmišljen je kao distraktor. Klasični problemi su proizvođač-potrošač, čitači-pisači i filozofi za večerom.",
+          "details": [
+            "Riječ 'monitor' u sinhronizaciji označava konstrukciju za sinhronizaciju (monitor kao apstraktni tip), a ne ekran; otud zabuna u pitanju.",
+            "Stvarni klasični problemi ilustruju međusobno isključenje, zastoj i izgladnjivanje; 'monitor i zvučnik' nije jedan od njih."
+          ],
+          "note": "Standardno gradivo: 'monitor i zvučnik' nije problem sinhronizacije (distraktor).",
+          "readMore": [
+            "Silberschatz, Operating System Concepts (klasični problemi, monitori)"
+          ]
+        },
+        {
+          "id": "sync-16",
+          "promptParts": {
+            "before": "Do potpunog zastoja (deadlock) dolazi kad:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Proces koji ne čeka drži resurse koji su mu potrebni.",
+            "Proces koji čeka nikad više ne promijeni to stanje, jer resurse koji su mu potrebni drži on sam.",
+            "Proces koji čeka nikad više ne promijeni to stanje, jer resurse koji su mu potrebni drže drugi procesi.",
+            "Proces koji čeka drži resurse koji su mu potrebni."
+          ],
+          "correctAnswers": [
+            "Proces koji čeka nikad više ne promijeni to stanje, jer resurse koji su mu potrebni drže drugi procesi."
+          ],
+          "context": "Potpuni zastoj (deadlock) je stanje u kojem proces zauvijek čeka, jer resurse koje treba drže drugi procesi koji i sami čekaju (kružno) - pa niko ne može nastaviti.",
+          "details": [
+            "Zastoj zahtijeva da svaki proces u grupi drži neki resurs i čeka na resurs koji drži drugi iz grupe (kružno čekanje).",
+            "Zato niko ne može osloboditi svoj resurs (jer i sam čeka), pa stanje nikad ne promijeni - svi su zaglavljeni.",
+            "Distraktori koji kažu da proces drži resurse 'koje sam sebi treba' ili 'ne čeka' ne opisuju zastoj."
+          ],
+          "note": "Standardno OS gradivo (Silberschatz): deadlock = proces beskonačno čeka jer potrebne resurse drže drugi procesi (koji i sami čekaju).",
+          "readMore": [
+            "Silberschatz, Operating System Concepts (deadlock, uslovi zastoja)"
+          ]
+        },
+        {
+          "id": "sync-17",
+          "promptParts": {
+            "before": "Windows i UNIX operativni sistemi sa potpunim zastojima (deadlock) postupaju:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Tako što preko svojih aplikacija ih razrješavaju",
+            "Tako što se prave da potpuni zastoji i ne postoje i ignorišu ih.",
+            "Tako što njihov sistemski software ih uklanja na siguran način"
+          ],
+          "correctAnswers": [
+            "Tako što se prave da potpuni zastoji i ne postoje i ignorišu ih."
+          ],
+          "context": "Većina sistema opšte namjene (Windows, UNIX/Linux) zastoje jednostavno ignoriše - pretpostavljaju da su rijetki i prepuštaju rješavanje korisniku (npr. restart). To se zove 'noj-algoritam' (ostrich).",
+          "details": [
+            "Formalno rukovanje zastojem (prevencija, izbjegavanje, detekcija+oporavak) je skupo i ograničava sistem, pa se za rijetke zastoje ne isplati.",
+            "Zato Windows i UNIX biraju ignorisanje: ako do zastoja dođe, obično ga korisnik primijeti i ručno riješi (ubije proces, restartuje).",
+            "Naziv 'noj-algoritam' dolazi od slike noja koji zabije glavu u pijesak (pravi se da problem ne postoji)."
+          ],
+          "note": "Standardno OS gradivo (Tanenbaum): sistemi opšte namjene (UNIX, Windows) zastoje uglavnom ignorišu (ostrich / noj-algoritam).",
+          "readMore": [
+            "Tanenbaum, Modern Operating Systems (ostrich algorithm); Silberschatz (deadlock handling)"
+          ]
+        },
+        {
+          "id": "sync-18",
+          "promptParts": {
+            "before": "Onemogućavanje prekida (radi zaštite kritične sekcije) je neprikladan pristup, jer:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Preporučuje se davanje ovih ovlasti sistemskim procesima, jer ako bi ih zaboravili uključiti, sistem bi bio efikasniji.",
+            "Preporučuje se davanje ovih ovlasti korisničkim procesima, jer ako bi ih zaboravili uključiti, sistem bi bio efikasniji.",
+            "Ništa od navedenog",
+            "Ne preporučuje se davanje ovih ovlasti korisničkim procesima, jer ako bi ih zaboravili uključiti, sistem bi bio efikasniji.",
+            "Ne preporučuje se davanje ovih ovlasti sistemskim procesima, jer to u većini operativnih sistema to rade sistemski procesi.",
+            "Ne preporučuje se davanje ovih ovlasti korisničkim procesima, jer ako bi ih zaboravili uključiti, to bi bio kraj za sistem."
+          ],
+          "correctAnswers": [
+            "Ne preporučuje se davanje ovih ovlasti korisničkim procesima, jer ako bi ih zaboravili uključiti, to bi bio kraj za sistem."
+          ],
+          "context": "Onemogućavanje prekida se ne smije davati korisničkim procesima: ako bi korisnički proces isključio prekide i zaboravio ih ponovo uključiti, sistem bi stao (kraj za sistem).",
+          "details": [
+            "Isključivanje prekida sprječava preempciju, ali je to preveliko ovlaštenje za korisnički kod - loš ili zlonamjeran proces bi mogao zamrznuti cijeli sistem.",
+            "Zato je to alat rezervisan za kratke, kontrolisane dijelove kernela, ne za korisničke procese.",
+            "Dodatno, na višeprocesorskim sistemima isključivanje prekida na jednoj jezgri ne štiti od druge jezgre, pa metoda ionako nije dovoljna."
+          ],
+          "note": "Standardno OS gradivo (Silberschatz): isključivanje prekida nije prikladno za korisničke procese (rizik zamrzavanja sistema; ne skalira na više jezgara).",
+          "readMore": [
+            "Silberschatz, Operating System Concepts (disabling interrupts, sinhronizacija)"
+          ]
+        },
+        {
+          "id": "sync-19",
+          "promptParts": {
+            "before": "IPC je skraćenica od:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Internet Currency Protocol",
+            "Intel Celeron Point",
+            "InterProcess Communication"
+          ],
+          "correctAnswers": ["InterProcess Communication"],
+          "context": "IPC = InterProcess Communication (međuprocesna komunikacija): mehanizmi kojima procesi razmjenjuju podatke i sinhronizuju se.",
+          "details": [
+            "Dva osnovna modela IPC-a su dijeljenje memorije (shared memory) i prosljeđivanje poruka (message passing).",
+            "IPC je nužan za kooperativne procese (npr. proizvođač-potrošač), koji moraju razmjenjivati informacije."
+          ],
+          "note": "Standardno OS gradivo: IPC = InterProcess Communication (shared memory i message passing).",
+          "readMore": [
+            "Upravljanje procesima.pdf (IPC: dijeljenje memorije i prosljeđivanje poruka)"
+          ]
+        },
+        {
+          "id": "sync-20",
+          "promptParts": {
+            "before": "Data su dva procesa P1 i P2 koji dijele globalne promjenljive b i c sa početnim vrijednostima b=1 i c=2. Ako P1 prvi izvrši b=b+c, a nakon toga P2 izvrši c=b+c, konačne vrijednosti su:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "b=2, c=1",
+            "Ništa od navedenog",
+            "b=5, c=3",
+            "b=1, c=2",
+            "b=3, c=5"
+          ],
+          "correctAnswers": ["b=3, c=5"],
+          "context": "Redoslijed je zadan: prvo P1, pa P2. P1: b = b + c = 1 + 2 = 3. Zatim P2: c = b + c = 3 + 2 = 5. Konačno b=3, c=5.",
+          "details": [
+            "Korak 1 (P1): b = 1 + 2 = 3. Sada je b=3, c=2.",
+            "Korak 2 (P2): c = b + c = 3 + 2 = 5. Sada je b=3, c=5.",
+            "Ovdje je redoslijed fiksiran, pa nema utrkivanja; da redoslijed nije zadan, različit raspored bi dao različit rezultat (to bi bio race condition)."
+          ],
+          "note": "Račun: P1 (b=b+c=3), pa P2 (c=b+c=5) → b=3, c=5.",
+          "readMore": [
+            "Silberschatz, Operating System Concepts (dijeljene varijable, race condition)"
+          ]
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 4,
+      "sourceTaskName": "Linux komande i permisije",
+      "questions": [
+        {
+          "id": "cmd-01",
+          "promptParts": {
+            "before": "ls -l koristimo da bismo:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Omogućili logiranje na sistem drugim neroot korisnicima",
+            "Konfigurisali mrežnu topologiju velike (duge) zvijezde",
+            "Vidjeli permisije nad datotekama",
+            "Ništa od navedenog"
+          ],
+          "correctAnswers": ["Vidjeli permisije nad datotekama"],
+          "context": "ls -l ispisuje sadržaj direktorija u proširenom (long) formatu: tip, permisije, broj linkova, vlasnika, grupu, veličinu, datum i ime za svaku datoteku.",
+          "details": [
+            "Prvi znak reda je tip (- fajl, d direktorij, l simbolički link), a sljedećih 9 znakova su permisije (rwx za vlasnika, grupu i ostale).",
+            "Ostale opcije su izmišljene (ls nema veze sa mrežnom topologijom ni logiranjem korisnika)."
+          ],
+          "note": "Opšte znanje: ls -l = prošireni ispis, prikazuje i permisije.",
+          "readMore": ["Ubuntu_osnovneKomande.pdf (ls -l, permisije)"]
+        },
+        {
+          "id": "cmd-02",
+          "promptParts": {
+            "before": "rwx znači:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Ništa od navedenog",
+            "Nema čitanja, nema pisanja, nema izvršavanja",
+            "Moguće čitanje, moguće pisanje, moguće izvršavanje",
+            "Nema čitanja, nema pisanja, nema iščitavanja",
+            "Moguće čitanje, moguće pisanje, moguće iščitavanje"
+          ],
+          "correctAnswers": [
+            "Moguće čitanje, moguće pisanje, moguće izvršavanje"
+          ],
+          "context": "rwx znači da su dozvoljena sva tri prava: r = čitanje (read), w = pisanje (write), x = izvršavanje (execute).",
+          "details": [
+            "Kad je pravo ukinuto, na tom mjestu stoji crtica: npr. r-x znači čitanje i izvršavanje, ali ne pisanje.",
+            "Oktalno rwx = 4+2+1 = 7 (r=4, w=2, x=1)."
+          ],
+          "note": "Opšte znanje: r=čitanje, w=pisanje, x=izvršavanje; rwx = sva tri dozvoljena.",
+          "readMore": ["Ubuntu_osnovneKomande.pdf, str. 10 (rwx permisije)"]
+        },
+        {
+          "id": "cmd-03",
+          "promptParts": {
+            "before": "U chmod-u, slovo 'a' predstavlja:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Člana grupe",
+            "Uklanjanje permisija",
+            "Dodavanje permisija",
+            "Sve korisnike (svijet)",
+            "Ostale",
+            "Ništa od navedenog",
+            "Korisnika",
+            "Ljepljivi bit"
+          ],
+          "correctAnswers": ["Sve korisnike (svijet)"],
+          "context": "U simboličkom chmod-u 'a' (all) označava sve tri kategorije zajedno: vlasnika, grupu i ostale (u + g + o).",
+          "details": [
+            "Oznake 'ko': u = vlasnik (user), g = grupa, o = ostali (others), a = svi (all).",
+            "Npr. 'chmod a+x fajl' dodaje pravo izvršavanja svima."
+          ],
+          "note": "Opšte znanje: chmod 'a' = svi (vlasnik + grupa + ostali).",
+          "readMore": [
+            "Ubuntu_osnovneKomande.pdf, str. 10 (simbolički chmod, u/g/o/a)"
+          ]
+        },
+        {
+          "id": "cmd-04",
+          "promptParts": {
+            "before": "U permisijama, slovo 't' predstavlja:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Ništa od navedenog",
+            "Uklanjanje permisija",
+            "Korisnika",
+            "Sve korisnike (svijet)",
+            "Dodavanje permisija",
+            "Ljepljivi bit",
+            "Ostale",
+            "Člana grupe"
+          ],
+          "correctAnswers": ["Ljepljivi bit"],
+          "context": "Slovo 't' na kraju permisija označava ljepljivi bit (sticky bit).",
+          "details": [
+            "Sticky bit se postavlja na direktorije (npr. /tmp): tada u tom folderu korisnik može brisati/preimenovati samo svoje fajlove, ne i tuđe (osim vlasnika i root-a).",
+            "Postavlja se sa 'chmod +t folder', a u ls -l se vidi kao 't' na mjestu izvršnog bita za ostale (npr. drwxrwxrwt)."
+          ],
+          "note": "Citat (vježbe, sticky bit): 'kao posljednji karakter trebalo bi da bude slovo t' - to je ljepljivi bit.",
+          "readMore": ["OS_V_S5_S6.pdf, str. 4-5 (sticky bit)"]
+        },
+        {
+          "id": "cmd-05",
+          "promptParts": {
+            "before": "U chmod-u, slovo 'u' predstavlja:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Člana grupe",
+            "Uklanjanje permisija",
+            "Sve korisnike (svijet)",
+            "Dodavanje permisija",
+            "Ništa od navedenog",
+            "Ljepljivi bit",
+            "Korisnika"
+          ],
+          "correctAnswers": ["Korisnika"],
+          "context": "U simboličkom chmod-u 'u' (user) označava vlasnika datoteke.",
+          "details": [
+            "Oznake 'ko': u = vlasnik (user), g = grupa (group), o = ostali (others), a = svi (all).",
+            "Npr. 'chmod u-r fajl' oduzima vlasniku pravo čitanja."
+          ],
+          "note": "Opšte znanje: chmod 'u' = vlasnik (user/owner).",
+          "readMore": [
+            "Ubuntu_osnovneKomande.pdf, str. 10 (simbolički chmod, u/g/o/a)"
+          ]
+        },
+        {
+          "id": "cmd-06",
+          "promptParts": {
+            "before": "Permisije na datoteci ispit.txt bile su: -r-xr-x-x. Nakon komande chmod 50 ispit.txt, permisije su:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "------rw--",
+            "-rwxr--r-x",
+            "-r--rwx---",
+            "-rw-------",
+            "----r--rwx",
+            "----r-x---"
+          ],
+          "correctAnswers": ["----r-x---"],
+          "context": "chmod 50 postavlja permisije apsolutno (bez obzira na prethodno stanje): 50 se čita kao 050, tj. vlasnik=0, grupa=5, ostali=0. Rezultat je ----r-x---.",
+          "details": [
+            "Oktalno: r=4, w=2, x=1. Vlasnik 0 = --- (ništa), grupa 5 = r-x (4+1), ostali 0 = --- (ništa).",
+            "Sastavljeno: tip '-' + vlasnik '---' + grupa 'r-x' + ostali '---' = ----r-x---.",
+            "Prethodne permisije (-r-xr-x-x) su nebitne jer oktalni chmod postavlja tačnu vrijednost."
+          ],
+          "note": "Račun: 50 → 050 → vlasnik ---, grupa r-x, ostali --- → ----r-x---.",
+          "readMore": ["Ubuntu_osnovneKomande.pdf, str. 10 (oktalne permisije)"]
+        },
+        {
+          "id": "cmd-07",
+          "promptParts": {
+            "before": "Komandom chmod go= imedatoteke:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Pravimo novu datoteku",
+            "Ništa od navedenog",
+            "Uklanjamo korisnika",
+            "Blokiramo pristup određenoj datoteci ostalim korisnicima",
+            "Otvaramo određenu datoteku"
+          ],
+          "correctAnswers": [
+            "Blokiramo pristup određenoj datoteci ostalim korisnicima"
+          ],
+          "context": "chmod go= postavlja prava grupe (g) i ostalih (o) na prazno (nikakva prava), pa datoteci mogu pristupiti samo vlasnik (i root). Time se blokira pristup ostalim korisnicima.",
+          "details": [
+            "Znak '=' postavlja prava tačno na navedeno; kad iza njega nema slova, znači 'nikakva prava'.",
+            "go= → grupa i ostali dobijaju ---; vlasnikova prava se ne diraju.",
+            "Rezultat: samo vlasnik može raditi s datotekom (koliko god prava vlasnik ima)."
+          ],
+          "note": "Opšte znanje: 'chmod go=' skida sva prava grupi i ostalima (--- ---), pa ostaje samo vlasnik.",
+          "readMore": ["Ubuntu_osnovneKomande.pdf, str. 10 (simbolički chmod)"]
+        },
+        {
+          "id": "cmd-08",
+          "promptParts": {
+            "before": "Kojom komandom ćete izbrisati datoteku datoteka1?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "# er datoteka1",
+            "ništa od navedenog",
+            "# clr datoteka1",
+            "# cls datoteka1",
+            "# rm datoteka1",
+            "# erase moonlink datoteka1"
+          ],
+          "correctAnswers": ["# rm datoteka1"],
+          "context": "Datoteka se briše komandom rm (remove): 'rm datoteka1'.",
+          "details": [
+            "rm briše fajlove; 'rm -r' briše i direktorije rekurzivno, 'rm -f' bez pitanja.",
+            "'er', 'clr', 'cls', 'erase' nisu Linux/UNIX komande za brisanje fajlova (cls/erase su DOS/Windows)."
+          ],
+          "note": "Opšte znanje: rm = brisanje datoteke u UNIX/Linux.",
+          "readMore": ["Ubuntu_osnovneKomande.pdf (rm, osnovne komande)"]
+        },
+        {
+          "id": "cmd-09",
+          "promptParts": {
+            "before": "Kojom komandom možemo \"očistiti\" sadržaj ekrana?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["empty", "clean", "erase", "cls", "clear", "reset"],
+          "correctAnswers": ["clear"],
+          "context": "Ekran (terminal) se čisti komandom clear.",
+          "details": [
+            "clear pomjeri prethodni ispis van vidokruga i vrati prompt na vrh.",
+            "'cls' je Windows/DOS ekvivalent; 'reset' potpuno reinicijalizuje terminal (jače od clear-a); 'empty', 'clean', 'erase' nisu te komande."
+          ],
+          "note": "Opšte znanje: clear = čišćenje ekrana u UNIX/Linux (cls je DOS).",
+          "readMore": ["V_OS_ShellFajl.pdf (komanda clear)"]
+        },
+        {
+          "id": "cmd-10",
+          "promptParts": {
+            "before": "Koja komanda prikazuje sve procese u realnom vremenu, kao i količinu zauzete i slobodne memorije te opterećenje procesora?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["ls -l", "top", "lsof", "man", "ps"],
+          "correctAnswers": ["top"],
+          "context": "top prikazuje procese u realnom vremenu, sa iskorištenjem CPU-a i memorije, i osvježava se uživo.",
+          "details": [
+            "top se stalno osvježava i sortira procese (npr. po CPU-u), pa se koristi za praćenje sistema uživo.",
+            "ps daje trenutni 'snimak' procesa (bez osvježavanja); lsof lista otvorene fajlove; man je priručnik; ls -l lista fajlove."
+          ],
+          "note": "Opšte znanje: top = procesi + memorija + CPU u realnom vremenu.",
+          "readMore": ["OS_V_Procesi.pdf (top, ps)"]
+        },
+        {
+          "id": "cmd-11",
+          "promptParts": {
+            "before": "Da li komanda \"man\" služi za online priručnik (help)?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Da", "Ne"],
+          "correctAnswers": ["Da"],
+          "context": "Da. man (manual) otvara priručnik (pomoć) za komande: opis, sintaksu, opcije i primjere. 'Online' ovdje znači ugrađen u sistem (dostupan u terminalu), ne na internetu.",
+          "details": [
+            "Npr. 'man ls' prikazuje priručnik za komandu ls.",
+            "'man -k <riječ>' (isto što i apropos) pretražuje priručnike po ključnoj riječi."
+          ],
+          "note": "Opšte znanje: man = ugrađeni priručnik za komande.",
+          "readMore": ["UbuntuKomande_2.pdf, str. 2 (man, man -k)"]
+        },
+        {
+          "id": "cmd-12",
+          "promptParts": {
+            "before": "Kod kucanja komandi, znak # označava:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "ništa od navedenog",
+            "root korisnika",
+            "server",
+            "bilo kojeg drugog korisnika osim root-a"
+          ],
+          "correctAnswers": ["root korisnika"],
+          "context": "U prompt-u shell-a, znak # označava da si prijavljen kao root (administrator).",
+          "details": [
+            "Konvencija: # = root (sve privilegije), a % ili $ = običan korisnik.",
+            "Zato se u priručnicima komande koje traže administratorske ovlasti pišu sa # ispred."
+          ],
+          "note": "Citat (vježbe): 'znak # označava da ste logirani kao root korisnik, dok % ili $ označava shell drugog korisnika.'",
+          "readMore": ["OS_V_S5_S6.pdf, str. 2 (# root, %/$ običan korisnik)"]
+        },
+        {
+          "id": "cmd-13",
+          "promptParts": {
+            "before": "Kod kucanja komandi, znak % ili $ označava:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Ništa od navedenog",
+            "Bilo kojeg drugog korisnika osim root-a",
+            "Server",
+            "Root korisnika"
+          ],
+          "correctAnswers": ["Bilo kojeg drugog korisnika osim root-a"],
+          "context": "U prompt-u shell-a, % ili $ označava da si prijavljen kao običan (neroot) korisnik.",
+          "details": [
+            "Konvencija: # = root, a % (npr. C shell) ili $ (npr. Bourne/Bash) = običan korisnik.",
+            "Tako se odmah vidi radiš li sa administratorskim ovlastima ili ne."
+          ],
+          "note": "Citat (vježbe): '# označava root korisnika, dok % ili $ označava shell bilo kojeg drugog korisnika.'",
+          "readMore": ["OS_V_S5_S6.pdf, str. 2 (# root, %/$ običan korisnik)"]
+        },
+        {
+          "id": "cmd-14",
+          "promptParts": {
+            "before": "Koji od ponuđenih signala je strožiji i ne čeka s ubijanjem procesa?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["SigKILL", "SigTERM"],
+          "correctAnswers": ["SigKILL"],
+          "context": "SIGKILL (signal 9) je strožiji: odmah i bezuslovno ubija proces, bez čekanja i bez mogućnosti da ga proces ignoriše ili obradi.",
+          "details": [
+            "SIGTERM (signal 15) je 'ljubazan' zahtjev za gašenje: proces ga može uhvatiti i uredno se ugasiti (sačuvati podatke, zatvoriti fajlove).",
+            "SIGKILL proces ne može uhvatiti ni ignorisati, pa se koristi kad SIGTERM ne uspije. Mana: proces nema priliku da uredno zatvori resurse."
+          ],
+          "note": "Opšte znanje: SIGKILL (9) = trenutno, bezuslovno; SIGTERM (15) = ljubazan zahtjev koji se može obraditi.",
+          "readMore": ["OS_V_Procesi.pdf (signali, kill, SIGKILL/SIGTERM)"]
+        },
+        {
+          "id": "cmd-15",
+          "promptParts": {
+            "before": "Koji znak omogućuje da jedna komanda mora da se izvrši (uspješno) da bi se druga izvršila?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["&&", ">", ">>", "||", "&"],
+          "correctAnswers": ["&&"],
+          "context": "Operator && (logičko I) izvršava drugu komandu samo ako je prva uspješno završila (izlazni kod 0).",
+          "details": [
+            "Npr. 'make && make install' pokreće instalaciju samo ako je kompajliranje uspjelo.",
+            "Suprotno: || pokreće drugu komandu ako prva NE uspije; ';' pokreće drugu bez obzira na ishod; '>' i '>>' su preusmjeravanje izlaza; '&' pokreće u pozadini."
+          ],
+          "note": "Opšte znanje: && = izvrši drugu samo ako prva uspije.",
+          "readMore": ["Opšte znanje o shell operatorima (&&, ||, ;)"]
+        },
+        {
+          "id": "cmd-16",
+          "promptParts": {
+            "before": "Koji znak omogućuje da se druga komanda izvrši iako prva nije (uspješno) izvršena?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["&&", "||", "&", ";", "|"],
+          "correctAnswers": ["||"],
+          "context": "Operator || (logičko ILI) izvršava drugu komandu ako prva NE uspije (vrati grešku). Tako se druga izvrši baš kad prva 'nije prošla'.",
+          "details": [
+            "Npr. 'komanda || echo greška' ispiše 'greška' samo ako komanda padne.",
+            "Napomena: i ';' pokreće drugu komandu nakon prve bez obzira na ishod (odvaja komande), ali '||' je logička suprotnost od '&&' i vezuje se za neuspjeh prve."
+          ],
+          "note": "Opšte znanje: || = izvrši drugu ako prva ne uspije. (';' izvršava drugu bez obzira na ishod - formulacija je blizu, pa ako je kurs mislio na to, odgovor bi bio ';'.)",
+          "readMore": ["Opšte znanje o shell operatorima (||, ;, &&)"],
+          "uncertain": true
+        },
+        {
+          "id": "cmd-17",
+          "promptParts": {
+            "before": "Potrebno je prekinuti sesiju spojenu na kriptovani terminal preko udaljene veze. Process ID-ovi su: 463 za Telnet server, 380 za HTTP server, 329 za SSH server, 793 za SMTP server. Koju komandu koristimo?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "/bin/kill -n 9 329",
+            "/bin/kill -n 9 380",
+            "/bin/kill -n 9 463",
+            "/bin/kill -n 9 592",
+            "/bin/kill -n 9 236",
+            "/bin/kill -n 9 793"
+          ],
+          "correctAnswers": ["/bin/kill -n 9 329"],
+          "context": "'Kriptovani terminal preko udaljene veze' je SSH (Secure Shell). SSH server ima PID 329, pa ga ubijamo sa 'kill -9 329'.",
+          "details": [
+            "SSH je kriptovan (za razliku od Telneta koji je nešifrovan), pa se 'kriptovani terminal preko udaljene veze' odnosi baš na SSH.",
+            "'-n 9' (odnosno -9) šalje signal 9 (SIGKILL) koji trenutno prekida proces.",
+            "Ostali PID-ovi su drugi servisi (Telnet 463, HTTP 380, SMTP 793) - njih ne diramo."
+          ],
+          "note": "Opšte znanje: SSH = kriptovani udaljeni terminal; kill -9 <PID> ga trenutno prekida.",
+          "readMore": ["OS_V_Procesi.pdf (kill, signali)"]
+        },
+        {
+          "id": "cmd-18",
+          "promptParts": {
+            "before": "Komanda za kopiranje svih datoteka sa nastavkom txt u direktorij fit:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "cp *.txt fit/",
+            "copy *txt fit/",
+            "find .-name\"*txt\"|fit/",
+            "find *.txt-name \"fit/\"|copy",
+            "cp txt.*fit/",
+            "mv*.txt fit/"
+          ],
+          "correctAnswers": ["cp *.txt fit/"],
+          "context": "Kopiranje svih .txt fajlova u direktorij fit radi se sa 'cp *.txt fit/'.",
+          "details": [
+            "cp = copy; *.txt je wildcard koji hvata sve fajlove koji završavaju na .txt; fit/ je odredišni direktorij.",
+            "'copy' je Windows/DOS (ne UNIX); 'mv' bi premjestio (ne kopirao); ostale opcije su sintaksno pogrešne."
+          ],
+          "note": "Opšte znanje: cp *.txt fit/ kopira sve .txt fajlove u folder fit.",
+          "readMore": ["Ubuntu_osnovneKomande.pdf (cp, wildcard)"]
+        },
+        {
+          "id": "cmd-19",
+          "promptParts": {
+            "before": "Na tastaturi, kombinacijom tipki od ALT+F1 do ALT+F8:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Ubijamo procese",
+            "Mijenjamo korisnike",
+            "Ništa od navedenog",
+            "Mijenjamo virtualne konzole",
+            "Otvaramo tekst editor"
+          ],
+          "correctAnswers": ["Mijenjamo virtualne konzole"],
+          "context": "Kombinacije ALT+F1 do ALT+F8 prebacuju između virtualnih konzola (virtuelnih terminala) sistema.",
+          "details": [
+            "Virtualna konzola je zaseban tekstualni terminal; sistem ih ima više, pa se možeš prijaviti na više njih istovremeno i prebacivati se tastaturom.",
+            "U grafičkom okruženju jedna od tih kombinacija vodi na grafičku sesiju, a ostale na tekstualne konzole."
+          ],
+          "note": "Opšte znanje (Linux/UNIX): ALT+F1..F8 = prebacivanje virtualnih konzola.",
+          "readMore": ["Opšte znanje o virtualnim konzolama"]
+        },
+        {
+          "id": "cmd-20",
+          "promptParts": {
+            "before": "Želimo raspakovati ispit.zip u home direktorij root korisnika. Koristit ćemo komandu:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "unzip ispit.zip /home/",
+            "zip -r ispit.zip /home/root",
+            "unzip ~ispit.zip",
+            "unzip ispit.zip -d /home/root",
+            "unzip ispit.zip -d~"
+          ],
+          "correctAnswers": ["unzip ispit.zip -d /home/root"],
+          "context": "unzip raspakuje .zip arhivu; opcija -d zadaje odredišni direktorij. Za home root korisnika (/home/root) to je 'unzip ispit.zip -d /home/root'.",
+          "details": [
+            "-d <direktorij> govori unzip-u gdje da raspakuje sadržaj.",
+            "'zip -r' bi napravio arhivu (ne raspakovao); 'unzip ispit.zip /home/' tretira /home/ kao fajl za izdvajanje, ne odredište; '~' sintakse su pogrešne."
+          ],
+          "note": "Opšte znanje: unzip ispit.zip -d /odredište raspakuje u zadati direktorij.",
+          "readMore": ["Opšte znanje o unzip (-d odredište)"]
+        },
+        {
+          "id": "cmd-21",
+          "promptParts": {
+            "before": "Da bi dekompresovali arhivu \"os.tar.gz\", potrebno je izvršiti komandu:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "tar xzvf os.tar.gz",
+            "unzip os.tar.gz",
+            "gzip -x os.tar.gz",
+            "untar x os.tar.gz",
+            "tar xvf os.tar.gz"
+          ],
+          "correctAnswers": ["tar xzvf os.tar.gz"],
+          "context": "Za .tar.gz arhivu koristi se 'tar xzvf os.tar.gz': x = extract (izdvoj), z = gzip (dekompresuj), v = verbose (ispis), f = file (ime arhive slijedi).",
+          "details": [
+            ".tar.gz je tar arhiva dodatno kompresovana gzip-om, pa treba i raspakovati (tar) i dekompresovati (z/gzip).",
+            "'unzip' je za .zip; 'untar' ne postoji kao komanda; 'gzip -x' nije ispravno. Napomena: moderni GNU tar auto-detektuje kompresiju, pa i 'tar xvf' radi, ali kanonski odgovor je xzvf.",
+            "(Opcije u originalnom ispitu bile su iskrivljene - suština je flag xzvf.)"
+          ],
+          "note": "Opšte znanje: tar xzvf za .tar.gz (x izdvoj, z gzip, v verbose, f fajl). Originalne opcije su bile iskrivljene.",
+          "readMore": ["Opšte znanje o tar/gzip"],
+          "uncertain": true
+        },
+        {
+          "id": "cmd-22",
+          "promptParts": {
+            "before": "Koje su naredbe za izlazak iz tekst editora vi? (označi tačne)",
+            "blank": "",
+            "after": ""
+          },
+          "type": "multiple",
+          "options": [
+            ":exit",
+            ":q",
+            ":wq",
+            ":x",
+            ":ZZ",
+            ":wq!",
+            ":Esc",
+            ":e",
+            ":q!"
+          ],
+          "correctAnswers": [":q", ":wq", ":x", ":wq!", ":q!"],
+          "context": "Iz vi/vim se izlazi komandama u komandnom modu (poslije dvotačke): :q (izađi), :q! (izađi bez čuvanja), :wq (sačuvaj i izađi), :x (sačuvaj i izađi), :wq! (sačuvaj i izađi na silu).",
+          "details": [
+            ":q traži da nema nesačuvanih izmjena; :q! izlazi i odbacuje izmjene; :wq i :x čuvaju pa izlaze; :wq! forsira upis (npr. read-only).",
+            "Napomene: pravi 'save and quit' prečicom je ZZ (bez dvotačke), pa je ':ZZ' pogrešan zapis. ':exit' je alias u vim-u (radi kao :x), ali nije standardni vi. ':e' otvara/učitava fajl (nije izlazak), ':Esc' nije komanda."
+          ],
+          "note": "Opšte znanje (vi/vim): :q, :q!, :wq, :x, :wq! izlaze. ':ZZ' je pogrešno (ZZ je bez dvotačke); ':exit' je vim alias.",
+          "readMore": ["Opšte znanje o editoru vi/vim"],
+          "uncertain": true
+        },
+        {
+          "id": "cmd-23",
+          "promptParts": {
+            "before": "Permisije fajla su 123. Vlasnik može:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Izvršavati",
+            "Ništa od navedenog",
+            "čitati",
+            "Sve od navedenog",
+            "upisivati"
+          ],
+          "correctAnswers": ["Izvršavati"],
+          "context": "Cifre 123 znače: vlasnik=1, grupa=2, ostali=3. Cifra vlasnika 1 = --x, pa vlasnik može samo izvršavati.",
+          "details": [
+            "Oktalne cifre: 1=--x (x), 2=-w- (w), 3=-wx (wx), 4=r--, 5=r-x, 6=rw-, 7=rwx.",
+            "Ovdje grupa (2) može samo pisati, a ostali (3) pisati i izvršavati; ali pitanje je za vlasnika (1 = samo izvršavanje)."
+          ],
+          "note": "Opšte znanje o oktalnim permisijama: prva cifra (vlasnik) = 1 = --x = izvršavanje.",
+          "readMore": ["Ubuntu_osnovneKomande.pdf, str. 10 (oktalne permisije)"]
+        },
+        {
+          "id": "cmd-24",
+          "promptParts": {
+            "before": "Imamo datoteku os.txt (trenutno rwxrwxrwx) nad kojom želimo ograničiti pristup tako da niko osim nas kao vlasnika ne može pristupiti. Koju komandu koristimo?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "chmod 600 os.txt",
+            "chmod 666 os.txt",
+            "chmod 640 os.txt",
+            "ništa od navedenog",
+            "chmod 6 os.txt",
+            "chmod 777 os.txt"
+          ],
+          "correctAnswers": ["chmod 600 os.txt"],
+          "context": "chmod 600 os.txt postavlja permisije rw------- : vlasnik može čitati i pisati, a grupa i ostali nemaju nikakav pristup. Tako datoteci pristupa samo vlasnik.",
+          "details": [
+            "Oktalno: 6 = rw (4+2), 0 = --- (ništa). Dakle 600 → vlasnik rw, grupa ---, ostali ---.",
+            "Distraktori: 666 = svi čitaju i pišu; 640 = grupa još može čitati (nije 'niko osim vlasnika'); 777 = svima sve; 6 (=006) daje prava samo 'ostalima'. Nijedan ne ograničava pristup samo na vlasnika kao 600.",
+            "Trenutne permisije (rwxrwxrwx = 777 sa slike) su nebitne jer oktalni chmod postavlja apsolutnu vrijednost."
+          ],
+          "note": "Opšte znanje o oktalnim permisijama: 600 = rw------- (samo vlasnik ima pristup).",
+          "readMore": [
+            "Ubuntu_osnovneKomande.pdf, str. 10 (oktalne permisije, chmod)"
+          ]
+        }
+      ]
+    },
+    {
+      "exerciseNumber": 5,
+      "sourceTaskName": "Niti, arhitektura, disk/DMA, osnovni koncepti",
+      "questions": [
+        {
+          "id": "arh-01",
+          "promptParts": {
+            "before": "Da li nit dijeli procesor na dva dijela?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Da", "Ne"],
+          "correctAnswers": ["Ne"],
+          "context": "Ne. Nit ne dijeli procesor 'na dva dijela'. Nit je jedinica izvršavanja (tok kontrole) unutar procesa; više niti se naizmjenično ili paralelno izvršava na procesoru, ali nit ne 'raspolavlja' hardver.",
+          "details": [
+            "Na jednoj jezgri niti se smjenjuju (kao i procesi); na više jezgara mogu ići paralelno, po jedna na svakoj jezgri.",
+            "Nit dijeli resurse procesa (memoriju, otvorene fajlove), ali ima vlastiti stek, registre, programski brojač i identifikator (TID).",
+            "Dakle nit je 'laki proces', a ne način dijeljenja samog procesora na dijelove."
+          ],
+          "note": "Standardno OS gradivo: nit = tok izvršavanja unutar procesa, ne 'podjela procesora na dva'.",
+          "readMore": ["Upravljanje procesima.pdf, str. 7-9 (niti)"]
+        },
+        {
+          "id": "arh-02",
+          "promptParts": {
+            "before": "Niti istog procesa mogu čitati istu datoteku?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Da", "Ne"],
+          "correctAnswers": ["Da"],
+          "context": "Da. Niti istog procesa dijele resurse procesa, uključujući otvorene datoteke i adresni prostor, pa jedna nit može čitati (i pisati) istu datoteku koju vidi i druga.",
+          "details": [
+            "Baš to dijeljenje resursa čini niti efikasnijim od zasebnih procesa (ne treba posebna međuprocesna komunikacija).",
+            "Zbog dijeljenja, kad više niti istovremeno dira isti podatak, potrebna je sinhronizacija (kritična sekcija).",
+            "Ono što nije dijeljeno: svaka nit ima vlastiti stek, registre, programski brojač i TID."
+          ],
+          "note": "Citat (Upravljanje procesima): 'sve niti istog procesa dijele njegove resurse ... i pristupaju istim podacima.'",
+          "readMore": [
+            "Upravljanje procesima.pdf, str. 7-9 (dijeljeni resursi niti)"
+          ]
+        },
+        {
+          "id": "arh-03",
+          "promptParts": {
+            "before": "Koje su prednosti niti? (označi sve tačno)",
+            "blank": "",
+            "after": ""
+          },
+          "type": "multiple",
+          "options": [
+            "Odziv",
+            "Ekonomičnost",
+            "Blokiranje",
+            "Međuprocesna komunikacija",
+            "Dijeljenje resursa",
+            "Skalabilnost",
+            "Niže korištenje procesora",
+            "Sigurnost"
+          ],
+          "correctAnswers": [
+            "Odziv",
+            "Ekonomičnost",
+            "Dijeljenje resursa",
+            "Skalabilnost"
+          ],
+          "context": "Četiri prednosti niti (prema materijalu) su: odziv (responsiveness), dijeljenje resursa, ekonomičnost i skalabilnost.",
+          "details": [
+            "Odziv: dok je jedna nit blokirana (npr. na U/I), druge niti programa mogu nastaviti, pa aplikacija ostaje responzivna.",
+            "Dijeljenje resursa: niti dijele memoriju i resurse procesa, pa lako sarađuju bez posebne međuprocesne komunikacije.",
+            "Ekonomičnost: kreiranje niti i prelazak između njih je mnogo jeftiniji nego kod procesa (niti su 'laki procesi').",
+            "Skalabilnost: na višejezgrenim sistemima niti se izvršavaju paralelno, pa program bolje iskoristi više jezgara.",
+            "Distraktori (blokiranje, međuprocesna komunikacija, niže korištenje procesora, sigurnost) nisu navedene prednosti."
+          ],
+          "note": "Citat (Upravljanje procesima): prednosti niti su 'Odziv, Dijeljenje resursa, Ekonomičnost, Skalabilnost.'",
+          "readMore": [
+            "Upravljanje procesima.pdf, str. 7 (četiri prednosti niti)"
+          ]
+        },
+        {
+          "id": "arh-04",
+          "promptParts": {
+            "before": "Šta je tačno (korisničke niti)?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Mijenjanje korisničkih niti ne zahtijeva privilegije izvršavanja u sistemskom režimu jer se sve strukture podataka za upravljanje nitima nalaze u adresnom prostoru jednog procesa",
+            "Korisničke niti ne mogu da se izvršavaju na bilo kojem OS-u jer zahtijevaju izmjene jezgre"
+          ],
+          "correctAnswers": [
+            "Mijenjanje korisničkih niti ne zahtijeva privilegije izvršavanja u sistemskom režimu jer se sve strukture podataka za upravljanje nitima nalaze u adresnom prostoru jednog procesa"
+          ],
+          "context": "Korisničke (user-level) niti se upravljaju u korisničkom prostoru (bibliotekom), pa prelazak između njih ne treba kernel privilegije - sve strukture su u adresnom prostoru procesa.",
+          "details": [
+            "Druga tvrdnja je netačna: baš zato što ne diraju jezgro, korisničke niti mogu se izvršavati na bilo kojem OS-u bez izmjena jezgre.",
+            "Mana korisničkih niti: blokirajući sistemski poziv jedne niti blokira sve niti procesa, i ne mogu iskoristiti više jezgara."
+          ],
+          "note": "Citat (Upravljanje procesima): korisničke niti 'ne zahtijevaju privilegije ... jer se strukture nalaze u adresnom prostoru jednog procesa.'",
+          "readMore": [
+            "Upravljanje procesima.pdf, str. 10-11 (korisničke niti)"
+          ]
+        },
+        {
+          "id": "arh-05",
+          "promptParts": {
+            "before": "Koji od navedenih nema pravilnu strukturu?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Microkernel",
+            "Slojeviti pristup",
+            "Moduli",
+            "Monolitni operativni sistemi"
+          ],
+          "correctAnswers": ["Monolitni operativni sistemi"],
+          "context": "Monolitni operativni sistemi nemaju pravilnu strukturu: sastoje se od skupa procedura gdje svaka može pozvati svaku, bez jasne hijerarhije. Zato su i dobili naziv 'The Big Mess'.",
+          "details": [
+            "Mikrokernel, slojeviti pristup i moduli su upravo pokušaji da se OS-u da jasna struktura (izdvajanje, slojevi, moduli).",
+            "Kod monolita je sve u jednom velikom bloku - brzo (direktni pozivi), ali teško za održavanje i bez izolacije (greška može srušiti cijeli sistem)."
+          ],
+          "note": "Citat (OsnovniKonceptiOS): 'monolitni operativni sistemi nemaju pravilnu strukturu ... struktura je takva da uopće nema strukture' (The Big Mess).",
+          "readMore": [
+            "OsnovniKonceptiOS.pdf (monolitna struktura, The Big Mess)"
+          ]
+        },
+        {
+          "id": "arh-06",
+          "promptParts": {
+            "before": "Kod slojevite arhitekture:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Slojevi se prave tako da svaki od njih koristi isključivo operacije nivoa ispod, pri čemu tekući sloj mora znati kako su te operacije implementirane",
+            "Svaki sljedeći sloj skriva postojanje određenih struktura, operacija i hardvera od sloja iznad",
+            "Jezgro operativnog sistema obično obuhvata samo minimalno upravljanje procesima i memorijom, kao i komuniciranje"
+          ],
+          "correctAnswers": [
+            "Svaki sljedeći sloj skriva postojanje određenih struktura, operacija i hardvera od sloja iznad"
+          ],
+          "context": "Kod slojevitog pristupa svaki sloj skriva detalje (strukture, operacije, hardver) od sloja iznad; viši sloj koristi samo usluge nižeg, ne znajući kako su implementirane.",
+          "details": [
+            "Prva tvrdnja je netačna baš u dijelu 'mora znati kako su implementirane' - poenta slojeva je da sloj NE mora znati implementaciju nižeg, samo šta on radi (skrivanje informacija).",
+            "Treća tvrdnja opisuje mikrokernel (minimalno jezgro + komunikacija), ne slojeviti pristup.",
+            "Prednost slojeva: lakše konstruisanje i debagovanje (svaki sloj se testira nad već provjerenim nižim)."
+          ],
+          "note": "Citat (OsnovniKonceptiOS): 'svaki sljedeći sloj skriva postojanje određenih struktura podataka, operacija i hardvera, od sloja iznad.'",
+          "readMore": [
+            "OsnovniKonceptiOS.pdf (slojeviti pristup, skrivanje informacija)"
+          ]
+        },
+        {
+          "id": "arh-07",
+          "promptParts": {
+            "before": "Vrijeme potrebno da početak traženog sektora dođe do glave se naziva:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Vrijeme pretraživanja (seek time)",
+            "Kašnjenje zbog rotacije (rotational delay)",
+            "Vrijeme pristupa (access time)",
+            "Vrijeme potrebno za prenos podataka (transfer time)"
+          ],
+          "correctAnswers": ["Kašnjenje zbog rotacije (rotational delay)"],
+          "context": "Kad je glava već na pravoj stazi, vrijeme da se ploča okrene dok traženi sektor ne dođe pod glavu je kašnjenje zbog rotacije (rotational delay / rotational latency).",
+          "details": [
+            "Seek time (vrijeme pretraživanja) je vrijeme da se glava pomjeri na pravu stazu.",
+            "Rotational delay je zatim vrijeme da rotacija ploče dovede traženi sektor pod glavu.",
+            "Access time (pristupno vrijeme) = seek time + rotational delay + transfer time (ukupno vrijeme dohvata)."
+          ],
+          "note": "Citat (Fajl Sistemi2): 'Rotation latency (vrijeme rotacije) - kada je glava na stazi, potrebno je locirati odgovarajući sektor na stazi.'",
+          "readMore": [
+            "Fajl Sistemi2.pdf, str. 4 (seek time, rotational latency, transfer time, access time)"
+          ]
+        },
+        {
+          "id": "arh-08",
+          "promptParts": {
+            "before": "Vrijeme potrebno da se glava pozicionira iznad tražene staze je:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Vrijeme potrebno za prenos podataka (transfer time)",
+            "Vrijeme pozicioniranja (positioning time)",
+            "Kašnjenje zbog rotacije (rotational delay)",
+            "Vrijeme pretraživanja (seek time)"
+          ],
+          "correctAnswers": ["Vrijeme pretraživanja (seek time)"],
+          "context": "Vrijeme da se glava pomjeri i pozicionira iznad tražene staze je vrijeme pretraživanja (seek time).",
+          "details": [
+            "Seek time zavisi od toga koliko staza glava mora preći od trenutne pozicije do ciljne.",
+            "Distraktor 'vrijeme pozicioniranja (positioning time)' obično znači seek time + rotational delay zajedno (dok se ne stigne do tačnog sektora), a ovdje se traži samo dolazak na stazu = seek time.",
+            "Nakon seek time-a slijedi rotational delay (sektor pod glavu), pa transfer time (čitanje)."
+          ],
+          "note": "Citat (Fajl Sistemi2): 'Seek time (vrijeme traženja) - vrijeme koje je potrebno da se glava za čitanje pozicionira na određenu stazu.'",
+          "readMore": ["Fajl Sistemi2.pdf, str. 4 (seek time)"]
+        },
+        {
+          "id": "arh-09",
+          "promptParts": {
+            "before": "DMA tehnika omogućava izbjegavanje procesora i preuzimanje kontrole nad sistemom da bi se podaci prenosili u memoriju i iz nje preko sistemske magistrale (bus)?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Da", "Ne"],
+          "correctAnswers": ["Da"],
+          "context": "Da. DMA (Direct Memory Access) omogućava da uređaj prenosi podatke direktno u/iz memorije preko sistemske magistrale, bez da procesor posreduje u svakom bajtu.",
+          "details": [
+            "Bez DMA, procesor bi morao lično kopirati svaki komad podataka između uređaja i memorije, što bi ga potpuno zauzelo.",
+            "Sa DMA kontrolerom, CPU samo zada prenos (odakle, kuda, koliko), a DMA obavi prenos i na kraju javi procesoru (prekidom). Tako je CPU slobodan za drugi posao.",
+            "DMA privremeno 'preuzima' magistralu da bi obavio prenos."
+          ],
+          "note": "Opšte znanje o hardveru: DMA prenosi podatke direktno između uređaja i memorije preko magistrale, rasterećujući CPU.",
+          "readMore": [
+            "Opšte znanje / Silberschatz (Direct Memory Access, DMA)"
+          ]
+        },
+        {
+          "id": "arh-10",
+          "promptParts": {
+            "before": "Kod direktnog pristupa memoriji (DMA) nije moguće izbjegavanje procesora?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Da", "Ne"],
+          "correctAnswers": ["Ne"],
+          "context": "Ne. Cijela poenta DMA je baš da se procesor zaobiđe: DMA kontroler prenosi podatke direktno između uređaja i memorije, pa je 'nije moguće izbjegavanje procesora' netačno.",
+          "details": [
+            "DMA rasterećuje CPU: umjesto da procesor kopira svaki bajt, DMA to radi sam i na kraju javi prekidom.",
+            "Zato tvrdnja da se procesor ne može izbjeći nije tačna - DMA ga upravo izbjegava tokom samog prenosa."
+          ],
+          "note": "Opšte znanje: DMA zaobilazi procesor tokom prenosa; tvrdnja 'nije moguće izbjegavanje' je netačna.",
+          "readMore": ["Opšte znanje / Silberschatz (DMA)"]
+        },
+        {
+          "id": "arh-11",
+          "promptParts": {
+            "before": "Mainframe operativni sistemi su primarno dizajnirani za:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Obezbjeđivanje okruženja u kome korisnik može putem jednostavnog interfejsa izvršavati programe",
+            "Uspostavljanje ravnoteže između korisničke upotrebljivosti i iskoristivosti resursa",
+            "Kompleksne igre",
+            "Optimizaciju korištenja hardvera",
+            "Poslovne igre"
+          ],
+          "correctAnswers": ["Optimizaciju korištenja hardvera"],
+          "context": "Mainframe (veliki centralni računari) operativni sistemi primarno su dizajnirani za optimizaciju korištenja skupog hardvera: da procesor, memorija i U/I budu maksimalno iskorišteni.",
+          "details": [
+            "Mainframe se koristi za obradu velikih količina poslova (batch, transakcije), pa je fokus na propusnosti i iskorištenju hardverskih resursa.",
+            "Nasuprot tome, PC OS se fokusira na pogodnost za korisnika, a OS za ručne uređaje na ravnotežu upotrebljivosti i (ograničenih) resursa."
+          ],
+          "note": "Standardno OS gradivo (Silberschatz): mainframe OS optimizuje iskorištenje hardvera.",
+          "readMore": [
+            "Silberschatz, Operating System Concepts (vrste OS-a: mainframe, PC, handheld)"
+          ]
+        },
+        {
+          "id": "arh-12",
+          "promptParts": {
+            "before": "Operativni sistemi za ručne uređaje su primarno dizajnirani za:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Kompleksne igre",
+            "Uspostavljanje ravnoteže između korisničke upotrebljivosti i iskoristivosti resursa",
+            "Poslovne igre",
+            "Obezbjeđivanje okruženja u kome korisnik može putem jednostavnog interfejsa izvršavati programe",
+            "Optimizaciju korištenja hardvera"
+          ],
+          "correctAnswers": [
+            "Uspostavljanje ravnoteže između korisničke upotrebljivosti i iskoristivosti resursa"
+          ],
+          "context": "OS za ručne uređaje (telefoni, tableti) dizajniran je da balansira upotrebljivost za korisnika sa štedljivim korištenjem ograničenih resursa (baterija, memorija, procesor).",
+          "details": [
+            "Ručni uređaji imaju malo memorije, sporije procesore i ograničenu bateriju, pa OS mora paziti na potrošnju, a opet biti jednostavan i responzivan.",
+            "Zato je cilj ravnoteža: dovoljno dobar doživljaj uz štednju resursa (za razliku od mainframe-a koji cilja maksimalno iskorištenje hardvera)."
+          ],
+          "note": "Standardno OS gradivo (Silberschatz): handheld OS balansira upotrebljivost i iskorištenje (ograničenih) resursa.",
+          "readMore": [
+            "Silberschatz, Operating System Concepts (handheld/mobilni OS)"
+          ]
+        },
+        {
+          "id": "arh-13",
+          "promptParts": {
+            "before": "Sa korisničke tačke gledišta, operativni sistem za PC mora biti dizajniran tako da:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Vodi računa o izvršavanju, a ne o dijeljenju različitih hardverskih i softverskih resursa",
+            "Optimizira korištenje softvera",
+            "Optimizira korištenje hardvera",
+            "Obezbjedi jednokorisničko okruženje kod kojeg se striktno vodi računa o potrošnji energije",
+            "Obezbjedi okruženje za izvršavanje višekorisničkih zahtjeva"
+          ],
+          "correctAnswers": [
+            "Vodi računa o izvršavanju, a ne o dijeljenju različitih hardverskih i softverskih resursa"
+          ],
+          "context": "Sa korisničke tačke gledišta, PC operativni sistem je napravljen radi pogodnosti korisnika - da lako izvršava njegove programe - a ne radi dijeljenja resursa (PC je uglavnom jednokorisnički, resursi nisu usko grlo).",
+          "details": [
+            "Kod mainframe-a i servera fokus je na dijeljenju i maksimalnom iskorištenju skupih resursa među mnogo korisnika.",
+            "Kod PC-a resursi su obilni za jednog korisnika, pa OS prioritet daje pogodnosti i responzivnosti (izvršavanju korisnikovih programa), ne optimizaciji dijeljenja."
+          ],
+          "note": "Standardno OS gradivo (Silberschatz): PC OS je za pogodnost korisnika (izvršavanje programa), ne za dijeljenje/iskorištenje resursa.",
+          "readMore": [
+            "Silberschatz, Operating System Concepts (user view: PC vs mainframe)"
+          ],
+          "uncertain": true
+        }
+      ]
+    }
+  ]
+}

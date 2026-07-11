@@ -57,7 +57,9 @@ async function start() {
   // and reloading keeps the same question on screen instead of jumping.
   const qParam = new URLSearchParams(location.search).get("q");
   if (qParam) {
-    const target = fullPool.find((question) => question.namespacedId === qParam);
+    const target = fullPool.find(
+      (question) => question.namespacedId === qParam,
+    );
     if (target) {
       const session = sequentialSession(
         fullPool.filter((question) => question.topicId === target.topicId),

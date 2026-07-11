@@ -1,0 +1,173 @@
+{
+  "topicId": "linux-komande-2",
+  "title": "Linux komande (dodatna serija)",
+  "sourcePdf": "UbuntuKomande_2.pdf, Ubuntu_osnovneKomande.pdf, V_OS_ShellFajl.pdf",
+  "exercises": [
+    {
+      "exerciseNumber": 1,
+      "sourceTaskName": "Komande i permisije",
+      "questions": [
+        {
+          "id": "e30",
+          "promptParts": {
+            "before": "Komanda ls -l | touch MojDesktop, pored ispisa sadržaja foldera, pravi i fajl MojDesktop?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Da, ali uz izmjenu komande: ls -l | cat | tee MojDesktop",
+            "Da, ali uz izmjenu komande: ls -l | tee MojDesktop",
+            "Ne",
+            "Da",
+            "Ništa od navedenog"
+          ],
+          "correctAnswers": [
+            "Da, ali uz izmjenu komande: ls -l | tee MojDesktop"
+          ],
+          "context": "Originalna komanda NE radi oboje: touch ignoriše svoj standardni ulaz (izlaz ls -l se gubi u cijevi, ne ispisuje se na ekran), a samo kreira prazan MojDesktop. Da bi se sadržaj i ISPISAO i UPISAO u fajl, koristi se tee: 'ls -l | tee MojDesktop' (tee šalje ulaz i na ekran i u fajl). Poveznica: tee je alat baš za 'grananje' toka na ekran + fajl.",
+          "note": "Opšte znanje o cijevima i tee; touch ne čita stdin."
+        },
+        {
+          "id": "e31",
+          "promptParts": {
+            "before": "Komanda man -k man >> fajl radi sljedeće:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Upisuje na kraj fajla sve komande koje počinju slovom k",
+            "Upisuje na kraj fajla sve komande koje u svom opisu nemaju riječ man",
+            "Ništa od navedenog",
+            "Upisuje na kraj fajla sve komande koje u svom opisu imaju riječ man"
+          ],
+          "correctAnswers": [
+            "Upisuje na kraj fajla sve komande koje u svom opisu imaju riječ man"
+          ],
+          "context": "man -k (isto što i apropos) pretražuje bazu opisa komandi i vraća sve čiji naziv/opis sadrži ključnu riječ — ovdje 'man'. Operator >> dopisuje rezultat na KRAJ fajla (bez brisanja postojećeg). Poveznica: > bi prepisao fajl, >> dopisuje.",
+          "note": "Opšte znanje: man -k = apropos (pretraga po ključnoj riječi); >> = dopisivanje na kraj."
+        },
+        {
+          "id": "e32",
+          "promptParts": {
+            "before": "Oktalna predstava permisija za grupu kojoj je dozvoljeno čitanje i izvršavanje je:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Ništa od navedenog", "110", "100101101", "100"],
+          "correctAnswers": ["Ništa od navedenog"],
+          "context": "čitanje + izvršavanje = r-x = binarno 101 = oktalno 5. Ponuđene vrijednosti to ne predstavljaju: 110 = rw- (6), 100 = r-- (4). Zato je tačan odgovor 'Ništa od navedenog'. Poveznica: r=4, w=2, x=1; r+x = 4+1 = 5.",
+          "note": "Opšte znanje o oktalnim permisijama (r=4, w=2, x=1). Očekivana vrijednost 5 (101) nije među ponuđenima."
+        },
+        {
+          "id": "e33",
+          "promptParts": {
+            "before": "Permisije fajla su 123. Vlasnik može:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Izvršavati",
+            "Ništa od navedenog",
+            "čitati",
+            "Sve od navedenog",
+            "upisivati"
+          ],
+          "correctAnswers": ["Izvršavati"],
+          "context": "Cifre 123 znače: vlasnik=1, grupa=2, ostali=3. Cifra vlasnika 1 = --x (samo izvršavanje). Dakle vlasnik može samo izvršavati. Poveznica: 1=x, 2=w, 3=wx, 4=r, 5=rx, 6=rw, 7=rwx.",
+          "note": "Opšte znanje o oktalnim permisijama: prva cifra (vlasnik) = 1 = --x = izvršavanje."
+        },
+        {
+          "id": "e34",
+          "promptParts": {
+            "before": "Nakon chmod o+x,a+w,u-r testfit, permisije su identične kao komanda:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Ništa od navedenog",
+            "chmod 665 testfit",
+            "chmod 656 testfit",
+            "chmod 655 testfit",
+            "chmod 565 testfit"
+          ],
+          "correctAnswers": ["Ništa od navedenog"],
+          "context": "Dio 'u-r' UKLANJA pravo čitanja vlasniku, pa cifra vlasnika mora biti bez bita čitanja (0–3). Sve ponuđene numeričke opcije imaju cifru vlasnika 5 ili 6 (dakle SA čitanjem), što je nemoguće nakon u-r — bez obzira na početno stanje. Zato je tačan odgovor 'Ništa od navedenog'. Poveznica: simbolički chmod je relativan (mijenja postojeće), ali bit čitanja vlasnika sigurno pada na 0.",
+          "note": "Opšte znanje: u-r gasi read bit vlasnika — cifra vlasnika — 3; nijedna ponuđena (5xx/6xx) to ne zadovoljava."
+        },
+        {
+          "id": "e35",
+          "promptParts": {
+            "before": "Ukoliko želimo pronaći fajl file1, ispravno je kucati: find . -file1",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Ne", "Da"],
+          "correctAnswers": ["Ne"],
+          "context": "Nije ispravno. Ispravna sintaksa je: find . -name file1 (traži po imenu u tekućem direktoriju i poddirektorijima). '-file1' nije validna opcija komande find. Poveznica: find koristi predikate poput -name, -type, -size.",
+          "note": "Opšte znanje: ispravno je 'find . -name file1'; '-file1' nije validna opcija."
+        },
+        {
+          "id": "e36",
+          "promptParts": {
+            "before": "Komanda head | wc -m prikazuje:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "broj riječi u fajlu",
+            "broj riječi u prvom redu fajla",
+            "broj riječi i karaktera u fajlu",
+            "Ništa od navedenog"
+          ],
+          "correctAnswers": ["Ništa od navedenog"],
+          "context": "wc -m broji KARAKTERE (ne riječi), a head propušta prvih 10 redova ulaza (ne prvi red, ni cijeli fajl). Dakle komanda prikazuje broj karaktera u prvih 10 redova — što nijedna ponuđena opcija ne kaže tačno (sve govore o 'riječima'). Zato 'Ništa od navedenog'. Poveznica: wc -w = riječi, wc -l = redovi, wc -m = karakteri.",
+          "note": "NESIGURNO (lošija formulacija): wc -m = karakteri, head = prvih 10 redova; nijedna opcija to tačno ne opisuje. Opšte znanje o wc/head."
+        },
+        {
+          "id": "e37",
+          "promptParts": {
+            "before": "Rezultat komande: mv * /faj1/1/faj12 je:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "premješta sve sa Desktopa u faj12",
+            "Ništa od navedenog",
+            "mijenja ime fajla2",
+            "premješta cijeli sadržaj fajla1 u faj12"
+          ],
+          "correctAnswers": ["premješta sve sa Desktopa u faj12"],
+          "context": "mv * premješta SVE fajlove iz tekućeg direktorija na zadato odredište (/faj1/1/faj12). Ako je tekući direktorij Desktop, to je 'premješta sve sa Desktopa u faj12'. Poveznica: * je wildcard koji shell zamijeni imenima svih fajlova u tekućem folderu.",
+          "note": "NESIGURNO: ishod zavisi od toga koji je tekući direktorij (pretpostavka: Desktop). Opšte znanje o mv i * globu."
+        },
+        {
+          "id": "e38",
+          "promptParts": {
+            "before": "Ukoliko želimo ispisati u proširenom formatu sve fajlove koji završavaju slovom n, uradićemo:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "ls n+1",
+            "ls -l*n",
+            "Ništa od navedenog",
+            "ls *n -l",
+            "ls -ln"
+          ],
+          "correctAnswers": ["ls *n -l"],
+          "context": "Prošireni format = -l; fajlovi koji završavaju na n = *n. Ispravno je 'ls -l *n' ili ekvivalentno 'ls *n -l' (argumenti mogu ići bilo kojim redom). 'ls -l*n' (bez razmaka) je pogrešno, a 'ls -ln' je long format s numeričkim UID/GID (ne filtrira po *n). Poveznica: * zamjenjuje bilo koji niz znakova prije 'n'.",
+          "note": "Opšte znanje o ls opcijama i glob obrascu *n."
+        }
+      ]
+    }
+  ]
+}

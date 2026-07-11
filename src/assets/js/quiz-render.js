@@ -39,7 +39,18 @@ function showFeedbackPanel(result, question) {
     `feedback-result ${result.isCorrect ? "is-correct" : "is-incorrect"}`;
   qs("#topic-tag").textContent =
     `Topic: ${question.topicTitle} - ${question.sourceTaskName}`;
-  qs("#rule-box").textContent = question.grammarRule;
+  qs("#rule-box").textContent = question.context || question.grammarRule;
+
+  // Small print: the source PDF, and the note underneath it when there is one.
+  const sourceEl = qs("#feedback-source");
+  sourceEl.hidden = !question.sourcePdf;
+  if (question.sourcePdf)
+    sourceEl.textContent = `Source: ${question.sourcePdf}`;
+
+  const noteEl = qs("#feedback-note");
+  noteEl.hidden = !question.note;
+  if (question.note) noteEl.textContent = question.note;
+
   qs("#feedback").hidden = false;
 }
 
@@ -51,10 +62,14 @@ export function renderQuestion(question, historyEntry) {
   qs("#summary-screen").hidden = true;
   qs("#select-hint").hidden = true;
 
+  // Fill-in questions show a gap between the two halves; pure multiple-choice
+  // questions (whole prompt in "before", nothing after) skip the gap marker.
+  const { before, blank, after } = question.promptParts;
+  const hasGap = (blank && blank.trim() !== "") || after.trim() !== "";
   qs("#sentence").innerHTML =
-    escapeHtml(question.promptParts.before) +
-    `<span class="blank">&nbsp;</span>` +
-    escapeHtml(question.promptParts.after);
+    escapeHtml(before) +
+    (hasGap ? `<span class="blank">&nbsp;</span>` : "") +
+    escapeHtml(after);
 
   qs("#options-form").innerHTML = renderOptionsMarkup(question);
 
@@ -135,7 +150,7 @@ function renderReviewMarkup(mistakes) {
       <article class="review-item">
         <p class="review-sentence">${escapeHtml(question.promptParts.before)}<span class="review-answer">${correct}</span>${escapeHtml(question.promptParts.after)}</p>
         <p class="review-yours">Your answer: ${selected.map(escapeHtml).join(", ")}</p>
-        <div class="rule-box">${escapeHtml(question.grammarRule)}</div>
+        <div class="rule-box">${escapeHtml(question.context || question.grammarRule)}</div>
       </article>`;
   });
 

@@ -1,0 +1,33 @@
+{
+  "topicId": "api-sistemski-pozivi",
+  "title": "API i sistemski pozivi",
+  "sourcePdf": "OsnovniKonceptiOS.pdf, Pregled_Arhitektura_OS_a.pdf",
+  "exercises": [
+    {
+      "exerciseNumber": 1,
+      "sourceTaskName": "API servisi",
+      "questions": [
+        {
+          "id": "q1",
+          "promptParts": {
+            "before": "Izaberi sve API servise (interfejse sistemskih poziva) od ponuđenih.",
+            "blank": "",
+            "after": ""
+          },
+          "type": "multiple",
+          "options": [
+            "Windows API (Win32)",
+            "Java API",
+            "POSIX",
+            "System Call Interface (SCI)",
+            "TLB API",
+            "NTFS API"
+          ],
+          "correctAnswers": ["Windows API (Win32)", "Java API", "POSIX"],
+          "context": "API (Application Programming Interface) je skup gotovih funkcija koje OS nudi programeru kroz biblioteke — programer ne zove OS direktno. Tri glavne porodice: Win (Windows), POSIX (UNIX/Linux/macOS) i Java API (JVM, neovisan o platformi). Zašto sloj postoji: prenosivost (isti kod radi svuda gdje taj API postoji) i jednostavnost (pravi sistemski pozivi su detaljniji). Lanac poziva: Aplikacija → API → System Call Interface (SCI) → Kernel; iza svake API funkcije stoji sistemski poziv, a SCI ga presreće, prebacuje CPU iz user u kernel mod i vraća rezultat. Zamka: SCI NIJE API — to je unutrašnji mehanizam, dok je API ono što programer vidi i koristi. Poveznica: user/kernel mod i sistemski pozivi su razlog zašto aplikacija ne može direktno dirati hardver.",
+          "note": "Citat: 'Tri najčešća korištena API interfejsa sistemskih poziva su Win za Windows sisteme, POSIX za sve varijante UNIX-a, Linuxa i MAC OS-a i Java API'. SCI je opisan kao 'spona između user i kernel moda'."
+        }
+      ]
+    }
+  ]
+}

@@ -1,4 +1,5 @@
-import { loadAllTopics } from "./data-loader.js";
+import { loadAllTopics, loadEssayCards } from "./data-loader.js";
+import { getSubjectConfig, subjectHasFeature, withSubject } from "./subject.js";
 import { buildMixedPool } from "./quiz-engine.js";
 import { getSolvedIds, resetProgress } from "./progress-store.js";
 import {
@@ -226,27 +227,46 @@ function wireSessionSize() {
   );
 }
 
-async function loadEssayCards() {
-  const response = await fetch("data/essay-cards.json");
-  if (!response.ok) {
-    throw new Error(`Failed to load essay-cards.json (${response.status})`);
+// Fill the hero, card title and start-button links from the subject, and hide
+// the quiz/essay card for subjects that don't have that feature.
+function applySubject(config, hasQuiz, hasEssay) {
+  if (config) {
+    document.title = `TenseUp - ${config.title}`;
+    qs("#home-title").textContent = config.title;
+    if (config.subtitle) qs("#home-subtitle").textContent = config.subtitle;
+    qs("#grammar-card-label").textContent = config.quizLabel || "Practice";
   }
-  return response.json();
+  qs("#start-btn").href = withSubject("quiz.html");
+  qs("#start-essay-btn").href = withSubject("essay.html");
+  if (!hasQuiz) qs("#grammar-card").hidden = true;
+  if (!hasEssay) qs("#essay-card").hidden = true;
 }
 
 async function init() {
+  let config = null;
+  try {
+    config = await getSubjectConfig();
+  } catch {
+    /* Fall back to whatever data the default subject can load. */
+  }
+  const hasQuiz = subjectHasFeature(config, "quiz");
+  const hasEssay = subjectHasFeature(config, "essay");
+  applySubject(config, hasQuiz, hasEssay);
+
   try {
     const [topics, essayData] = await Promise.all([
-      loadAllTopics(),
-      loadEssayCards(),
+      hasQuiz ? loadAllTopics(config) : Promise.resolve([]),
+      hasEssay ? loadEssayCards(config) : Promise.resolve(null),
     ]);
     pool = buildMixedPool(topics);
     topicsMeta = topics.map((topic) => ({
       topicId: topic.topicId,
       title: topic.title,
     }));
-    essayCards = essayData.cards;
-    essayCategories = essayData.categories;
+    if (essayData) {
+      essayCards = essayData.cards;
+      essayCategories = essayData.categories;
+    }
   } catch (err) {
     const statsText = qs("#stats-text");
     statsText.hidden = false;

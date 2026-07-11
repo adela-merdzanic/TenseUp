@@ -1,0 +1,69 @@
+{
+  "topics": [
+    {
+      "topicId": "api-sistemski-pozivi",
+      "title": "API i sistemski pozivi",
+      "file": "topics/api-sistemski-pozivi.json"
+    },
+    {
+      "topicId": "hardver-memorija",
+      "title": "Hardver i memorija (osnovni pojmovi)",
+      "file": "topics/hardver-memorija.json"
+    },
+    {
+      "topicId": "fajl-sistemi-linux",
+      "title": "Fajl sistemi i Linux komande",
+      "file": "topics/fajl-sistemi-linux.json"
+    },
+    {
+      "topicId": "upravljanje-memorijom",
+      "title": "Upravljanje memorijom",
+      "file": "topics/upravljanje-memorijom.json"
+    },
+    {
+      "topicId": "procesi-rasporedjivanje",
+      "title": "Procesi i raspoređivanje",
+      "file": "topics/procesi-rasporedjivanje.json"
+    },
+    {
+      "topicId": "arhitektura-os",
+      "title": "Arhitektura operativnog sistema",
+      "file": "topics/arhitektura-os.json"
+    },
+    {
+      "topicId": "shell",
+      "title": "Shell skripte",
+      "file": "topics/shell.json"
+    },
+    {
+      "topicId": "procesi-stanja-rasporedjivaci",
+      "title": "Procesi: stanja, prelazi i raspoređivači",
+      "file": "topics/procesi-stanja-rasporedjivaci.json"
+    },
+    {
+      "topicId": "niti",
+      "title": "Niti (threads)",
+      "file": "topics/niti.json"
+    },
+    {
+      "topicId": "sinhronizacija-zastoj",
+      "title": "Sinhronizacija i potpuni zastoj (deadlock)",
+      "file": "topics/sinhronizacija-zastoj.json"
+    },
+    {
+      "topicId": "rasporedjivanje-rr-zadatak",
+      "title": "RR raspoređivanje sa suspenzijom (zadatak)",
+      "file": "topics/rasporedjivanje-rr-zadatak.json"
+    },
+    {
+      "topicId": "linux-komande-2",
+      "title": "Linux komande (dodatna serija)",
+      "file": "topics/linux-komande-2.json"
+    },
+    {
+      "topicId": "hardver-arhitektura-razno",
+      "title": "Hardver, arhitektura i razno",
+      "file": "topics/hardver-arhitektura-razno.json"
+    }
+  ]
+}

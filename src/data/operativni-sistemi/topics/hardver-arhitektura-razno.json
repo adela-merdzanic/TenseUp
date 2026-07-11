@@ -1,0 +1,142 @@
+{
+  "topicId": "hardver-arhitektura-razno",
+  "title": "Hardver, arhitektura i razno",
+  "sourcePdf": "Prikaz_računarskog_hardvera.pdf, OsnovniKonceptiOS.pdf, Pregled_Arhitektura_OS_a.pdf",
+  "exercises": [
+    {
+      "exerciseNumber": 1,
+      "sourceTaskName": "CPU, funkcije, arhitektura, verzije",
+      "questions": [
+        {
+          "id": "e39",
+          "promptParts": {
+            "before": "Navedite osnovne (opće) funkcije računara:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "multiple",
+          "options": [
+            "obrada podataka",
+            "pohranjivanje podataka",
+            "kretanje podataka",
+            "kontrola"
+          ],
+          "correctAnswers": [
+            "obrada podataka",
+            "pohranjivanje podataka",
+            "kretanje podataka",
+            "kontrola"
+          ],
+          "context": "četiri opće funkcije računara su: obrada podataka, pohranjivanje podataka, kretanje (prijenos) podataka i kontrola. Poveznica: strukturno tim funkcijama odgovaraju CPU (obrada+kontrola), memorija (pohrana) i U/I + sabirnice (kretanje).",
+          "note": "Citat: 'četiri opće funkcije računara: obrada podataka, pohranjivanje podataka, kretanja podataka, kontrola.' NAPOMENA: neki ispitni listić nudi 'upisivanje/čitanje/pohranjivanje/brisanje' — te opcije se ne poklapaju s ovim službenim četirima, pa se osloni na navedene četiri iz materijala."
+        },
+        {
+          "id": "e40",
+          "promptParts": {
+            "before": "Organizacija CPU koji ima odvojene jedinice za prihvatanje, dekodiranje i izvršavanje naziva se:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Kernel",
+            "Sa duplim jezgrom",
+            "Pipeline",
+            "Ništa od navedenog"
+          ],
+          "correctAnswers": ["Pipeline"],
+          "context": "Pipeline (protočna obrada) omogućava preklapanje faza izvršavanja više instrukcija: dok se jedna izvršava, sljedeća se dekodira, a treća prihvata. Time se povećava propusnost CPU-a. Poveznica: to je ista ideja 'trake' koja teče — svaka jedinica stalno radi na svojoj fazi.",
+          "note": "Citat: 'Pipeline je tehnika koja omogućava preklapanje faza izvršavanja više instrukcija.'"
+        },
+        {
+          "id": "e41",
+          "promptParts": {
+            "before": "Šta je asembler?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Ništa od navedenog",
+            "Prevodi simbolički zapis u binarni",
+            "Prevodi binarni u heksadecimalni",
+            "Potprogram"
+          ],
+          "correctAnswers": ["Prevodi simbolički zapis u binarni"],
+          "context": "Asembler prevodi simbolički (asemblerski) zapis instrukcija u binarni (mašinski) kod koji CPU izvršava. Poveznica: to je niži nivo od kompajlera (koji prevodi viši jezik u asembler/mašinski kod).",
+          "note": "Opšte znanje: asembler = prevodilac asemblerskog (simboličkog) koda u mašinski (binarni)."
+        },
+        {
+          "id": "e42",
+          "promptParts": {
+            "before": "TRAP instrukcija:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Prebacuje iz memorije u kernel mod i pokreće OS",
+            "Prebacuje iz korisničkog u kernel mod i pokreće OS",
+            "Prebacuje iz registra u keš mod i pokreće OS",
+            "Ništa od navedenog"
+          ],
+          "correctAnswers": [
+            "Prebacuje iz korisničkog u kernel mod i pokreće OS"
+          ],
+          "context": "TRAP (softverski prekid) prebacuje CPU iz korisničkog (user) u kernel (privilegovani) mod i predaje kontrolu operativnom sistemu — tako se izvršava sistemski poziv. Poveznica: to je mehanizam iza System Call Interface-a; user kod ne može direktno u kernel bez trap-a.",
+          "note": "Opšte OS znanje: TRAP/softverski prekid prebacuje iz user u kernel mod i poziva OS rutinu."
+        },
+        {
+          "id": "e43",
+          "promptParts": {
+            "before": "Tip arhitekture monolitnog operativnog sistema se naziva:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "The big systeme",
+            "The big mess",
+            "Ništa od navedenog",
+            "The big monolite"
+          ],
+          "correctAnswers": ["The big mess"],
+          "context": "Monolitna arhitektura se u literaturi (Tanenbaum) slikovito naziva 'The Big Mess' — sve funkcije OS-a su isprepletene u jednom velikom bloku bez jasne strukture. Poveznica: prednost je brzina (direktni pozivi), mana nedostatak izolacije (greška ruši cijeli sistem, Kernel Panic).",
+          "note": "Opšte OS znanje (Tanenbaum): monolitni sistem = 'The Big Mess'."
+        },
+        {
+          "id": "e44",
+          "promptParts": {
+            "before": "Kad je objavljen Windows 2.0?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["1989", "1987", "1985", "1983"],
+          "correctAnswers": ["1987"],
+          "context": "Windows 2.0 je objavljen 1987. (Windows 1.0 je izašao 1985.) Poveznica: rane Windows verzije bile su grafička nadgradnja nad MS-DOS-om.",
+          "note": "Opšte znanje (istorija): Windows 1.0 = 1985, Windows 2.0 = 1987."
+        },
+        {
+          "id": "e45",
+          "promptParts": {
+            "before": "Windows XP imao je nekoliko izdanja. Koje je stvarno izdanje?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "windows professional",
+            "windows edition III",
+            "windows PC edition",
+            "windows XP Media Center Edition"
+          ],
+          "correctAnswers": ["windows XP Media Center Edition"],
+          "context": "Windows XP Media Center Edition je stvarno izdanje. Stvarna izdanja XP-a uključuju i Home, Professional, Tablet PC Edition. 'Edition III' i 'PC edition' su izmišljena. Poveznica: 'windows professional' (tj. XP Professional) je TAKOĐER stvarno izdanje — vidi napomenu.",
+          "note": "NAPOMENA: i 'windows professional' (Windows XP Professional) je stvarno izdanje, pa ako je pitanje 'izaberi sva stvarna izdanja' tačni su i Professional i Media Center Edition. Ako se traži jedno, najprepoznatljivije XP-specifično je Media Center Edition. Opšte znanje (istorija Windowsa).",
+          "uncertain": true
+        }
+      ]
+    }
+  ]
+}

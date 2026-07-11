@@ -7,11 +7,12 @@
 // one reload later. MP3s are never re-fetched once cached, to spare mobile
 // data. Bump the version to force a full re-download.
 
-const CACHE_NAME = "tenseup-v1";
+const CACHE_NAME = "tenseup-v2";
 
 const CORE = [
   "./",
   "index.html",
+  "home.html",
   "quiz.html",
   "rules.html",
   "theory.html",
@@ -34,36 +35,52 @@ const CORE = [
   "assets/js/essay-store.js",
   "assets/js/main-essay.js",
   "assets/js/main-home.js",
+  "assets/js/main-picker.js",
   "assets/js/main-quiz.js",
   "assets/js/main-static.js",
   "assets/js/main-theory.js",
+  "assets/js/nav.js",
   "assets/js/progress-store.js",
   "assets/js/quiz-engine.js",
   "assets/js/quiz-render.js",
   "assets/js/quiz-state.js",
   "assets/js/settings-store.js",
+  "assets/js/subject.js",
   "assets/js/sw-register.js",
   "assets/js/theme.js",
   "assets/js/utils.js",
-  "data/manifest.json",
-  "data/essay-cards.json",
+  "data/subjects.json",
 ];
 
-// Topic files and narration are listed in the data files, so new content is
-// precached without editing this worker.
+// Subjects, their topic files and narration are all listed in data files, so
+// new content (and new subjects) get precached without editing this worker.
 async function extraUrls() {
   const urls = [];
+  let subjects = [];
   try {
-    const manifest = await (await fetch("data/manifest.json")).json();
-    urls.push(...manifest.topics.map((topic) => `data/${topic.file}`));
+    subjects = (await (await fetch("data/subjects.json")).json()).subjects;
   } catch {
-    /* Without the manifest the quiz topics just stay online-only. */
+    /* Without the subjects list everything just stays online-only. */
+    return urls;
   }
-  try {
-    const data = await (await fetch("data/essay-cards.json")).json();
-    urls.push(...data.cards.map((card) => `assets/voice/${card.id}.mp3`));
-  } catch {
-    /* Without the card list the narration just stays online-only. */
+  for (const subject of subjects) {
+    const dir = subject.dir || subject.id;
+    urls.push(`data/${dir}/manifest.json`);
+    try {
+      const manifest = await (await fetch(`data/${dir}/manifest.json`)).json();
+      urls.push(...manifest.topics.map((topic) => `data/${dir}/${topic.file}`));
+    } catch {
+      /* This subject's topics stay online-only. */
+    }
+    if (subject.features && subject.features.includes("essay")) {
+      urls.push(`data/${dir}/essay-cards.json`);
+      try {
+        const data = await (await fetch(`data/${dir}/essay-cards.json`)).json();
+        urls.push(...data.cards.map((card) => `assets/voice/${card.id}.mp3`));
+      } catch {
+        /* This subject's narration stays online-only. */
+      }
+    }
   }
   return urls;
 }

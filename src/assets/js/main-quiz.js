@@ -1,4 +1,5 @@
 import { loadAllTopics } from "./data-loader.js";
+import { getSubjectConfig } from "./subject.js";
 import {
   buildMixedPool,
   filterByTopics,
@@ -40,7 +41,8 @@ wireThemeToggle();
 async function start() {
   let topics;
   try {
-    topics = await loadAllTopics();
+    const config = await getSubjectConfig();
+    topics = await loadAllTopics(config);
   } catch (err) {
     renderError(`Could not load quiz content: ${err.message}`);
     return;

@@ -1,4 +1,6 @@
-const STORAGE_KEY = "quizProgress:solved";
+import { subjectKey } from "./subject.js";
+
+const STORAGE_KEY = subjectKey("quizProgress:solved");
 
 function readSet() {
   try {

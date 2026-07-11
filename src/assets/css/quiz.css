@@ -139,6 +139,18 @@
   padding: calc(var(--spacing-unit) * 1.5);
 }
 
+/* Small print under the explanation: source PDF and, when present, the note. */
+.feedback-source {
+  margin-top: calc(var(--spacing-unit));
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: var(--color-muted);
+}
+
+.feedback-source + .feedback-source {
+  margin-top: calc(var(--spacing-unit) * 0.5);
+}
+
 .summary-review {
   margin-top: calc(var(--spacing-unit) * 3);
 }

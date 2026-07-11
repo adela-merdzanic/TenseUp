@@ -1,0 +1,20 @@
+{
+  "subjects": [
+    {
+      "id": "english",
+      "dir": "english",
+      "title": "English II",
+      "subtitle": "Grammar practice and essay flashcards from the FIT English II materials.",
+      "quizLabel": "Grammar practice",
+      "features": ["quiz", "essay", "rules", "theory"]
+    },
+    {
+      "id": "operativni-sistemi",
+      "dir": "operativni-sistemi",
+      "title": "Operativni sistemi",
+      "subtitle": "Pitanja s ponuđenim odgovorima iz gradiva Operativnih sistema (arhitektura, memorija, fajl sistemi, procesi, shell).",
+      "quizLabel": "Practice questions",
+      "features": ["quiz"]
+    }
+  ]
+}

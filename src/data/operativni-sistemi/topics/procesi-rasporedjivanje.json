@@ -1,0 +1,44 @@
+{
+  "topicId": "procesi-rasporedjivanje",
+  "title": "Procesi i raspoređivanje",
+  "sourcePdf": "Upravljanje_procesima.pdf, RasporedjivanjeProcesa.pdf",
+  "exercises": [
+    {
+      "exerciseNumber": 1,
+      "sourceTaskName": "Stanja procesa, scheduling",
+      "questions": [
+        {
+          "id": "q16",
+          "promptParts": {
+            "before": "U koje stanje prelazi proces ako se prekine zbog isteka time slice-a?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Ready", "Running", "Waiting", "Looping", "New"],
+          "correctAnswers": ["Ready"],
+          "context": "Kad procesu istekne dodijeljeno CPU-vrijeme (time slice), prelazi iz Running u Ready — nije završen ni blokiran, samo čeka novi red na procesor. Model stanja: New (kreiran) — Ready (čeka CPU) — Running (izvršava se) — Waiting/Blocked (čeka U/I ili resurs) — Terminated. Ostali ključni prelazi: Running→Waiting (traži U/I), Waiting→Ready (događaj se desio). Pri svakom prekidu OS čuva kontekst procesa u PCB-u (PID, programski brojač, registri, info o memoriji) — to je context switch. Zamka: 'Looping' nije formalno stanje; validna su New/Ready/Running/Waiting/Terminated.",
+          "note": "Citat: 'Running - Ready: Najčešći razlog za ovaj prelaz je to što je proces koji se trenutno izvršava potrošio svoje vrijeme koje mu je dodijeljeno za izvršavanje'."
+        },
+        {
+          "id": "q17",
+          "promptParts": {
+            "before": "Šta je raspoređivanje procesa (process scheduling)?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Dodjela procesora procesima po nekom algoritmu",
+            "Dodjela memorije procesima",
+            "Brisanje zombie procesa",
+            "Prevođenje virtualnih u fizičke adrese"
+          ],
+          "correctAnswers": ["Dodjela procesora procesima po nekom algoritmu"],
+          "context": "Raspoređivanje procesa = dodjela CPU-a procesima po algoritmu, jedna od najvažnijih funkcija OS-a, jer procesor u datom trenutku izvršava samo jedan proces a spremnih je više. Glavni algoritmi: FCFS (po dolasku), SJF (najkraći prvi), prioritetno (uz/bez preempcije), RR/Round Robin (svako dobije kvantum pa se rotira — za interaktivne sisteme), redovi u više nivoa (grupe procesa, svaka sa svojim algoritmom). Mjere kvaliteta: vrijeme čekanja i vrijeme izvršavanja (turnaround) — baš ono što se računa u Gantovim zadacima. Poveznica: svaka smjena procesa nosi context switch, čije je vrijeme čist režijski gubitak — zato prečest RR (premali kvantum) šteti performansama.",
+          "note": "Citat: 'Dodjela procesora po nekom algoritmu je jedna od najvažnijih funkcija operativnog sistema.'"
+        }
+      ]
+    }
+  ]
+}

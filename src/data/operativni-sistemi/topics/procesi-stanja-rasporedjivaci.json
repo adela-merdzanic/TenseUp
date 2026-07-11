@@ -1,0 +1,284 @@
+{
+  "topicId": "procesi-stanja-rasporedjivaci",
+  "title": "Procesi: stanja, prelazi i raspoređivači",
+  "sourcePdf": "Upravljanje_procesima.pdf, RasporedjivanjeProcesa.pdf",
+  "exercises": [
+    {
+      "exerciseNumber": 1,
+      "sourceTaskName": "Stanja, prelazi, raspoređivači, PCB",
+      "questions": [
+        {
+          "id": "e1",
+          "promptParts": {
+            "before": "Da li je moguća promjena stanja procesa iz Waiting u Ready?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["da", "ne"],
+          "correctAnswers": ["da"],
+          "context": "Jeste. Prelaz Waiting→Ready dešava se kada se desi događaj na koji je proces čekao (npr. završena U/I operacija). Proces se tada vraća u red spremnih i čeka procesor. Poveznica: to je jedan od ciklusa Running→Waiting→Ready kroz koji proces prolazi dok ne završi.",
+          "note": "Citat: 'Waiting - Ready: Ovaj prelaz se dešava kada se desi događaj na koji je proces čekao.'"
+        },
+        {
+          "id": "e2",
+          "promptParts": {
+            "before": "Da li je moguća promjena stanja procesa iz Ready u Terminated?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["ne", "da"],
+          "correctAnswers": ["ne"],
+          "context": "Prema dijagramu stanja u materijalu, Terminated se dostiže samo iz Running (Running→Terminated). Iz Ready proces ide u Running, ne direktno u Terminated. Zato se ovaj prelaz ne smatra mogućim u standardnom modelu.",
+          "note": "Materijal navodi dozvoljene prelaze: New→Ready, Ready→Running, Running→Terminated, Running→Ready, Running→Waiting, Waiting→Ready. Ready→Terminated NIJE među njima. (U realnim sistemima proces se može ubiti iz bilo kojeg stanja, ali dijagram kursa to ne prikazuje.)"
+        },
+        {
+          "id": "e3",
+          "promptParts": {
+            "before": "Da li je moguća promjena stanja procesa iz Running u Terminated?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["da", "ne"],
+          "correctAnswers": ["da"],
+          "context": "Jeste. Running→Terminated je standardni prelaz: proces se okončava kad izvrši posljednju instrukciju, kod fatalne greške ili kad ga drugi ovlašteni proces završi. Poveznica: iz Terminated proces više nije kandidat za izvršavanje; OS neko vrijeme čuva podatke pa ih briše.",
+          "note": "Citat: 'Proces se nalazi u fazi Terminated kada se izvrši njegova posljednja instrukcija, kada se izvršavanje prekine zbog fatalne greške ili kada neki drugi proces... zatraži da se on završi.'"
+        },
+        {
+          "id": "e4",
+          "promptParts": {
+            "before": "Da li je moguća promjena stanja procesa iz New u Ready?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["ne", "da"],
+          "correctAnswers": ["da"],
+          "context": "Jeste. New→Ready je standardni prelaz: nakon kreiranja (OS mu dodijelio identifikator) proces postaje spreman za izvršavanje i ulazi u red spremnih. Poveznica: u stanju New proces je još na disku; tek prelaskom u Ready se smatra spremnim za CPU.",
+          "note": "Citat: 'New - Ready: Proces je spreman da počne sa izvršavanjem na procesoru.'"
+        },
+        {
+          "id": "e5",
+          "promptParts": {
+            "before": "Da li je moguća promjena stanja procesa iz Waiting u Terminated?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["da", "ne"],
+          "correctAnswers": ["ne"],
+          "context": "Prema dijagramu stanja u materijalu, Terminated se dostiže samo iz Running. Iz Waiting proces ide u Ready (kad se desi događaj), pa tek iz Running može u Terminated. Zato se direktan prelaz Waiting→Terminated ne smatra mogućim u standardnom modelu.",
+          "note": "Materijal: dozvoljeni prelazi ne uključuju Waiting→Terminated (Terminated je samo iz Running). U realnim sistemima proces se može prekinuti i iz Waiting, ali dijagram kursa to ne prikazuje."
+        },
+        {
+          "id": "e6",
+          "promptParts": {
+            "before": "Da li je moguća promjena stanja procesa iz New u Waiting?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["da", "ne"],
+          "correctAnswers": ["ne"],
+          "context": "Nije. Iz New proces ide isključivo u Ready, ne direktno u Waiting. U Waiting se dolazi iz Running (kad proces zatraži U/I ili resurs). Poveznica: New znači 'tek kreiran, još na disku' — nema šta čekati dok ne uđe u red spremnih.",
+          "note": "Materijal: dozvoljeni prelaz iz New je samo New→Ready."
+        },
+        {
+          "id": "e7",
+          "promptParts": {
+            "before": "Dugoročni raspoređivač:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "bira procese sa diska i učitava ih u memoriju",
+            "bira između procesa koji su u stanju Ready i nekom od njih dodjeljuje procesor"
+          ],
+          "correctAnswers": ["bira procese sa diska i učitava ih u memoriju"],
+          "context": "Dugoročni (long-term / job scheduler) bira procese sa diska i učitava ih u memoriju, čime upravlja stepenom multiprogramiranja (koliko procesa je istovremeno u memoriji). Izvršava se rijetko. Poveznica: druga opcija opisuje KRATKOROČNI raspoređivač (bira iz Ready i dodjeljuje CPU).",
+          "note": "Citat: 'Dugoročni raspoređivač (long-term scheduler ili job scheduler) bira procese sa diska i učitava ih u memoriju.'"
+        },
+        {
+          "id": "e8",
+          "promptParts": {
+            "before": "Kratkoročni raspoređivač:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "bira između procesa koji su u stanju Ready i nekom od njih dodjeljuje procesor",
+            "bira procese sa diska i učitava ih u memoriju"
+          ],
+          "correctAnswers": [
+            "bira između procesa koji su u stanju Ready i nekom od njih dodjeljuje procesor"
+          ],
+          "context": "Kratkoročni (short-term / CPU scheduler) bira između procesa u stanju Ready i dodjeljuje im procesor. Izvršava se vrlo često (na svakih ~100 ms) pa mora biti brz. Poveznica: druga opcija opisuje DUGOROČNI raspoređivač.",
+          "note": "Citat: 'Kratkoročni raspoređivač... bira između procesa koji su u stanju Ready i nekom od njih dodjeljuje procesor.'"
+        },
+        {
+          "id": "e9",
+          "promptParts": {
+            "before": "Stanje u kojem se NE aktivira kratkoročni raspoređivač je:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Prelaz iz stanja Waiting u stanje Ready",
+            "Prelaz iz stanja Running u stanje Waiting",
+            "Prelaz u stanje Terminated",
+            "Prelaz iz stanja Running u stanje Ready",
+            "Prelaz iz stanja Ready u stanje Waiting"
+          ],
+          "correctAnswers": ["Prelaz iz stanja Ready u stanje Waiting"],
+          "context": "Odluka o raspoređivanju CPU-a donosi se u 4 situacije: Running→Waiting, Running→Ready, Waiting→Ready i prelaz u Terminated. 'Ready→Waiting' nije ni valjan prelaz (iz Ready se ide u Running), pa se pri njemu raspoređivač ne aktivira. Poveznica: raspoređivanje samo u slučajevima Running→Waiting i Terminated = bez suspenzije; uz Running→Ready i Waiting→Ready = sa suspenzijom (preemptive).",
+          "note": "Citat: odluka o raspoređivanju dešava se pri prelazima 'Running u Waiting', 'Running u Ready', 'Waiting u Ready' i 'u Terminated'."
+        },
+        {
+          "id": "e10",
+          "promptParts": {
+            "before": "Identifikator procesa (PID) je jedna od informacija koja je sadržana u:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Dugoročnom raspoređivaću",
+            "U/I uređajima",
+            "Kratkoročnom raspoređivaću",
+            "TCB-u",
+            "PID-u"
+          ],
+          "correctAnswers": ["TCB-u"],
+          "context": "PID je pohranjen u bloku za kontrolu procesa. U ovom kursu se PCB (Process Control Block) naziva i TCB (Task Control Block) — to je isti blok. PCB sadrži: PID, stanje procesa, programski brojač, registre, info o raspoređivanju i memoriji. Zato je tačan odgovor TCB.",
+          "note": "Citat: 'Svaki proces je predstavljen blokom za kontrolu procesa (PCB), koji se još u literaturi naziva i blok za kontrolu zadataka (Task Control Block — TCB)... uključuje: Identifikator procesa (PID)'."
+        },
+        {
+          "id": "e11",
+          "promptParts": {
+            "before": "Prebacivanje procesora na drugi proces (čuvanje stanja trenutnog i rekonstruisanje stanja drugog procesa) zove se:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Programski tijek",
+            "TCB",
+            "MDW",
+            "Promjena konteksta",
+            "PCB"
+          ],
+          "correctAnswers": ["Promjena konteksta"],
+          "context": "To je promjena konteksta (context switch): OS sačuva kontekst tekućeg procesa u njegov PCB i učita kontekst drugog. Vrijeme context switcha je čist režijski gubitak (CPU u tom trenu ne radi koristan posao). Poveznica: baš zbog te cijene prečest RR (premali kvantum) šteti performansama.",
+          "note": "Citat: 'Kada se desi prekid, sistem mora da sačuva kontekst procesa... da bi mogao da ga povrati' (Promjena konteksta / context switch)."
+        },
+        {
+          "id": "e12",
+          "promptParts": {
+            "before": "Proces je:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["pasivan entitet", "aktivan entitet"],
+          "correctAnswers": ["aktivan entitet"],
+          "context": "Proces je AKTIVAN entitet — program u izvršavanju, sa svojim programskim brojačem, registrima i resursima. Program sam po sebi je PASIVAN entitet (samo fajl na disku). Poveznica: program postaje proces kad se učita u memoriju i počne izvršavati.",
+          "note": "Opšte OS znanje (Silberschatz): program = pasivan entitet, proces = aktivan entitet."
+        },
+        {
+          "id": "e13",
+          "promptParts": {
+            "before": "Kada program postaje proces?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "kada se dodijele vrijednosti globalnim promjenjivim",
+            "kada stack postane dominantniji od heap-a",
+            "kada heap postane dominantniji od stack-a",
+            "kada se njegov izvršni fajl učita u memoriju"
+          ],
+          "correctAnswers": ["kada se njegov izvršni fajl učita u memoriju"],
+          "context": "Program (pasivan fajl na disku) postaje proces (aktivan entitet) kada se njegov izvršni fajl učita u memoriju i dobije resurse za izvršavanje. Poveznica: u stanju New proces je kreiran ali još na disku; učitavanjem u RAM postaje spreman (Ready).",
+          "note": "Opšte OS znanje; u skladu s definicijom procesa kao 'programa u izvršavanju' i opisom stanja New/Ready iz materijala."
+        },
+        {
+          "id": "e14",
+          "promptParts": {
+            "before": "Šta je ispravno (proces roditelj / dijete)?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Proces roditelj može da sačeka dok se neki od procesa djece ne završi",
+            "Proces roditelj se ne može nastaviti dok se izvršava proces dijete"
+          ],
+          "correctAnswers": [
+            "Proces roditelj može da sačeka dok se neki od procesa djece ne završi"
+          ],
+          "context": "Roditelj MOŽE (ali ne mora) sačekati dijete — sistemskim pozivom tipa wait(). Druga tvrdnja je netačna: roditelj se može izvršavati konkurentno s djetetom (ne mora čekati). Poveznica: kreiranje djece (fork) je starija tehnika za paralelizam, danas zamijenjena efikasnijim nitima.",
+          "note": "Opšte OS znanje (fork/wait); materijal spominje da proces 'može da napravi novi potproces i da sačeka da se on završi'."
+        },
+        {
+          "id": "e15",
+          "promptParts": {
+            "before": "Segment koda procesa djeteta:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "može da bude kopija procesa roditelja",
+            "isključivo se mora razlikovati od segmenta koda procesa roditelja"
+          ],
+          "correctAnswers": ["može da bude kopija procesa roditelja"],
+          "context": "Kod fork() dijete dobija KOPIJU adresnog prostora roditelja (uključujuči segment koda), pa segment koda djeteta MOŽE biti kopija roditeljevog. Dijete može kasnije preko exec() učitati drugi program. Poveznica: Linux koristi fork()+exec(), Windows CreateProcess.",
+          "note": "Opšte OS znanje (fork kopira adresni prostor); u materijalu se spominje fork()+exec() kod Linuxa."
+        },
+        {
+          "id": "e16",
+          "promptParts": {
+            "before": "Adresni prostor sadrži:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Izvršni program, programske podatke i stek",
+            "Ništa od navedenog",
+            "Izvršni program, procese i stek",
+            "Ulazno izlazne informacije, memoriju i programske podatke"
+          ],
+          "correctAnswers": ["Izvršni program, programske podatke i stek"],
+          "context": "Adresni prostor procesa sadrži: izvršni program (tekst/kod segment), programske podatke (data segment, uključujuči heap) i stek. Poveznica: OS stvara apstrakciju adresnog prostora odvojenu od fizičke memorije — može biti manji ili veći od nje (virtuelna memorija).",
+          "note": "Opšte OS znanje (kod/podaci/stek); materijal: 'operativni sistem stvara apstrakciju adresnog prostora'."
+        },
+        {
+          "id": "e17",
+          "promptParts": {
+            "before": "Dio procesa koji sadrži kod zove se:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "heap",
+            "stack",
+            "izvršni fajl",
+            "tekst segment",
+            "segment podataka"
+          ],
+          "correctAnswers": ["tekst segment"],
+          "context": "Kod procesa je u TEKST (text/code) segmentu. Ostali dijelovi: segment podataka (globalne varijable), heap (dinamička memorija), stek (lokalne varijable i pozivi funkcija). Poveznica: tekst segment je obično read-only i može se dijeliti između procesa koji izvršavaju isti program.",
+          "note": "Opšte OS znanje o strukturi adresnog prostora procesa."
+        }
+      ]
+    }
+  ]
+}

@@ -2,19 +2,13 @@ import { initTheme, wireThemeToggle } from "./theme.js";
 import { qs, qsa, escapeHtml } from "./utils.js";
 import { DIAGRAMS } from "./essay-diagrams.js";
 import { createAudioPlayer } from "./audio-player.js";
+import { getSubjectConfig } from "./subject.js";
+import { loadEssayCards } from "./data-loader.js";
 
 initTheme();
 wireThemeToggle();
 
 const VOICE_DIR = "assets/voice";
-
-async function loadCards() {
-  const response = await fetch("data/essay-cards.json");
-  if (!response.ok) {
-    throw new Error(`Failed to load essay-cards.json (${response.status})`);
-  }
-  return response.json();
-}
 
 function renderCard(card) {
   const core = card.core.map((line) => `<li>${escapeHtml(line)}</li>`).join("");
@@ -549,7 +543,8 @@ async function wireListen(cards) {
 async function start() {
   let data;
   try {
-    data = await loadCards();
+    const config = await getSubjectConfig();
+    data = await loadEssayCards(config);
   } catch (err) {
     qs("#theory-content").innerHTML =
       `<section class="rule-section"><p>Could not load the theory: ${escapeHtml(err.message)}</p></section>`;

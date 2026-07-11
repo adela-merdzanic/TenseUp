@@ -1,4 +1,6 @@
-const STORAGE_KEY = "quizSettings";
+import { subjectKey } from "./subject.js";
+
+const STORAGE_KEY = subjectKey("quizSettings");
 
 export const SHORT_SESSION_SIZE = 20;
 
@@ -28,7 +30,7 @@ export function saveSettings(settings) {
   }
 }
 
-const ESSAY_STORAGE_KEY = "essaySettings";
+const ESSAY_STORAGE_KEY = subjectKey("essaySettings");
 
 export const ESSAY_SHORT_SESSION_SIZE = 5;
 

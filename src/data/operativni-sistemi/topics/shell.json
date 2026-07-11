@@ -1,0 +1,47 @@
+{
+  "topicId": "shell",
+  "title": "Shell skripte",
+  "sourcePdf": "V_OS_ShellFajl.pdf, ZadaciPonavljanje_os.pdf",
+  "exercises": [
+    {
+      "exerciseNumber": 1,
+      "sourceTaskName": "Operatori poređenja, rezervisane riječi",
+      "questions": [
+        {
+          "id": "q20",
+          "promptParts": {
+            "before": "Izaberi PAROVE identičnih izraza (shell test operatori).",
+            "blank": "",
+            "after": ""
+          },
+          "type": "multiple",
+          "options": [
+            "[ $temp < 10 ] i [ $temp lt 10 ]",
+            "[ $temp > 10 ] i [ $temp gt 10 ]",
+            "[ $temp < 10 ] i [ $temp le 10 ]",
+            "[ $temp < 10 ] i [ $temp ge 10 ]"
+          ],
+          "correctAnswers": [
+            "[ $temp < 10 ] i [ $temp lt 10 ]",
+            "[ $temp > 10 ] i [ $temp gt 10 ]"
+          ],
+          "context": "U shell testu ([ ] / [[ ]]) brojevno poređenje ide dvoslovnim operatorima: -lt (<), -le (<=), -gt (>), -ge (>=), -eq (==), -ne (!=). Znak '<' je skraćeno 'manje od' = -lt, a '>' = -gt — pa su identični parovi < — lt i > — gt. Zamka: '<' NIJE 'le' (koje uključuje i jednakost) niti 'ge'. Obavezni su razmaci unutar [ ], a u čistom [ ] znak '<' se mora zaštititi jer ga shell inače tumači kao preusmjeravanje ulaza. Poveznica: za stringove se koriste = i != (te leksikografsko < > u [[ ]]) — bitno je ne miješati brojevno i string poređenje.",
+          "note": "Citat: 'umjesto znaka <, skraćenicu za less than (-lt)'. Potvrda iz zadataka za ponavljanje: tvrdnja da su '[ $temp < 15 ] i [ $temp -le 15 ] identični' je NETAČNA (jer < = -lt, a ne -le)."
+        },
+        {
+          "id": "q21",
+          "promptParts": {
+            "before": "Koje od navedenih su rezervisane riječi (keywords) u shellu?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "multiple",
+          "options": ["if", "for", "echo", "read"],
+          "correctAnswers": ["if", "for"],
+          "context": "Rezervisane riječi (keywords) su dio SINTAKSE shell jezika i ne smiju se koristiti kao obična imena tamo gdje shell očekuje sintaksu. Grupe: grananje (if, then, elif, else, fi, case, esac, [[, ]], !), petlje (for, while, until, do, done, in, select), ostalo (function, coproc, time, {, }). Obrati pažnju na 'ogledalo': if...fi i case...esac zatvaraju se riječju napisanom unatrag. Zamka: 'echo', 'read', 'cd', 'ls' NISU keywords nego KOMANDE (naredbe koje nešto rade), dok keywords grade strukturu. Poveznica: zato 'if' ne možeš iskoristiti kao ime, dok 'echo' teoretski možeš (mada se ne preporučuje) — jer echo nije rezervisan.",
+          "note": "Citat (spisak): 'Rezervisane riječi, keywords - !, case, coproc, do, done, elif, else, esac, fi, for, function, if, in, select, then, until, while, {, }, time, [[, ]]'."
+        }
+      ]
+    }
+  ]
+}

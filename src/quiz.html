@@ -50,10 +50,11 @@
     <header class="app-header">
       <a href="index.html" class="app-logo">TenseUp</a>
       <nav class="header-nav">
-        <a href="index.html">Home</a>
-        <a href="rules.html">Grammar rules</a>
-        <a href="theory.html">Essay theory</a>
-        <a href="contribute.html">Contribute</a>
+        <a href="home.html" data-nav>Home</a>
+        <a href="rules.html" data-nav data-feature="rules">Grammar rules</a>
+        <a href="theory.html" data-nav data-feature="theory">Essay theory</a>
+        <a href="index.html" data-switch>Subjects</a>
+        <a href="contribute.html" data-nav>Contribute</a>
       </nav>
       <button
         type="button"
@@ -104,6 +105,8 @@
           <p id="feedback-result" class="feedback-result"></p>
           <p id="topic-tag" class="topic-tag"></p>
           <div id="rule-box" class="rule-box"></div>
+          <p id="feedback-source" class="feedback-source" hidden></p>
+          <p id="feedback-note" class="feedback-source" hidden></p>
         </div>
       </section>
 
@@ -116,23 +119,27 @@
         <button type="button" id="reset-from-empty-btn" class="btn btn-primary">
           Reset progress and practice again
         </button>
-        <a href="index.html" class="btn">Back to start</a>
+        <a href="index.html" data-nav class="btn">Back to start</a>
       </section>
 
       <section id="summary-screen" class="question-card" hidden>
         <h2>Session complete</h2>
         <p id="summary-text"></p>
         <div class="actions">
-          <a href="quiz.html" class="btn btn-primary">Practice again</a>
-          <a href="rules.html" class="btn">Grammar rules</a>
-          <a href="index.html" class="btn">Back to start</a>
+          <a href="quiz.html" data-nav class="btn btn-primary"
+            >Practice again</a
+          >
+          <a href="rules.html" data-nav data-feature="rules" class="btn"
+            >Grammar rules</a
+          >
+          <a href="index.html" data-nav class="btn">Back to start</a>
         </div>
         <div id="summary-review" class="summary-review"></div>
       </section>
 
       <section id="error-screen" class="question-card" hidden>
         <p id="error-text"></p>
-        <a href="index.html" class="btn">Back to start</a>
+        <a href="index.html" data-nav class="btn">Back to start</a>
       </section>
     </main>
 
@@ -143,6 +150,7 @@
       </p>
     </footer>
 
+    <script type="module" src="assets/js/nav.js"></script>
     <script type="module" src="assets/js/main-quiz.js"></script>
     <script type="module" src="assets/js/sw-register.js"></script>
     <!-- Cloudflare Web Analytics -->

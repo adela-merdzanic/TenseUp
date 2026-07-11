@@ -1,0 +1,109 @@
+{
+  "topicId": "rasporedjivanje-rr-zadatak",
+  "title": "RR raspoređivanje sa suspenzijom (zadatak)",
+  "sourcePdf": "RasporedjivanjeProcesa.pdf",
+  "exercises": [
+    {
+      "exerciseNumber": 1,
+      "sourceTaskName": "RR zadatak (P1..P6, kvantum 10)",
+      "questions": [
+        {
+          "id": "e26",
+          "promptParts": {
+            "before": "Koliko je ukupno vrijeme izvršavanja (turnaround) procesa P2? [RR, kvantum 10; P2: burst 25, ulazak 25]",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "40",
+            "55",
+            "65",
+            "30",
+            "35",
+            "60",
+            "25",
+            "ništa od navedenog",
+            "50",
+            "45"
+          ],
+          "correctAnswers": ["45"],
+          "context": "'Ukupno vrijeme izvršavanja' = turnaround = trenutak završetka — trenutak ulaska. P2 završava u t=70, ušao u t=25 — 70–25 = 45. CPU raspored (kvantum 10, prioritetna preempcija, manji broj = viši prioritet): P1[0-20] → idle[20-25] → P2[25-35] → P3[35-45] → P2[45-55] → P3[55-65] → P2[65-70] → P4[70-80] → P3[80-85] → P4[85-90]. Završeci: P1=20, P2=70, P3=85, P4=90.",
+          "note": "Citat (definicija): 'Ukupno vrijeme izvršavanja procesa (Turnaround time)... zbir perioda provedenih u čekanju... i izvršavanja.' Rezultat potvrđen ručnom simulacijom RR-a."
+        },
+        {
+          "id": "e27",
+          "promptParts": {
+            "before": "Koliko je ukupno vrijeme izvršavanja (turnaround) procesa P3? [RR, kvantum 10; P3: burst 25, ulazak 30]",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "25",
+            "35",
+            "30",
+            "60",
+            "45",
+            "65",
+            "40",
+            "50",
+            "55",
+            "ništa od navedenog"
+          ],
+          "correctAnswers": ["55"],
+          "context": "Turnaround = završetak — ulazak. P3 završava u t=85, ušao u t=30 — 85–30 = 55. CPU raspored (kvantum 10, prioritetna preempcija, manji broj = viši prioritet): P1[0-20] → idle[20-25] → P2[25-35] → P3[35-45] → P2[45-55] → P3[55-65] → P2[65-70] → P4[70-80] → P3[80-85] → P4[85-90]. Završeci: P1=20, P2=70, P3=85, P4=90.",
+          "note": "Rezultat potvrđen ručnom simulacijom RR-a (kvantum 10, prioritetna preempcija)."
+        },
+        {
+          "id": "e28",
+          "promptParts": {
+            "before": "Koliko je vrijeme čekanja procesa P2? [RR, kvantum 10; P2: burst 25, ulazak 25]",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "30",
+            "20",
+            "15",
+            "35",
+            "10",
+            "ništa od navedenog",
+            "25",
+            "5",
+            "40",
+            "0"
+          ],
+          "correctAnswers": ["20"],
+          "context": "Vrijeme čekanja = turnaround — burst = 45 — 25 = 20. (Vrijeme provedeno u redu spremnih, ne računajuči izvršavanje.) CPU raspored (kvantum 10, prioritetna preempcija, manji broj = viši prioritet): P1[0-20] → idle[20-25] → P2[25-35] → P3[35-45] → P2[45-55] → P3[55-65] → P2[65-70] → P4[70-80] → P3[80-85] → P4[85-90]. Završeci: P1=20, P2=70, P3=85, P4=90.",
+          "note": "Citat (definicija): 'Vrijeme čekanja je zbir vremenskih perioda provedenih u redu čekanja na procesor.' Potvrđeno simulacijom."
+        },
+        {
+          "id": "e29",
+          "promptParts": {
+            "before": "Koliko je vrijeme čekanja procesa P4? [RR, kvantum 10; P4: burst 15, ulazak 60]",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "30",
+            "10",
+            "35",
+            "15",
+            "40",
+            "ništa od navedenog",
+            "25",
+            "0",
+            "5",
+            "20"
+          ],
+          "correctAnswers": ["15"],
+          "context": "Vrijeme čekanja = turnaround — burst. P4 završava u t=90, ušao u t=60 — turnaround 30; 30 — 15 = 15. CPU raspored (kvantum 10, prioritetna preempcija, manji broj = viši prioritet): P1[0-20] → idle[20-25] → P2[25-35] → P3[35-45] → P2[45-55] → P3[55-65] → P2[65-70] → P4[70-80] → P3[80-85] → P4[85-90]. Završeci: P1=20, P2=70, P3=85, P4=90.",
+          "note": "Potvrđeno ručnom simulacijom RR-a."
+        }
+      ]
+    }
+  ]
+}

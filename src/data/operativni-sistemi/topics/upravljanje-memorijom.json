@@ -1,0 +1,87 @@
+{
+  "topicId": "upravljanje-memorijom",
+  "title": "Upravljanje memorijom",
+  "sourcePdf": "Memorija2.pdf, Upravljanje_memorijom.pdf",
+  "exercises": [
+    {
+      "exerciseNumber": 1,
+      "sourceTaskName": "MMU/TLB, fragmentacija, thrashing",
+      "questions": [
+        {
+          "id": "q12",
+          "promptParts": {
+            "before": "Koje su dvije komponente TLB-a (unutar MMU-a)?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "multiple",
+          "options": [
+            "Data TLB (dTLB)",
+            "Instruction TLB (iTLB)",
+            "Page TLB",
+            "Cache TLB"
+          ],
+          "correctAnswers": ["Data TLB (dTLB)", "Instruction TLB (iTLB)"],
+          "context": "MMU (Memory Management Unit) je hardver koji prevodi virtualne adrese u fizičke (mapira stranice na okvire u RAM-u). Da ne bi za svaki pristup čitao page tabelu iz memorije (sporo), koristi vlastiti keš — TLB (Translation Lookaside Buffer), podijeljen na Data TLB (mapiranja za podatke) i Instruction TLB (za instrukcije). Tok: CPU traži adresu — TLB hit vraća fizičku adresu odmah; TLB miss — MMU preko PTBR-a nalazi page tabelu; ako stranica nije u RAM-u (valid bit = 0) — page fault, OS je učita s diska. TLB unosi nose i ASID (identifikator adresnog prostora) da keš može držati mapiranja više procesa. Poveznica: TLB je za prevođenje adresa ono što su L1/L2 keš za sadržaj memorije — brzi međusloj protiv sporog pristupa.",
+          "note": "Citat: 'TLB se dijeli na dvije komponente: Data Translation Lookaside Buffer ... i Instruction Translation Lookaside Buffer'."
+        },
+        {
+          "id": "q13",
+          "promptParts": {
+            "before": "Kako se naziva fragmentacija kod koje je procesu dodijeljeno više memorije nego što traži, pa višak UNUTAR dodijeljenog bloka ostaje neiskorišten?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Unutrašnja (interna)",
+            "Spoljašnja (eksterna)",
+            "Dinamička",
+            "Statička"
+          ],
+          "correctAnswers": ["Unutrašnja (interna)"],
+          "context": "Unutrašnja fragmentacija = dodijeljeno je više nego što se traži, pa višak UNUTAR dodijeljene jedinice ostaje neiskorišten. Javlja se kod fiksnih jedinica dodjele: blok fajl sistema od 4 KB a fajl završi na sredini — ostatak bloka propada; ili kod straničenja posljednji okvir procesa ostane nepopunjen (prosječno pola stranice po procesu). Nije nužno loše: vođenje evidencije o sitnoj rupi ponekad košta više nego sama rupa. Poveznica: manje stranice = manje unutrašnje fragmentacije, ali veća page tabela — pa se traži balans (danas obično 4–8 KB).",
+          "note": "Citat: 'Razlika u zahtjevanoj i dodijeljenoj memoriji naziva se unutrašnja fragmentacija, jer se nalazi unutar particije.'"
+        },
+        {
+          "id": "q14",
+          "promptParts": {
+            "before": "Kako se naziva pojava kada slobodne memorije ima dovoljno, ali je razbacana u male šupljine, pa nema kontinuiranog bloka za veliki proces?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Spoljašnja (eksterna)",
+            "Unutrašnja (interna)",
+            "Interna fragmentacija bloka",
+            "Thrashing"
+          ],
+          "correctAnswers": ["Spoljašnja (eksterna)"],
+          "context": "Spoljašnja fragmentacija = slobodne memorije UKUPNO ima dovoljno, ali je rasuta u male šupljine između procesa, pa veliki proces ne stane jer nema kontinuiranog bloka. Javlja se kod dinamičkih particija kako procesi dolaze i odlaze. 50% pravilo: kod first-fit prosječno 0,5·N blokova propadne zbog fragmentacije. Rješenja: kompakcija (compaction — premještanje procesa da se šupljine spoje, moguće samo uz dinamičko adresiranje) ili elegantnije straničenje (paging), gdje proces ne mora biti u komadu. Poveznica: baš spoljašnja fragmentacija je glavni motiv za uvođenje straničenja.",
+          "note": "Citat: 'veći broj slobodnih mjesta manjeg kapaciteta, tzv. šupljina ... Ovaj problem naziva se spoljašnja fragmentacija.'"
+        },
+        {
+          "id": "q15",
+          "promptParts": {
+            "before": "Šta je thrashing (zagušenje memorije)?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Stanje kada OS troši više vremena na swap stranica između RAM-a i diska nego na izvršavanje procesa",
+            "Fizički kvar na hard disku",
+            "Prekid procesa zbog isteka time slice-a",
+            "Fragmentacija diska"
+          ],
+          "correctAnswers": [
+            "Stanje kada OS troši više vremena na swap stranica između RAM-a i diska nego na izvršavanje procesa"
+          ],
+          "context": "Thrashing nastaje kada radni skup (working set) aktivnih stranica premaši kapacitet RAM-a: OS onda neprestano izbacuje i ponovo učitava stranice, generišući lavinu page faultova ('page-fault storm'). Paradoks simptoma: disk (swap) radi punom parom, ali je CPU slabo iskorišten — jer procesor uglavnom čeka podatke sa sporog diska. Prevencija: smanjiti stepen multiprogramiranja (manje aktivnih procesa), working-set model, kontrola stope page faultova, ili više RAM-a. Poveznica: thrashing je 'tamna strana' virtuelne memorije — demand paging radi odlično dok radni skup stane u RAM, a ruši se kad ga premaši.",
+          "note": "Citat: 'Thrashing (zagušenje memorije) nastaje kada operativni sistem troši više vremena na zamjenu stranica između RAM-a i diska nego na stvarno izvršavanje procesa.'"
+        }
+      ]
+    }
+  ]
+}

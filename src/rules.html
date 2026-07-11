@@ -50,10 +50,13 @@
     <header class="app-header">
       <a href="index.html" class="app-logo">TenseUp</a>
       <nav class="header-nav">
-        <a href="index.html">Home</a>
-        <a href="rules.html" class="is-active">Grammar rules</a>
-        <a href="theory.html">Essay theory</a>
-        <a href="contribute.html">Contribute</a>
+        <a href="home.html" data-nav>Home</a>
+        <a href="rules.html" data-nav data-feature="rules" class="is-active"
+          >Grammar rules</a
+        >
+        <a href="theory.html" data-nav data-feature="theory">Essay theory</a>
+        <a href="index.html" data-switch>Subjects</a>
+        <a href="contribute.html" data-nav>Contribute</a>
       </nav>
       <button
         type="button"
@@ -1236,8 +1239,8 @@
       </section>
 
       <div class="actions rules-actions">
-        <a href="quiz.html" class="btn btn-primary">Start practice</a>
-        <a href="index.html" class="btn">Back to start</a>
+        <a href="quiz.html" data-nav class="btn btn-primary">Start practice</a>
+        <a href="index.html" data-nav class="btn">Back to start</a>
       </div>
     </main>
 
@@ -1270,6 +1273,7 @@
       </p>
     </footer>
 
+    <script type="module" src="assets/js/nav.js"></script>
     <script type="module" src="assets/js/main-static.js"></script>
     <script type="module" src="assets/js/sw-register.js"></script>
     <!-- Cloudflare Web Analytics -->

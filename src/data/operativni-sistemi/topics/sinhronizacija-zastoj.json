@@ -1,0 +1,80 @@
+{
+  "topicId": "sinhronizacija-zastoj",
+  "title": "Sinhronizacija i potpuni zastoj (deadlock)",
+  "sourcePdf": "Upravljanje_procesima.pdf, RasporedjivanjeProcesa.pdf",
+  "exercises": [
+    {
+      "exerciseNumber": 1,
+      "sourceTaskName": "Kritična sekcija, IPC, zastoj",
+      "questions": [
+        {
+          "id": "e22",
+          "promptParts": {
+            "before": "Rješenja za problem kritične sekcije moraju zadovoljiti tri zahtjeva. Jedan od njih je:",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Propusnost sistema",
+            "Modularnost",
+            "Ograničeno čekanje",
+            "Iskorištenje procesora"
+          ],
+          "correctAnswers": ["Ograničeno čekanje"],
+          "context": "Tri zahtjeva za rješenje kritične sekcije su: međusobno isključenje (mutual exclusion), napredak (progress) i ograničeno čekanje (bounded waiting). 'Propusnost' i 'iskorištenje procesora' su kriteriji raspoređivanja, ne zahtjevi kritične sekcije. Poveznica: ograničeno čekanje sprječava izgladnjivanje (starvation) — nijedan proces ne čeka beskonačno na ulaz u kritičnu sekciju.",
+          "note": "Opšte OS znanje (Silberschatz): mutual exclusion, progress, bounded waiting."
+        },
+        {
+          "id": "e23",
+          "promptParts": {
+            "before": "Koji od ponuđenih modela se NE koristi za komunikaciju između procesa (IPC)?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "FCFS modela",
+            "prosljeđivanje poruka",
+            "dijeljenje memorije"
+          ],
+          "correctAnswers": ["FCFS modela"],
+          "context": "Dva osnovna modela međuprocesne komunikacije (IPC) su: dijeljenje memorije (shared memory) i prosljeđivanje poruka (message passing). FCFS je algoritam RASPOREĐIVANJA procesa, nema veze s komunikacijom. Poveznica: dijeljena memorija je brža (procesi direktno dijele segment), a poruke su lakše za sinhronizaciju.",
+          "note": "Citat: 'Jedno rješenje problema proizvođač-potrošač... je dijeljenje memorije (shared memory)' i model prosljeđivanja poruka; FCFS je raspoređivanje."
+        },
+        {
+          "id": "e24",
+          "promptParts": {
+            "before": "Potpuni zastoj nastupa ako su istovremeno ispunjeni određeni uslovi. Koji NE spada u tu grupu?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "ne postojanje prioriteta procesa",
+            "međusobno isključenje",
+            "zadržavanje resursa tokom čekanja",
+            "kružno čekanje",
+            "dobrovoljno oslobađanje resursa"
+          ],
+          "correctAnswers": ["ne postojanje prioriteta procesa"],
+          "context": "Četiri uslova zastoja (Coffman) su: međusobno isključenje, zadržavanje resursa tokom čekanja (hold & wait), kružno čekanje i nepostojanje prinudnog oduzimanja (no preemption). Ključno: 'no preemption' znači da se resurs oslobađa SAMO dobrovoljno, ne može se prinudno oduzeti — pa 'dobrovoljno oslobađanje resursa' opisuje baš taj uslov i SPADA u grupu. Jedino 'ne postojanje prioriteta procesa' nema veze ni s jednim uslovom, pa je to onaj koji NE spada. Poveznica: uklanjanjem bilo kojeg od četiri uslova sprječava se zastoj (osnova prevencije).",
+          "note": "Coffmanovi uslovi (Silberschatz, Operating System Concepts, §8.3.1): no preemption uslov formulisan kao 'a resource can be released only voluntarily' — dakle 'dobrovoljno oslobađanje resursa' JE jedan od četiri uslova. 'Ne postojanje prioriteta procesa' nije uslov zastoja ni u jednom standardnom izvoru."
+        },
+        {
+          "id": "e25",
+          "promptParts": {
+            "before": "Postoji li u općem slučaju efikasno rješenje za izbjegavanje potpunog zastoja?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["ne", "da"],
+          "correctAnswers": ["ne"],
+          "context": "U općem slučaju nema jednostavnog i efikasnog univerzalnog rješenja. Izbjegavanje (npr. Bankarski algoritam) zahtijeva unaprijed poznate maksimalne potrebe za resursima i skupo je; prevencija ograničava sistem; detekcija+oporavak nose svoje troškove. Poveznica: zato mnogi sistemi koriste 'noj-algoritam' (ignorisanje) jer su zastoji rijetki.",
+          "note": "NESIGURNO oko tačne formulacije pitanja (u PDF-u je nejasno zapisano). Opšte OS znanje: ne postoji efikasno univerzalno rješenje za zastoj. Ako je kurs formulisao drugačije, prilagodi."
+        }
+      ]
+    }
+  ]
+}

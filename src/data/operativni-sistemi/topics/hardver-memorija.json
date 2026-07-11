@@ -1,0 +1,70 @@
+{
+  "topicId": "hardver-memorija",
+  "title": "Hardver i memorija (osnovni pojmovi)",
+  "sourcePdf": "FajlSistemi1.pdf, Prikaz_računarskog_hardvera.pdf",
+  "exercises": [
+    {
+      "exerciseNumber": 1,
+      "sourceTaskName": "Primarna/sekundarna memorija, procesor, SSD",
+      "questions": [
+        {
+          "id": "q2",
+          "promptParts": {
+            "before": "Ako se izvadi sekundarna memorija (disk) iz računara, računar se može upaliti.",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Tačno", "Netačno"],
+          "correctAnswers": ["Tačno"],
+          "context": "Za paljenje računara nužna je PRIMARNA memorija (RAM/ROM), ne sekundarna (disk). Bez diska računar prođe POST i uđe u BIOS, ali nema odakle učitati OS. Memorijska hijerarhija: primarnu (RAM = volatile, gubi sadržaj bez struje; ROM = non-volatile, tu su bootstrap/BIOS) CPU adresira direktno, dok sekundarnoj (HDD/SSD) CPU ne pristupa direktno — sadržaj se prvo mora učitati u RAM. Zato je disk 'trajno skladište', a RAM 'radni prostor'. Poveznica: ova podjela je i osnova virtuelne memorije — kad tražena stranica nije u RAM-u (page fault), OS je dohvaća s diska u RAM.",
+          "note": "Citat: 'prilikom bootanja sistema, ako primarna memorija nije prisutna računarski sistem se neće upaliti.' Napomena: vrijedi ako 'upaliti' znači uključiti računar; ako bi se tumačilo kao 'potpuno pokrenuti OS s diska', onda bez diska ne bi išlo — ali standardno tumačenje je Tačno."
+        },
+        {
+          "id": "q3",
+          "promptParts": {
+            "before": "Ako se izvadi sekundarna memorija iz računara, računar se NE može upaliti.",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Tačno", "Netačno"],
+          "correctAnswers": ["Netačno"],
+          "context": "Računar se MOŽE upaliti bez sekundarne memorije, jer je za paljenje nužna primarna (RAM), a ne disk — zato je tvrdnja 'NE može' netačna. Bez diska prođe POST i uđe u BIOS, samo nema odakle učitati OS. Ključno razlikovanje: primarna memorija = uslov za paljenje; sekundarna = trajno skladište koje nije nužno za sam start. Poveznica na ispitnu taktiku: pazi na negaciju — ista činjenica se pita i pozitivno ('može') i negativno ('ne može'), pa tačan odgovor mijenja stranu (Tačno — Netačno) iako je činjenica ista.",
+          "note": "Citat: 'prilikom bootanja sistema, ako primarna memorija nije prisutna računarski sistem se neće upaliti.' (Uslov za paljenje je primarna, ne sekundarna memorija.)"
+        },
+        {
+          "id": "q4",
+          "promptParts": {
+            "before": "Računar se ne može upaliti bez procesora.",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": ["Tačno", "Netačno"],
+          "correctAnswers": ["Tačno"],
+          "context": "CPU je 'mozak' računara — jedini izvršava instrukcije, pa bez njega nema pokretanja. Osnovni ciklus je fetch–decode–execute (dohvati → dekodiraj → izvrši → sljedeća). Boot sekvenca koju izvršava baš CPU: nakon uključenja pokreće bootstrap (iz ROM/firmware) → inicijalizira registre i kontrolere → locira kernel i učita ga u RAM → predaje mu kontrolu. Svaki od tih koraka je izvršavanje instrukcija, a to radi procesor. Poveznica: CPU ima dva moda rada (kernel/user) čime OS štiti hardver — ali i to počiva na tome da CPU uopšte izvršava instrukcije.",
+          "note": "Citat: 'Da bi se računar pokrenuo mora se izvršiti početni program tzv. bootstrap'; CPU 'dobavlja instrukcije iz memorije i izvršava ih'."
+        },
+        {
+          "id": "q5",
+          "promptParts": {
+            "before": "Koje mehaničke dijelove ima SSD?",
+            "blank": "",
+            "after": ""
+          },
+          "type": "single",
+          "options": [
+            "Pokretnu glavu za čitanje/pisanje",
+            "Rotirajuće ploče (platters)",
+            "Elektromotor",
+            "Nijedan — SSD nema mehaničkih dijelova"
+          ],
+          "correctAnswers": ["Nijedan — SSD nema mehaničkih dijelova"],
+          "context": "SSD (Solid State Disk) koristi čisto elektroničku NAND Flash tehnologiju i nema nijedan pokretni dio. Nasuprot tome HDD ima ploče koje se vrte (5400–7200 o/min), pokretnu glavu i elektromotor — pa ima seek-time, veću latenciju, potrošnju i buku. Posljedica za OS: pošto SSD nema glavu koja putuje po ploči, algoritmi raspoređivanja diska su drugačiji (NOOP/FIFO umjesto SSTF/SCAN koji kod HDD-a minimiziraju pomak glave). Razvoj interfejsa: SATA → M.2 → NVMe preko PCIe (dizajniran za paralelni rad s flashom). Poveznica: 'nema mehaničkih dijelova' je razlog i veće pouzdanosti i drugačijeg tretmana u scheduleru diska.",
+          "note": "Citat: 'pošto ovi mediji nemaju pokretnih dijelova oni su nazvani Solid State Diskovi ili SSD'."
+        }
+      ]
+    }
+  ]
+}

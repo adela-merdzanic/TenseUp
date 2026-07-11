@@ -1,5 +1,7 @@
 import { qs, escapeHtml, shuffle } from "./utils.js";
 import { initTheme, wireThemeToggle } from "./theme.js";
+import { getSubjectConfig } from "./subject.js";
+import { loadEssayCards } from "./data-loader.js";
 import { getBoxes, setBox, resetBoxes, MASTERED_BOX } from "./essay-store.js";
 import {
   getEssaySettings,
@@ -17,14 +19,6 @@ let sessionSize = "all";
 let mode = "recall"; // "recall" or "write" (type the answer before revealing)
 let deck = [];
 let deckIndex = 0;
-
-async function loadCards() {
-  const response = await fetch("data/essay-cards.json");
-  if (!response.ok) {
-    throw new Error(`Failed to load essay-cards.json (${response.status})`);
-  }
-  return response.json();
-}
 
 function filteredPool() {
   return cards.filter(
@@ -179,7 +173,8 @@ function showDone() {
 async function start() {
   let data;
   try {
-    data = await loadCards();
+    const config = await getSubjectConfig();
+    data = await loadEssayCards(config);
   } catch (err) {
     qs("#error-text").textContent = `Could not load flashcards: ${err.message}`;
     qs("#error-screen").hidden = false;

@@ -17,19 +17,21 @@
           },
           "type": "single",
           "options": [
-            "Datoteka na disku",
-            "Program u izvršenju - vrsta 'kontejnera' koji sadrži sve informacije potrebne za izvršavanje programa",
-            "Dio procesora",
-            "Mrežna konekcija"
+            "Program u izvršenju: 'kontejner' sa svim informacijama potrebnim za izvršavanje (adresni prostor, registri, resursi)",
+            "Izvršni fajl na disku koji sadrži niz instrukcija spremnih za pokretanje kad ga korisnik pozove",
+            "Nezavisni tok kontrole unutar programa koji sa ostalim tokovima dijeli isti adresni prostor",
+            "Dio jezgra operativnog sistema zadužen za nadzor izvršavanja jednog korisničkog programa"
           ],
           "correctAnswers": [
-            "Program u izvršenju - vrsta 'kontejnera' koji sadrži sve informacije potrebne za izvršavanje programa"
+            "Program u izvršenju: 'kontejner' sa svim informacijama potrebnim za izvršavanje (adresni prostor, registri, resursi)"
           ],
           "context": "Proces je program u izvršenju: vrsta 'kontejnera' u kojem su sve informacije potrebne za izvršavanje programa. Povezan je sa adresnim prostorom i skupom resursa.",
           "details": [
+            "Izvršni fajl na disku je program: pasivan entitet. Proces je aktivan, program koji se trenutno izvršava sa svojim stanjem.",
+            "Nezavisni tok kontrole koji dijeli adresni prostor sa ostalima je nit (thread), pojam unutar procesa, a ne sam proces.",
+            "Proces nije dio jezgra: to je korisnički (ili sistemski) program u izvršavanju kojim jezgro upravlja.",
             "Adresni prostor procesa je lista memorijskih lokacija (od 0 do neke maksimalne) koje proces može čitati i pisati; sadrži izvršni program, programske podatke i stek.",
-            "Resursi procesa uključuju registre (programski brojač, stek pokazivač), listu otvorenih datoteka, listu srodnih procesa i ostale informacije potrebne za rad.",
-            "Razlika program vs proces: program je pasivan (kod na disku), proces je aktivan (program koji se izvršava sa svojim stanjem)."
+            "Resursi procesa uključuju registre (programski brojač, stek pokazivač), listu otvorenih datoteka, listu srodnih procesa i ostale informacije potrebne za rad."
           ],
           "note": "Citat (OsnovniKoncepti): 'proces je program u izvršenju ... proces je neka vrsta kontejnera u kojem su sadržane sve informacije potrebne za izvršavanje programa.'",
           "readMore": ["OsnovniKonceptiOS.pdf, str. 1 (proces)"]
@@ -43,17 +45,19 @@
           },
           "type": "single",
           "options": [
-            "To je fizička RAM memorija, uvijek jednake veličine kao ona",
-            "To je apstrakcija (iluzija) skupa adresa koje proces koristi, odvojena od fizičke memorije; virtuelna memorija drži dio u RAM-u a dio na disku",
-            "To je prostor na disku za datoteke",
-            "To je mrežna adresa računara"
+            "Apstrakcija (iluzija) skupa adresa koje proces koristi, odvojena od fizičke memorije; virtuelna memorija drži dio u RAM-u, a dio na disku",
+            "Dio fizičke RAM memorije koji se procesu trajno dodijeli pri pokretanju i tačno odgovara njegovoj stvarnoj veličini",
+            "Tabela u jezgru sa popisom svih datoteka i uređaja kojima proces smije pristupati tokom izvršavanja",
+            "Prostor na disku rezervisan za privremene datoteke procesa, koji se oslobađa kad se proces završi"
           ],
           "correctAnswers": [
-            "To je apstrakcija (iluzija) skupa adresa koje proces koristi, odvojena od fizičke memorije; virtuelna memorija drži dio u RAM-u a dio na disku"
+            "Apstrakcija (iluzija) skupa adresa koje proces koristi, odvojena od fizičke memorije; virtuelna memorija drži dio u RAM-u, a dio na disku"
           ],
           "context": "Adresni prostor je apstrakcija (iluzija) skupa adresa (od 0 do maksimalne) na koje se proces odnosi. Odvojen je od fizičke memorije i može biti manji ili veći od nje. Virtuelna memorija drži dio adresnog prostora u RAM-u, a dio na disku, i prebacuje ih po potrebi.",
           "details": [
-            "Kod 32- ili 64-bitnih adresa proces može imati ogroman adresni prostor (2^32 ili 2^64), veći od fizičke RAM memorije.",
+            "Upravo zato što je odvojen od fizičke memorije, adresni prostor nije 'trajno dodijeljen komad RAM-a': kod 32- ili 64-bitnih adresa on može biti ogroman (2^32 ili 2^64), veći od cijelog RAM-a.",
+            "Popis datoteka i uređaja koje proces koristi spada u resurse procesa (vodi se uz proces), a nije adresni prostor.",
+            "Prostor na disku ovdje služi samo kao produžetak: virtuelna memorija tamo drži dijelove adresnog prostora koji trenutno ne stanu u RAM, a ne privremene datoteke.",
             "Kad je više programa u memoriji, potreban je hardverski zaštitni mehanizam (koji kontroliše OS) da se procesi ne ometaju međusobno ni sa OS-om.",
             "Upravljanje adresnim prostorima i fizičkom memorijom je jedan od najvažnijih zadataka OS-a."
           ],
@@ -69,19 +73,20 @@
           },
           "type": "single",
           "options": [
-            "Da fizički okreće disk ručno",
             "Da sakrije specifičnosti diskova i U/I uređaja i predstavi ih kao apstrahovani model datoteka nezavisan od uređaja",
-            "Da šifruje svaku datoteku",
-            "Da briše datoteke nakon gašenja"
+            "Da za svaku vrstu diska programeru ponudi poseban skup naredbi prilagođen baš tom uređaju",
+            "Da sve otvorene datoteke drži učitane u radnoj memoriji kako bi svaki pristup bio što brži",
+            "Da svaku datoteku veže za program koji ju je kreirao, pa joj samo taj program može pristupati"
           ],
           "correctAnswers": [
             "Da sakrije specifičnosti diskova i U/I uređaja i predstavi ih kao apstrahovani model datoteka nezavisan od uređaja"
           ],
           "context": "Jedna od glavnih funkcija OS-a je da sakrije specifičnosti diskova i drugih U/I uređaja od programera i predstavi ih kao lijep apstrahovani model datoteka koji je nezavisan od uređaja.",
           "details": [
-            "Za kreiranje, čitanje, uklanjanje i pisanje datoteka neophodni su sistemski pozivi.",
-            "Prije čitanja, datoteka mora biti locirana na disku i otvorena, a nakon čitanja zatvorena - i to su zadaci sistemskih poziva.",
-            "Zahvaljujući ovoj apstrakciji, programer radi sa 'datotekom', a ne sa sektorima/cilindrima konkretnog diska."
+            "Poenta apstrakcije je upravo suprotna nuđenju posebnih naredbi po uređaju: programer radi sa 'datotekom' na isti način, ma gdje ona fizički bila.",
+            "OS ne drži sve datoteke u RAM-u: kešira često korištene dijelove, ali datoteke žive na sekundarnoj memoriji.",
+            "Datoteka nije vezana isključivo za program koji ju je kreirao: pristup se uređuje pravima pristupa, a ne 'vlasništvom' programa.",
+            "Za kreiranje, čitanje, uklanjanje i pisanje datoteka neophodni su sistemski pozivi; prije čitanja datoteka mora biti locirana i otvorena, a nakon čitanja zatvorena."
           ],
           "note": "Citat (OsnovniKoncepti): 'Jedna od glavnih funkcija operativnog sistema je da sakriva specifičnosti diskova ... a predstavlja ih kao lijep apstrahovani model datoteka koji je nezavisan od uređaja.'",
           "readMore": ["OsnovniKonceptiOS.pdf, str. 1 (datoteke)"]
@@ -101,19 +106,21 @@
           },
           "type": "single",
           "options": [
-            "Pozivi koje korisnik upućuje tehničkoj podršci",
             "Interfejs za usluge koje nudi operativni sistem (dostupni obično kao rutine u C/C++)",
-            "Mrežni pozivi drugom računaru",
-            "Grafičke ikone na desktopu"
+            "Funkcije koje se u cijelosti izvršavaju u korisničkom modu, unutar biblioteka same aplikacije",
+            "Poruke koje jezgro šalje procesima da ih obavijesti o događajima (npr. o završetku U/I operacije)",
+            "Komande koje korisnik unosi u komandnu liniju, a komandni interpreter ih izvršava pokretanjem programa"
           ],
           "correctAnswers": [
             "Interfejs za usluge koje nudi operativni sistem (dostupni obično kao rutine u C/C++)"
           ],
           "context": "Sistemski pozivi obezbjeđuju interfejs za usluge koje nudi OS. Obično su dostupni kao rutine u jezicima C i C++, iako se neki zadaci niskog nivoa (direktan pristup hardveru) ponekad pišu u asembleru.",
           "details": [
-            "Čak i jednostavni programi zahtijevaju mnogo sistemskih poziva. Npr. program koji kopira jedan fajl u drugi: čitanje imena (U/I pozivi), otvaranje ulaznog i kreiranje izlaznog fajla, petlja čitanja/pisanja, zatvaranje oba, ispis poruke, završetak - svaki korak je jedan ili više sistemskih poziva.",
-            "OS obično izvodi na hiljade sistemskih poziva u sekundi.",
-            "Sistemski poziv prebacuje procesor iz korisničkog u sistemski (kernel) režim rada, jer korisnički program ne smije direktno upravljati hardverom."
+            "Sistemski poziv prebacuje procesor iz korisničkog u sistemski (kernel) režim rada, jer korisnički program ne smije direktno upravljati hardverom; dakle ne ostaje u korisničkom modu.",
+            "Obavještenja jezgra procesima idu drugim mehanizmima (signali, prekidi); smjer sistemskog poziva je obrnut: proces traži uslugu od jezgra.",
+            "Shell komanda je nivo iznad: interpreter pokreće programe, a ti programi onda koriste sistemske pozive.",
+            "Čak i jednostavni programi zahtijevaju mnogo sistemskih poziva. Npr. kopiranje fajla: čitanje imena (U/I pozivi), otvaranje ulaznog i kreiranje izlaznog fajla, petlja čitanja/pisanja, zatvaranje oba, ispis poruke, završetak.",
+            "OS obično izvodi na hiljade sistemskih poziva u sekundi."
           ],
           "note": "Citat (OsnovniKoncepti): 'Sistemski pozivi obezbjeđuju interfejs za usluge koje nudi operativni sistem.'",
           "readMore": ["OsnovniKonceptiOS.pdf, str. 2 (sistemski pozivi)"]
@@ -127,19 +134,21 @@
           },
           "type": "single",
           "options": [
-            "To je vrsta procesora; koristi se jer je brži",
-            "To je skup funkcija na raspolaganju programeru (sa parametrima i povratnim vrijednostima); koristi se zbog prenosivosti i jer je lakši za rad od direktnih sistemskih poziva",
-            "To je fizička sabirnica; koristi se zbog memorije",
-            "To je datoteka na disku"
+            "Skup funkcija na raspolaganju programeru (sa parametrima i povratnim vrijednostima); koristi se zbog prenosivosti i lakšeg rada",
+            "Skup sistemskih poziva ugrađenih direktno u jezgro; koristi se jer se izvršava brže od funkcija iz biblioteka",
+            "Tabela u jezgru u kojoj svaki sistemski poziv ima svoj broj; koristi se da bi se pozivi pozivali po broju",
+            "Biblioteka gotovih pomoćnih programa (uređivači, alati) koju OS isporučuje; koristi se radi uštede vremena"
           ],
           "correctAnswers": [
-            "To je skup funkcija na raspolaganju programeru (sa parametrima i povratnim vrijednostima); koristi se zbog prenosivosti i jer je lakši za rad od direktnih sistemskih poziva"
+            "Skup funkcija na raspolaganju programeru (sa parametrima i povratnim vrijednostima); koristi se zbog prenosivosti i lakšeg rada"
           ],
           "context": "API (Application Programming Interface) određuje skup funkcija na raspolaganju programeru aplikacija, uključujući parametre koji se prosljeđuju i povratne vrijednosti. Programeri ga koriste zbog prenosivosti (ista aplikacija radi na svakom sistemu koji podržava taj API) i jer je lakši za rad od detaljnijih sistemskih poziva.",
           "details": [
+            "API nije u jezgru: to je biblioteka u korisničkom prostoru koja u pozadini poziva OS umjesto programera (pa nije ni 'brži' od direktnih poziva).",
+            "Tabela indeksirana brojevima poziva postoji, ali to je dio interfejsa za sistemske pozive (system call interface) u jezgru, a ne API.",
+            "Gotovi pomoćni programi (uređivači, alati) su sistemski programi, poseban sloj, a ne API.",
             "Tri najčešća API-ja: Win32 API (Windows), POSIX (sve varijante UNIX-a, Linux, Mac OS) i Java API (za Java virtuelnu mašinu).",
-            "Programer pristupa API-ju preko biblioteke koju obezbjeđuje OS; u pozadini API funkcije pozivaju OS umjesto programera.",
-            "Interfejs za sistemske pozive (system call interface) presreće API poziv i poziva odgovarajući sistemski poziv u jezgri; svaki sistemski poziv ima broj, a interfejs drži tabelu indeksiranu tim brojevima."
+            "Interfejs za sistemske pozive presreće API poziv i poziva odgovarajući sistemski poziv u jezgru, pa vraća status i povratne vrijednosti."
           ],
           "note": "Citat (OsnovniKoncepti): 'API određuje skup funkcija koje su na raspolaganju programeru ... prednost ... jeste prenosivost.'",
           "readMore": ["OsnovniKonceptiOS.pdf, str. 3 (API, POSIX/Win32/Java)"]
@@ -153,17 +162,19 @@
           },
           "type": "single",
           "options": [
-            "Preko mreže, diska i tastature",
-            "Preko registara, preko bloka/tabele u memoriji (adresa bloka u registru), i preko steka (push/pop)",
-            "Preko monitora, štampača i miša",
-            "Samo preko registara"
+            "Preko registara, preko bloka/tabele u memoriji (adresa bloka u registru) i preko steka (push/pop)",
+            "Preko steka, preko dijeljene memorije dva procesa i preko prosljeđivanja poruka jezgru",
+            "Preko registara, preko keš memorije procesora i preko hardverskog prekida (interrupta)",
+            "Isključivo preko registara, jer jedino njima operativni sistem može pristupiti u kernel modu"
           ],
           "correctAnswers": [
-            "Preko registara, preko bloka/tabele u memoriji (adresa bloka u registru), i preko steka (push/pop)"
+            "Preko registara, preko bloka/tabele u memoriji (adresa bloka u registru) i preko steka (push/pop)"
           ],
           "context": "Parametri se sistemskom pozivu prosljeđuju na tri načina: preko registara (najjednostavnije), preko bloka/tabele u memoriji (kad ima više parametara nego registara, adresa bloka se stavi u registar; koriste Linux i Solaris), i preko steka (program gura parametre operacijom push, OS ih skida operacijom pop).",
           "details": [
-            "Metode bloka i steka su fleksibilne jer ne ograničavaju broj ni dužinu parametara.",
+            "Dijeljena memorija i prosljeđivanje poruka su modeli komunikacije između procesa (IPC), a ne načini predaje parametara sistemskom pozivu.",
+            "Keš je hardverski međusloj nevidljiv programu, a prekid je signal hardvera procesoru; ni jedno ni drugo ne služi za predaju parametara.",
+            "Nije 'isključivo preko registara': upravo zato što registara može biti premalo, koriste se i blok u memoriji i stek (koji ne ograničavaju broj ni dužinu parametara).",
             "Metoda registara je najbrža, ali je ograničena brojem raspoloživih registara."
           ],
           "note": "Citat (OsnovniKoncepti): 'koriste se tri metode ... u registrima ... u blokovima ili u tabeli u memoriji ... stavljeni na stek operacijom push.'",
@@ -186,17 +197,19 @@
           },
           "type": "single",
           "options": [
-            "Ulaz, izlaz, obrada, pohrana, mreža",
             "Upravljanje procesima, rad sa datotekama, upravljanje uređajima, održavanje informacija, komunikacija",
-            "Čitanje, pisanje, brisanje, kopiranje, premještanje",
-            "Kernel, korisnički, sistemski, grafički, mrežni"
+            "Upravljanje datotekama, statusne informacije, modifikacija datoteke, podrška jezicima, komunikacije",
+            "Upravljanje memorijom, raspoređivanje procesa, sinhronizacija, obrada prekida, zaštita",
+            "Kreiranje, čitanje, pisanje, brisanje i zatvaranje datoteka"
           ],
           "correctAnswers": [
             "Upravljanje procesima, rad sa datotekama, upravljanje uređajima, održavanje informacija, komunikacija"
           ],
           "context": "Sistemski pozivi se grubo dijele u pet kategorija: upravljanje procesima, rad sa datotekama, upravljanje uređajima, održavanje informacija i komunikacija.",
           "details": [
-            "Upravljanje procesima: end/abort (završetak), load/execute (učitavanje/izvršavanje drugog programa), create process, get/set process attributes, terminate process, wait time/wait event, signal event, dump/trace (debagovanje).",
+            "Druga opcija nabraja kategorije sistemskih programa (pomoćnih programa), srodnu ali drugu podjelu iz istog gradiva.",
+            "Treća opcija nabraja unutrašnje funkcije jezgra, a četvrta konkretne operacije nad datotekama: to su primjeri poziva unutar jedne kategorije, ne podjela.",
+            "Primjeri iz kategorije upravljanja procesima: end/abort (završetak), load/execute, create process, get/set process attributes, terminate process, wait time/wait event, signal event, dump/trace (debagovanje).",
             "Kod nestandardnog završetka (abort) ili izuzetka (trap) pravi se slika memorije (memory dump) i poruka o greški; sadržaj se ispituje debagerom.",
             "Ako dva programa nastave da se izvršavaju konkurentno, napravljen je novi proces u multiprogramiranju (create process / submit job)."
           ],
@@ -214,16 +227,18 @@
           },
           "type": "single",
           "options": [
-            "Program koji briše viruse",
             "Sistemski program koji programerima olakšava pronalaženje i ispravljanje grešaka u aplikacijama",
-            "Uređaj za pohranu podataka",
-            "Vrsta mrežnog protokola"
+            "Sistemski program koji prevodi izvorni kod u mašinski i pri tome prijavljuje sintaksne greške",
+            "Dio jezgra koji nadzire izvršavanje procesa i nasilno prekida svaki koji napravi grešku",
+            "Pomoćni alat koji pregleda sistemske log datoteke i upozorava na sumnjive događaje"
           ],
           "correctAnswers": [
             "Sistemski program koji programerima olakšava pronalaženje i ispravljanje grešaka u aplikacijama"
           ],
           "context": "Debager (debugger) je sistemski program koji programerima olakšava pronalaženje i ispravljanje grešaka u aplikacijama.",
           "details": [
+            "Prevođenje koda i prijava sintaksnih grešaka je posao kompajlera; debager radi sa već prevedenim programom u izvršavanju (ili sa snimkom memorije).",
+            "Nasilno prekidanje procesa koji napravi kritičnu grešku radi jezgro (preko mehanizma izuzetaka/trap); debager tek poslije pomaže da se uzrok pronađe.",
             "Kod nestandardnog završetka ili izuzetka (trap), sadržaj memorije se upisuje u datoteku (memory dump) i ispituje pomoću debagera.",
             "Povezani sistemski pozivi: dump (prikaz sadržaja memorije) i trace (prikaz svih izvršenih instrukcija, podržava ga manji broj sistema)."
           ],
@@ -244,7 +259,9 @@
             "Modifikacija datoteke",
             "Podrška programskim jezicima",
             "Učitavanje i izvršavanje programa",
-            "Komunikacije"
+            "Komunikacije",
+            "Upravljanje procesima",
+            "Upravljanje uređajima"
           ],
           "correctAnswers": [
             "Upravljanje datotekama",
@@ -256,6 +273,7 @@
           ],
           "context": "Sistemski (pomoćni) programi dijele se u kategorije: upravljanje datotekama, statusne informacije, modifikacija datoteke, podrška programskim jezicima, učitavanje i izvršavanje programa, te komunikacije.",
           "details": [
+            "Upravljanje procesima i upravljanje uređajima su kategorije sistemskih poziva, a ne sistemskih programa; te dvije podjele se lako pomiješaju.",
             "Upravljanje datotekama: kreiranje, uklanjanje, kopiranje, printanje, manipulacija datotekama i direktorijumima.",
             "Statusne informacije: datum, vrijeme, raspoloživa memorija/disk, broj korisnika.",
             "Podrška programskim jezicima: kompajleri, asembleri, debageri, interpreteri (C, C++, Java, Visual Basic).",
@@ -280,18 +298,20 @@
           },
           "type": "single",
           "options": [
-            "Samo grafički (GUI)",
             "Interfejs komandne linije (CLI), paketni interfejs (batch) i grafički korisnički interfejs (GUI)",
-            "Samo komandnu liniju",
-            "Samo glasovne komande"
+            "Komandnu liniju (CLI), grafički interfejs (GUI) i web interfejs za udaljeni pristup",
+            "Shell, terminal i konzolu, kao tri nezavisna oblika interfejsa",
+            "Tekstualni, zvučni i dodirni interfejs, zavisno od ulaznog uređaja"
           ],
           "correctAnswers": [
             "Interfejs komandne linije (CLI), paketni interfejs (batch) i grafički korisnički interfejs (GUI)"
           ],
-          "context": "Korisnički interfejs može imati tri oblika: interfejs komandne linije (CLI, unos tekstualnih komandi), paketni interfejs (batch, komande se unose u datoteku koja se izvršava) i grafički korisnički interfejs (GUI, prozori, meniji, miš). Neki sistemi nude sve tri, neki samo neke.",
+          "context": "Korisnički interfejs može imati tri oblika: interfejs komandne linije (CLI, unos tekstualnih komandi), paketni interfejs (batch, komande i smjernice se unose u datoteku koja se zatim izvršava) i grafički korisnički interfejs (GUI, prozori, meniji, miš). Neki sistemi nude sve tri, neki samo neke.",
           "details": [
+            "Treći oblik iz gradiva je paketni (batch) interfejs, a ne web interfejs: batch znači da se komande zapišu u datoteku koja se izvrši.",
+            "Shell, terminal i konzola nisu tri oblika interfejsa: to su nazivi vezani za isti oblik (komandnu liniju); shell je komandni interpreter, a terminal/konzola prozor u kojem radi.",
             "U nekim OS-ima komandni interpreter je dio jezgra; u drugim (Windows XP, UNIX) je poseban program koji se pokreće kad korisnik započne rad ili se prijavi.",
-            "Kad ima više komandnih interpretera, zovu se ljuske (shell). U UNIX/Linux: Bourne shell, C shell, Bourne-Again shell (bash), Korn shell - slične funkcionalnosti, biraju se po ličnim sklonostima.",
+            "Kad ima više komandnih interpretera, zovu se ljuske (shell). U UNIX/Linux: Bourne shell, C shell, Bourne-Again shell (bash), Korn shell: slične funkcionalnosti, biraju se po ličnim sklonostima.",
             "Korisnički interfejs je obično odvojen od strukture OS-a, pa dizajn dobrog UI-a nije direktno povezan sa projektovanjem OS-a."
           ],
           "note": "Citat (OsnovniKoncepti): oblici UI - 'interfejs komandne linije (CLI) ... paketni interfejs (batch) ... grafički korisnički interfejs (GUI).'",
@@ -313,7 +333,9 @@
             "U/I operacije",
             "Rad sa fajl sistemom",
             "Komunikacije",
-            "Otkrivanje grešaka"
+            "Otkrivanje grešaka",
+            "Alokacija resursa",
+            "Praćenje rada (accounting)"
           ],
           "correctAnswers": [
             "Korisnički interfejs",
@@ -325,8 +347,9 @@
           ],
           "context": "Iz perspektive korisnika, OS nudi: korisnički interfejs, izvršavanje programa, U/I operacije, rad sa fajl sistemom, komunikacije i otkrivanje grešaka.",
           "details": [
+            "Alokacija resursa i praćenje rada (accounting) su usluge iz ugla računarskog sistema (uz zaštitu i sigurnost), druga polovina iste podjele.",
             "Izvršavanje programa: OS učitava program u memoriju i izvršava ga, te ga uredno završava (i pri grešci).",
-            "U/I operacije: zbog efikasnosti i zaštite korisnici ne kontrolišu U/I uređaje direktno - OS to radi umjesto njih.",
+            "U/I operacije: zbog efikasnosti i zaštite korisnici ne kontrolišu U/I uređaje direktno; OS to radi umjesto njih.",
             "Komunikacije: između procesa na istom računaru ili preko mreže, preko dijeljive memorije ili prosljeđivanjem poruka (message passing).",
             "Otkrivanje grešaka: OS pazi na greške u procesoru/memoriji, U/I uređajima i korisničkim programima (npr. nelegalni pristup memoriji, prekoračenje CPU vremena) i preduzima akciju."
           ],
@@ -344,20 +367,22 @@
           },
           "type": "single",
           "options": [
-            "Samo grafiku i zvuk",
             "Alokaciju resursa, praćenje rada (accounting), te zaštitu i sigurnost",
-            "Samo štampanje",
-            "Samo internet pristup"
+            "Korisnički interfejs, izvršavanje programa i U/I operacije",
+            "Autentifikaciju, autorizaciju i dijeljenje resursa među računarima",
+            "Raspoređivanje procesa, upravljanje memorijom i upravljanje uređajima"
           ],
           "correctAnswers": [
             "Alokaciju resursa, praćenje rada (accounting), te zaštitu i sigurnost"
           ],
           "context": "Iz ugla računarskog sistema, OS pruža: alokaciju (dodjeljivanje) resursa, praćenje rada (accounting) i zaštitu i sigurnost.",
           "details": [
+            "Korisnički interfejs, izvršavanje programa i U/I operacije su usluge iz perspektive korisnika, druga polovina iste podjele.",
+            "Autentifikacija, autorizacija i dijeljenje resursa su zahtjevi mrežnog OS-a (NOS) iz uvodnog gradiva, ne ova podjela usluga.",
+            "Raspoređivanje, memorija i uređaji su primarne uloge/podsistemi OS-a, opet druga klasifikacija.",
             "Alokacija resursa: kad se izvršava više korisnika/poslova, resursi (taktovi procesora, memorija, disk, U/I uređaji) se moraju dodijeliti svakom; OS ima mehanizme raspoređivanja CPU-a i rutine za alociranje periferala.",
-            "Praćenje rada (accounting): evidencija ko koristi koje resurse i koliko - za statistike i podešavanje performansi.",
-            "Zaštita znači kontrolu pristupa svim resursima sistema, a sigurnost znači zaštitu sistema od spoljašnjih prijetnji; sigurnost počinje autentifikacijom korisnika (obično lozinkom).",
-            "'Lanac je jak koliko i njegova najslabija karika' - mjere zaštite moraju biti u svim segmentima sistema."
+            "Praćenje rada (accounting): evidencija ko koristi koje resurse i koliko, za statistike i podešavanje performansi.",
+            "Zaštita je kontrola pristupa resursima sistema, a sigurnost odbrana od spoljašnjih prijetnji; počinje autentifikacijom korisnika (obično lozinkom)."
           ],
           "note": "Citat (OsnovniKoncepti): usluge iz ugla sistema - 'Alokacija resursa ... Praćenje rada (Accounting) ... Zaštita i sigurnost.'",
           "readMore": [
@@ -373,19 +398,21 @@
           },
           "type": "single",
           "options": [
-            "Nema razlike, to su sinonimi",
-            "Zaštita je kontrola pristupa resursima unutar sistema, a sigurnost je zaštita sistema od spoljašnjih prijetnji",
-            "Zaštita je od virusa, a sigurnost od struje",
-            "Zaštita se odnosi na hardver, a sigurnost na softver"
+            "Zaštita je kontrola pristupa resursima unutar sistema, a sigurnost je odbrana sistema od spoljašnjih prijetnji",
+            "Sigurnost je kontrola pristupa resursima unutar sistema, a zaštita je odbrana sistema od spoljašnjih prijetnji",
+            "Zaštita se odnosi samo na datoteke korisnika, a sigurnost samo na procese i memoriju",
+            "Zaštita je isključivo hardverski mehanizam (MMU), a sigurnost isključivo softverski (lozinke)"
           ],
           "correctAnswers": [
-            "Zaštita je kontrola pristupa resursima unutar sistema, a sigurnost je zaštita sistema od spoljašnjih prijetnji"
+            "Zaštita je kontrola pristupa resursima unutar sistema, a sigurnost je odbrana sistema od spoljašnjih prijetnji"
           ],
           "context": "Zaštita (protection) podrazumijeva kontrolu pristupa svim resursima sistema (npr. da jedan proces ne ometa drugi ni OS). Sigurnost (security) je zaštita sistema od spoljašnjih prijetnji i počinje provjerom autentičnosti korisnika (lozinkom).",
           "details": [
+            "Pojmovi su dakle raspoređeni obrnuto od druge opcije: 'iznutra' (među procesima/korisnicima) je zaštita, 'izvana' (od napadača) je sigurnost.",
+            "Zaštita pokriva sve resurse sistema (procese, memoriju, datoteke, uređaje), ne samo datoteke.",
+            "Obje se ostvaruju kombinacijom hardvera i softvera, pa podjela 'hardver vs softver' ne stoji.",
             "Kad se više procesa izvršava paralelno, zaštita sprječava da jedan proces ometa drugi ili OS.",
-            "Sigurnost obuhvata i periferale (modeme, mrežne adaptere): bilježe se pokušaji pristupa radi otkrivanja upada.",
-            "Zaštita je 'iznutra' (među procesima/korisnicima), a sigurnost je 'izvana' (od napadača)."
+            "Sigurnost obuhvata i periferale (modeme, mrežne adaptere): bilježe se pokušaji pristupa radi otkrivanja upada; 'lanac je jak koliko i njegova najslabija karika'."
           ],
           "note": "Citat (OsnovniKoncepti): 'Zaštita podrazumijeva kontrolu pristupa svim resursima sistema, a sigurnost zaštitu sistema od spoljašnjih prijetnji.'",
           "readMore": ["OsnovniKonceptiOS.pdf, str. 7 (zaštita i sigurnost)"]

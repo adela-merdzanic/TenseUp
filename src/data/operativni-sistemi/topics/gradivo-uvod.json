@@ -17,10 +17,10 @@
           },
           "type": "single",
           "options": [
-            "Aplikativni program za obradu teksta i tabela",
             "Osnovni sistemski softver koji upravlja hardverskim resursima i pruža okruženje za izvršavanje programa",
-            "Fizička komponenta računara (procesor i memorija)",
-            "Mrežni protokol za komunikaciju uređaja"
+            "Sistemski program koji prevodi programe visokog nivoa u mašinski kod koji procesor izvršava",
+            "Skup aplikativnih programa (uređivač teksta, pregledač, e-mail) koji se instaliraju na računar",
+            "Firmver zapisan u ROM-u koji pri uključenju inicijalizira hardver i učitava jezgro u memoriju"
           ],
           "correctAnswers": [
             "Osnovni sistemski softver koji upravlja hardverskim resursima i pruža okruženje za izvršavanje programa"
@@ -28,8 +28,10 @@
           "context": "Operativni sistem je osnovni sistemski softver koji upravlja hardverskim resursima računara i obezbjeđuje okruženje za izvršavanje aplikativnih programa. Djeluje kao posrednički sloj između hardvera i korisnika.",
           "details": [
             "Bez OS-a bi korisnici i programeri morali direktno upravljati hardverom, što je izuzetno složeno i praktično neizvodivo.",
-            "OS nije vezan samo za računare: nalazi se i u TV-ima, telefonima i drugim uređajima (Android, iOS...).",
-            "OS je softver (sistemski), ne hardver, i nije aplikacija za krajnjeg korisnika (obrada teksta je aplikacija koja radi NA OS-u)."
+            "Prevođenje programa visokog nivoa u mašinski kod radi kompajler; on je uz OS drugi najvažniji sistemski softver, ali nije OS.",
+            "Uređivač teksta, pregledač i slično su aplikativni programi: oni rade na OS-u i koriste njegove usluge, a ne upravljaju hardverom.",
+            "Firmver koji inicijalizira hardver i učitava jezgro je bootstrap (BIOS/UEFI): on prethodi OS-u i samo ga dovede u memoriju.",
+            "OS nije vezan samo za računare: nalazi se i u TV-ima, telefonima i drugim uređajima (Android, iOS...)."
           ],
           "note": "Citat (P1): 'Operativni sistem predstavlja osnovni sistemski softver koji upravlja hardverskim resursima računara i obezbjeđuje okruženje za izvršavanje aplikativnih programa.'",
           "readMore": [
@@ -50,7 +52,8 @@
             "Upravljanje uređajima (disk, tastatura, ekran, mreža)",
             "Upravljanje datotekama",
             "Kontrola i raspoređivanje procesa",
-            "Dizajniranje web stranica"
+            "Prevođenje izvornog koda u mašinski (kompajliranje)",
+            "Uređivanje sadržaja korisničkih dokumenata"
           ],
           "correctAnswers": [
             "Upravljanje procesorom (CPU)",
@@ -62,7 +65,8 @@
           "context": "Primarne uloge OS-a su: upravljanje procesorom (CPU), memorijom, uređajima, datotekama, te kontrola i raspoređivanje procesa.",
           "details": [
             "To su ujedno i glavne teme kursa: procesi/raspoređivanje, memorija, fajl sistemi, uređaji.",
-            "Dizajniranje web stranica nije uloga OS-a (to je aplikativni/razvojni posao)."
+            "Kompajliranje nije uloga OS-a: to radi kompajler, poseban sistemski program (OS mu samo pruža okruženje za izvršavanje).",
+            "Uređivanje sadržaja dokumenata radi aplikacija (npr. uređivač teksta); OS joj samo omogućava pristup datotekama i uređajima."
           ],
           "note": "Citat (P1): uloge OS-a su upravljanje CPU-om, memorijom, uređajima, datotekama i kontrola/raspoređivanje procesa.",
           "readMore": ["P1_Uvod u operativne sisteme.pdf, str. 1 (uloge OS-a)"]
@@ -76,10 +80,10 @@
           },
           "type": "single",
           "options": [
-            "Samo procesor i disk",
             "Ulazno/izlazne jedinice, procesor (ALU i kontrolna jedinica) i memoriju (registre i radnu memoriju)",
-            "Samo grafičku karticu i mrežu",
-            "Isključivo magnetne trake"
+            "Odvojenu memoriju za instrukcije i odvojenu memoriju za podatke, procesor i U/I jedinice",
+            "Procesor i radnu memoriju, dok ulazno/izlazne jedinice nisu dio osnovnog modela",
+            "ALU, kontrolnu jedinicu i keš memoriju, dok je radna memorija izvan modela"
           ],
           "correctAnswers": [
             "Ulazno/izlazne jedinice, procesor (ALU i kontrolna jedinica) i memoriju (registre i radnu memoriju)"
@@ -88,6 +92,8 @@
           "details": [
             "ALU (aritmetičko-logička jedinica) obrađuje podatke; kontrolna jedinica (CU) upravlja i koordinira.",
             "Ključna ideja: ista memorija čuva i podatke i instrukcije (pohranjeni program), i instrukcije se izvršavaju sekvencijalno.",
+            "Odvojena memorija za instrukcije i odvojena za podatke je Harvard arhitektura, drugačiji model od Von Neumannovog.",
+            "U/I jedinice jesu dio modela (računar mora primati ulaz i davati izlaz), a keš memorija je kasniji dodatak, ne dio osnovnog modela.",
             "Eksperimentalni sistem koji je dokazao ovu arhitekturu zvao se IAS (Institute for Advanced Study)."
           ],
           "note": "Citat (P1): 'Von Neumannov model računara jasno pokazuje postojanje ulazno/izlaznih jedinica, procesora (ALU i CU) te dva tipa memorije (registri i radna memorija).'",
@@ -105,10 +111,11 @@
           "type": "single",
           "options": ["Da", "Ne"],
           "correctAnswers": ["Da"],
-          "context": "Da. Ključna osobina Von Neumannovog modela (i sistema IAS) je da se ista memorija koristi i za podatke i za instrukcije, koje se izvršavaju sekvencijalno.",
+          "context": "Ključna osobina Von Neumannovog modela (i sistema IAS) je da se ista memorija koristi i za podatke i za instrukcije, koje se izvršavaju sekvencijalno.",
           "details": [
             "Koncept 'pohranjenog programa' (stored program) znači da program stoji u memoriji kao i podaci, pa se ne mora ručno ožičavati svaki put.",
-            "To je Turingova ideja pohrane programa u memoriji, operacionalizovana Von Neumannovom arhitekturom."
+            "To je Turingova ideja pohrane programa u memoriji, operacionalizovana Von Neumannovom arhitekturom.",
+            "Arhitektura koja instrukcije i podatke drži u odvojenim memorijama zove se Harvard arhitektura."
           ],
           "note": "Citat (P1): 'IAS je koristio istu memoriju za podatke i instrukcije, i sekvencijalno izvršavao instrukcije.'",
           "readMore": [
@@ -124,15 +131,17 @@
           },
           "type": "single",
           "options": [
-            "MS-DOS",
-            "GM-NAA I/O (batch obrada)",
-            "Windows NT",
-            "UNIX"
+            "GM-NAA I/O",
+            "IBMSYS",
+            "FMS (Fortran Monitor System)",
+            "OS/360"
           ],
-          "correctAnswers": ["GM-NAA I/O (batch obrada)"],
-          "context": "GM-NAA I/O (razvijen od General Motors i North American Aviation na IBM 704) smatra se prvom verzijom OS-a, jer je samostalno učitavao procese po redoslijedu i omogućio batch obradu.",
+          "correctAnswers": ["GM-NAA I/O"],
+          "context": "GM-NAA I/O (razvijen od General Motors i North American Aviation na IBM 704) smatra se prvom verzijom OS-a, jer je samostalno učitavao poslove po redoslijedu i omogućio batch obradu.",
           "details": [
             "Batch (paketna) obrada = predefinisano serijsko izvođenje poslova bez da programer čeka jedan pa učitava drugi.",
+            "IBMSYS i FMS su rezidentni monitori sa IBM 7090, dakle II generacija, kasnije od GM-NAA I/O.",
+            "OS/360 je operativni sistem III generacije, razvijen za IBM S/360 familiju računara.",
             "Time se maksimizirala iskorištenost skupog sistema: OS je 'počeo upravljati poslovima', što je i danas zadaća OS-a."
           ],
           "note": "Citat (P1): 'GM-NAA I/O ... omogućio batch procese ... i ovo se smatra prvom verzijom operativnog sistema.'",
@@ -149,17 +158,19 @@
           },
           "type": "single",
           "options": [
-            "Ekrani sa visokom rezolucijom",
             "Kod koji je stalno prisutan u memoriji i ima zadatak da pokreće poslove",
-            "Mrežni protokoli za dijeljenje datoteka",
-            "Uređaji za pohranu podataka"
+            "Programi koji se za svaki posao iznova učitavaju sa trake, pa se nakon izvršenja uklanjaju iz memorije",
+            "Operateri (osoblje računskog centra) koji ručno postavljaju i pokreću poslove na računaru",
+            "Kontrolni programi koji nadziru ispravnost hardvera i prijavljuju kvarove tranzistora"
           ],
           "correctAnswers": [
             "Kod koji je stalno prisutan u memoriji i ima zadatak da pokreće poslove"
           ],
           "context": "Rezidentni monitor je kod koji je stalno u memoriji i pokreće poslove. Pojavio se u II generaciji (tranzistori), npr. IBM 7090 sa monitorima IBMSYS i FMS (Fortran Monitor System).",
           "details": [
-            "Zahvaljujući pouzdanijim tranzistorima, u memoriji je mogao stalno stajati kontrolni kod koji redom pokreće poslove.",
+            "'Rezidentan' znači upravo suprotno od učitavanja iznova za svaki posao: kod stalno stoji u memoriji, pa nema gubitka vremena između poslova.",
+            "Rezidentni monitor je zamijenio dio posla ljudskih operatera, koji su ranije ručno postavljali poslove jedan za drugim.",
+            "Nadzor ispravnosti hardvera nije njegova uloga: monitor 'nadgleda' izvršavanje poslova, a ne stanje tranzistora.",
             "Tada IBM počinje koristiti riječ 'System' (IBMSYS), uočivši potrebu za sistemskim softverom koji upravlja procesima.",
             "Uveden je i JCL (Job Control Language) za definisanje poslova (učitavanje koda, izbor kompajlera, ulaz/izlaz)."
           ],
@@ -183,18 +194,20 @@
           },
           "type": "single",
           "options": [
-            "Prvi je koristio grafički korisnički interfejs",
-            "Uveo je koncept 'familije računara' sa istom arhitekturom (ISA), pa je isti OS/softver radio na različitim modelima",
-            "Bio je prvi mrežni operativni sistem",
-            "Prvi je imao višejezgreni procesor"
+            "Uveo je koncept 'familije računara' sa istom arhitekturom (ISA), pa je isti OS radio na različitim modelima",
+            "Uveo je grafički korisnički interfejs sa prozorima i mišem, pa je OS postao dostupan netehničkim korisnicima",
+            "Bio je prvi računar sa cijelim procesorom na jednom čipu, pa je OS mogao stati u ROM memoriju",
+            "Uveo je mrežne funkcije u jezgro OS-a, pa su računari iste serije mogli razmjenjivati datoteke"
           ],
           "correctAnswers": [
-            "Uveo je koncept 'familije računara' sa istom arhitekturom (ISA), pa je isti OS/softver radio na različitim modelima"
+            "Uveo je koncept 'familije računara' sa istom arhitekturom (ISA), pa je isti OS radio na različitim modelima"
           ],
           "context": "IBM S/360 je uveo koncept 'familije računara': cijeli spektar mašina (od slabijih do moćnih) koristio je istu arhitekturu (ISA), pa se isti softver mogao vrtiti na različitim modelima iste porodice.",
           "details": [
-            "Prije toga softver napisan za jednu mašinu nije radio na drugoj - S/360 je to riješio zajedničkim ISA.",
+            "Prije toga softver napisan za jednu mašinu nije radio na drugoj; S/360 je to riješio zajedničkim ISA.",
             "To je zahtijevalo složen, skalabilan OS (OS/360) koji podržava različite hardverske konfiguracije iste arhitekture.",
+            "GUI sa prozorima i mišem uvodi tek Xerox Alto (1973), a procesor na jednom čipu Intel 4004 (1971), obje stvari su kasnije i nevezane za S/360.",
+            "Mrežne funkcije u jezgru su odlika UNIX-a (NFS, TCP/IP) iz kasnijeg perioda, ne S/360.",
             "Time počinje moderna praksa razvoja OS-a 'prema arhitekturi, a ne prema pojedinačnom hardveru'."
           ],
           "note": "Citat (P1): 'IBM je s ovim modelom uveo koncept familije računara ... isti ISA na čitavom spektru mašina.'",
@@ -211,10 +224,10 @@
           },
           "type": "single",
           "options": [
-            "Fizička ploča na kojoj su procesor i memorija",
             "Apstraktni model procesora (skup instrukcija, registri, adresni režimi) koji čini interfejs između hardvera i softvera",
-            "Program za antivirusnu zaštitu",
-            "Mrežni protokol"
+            "Fizička izvedba procesora (raspored tranzistora, jezgri i keša) koju svaki proizvođač projektuje zasebno",
+            "Skup sistemskih poziva preko kojih korisnički programi traže usluge od operativnog sistema",
+            "Interni jezik mikrokoda kojim procesor razlaže složene instrukcije na jednostavnije korake"
           ],
           "correctAnswers": [
             "Apstraktni model procesora (skup instrukcija, registri, adresni režimi) koji čini interfejs između hardvera i softvera"
@@ -222,7 +235,9 @@
           "context": "ISA (Instruction Set Architecture) je apstraktni model procesora koji definiše skup instrukcija, registarski model, adresne režime i pristup memoriji. Čini interfejs između hardvera i softvera.",
           "details": [
             "Zahvaljujući ISA, programi rade nezavisno od konkretne hardverske implementacije, sve dok se svi drže istog ISA seta.",
-            "Sama unutrašnja struktura procesora (mikroarhitektura) je stvar proizvođača, ali mora podržavati taj ISA.",
+            "Fizička izvedba procesora (raspored tranzistora, jezgri, keša) zove se mikroarhitektura: nju svaki proizvođač radi po svom, ali mora podržati dati ISA.",
+            "Skup sistemskih poziva je interfejs prema operativnom sistemu, a ne prema procesoru; ISA je nivo niže, između hardvera i svog softvera.",
+            "Mikrokod je unutrašnji mehanizam kojim procesor realizuje ISA instrukcije, dakle implementacija, a ne sama arhitektura.",
             "Tako se OS može razvijati 'prema arhitekturi', a ne prema svakoj mašini posebno."
           ],
           "note": "Citat (P1): 'ISA predstavlja apstraktni model procesora ... čini interfejs između hardvera i softvera.'",
@@ -237,18 +252,20 @@
           },
           "type": "single",
           "options": [
-            "Šifruje podatke na disku",
-            "Prevodi standardne instrukcije (ISA) u jednostavne korake koje izvršava konkretan procesor, pa isti OS radi na cijeloj familiji",
-            "Upravlja mrežnom komunikacijom",
-            "Grafički iscrtava prozore"
+            "Prevodi standardne ISA instrukcije u jednostavne korake koje izvršava konkretan procesor, pa isti OS radi na cijeloj familiji",
+            "Prevodi programe visokog nivoa (Fortran, Cobol) direktno u ISA instrukcije prilikom pokretanja programa",
+            "Provjerava svaku instrukciju i odbija one koje korisnički program ne smije izvršiti u user modu",
+            "Zamjenjuje operativni sistem na slabijim modelima familije koji nemaju dovoljno memorije za OS/360"
           ],
           "correctAnswers": [
-            "Prevodi standardne instrukcije (ISA) u jednostavne korake koje izvršava konkretan procesor, pa isti OS radi na cijeloj familiji"
+            "Prevodi standardne ISA instrukcije u jednostavne korake koje izvršava konkretan procesor, pa isti OS radi na cijeloj familiji"
           ],
           "context": "Mikrokod je 'prevodilac' koji standardne ISA instrukcije razlaže na jednostavne korake koje izvršava dati procesor. Tako i slabiji i jači modeli iste porodice podržavaju isti ISA, pa isti OS radi na svima.",
           "details": [
             "Mikrokod je bio u ROM memoriji unutar procesora (kasnije u procesorskoj memoriji).",
-            "Time je softver (OS) prvi put odvojen od fizičke implementacije procesora - ključ za OS/360 na cijeloj S/360 familiji."
+            "Prevođenje programa visokog nivoa u instrukcije radi kompajler, mnogo prije izvršavanja; mikrokod radi ispod nivoa ISA instrukcija, u samom procesoru.",
+            "Provjeru smije li se instrukcija izvršiti radi mehanizam zaštite (user/kernel mod), a ne mikrokod.",
+            "Time je softver (OS) prvi put odvojen od fizičke implementacije procesora, što je ključ za OS/360 na cijeloj S/360 familiji."
           ],
           "note": "Citat (P1): 'Mikrokod je služio kao prevodilac koji je standardne instrukcije ... pretvarao u jednostavne korake.'",
           "readMore": ["P1_Uvod u operativne sisteme.pdf, str. 4 (mikrokod)"]
@@ -262,19 +279,22 @@
           },
           "type": "single",
           "options": [
-            "Pisanje programa u više programskih jezika",
-            "Držanje više programa u memoriji istovremeno, tako da OS dodijeli procesor drugom programu dok jedan čeka na U/I operaciju",
-            "Povezivanje više računara u mrežu",
-            "Izvršavanje jednog programa na više ekrana"
+            "Držanje više programa u memoriji istovremeno: dok jedan čeka na U/I operaciju, OS dodijeli procesor drugom",
+            "Dijeljenje procesorskog vremena na kratke kvante, tako da svaki korisnik ima utisak vlastitog računara",
+            "Istovremeno izvršavanje istog programa na više procesora radi bržeg završetka posla",
+            "Pisanje programa kao više nezavisnih modula koji se zasebno prevode pa povezuju u cjelinu"
           ],
           "correctAnswers": [
-            "Držanje više programa u memoriji istovremeno, tako da OS dodijeli procesor drugom programu dok jedan čeka na U/I operaciju"
+            "Držanje više programa u memoriji istovremeno: dok jedan čeka na U/I operaciju, OS dodijeli procesor drugom"
           ],
           "context": "Multiprogramiranje znači držati više programa u glavnoj memoriji istovremeno: dok jedan program čeka na sporu U/I operaciju, OS dodjeljuje procesor drugom programu, pa procesor nije neaktivan.",
           "details": [
             "Omogućeno je većim kapacitetom memorije i integrisanim kolima (III generacija).",
-            "Uvodi ključne koncepte savremenog upravljanja procesima: raspoređivanje (scheduling) i promjenu konteksta (context switching).",
-            "Dodatno je pomoglo uvođenje DASD uređaja (diskova) koji omogućavaju trenutni pristup bilo kojem dijelu podataka (za brzo smjenjivanje programa)."
+            "Dijeljenje vremena na kratke kvante je time-sharing: razvio se iz multiprogramiranja, ali je posebna tehnika (procesor se oduzima po isteku kvantuma, a ne tek kad program zatraži U/I).",
+            "Izvršavanje na više procesora je multiprocesiranje (SMP), hardverski paralelizam, a ne multiprogramiranje na jednom procesoru.",
+            "Podjela programa na module je modularno programiranje, tehnika pisanja programa, nevezana za dodjelu procesora.",
+            "Multiprogramiranje uvodi ključne koncepte savremenog upravljanja procesima: raspoređivanje (scheduling) i promjenu konteksta (context switching).",
+            "Dodatno je pomoglo uvođenje DASD uređaja (diskova) koji omogućavaju trenutni pristup bilo kojem dijelu podataka."
           ],
           "note": "Citat (P1): 'Ovaj mehanizam predstavlja početak multiprogramiranja ... upravlja sa više procesa u memoriji i raspoređuje procesorsko vrijeme.'",
           "readMore": [
@@ -290,18 +310,20 @@
           },
           "type": "single",
           "options": [
-            "Dijeljenje datoteka između korisnika preko mreže",
-            "Dijeljenje procesorskog vremena na kratke kvante, tako da više korisnika/procesa ima utisak paralelnog izvršavanja",
-            "Sinhronizacija sistemskog sata sa internetom",
-            "Podjela diska na particije"
+            "Dijeljenje procesorskog vremena na kratke kvante, tako da više korisnika ima utisak paralelnog izvršavanja",
+            "Držanje više programa u memoriji, pri čemu procesor prelazi na drugi tek kad prvi zatraži U/I operaciju",
+            "Serijsko izvršavanje unaprijed pripremljenih poslova (batch), jednog za drugim, bez učešća korisnika",
+            "Dodjela fiksnih termina korisnicima, u kojima svaki sam koristi cijeli računar bez dijeljenja"
           ],
           "correctAnswers": [
-            "Dijeljenje procesorskog vremena na kratke kvante, tako da više korisnika/procesa ima utisak paralelnog izvršavanja"
+            "Dijeljenje procesorskog vremena na kratke kvante, tako da više korisnika ima utisak paralelnog izvršavanja"
           ],
           "context": "Time-sharing dijeli procesorsko vrijeme na kratke kvante, pa više korisnika/procesa ima utisak istovremenog (paralelnog) izvršavanja. Razvija se iz multiprogramiranja.",
           "details": [
-            "Tehnički se oslanja na hardverski Interval Timer: po isteku kvantuma šalje se prekid (interrupt) procesoru.",
-            "Procesor tada prekida korisnički program, vraća se OS-u, a OS odlučuje koji je sljedeći program na redu.",
+            "Tehnički se oslanja na hardverski Interval Timer: po isteku kvantuma šalje se prekid (interrupt) procesoru, pa OS bira sljedeći program.",
+            "Razlika prema multiprogramiranju: tamo program drži procesor dok ne zatraži U/I; kod time-sharinga mu se procesor oduzima i po isteku kvantuma.",
+            "Batch obrada je starija tehnika bez interaktivnosti: poslovi se izvršavaju serijski, korisnik ne komunicira sa programom dok radi.",
+            "Fiksni termini u kojima korisnik sam drži cijeli računar su praksa iz najranijeg perioda, upravo ono što time-sharing ukida.",
             "IBM S/360 je uveo iskoristivu verziju time-sharinga; model 67 uvodi i DAT (temelj virtuelne memorije)."
           ],
           "note": "Citat (P1): 'time-sharing, gdje se procesorsko vrijeme dijeli na kratke vremenske kvante kako bi više korisnika imalo utisak paralelnog izvršavanja.'",
@@ -323,11 +345,17 @@
             "after": ""
           },
           "type": "single",
-          "options": ["Intel 8088", "Intel 4004", "Motorola 68000", "ARM"],
+          "options": [
+            "Intel 4004",
+            "Intel 8080",
+            "Intel 8088",
+            "Motorola 68000"
+          ],
           "correctAnswers": ["Intel 4004"],
           "context": "Intel 4004 (1971) je prvi komercijalni mikroprocesor: cijela centralna procesorska jedinica prvi put je realizovana na jednom čipu.",
           "details": [
             "Prije toga procesor je bio sastavljen od više modula/komponenti; sa 4004 postaje integrisana cjelina na jednom čipu.",
+            "Intel 8080 i 8088 su kasniji Intelovi mikroprocesori (8088 je ugrađen u prvi IBM PC 5150), a Motorola 68000 je kasniji 16/32-bitni procesor.",
             "Time počinje IV generacija: manji, jeftiniji računari dostupni pojedincima (personalni računari)."
           ],
           "note": "Citat (P1): 'Intel 4004 - kojim je kompletna centralna procesorska jedinica prvi put realizovana na jednom čipu.'",
@@ -342,10 +370,10 @@
           },
           "type": "single",
           "options": [
-            "Multitasking, multiuser, sa zaštitom memorije",
             "Single-tasking, single-user, bez memorijske zaštite; FAT fajl sistem bez sigurnosnih atributa",
-            "Preemptivni multitasking sa GUI-em i mrežom",
-            "Monolitni kernel sa NTFS-om"
+            "Multitasking, multiuser, sa MMU zaštitom memorije i dozvolama (r/w/x) nad fajlovima",
+            "Single-tasking, multiuser, sa NTFS fajl sistemom i kontrolom pristupa preko ACL lista",
+            "Preemptivni multitasking, single-user, sa zaštitom memorije i hijerarhijskim fajl sistemom"
           ],
           "correctAnswers": [
             "Single-tasking, single-user, bez memorijske zaštite; FAT fajl sistem bez sigurnosnih atributa"
@@ -353,7 +381,9 @@
           "context": "MS-DOS je bio single-tasking (jedan program mora završiti da bi drugi počeo) i single-user, bez memorijske zaštite (real mode). Koristio je FAT fajl sistem koji nema sigurnosne ni vlasničke atribute.",
           "details": [
             "Dizajniran je za jednog korisnika u jednom trenutku, pa nije imao zaštitu memorije ni prava pristupa fajlovima.",
-            "Nasuprot tome UNIX je bio multitasking, multiuser, sa MMU zaštitom i dozvolama (r/w/x)."
+            "Kombinacija multitasking + multiuser + MMU zaštita + r/w/x dozvole opisuje UNIX, potpunu suprotnost DOS-u iz istog perioda.",
+            "NTFS i ACL dolaze tek sa Windows NT-om, deceniju kasnije; DOS je koristio isključivo FAT.",
+            "Preemptivni multitasking sa zaštitom memorije imao je npr. Alto Executive, ali ne i DOS (procesor Intel 8088 nije ni pružao dual mod ni hardversku zaštitu)."
           ],
           "note": "Citat (P1): 'DOS je bio single-tasking ... FAT fajl sistem ... nije imao ugrađene nikakve sigurnosne ili vlasničke atribute.'",
           "readMore": [
@@ -368,12 +398,13 @@
             "after": ""
           },
           "type": "single",
-          "options": ["boot record", "IBMBIO.COM", "IBMDOS.COM", "COMMAND.COM"],
+          "options": ["COMMAND.COM", "IBMBIO.COM", "IBMDOS.COM", "boot record"],
           "correctAnswers": ["COMMAND.COM"],
           "context": "COMMAND.COM je komandni interpreter (shell) DOS-a: prihvata komande korisnika i pokreće odgovarajuće programe.",
           "details": [
-            "Četiri 'srca' DOS-a: boot record (učitava ostatak OS-a), IBMBIO.COM (ulaz/izlaz i uređaji), IBMDOS.COM (jezgro - upravljanje fajlovima i sistemski servisi), COMMAND.COM (shell).",
-            "AUTOEXEC.BAT je bio fajl sa listom komandi koje se izvršavaju redom pri pokretanju - moderni oblik batch obrade za PC."
+            "Četiri 'srca' DOS-a: boot record (učitava ostatak OS-a), IBMBIO.COM (ulaz/izlaz i uređaji), IBMDOS.COM (jezgro: upravljanje fajlovima i sistemski servisi), COMMAND.COM (shell).",
+            "Dakle IBMBIO.COM i IBMDOS.COM su sistemski slojevi ispod shella, a boot record je samo početni kod koji sve to učita u memoriju.",
+            "AUTOEXEC.BAT je bio fajl sa listom komandi koje se izvršavaju redom pri pokretanju, moderni oblik batch obrade za PC."
           ],
           "note": "Citat (P1): 'COMMAND.COM je komandni interpreter (shell), koji prihvata komande i pokreće odgovarajuće programe.'",
           "readMore": [
@@ -389,18 +420,19 @@
           },
           "type": "single",
           "options": [
-            "Zbog veličine diska",
             "Zbog 16-bitnih unutrašnjih registara procesora 8088 (2^16 = 65536 = 64 KB)",
-            "Zbog ograničenja mreže",
-            "Zbog FAT fajl sistema"
+            "Zbog FAT tabele koja po datoteci može adresirati najviše 65536 klastera",
+            "Zbog kapaciteta tadašnjih disketa, na koje je moglo stati tačno 64 KB po datoteci",
+            "Zbog toga što je DOS svakom programu unaprijed rezervisao tačno 64 KB memorije"
           ],
           "correctAnswers": [
             "Zbog 16-bitnih unutrašnjih registara procesora 8088 (2^16 = 65536 = 64 KB)"
           ],
-          "context": "Limit .COM datoteka (64 KB) dolazi od arhitekture procesora 8088: njegovi unutrašnji registri bili su širine 16 bita, a najveća vrijednost je 2^16 = 65536 = 64 KB.",
+          "context": "Limit .COM datoteka (64 KB) dolazi od arhitekture procesora 8088: njegovi unutrašnji registri bili su širine 16 bita, a najveća vrijednost koju 16 bita može predstaviti je 2^16 = 65536 = 64 KB.",
           "details": [
-            "Registri su ultra-brza memorijska mjesta unutar CPU-a za privremene podatke i instrukcije.",
-            "Zato je .COM (jednostavan format) bio ograničen na 64 KB, dok su .EXE datoteke (sa zaglavljem koje opisuje segmente) mogle biti veće i složenije."
+            "Registri su ultra-brza memorijska mjesta unutar CPU-a za privremene podatke i instrukcije; njihova širina određuje koliki adresni opseg program može direktno koristiti.",
+            "Ograničenje dakle nije dolazilo od fajl sistema (FAT), medija (disketa) ni od DOS-ove politike dodjele memorije, nego od širine registara procesora.",
+            ".EXE datoteke su mogle biti veće i složenije jer imaju zaglavlje koje opisuje segmente, pa se program ne mora uklopiti u jedan 64 KB segment."
           ],
           "note": "Citat (P1): 'Limit .COM datoteka je vezan za arhitekturu procesora 8088 ... registri širine 16 bita ... 2^16 = 65536 = 64 KB.'",
           "readMore": [
@@ -415,12 +447,13 @@
             "after": ""
           },
           "type": "single",
-          "options": ["IBM PC 5150", "PDP-11", "Xerox Alto", "ENIAC"],
+          "options": ["PDP-11", "IBM S/360", "Xerox Alto", "IBM 7090"],
           "correctAnswers": ["PDP-11"],
           "context": "PDP-11 (Digital Equipment Corporation), 16-bitni sistem, bio je preteča UNIX-a: na njemu je razvijen UNIX operativni sistem.",
           "details": [
             "PDP-11 je donio hardverski multitasking (8 privilegijskih nivoa), 8 registara opšte namjene, MMU zaštitu memorije, user/kernel mode i hijerarhijski fajl sistem.",
-            "Baš 8 registara opšte namjene omogućilo je programiranje u jezicima višeg nivoa - tako je nastao C, kojim je napisan UNIX."
+            "Baš 8 registara opšte namjene omogućilo je programiranje u jezicima višeg nivoa; tako je nastao C, kojim je napisan UNIX.",
+            "IBM S/360 je mainframe familija vezana za OS/360, IBM 7090 je mašina II generacije (IBMSYS/FMS), a Xerox Alto je prvi personalni računar sa GUI-em; nijedan od njih nije UNIX-ova platforma."
           ],
           "note": "Citat (P1): 'Prvi takav sistem je bio PDP-11 ... on je bio preteča Unix sistema.'",
           "readMore": [
@@ -436,18 +469,20 @@
           },
           "type": "single",
           "options": [
-            "Sve datoteke moraju imati ekstenziju .file",
-            "OS tretira uređaje (tastaturu, štampač, terminal, disk) na isti način - kao nizove bajtova (fajlove)",
-            "Sve datoteke se čuvaju u jednom folderu",
-            "Datoteke se ne mogu brisati"
+            "OS tretira uređaje (tastaturu, štampač, terminal, disk) na isti način: kao nizove bajtova (fajlove)",
+            "Kernel svaki proces interno predstavlja kao izvršnu datoteku učitanu u radnu memoriju",
+            "Svaka komanda shella se prije izvršavanja zapisuje u privremenu datoteku na disku",
+            "Svi programi i podaci sistema čuvaju se u jednom zajedničkom direktoriju radi lakšeg pristupa"
           ],
           "correctAnswers": [
-            "OS tretira uređaje (tastaturu, štampač, terminal, disk) na isti način - kao nizove bajtova (fajlove)"
+            "OS tretira uređaje (tastaturu, štampač, terminal, disk) na isti način: kao nizove bajtova (fajlove)"
           ],
-          "context": "Koncept 'sve je datoteka' znači da UNIX tretira sve uređaje (tastaturu, štampač, terminal, disk) jednako - kao nizove bajtova (fajlove). Programer 'piše u fajl', a OS to usmjeri na pravi uređaj.",
+          "context": "Koncept 'sve je datoteka' znači da UNIX tretira sve uređaje (tastaturu, štampač, terminal, disk) jednako, kao nizove bajtova (fajlove). Programer 'piše u fajl', a OS to usmjeri na pravi uređaj.",
           "details": [
-            "Zato programer ne mora pisati poseban kod za svaki uređaj - koristi iste operacije čitanja/pisanja nad 'fajlom'.",
-            "Ovaj koncept je zadržan do danas kod UNIX/Linux sistema."
+            "Zato programer ne mora pisati poseban kod za svaki uređaj: koristi iste operacije čitanja/pisanja nad 'fajlom'.",
+            "Koncept se odnosi na uređaje i resurse, a ne na to kako kernel predstavlja procese niti kako shell izvršava komande.",
+            "UNIX koristi hijerarhijski fajl sistem (stablo direktorija), dakle upravo suprotno od 'svega u jednom direktoriju'.",
+            "Ovaj koncept je zadržan do danas kod UNIX/Linux sistema (npr. uređaji su vidljivi kao datoteke u /dev)."
           ],
           "note": "Citat (P1): 'Operativni sistem je tretirao tastaturu, štampač, terminal i disk na potpuno isti način - kao nizove bajtova (fajlove).'",
           "readMore": [
@@ -463,19 +498,21 @@
           },
           "type": "single",
           "options": [
-            "Poziv koji korisnik kuca u shell da pokrene program",
-            "Mehanizam prelaska iz user u kernel mod (hardverski TRAP), kojim korisnički program traži uslugu od OS-a jer ne smije direktno dirati hardver",
-            "Mrežni poziv drugom računaru",
-            "Poziv funkcije unutar istog programa"
+            "Mehanizam prelaska iz user u kernel mod (hardverski TRAP), kojim program traži uslugu od OS-a jer ne smije direktno dirati hardver",
+            "Poziv funkcije iz API biblioteke koji se u cijelosti izvršava u korisničkom modu, bez učešća jezgra operativnog sistema",
+            "Prekid (interrupt) koji hardverski uređaj šalje procesoru kad završi U/I operaciju i traži obradu od OS-a",
+            "Komanda koju korisnik unosi u shell, a koju komandni interpreter prevodi u pokretanje odgovarajućeg programa"
           ],
           "correctAnswers": [
-            "Mehanizam prelaska iz user u kernel mod (hardverski TRAP), kojim korisnički program traži uslugu od OS-a jer ne smije direktno dirati hardver"
+            "Mehanizam prelaska iz user u kernel mod (hardverski TRAP), kojim program traži uslugu od OS-a jer ne smije direktno dirati hardver"
           ],
           "context": "Sistemski poziv je mehanizam prelaska iz user u kernel mod (hardverski TRAP). Korisnički program (user mode) ne smije direktno pristupati hardveru, pa preko sistemskog poziva traži uslugu od OS-a (kernel mod).",
           "details": [
             "Kernel mod je rezervisan za OS i jedini smije upravljati hardverom i memorijom; user mod je za korisničke programe.",
-            "Primjer: program pozove API funkciju read(fd, buffer, size) → ona pokrene sistemski poziv (TRAP) → OS provjeri dozvole i izvrši U/I → vrati program u user mod.",
-            "Tako OS ima punu kontrolu i štiti sistem od korisničkih programa."
+            "API funkcija (npr. read) je samo ulaz: ona u pozadini pokrene sistemski poziv, pa se izvršavanje ipak prebacuje u kernel mod, a ne ostaje u korisničkom.",
+            "Prekid od uređaja je obrnut smjer komunikacije: hardver javlja procesoru da mu treba pažnja, dok sistemski poziv pokreće program tražeći uslugu.",
+            "Shell komanda je nivo iznad: interpreter pokreće programe, a ti programi onda koriste sistemske pozive.",
+            "Primjer toka: program pozove read(fd, buffer, size) → TRAP u kernel mod → OS provjeri dozvole i izvrši U/I → povratak u user mod."
           ],
           "note": "Citat (P1): 'Sistemski poziv je mehanizam prelaska iz user moda u kernel mod (hardverski trap).'",
           "readMore": [
@@ -491,19 +528,21 @@
           },
           "type": "single",
           "options": [
-            "Swapping i paging su isto",
-            "Swapping izmješta cijeli proces iz RAM-a na disk, a paging izmješta samo dio procesa (stranice), jer se memorija dijeli na okvire/stranice",
-            "Paging izmješta cijeli proces, a swapping samo dio",
-            "Oba se odnose samo na disk"
+            "Swapping izmješta cijeli proces iz RAM-a na disk, a paging izmješta samo dijelove procesa (stranice fiksne veličine)",
+            "Paging izmješta cijeli proces iz RAM-a na disk, a swapping izmješta samo dijelove procesa (stranice fiksne veličine)",
+            "Swapping premješta procese unutar RAM-a radi spajanja slobodnih blokova, a paging ih prebacuje na disk",
+            "Swapping se koristi samo za podatke procesa, a paging samo za njegove instrukcije"
           ],
           "correctAnswers": [
-            "Swapping izmješta cijeli proces iz RAM-a na disk, a paging izmješta samo dio procesa (stranice), jer se memorija dijeli na okvire/stranice"
+            "Swapping izmješta cijeli proces iz RAM-a na disk, a paging izmješta samo dijelove procesa (stranice fiksne veličine)"
           ],
           "context": "Swapping izmješta cijeli proces iz RAM-a na disk (i nazad kad zatreba), dok paging izmješta samo dio procesa: memorija se dijeli na okvire (frames), a logička memorija na stranice (pages) iste veličine.",
           "details": [
             "Swapping je sporiji jer premješta cijeli proces, a disk je mnogo sporiji od RAM-a.",
             "Paging (uz napredniji MMU) mapira stranice na bilo koje okvire; proces to vidi kao neprekidan prostor, pa se izmješta samo dio.",
-            "Mana paginga: interna fragmentacija (stranice su fiksne veličine, npr. 4 KB, pa dio ostane neiskorišten)."
+            "Premještanje procesa unutar RAM-a radi spajanja šupljina je sažimanje (compaction), treća, posebna tehnika.",
+            "Ni jedna ni druga tehnika ne razdvaja instrukcije od podataka: obje rade sa procesom (cijelim ili po stranicama), bez obzira šta stranica sadrži.",
+            "Mana paginga: interna fragmentacija (stranice su fiksne veličine, npr. 4 KB, pa dio zadnje stranice ostane neiskorišten)."
           ],
           "note": "Citat (P1): swapping 'cijeli proces se kompletno izmješta iz memorije', a kod paginga 'možemo izmještati samo dio procesa'.",
           "readMore": [
@@ -525,19 +564,20 @@
           },
           "type": "single",
           "options": [
-            "OS koji radi samo bez mreže",
             "OS nastao da omogući mrežnu komunikaciju, razmjenu resursa i datoteka između računara",
-            "OS za mobilne telefone",
-            "OS koji ne podržava korisnike"
+            "OS koji se u cijelosti izvršava na serveru, dok klijentski računari služe samo kao terminali bez vlastitog OS-a",
+            "Dodatak DOS-u koji je omogućio da više korisnika radi istovremeno na jednom istom računaru",
+            "Poseban OS za mrežnu opremu (rutere i svičeve) koji ne izvršava korisničke programe"
           ],
           "correctAnswers": [
             "OS nastao da omogući mrežnu komunikaciju, razmjenu resursa i datoteka između računara"
           ],
           "context": "Mrežni operativni sistem (NOS) nastao je da omogući mrežnu komunikaciju te razmjenu resursa i datoteka između računara. Prvi PC (IBM PC 5150) i MS-DOS nisu imali mrežne funkcije.",
           "details": [
-            "Prije NOS-a datoteke su se prenosile fizički (floppy disk), tzv. 'sneaker net' - neefikasno i podložno greškama.",
-            "Primjeri NOS-a: Novell NetWare (prvi, 1983, IPX/SPX), LAN Manager (Microsoft+3Com, preko OS/2, SMB), te UNIX sa NFS-om.",
-            "Kod PC-a je mreža dodavana kao poseban NOS, dok je UNIX mrežu integrisao direktno u kernel."
+            "Prije NOS-a datoteke su se prenosile fizički (floppy disk), tzv. 'sneaker net': neefikasno i podložno greškama.",
+            "NOS ne pretvara računare u gole terminale: svaki računar i dalje ima svoj OS, a NOS dodaje mrežne usluge (dijeljenje datoteka, štampača...).",
+            "NOS rješava komunikaciju VIŠE računara, a ne više korisnika na jednom računaru (to je multiuser, odlika npr. UNIX-a).",
+            "Primjeri NOS-a: Novell NetWare (prvi, 1983, IPX/SPX), LAN Manager (Microsoft+3Com, preko OS/2, SMB), te UNIX sa NFS-om."
           ],
           "note": "Citat (P2): 'Mrežni operativni sistemi su nastali u namjeri da se omogući mrežna komunikacija, razmjena resursa i datoteka.'",
           "readMore": [
@@ -553,19 +593,20 @@
           },
           "type": "single",
           "options": [
-            "Nema razlike",
-            "UNIX je mrežne funkcije integrisao direktno u jezgro (NFS, TCP/IP), dok su PC sistemi mrežu dodavali kao poseban NOS iznad osnovnog OS-a",
-            "PC sistemi su imali mrežu u kernelu, a UNIX kao dodatak",
-            "UNIX nije podržavao mrežu"
+            "UNIX je mrežne funkcije integrisao direktno u jezgro (NFS, TCP/IP), dok su PC sistemi mrežu dodavali kao poseban NOS iznad OS-a",
+            "PC sistemi su mrežne funkcije imali ugrađene u jezgro (SMB), dok je UNIX mrežu dodavao kao poseban proizvod iznad OS-a",
+            "UNIX je preko mreže dijelio samo štampače, dok su PC sistemi dijelili i datoteke i štampače",
+            "Oba pristupa su koristila isti protokol (IPX/SPX), a razlikovala su se samo po brzini prenosa"
           ],
           "correctAnswers": [
-            "UNIX je mrežne funkcije integrisao direktno u jezgro (NFS, TCP/IP), dok su PC sistemi mrežu dodavali kao poseban NOS iznad osnovnog OS-a"
+            "UNIX je mrežne funkcije integrisao direktno u jezgro (NFS, TCP/IP), dok su PC sistemi mrežu dodavali kao poseban NOS iznad OS-a"
           ],
           "context": "Kod PC sistema (MS-DOS) mreža je dodavana kroz poseban NOS (Novell NetWare, LAN Manager). Kod UNIX-a je mrežna podrška bila integrisana direktno u jezgro (NFS, TCP/IP).",
           "details": [
             "NFS (Network File System, Sun Microsystems) omogućio je da se udaljene datoteke montiraju u lokalni fajl sistem i koriste transparentno, kao lokalne.",
-            "NFS je model u kojem svaki UNIX sistem može biti i server i klijent; komunikacija ide preko TCP/IP (već standardnog u UNIX-u).",
-            "NFS je stateless protokol (ne pamti da li korisnik i dalje koristi resurs), pa je za zaključavanje uveden Network Lock Manager."
+            "Dakle smjer je bio suprotan tvrdnji da su PC sistemi imali mrežu u jezgru: DOS nije imao mrežne funkcije, pa se NOS morao dodavati iznad njega.",
+            "NFS dijeli datoteke (ne samo štampače), a protokoli su se razlikovali: NetWare je koristio IPX/SPX, LAN Manager SMB, a UNIX TCP/IP.",
+            "NFS je model u kojem svaki UNIX sistem može biti i server i klijent; pošto je stateless (ne pamti da li korisnik i dalje koristi resurs), za zaključavanje je uveden Network Lock Manager."
           ],
           "note": "Citat (P2): 'dok su PC sistemi koristili posebne mrežne operativne sisteme ..., Unix je mrežne funkcije integrisao direktno u jezgro.'",
           "readMore": [
@@ -585,7 +626,8 @@
             "Autorizacija i kontrola pristupa (prava nad resursima)",
             "Dijeljenje resursa",
             "Konkurentno pristupanje datotekama (zaključavanje)",
-            "Automatsko brisanje svih datoteka pri gašenju"
+            "Grafički korisnički interfejs (prozori, ikone, miš)",
+            "Journaling fajl sistem za oporavak nakon pada"
           ],
           "correctAnswers": [
             "Autentifikacija (korisničko ime i lozinka)",
@@ -596,7 +638,9 @@
           "context": "NOS je morao podržati: autentifikaciju (ko si), autorizaciju i kontrolu pristupa (šta smiješ), dijeljenje resursa, te konkurentno pristupanje datotekama (zaključavanje kad više korisnika dira isti fajl).",
           "details": [
             "Autentifikacija (username/lozinka) je do tada postojala samo na Multics/UNIX; DOS je nije imao jer je bio single-user.",
-            "Konkurentni pristup rješavao se zaključavanjem: NetWare (record locking), LAN Manager/SMB (exclusive, shared, byte-range lock), UNIX NFS (Network Lock Manager)."
+            "Konkurentni pristup rješavao se zaključavanjem: NetWare (record locking), LAN Manager/SMB (exclusive, shared, byte-range lock), UNIX NFS (Network Lock Manager).",
+            "GUI nije zahtjev mrežnog OS-a: to je odlika korisničkog interfejsa (Alto, kasnije Windows), nevezana za mrežne usluge.",
+            "Journaling je tehnika fajl sistema za oporavak od pada (NTFS, Ext3/4), takođe nije među zahtjevima NOS-a iz gradiva."
           ],
           "note": "Citat (P2): zahtjevi NOS-a su autentifikacija, autorizacija/kontrola pristupa, dijeljenje resursa i konkurentno pristupanje datotekama.",
           "readMore": [
@@ -611,12 +655,13 @@
             "after": ""
           },
           "type": "single",
-          "options": ["IBM PC 5150", "Xerox Alto", "ENIAC", "PDP-11"],
+          "options": ["Xerox Alto", "IBM PC 5150", "PDP-11", "IBM S/360"],
           "correctAnswers": ["Xerox Alto"],
           "context": "Xerox Alto (1973, Xerox PARC) smatra se prvim personalnim računarom. Njegov OS (Alto Executive) je bio napredan: preemptivni multitasking, virtuelna memorija, hijerarhijski fajl sistem, GUI (prozori, ikone, miš) i mrežna komunikacija.",
           "details": [
             "Alto je bio prvi sistem koji je uveo koncept prozora, ikona i miša (GUI).",
-            "Iako tehnološki napredan, nije postao dominantan jer je bio skup i namijenjen istraživanju; jeftini, standardizovani IBM PC je preuzeo tržište.",
+            "IBM PC 5150 (1981) je prvi masovni personalni računar, ali dolazi kasnije i sa DOS-om bez GUI-a; PDP-11 je miniračunar (preteča UNIX-a), a IBM S/360 mainframe familija.",
+            "Iako tehnološki napredan, Alto nije postao dominantan jer je bio skup i namijenjen istraživanju; jeftini, standardizovani IBM PC je preuzeo tržište.",
             "Potreba za dijeljenjem skupog laserskog printera na Altu dovela je do razvoja Etherneta."
           ],
           "note": "Citat (P2): 'Xerox ... 1973 godine proizveo prvi personalni računar Xerox Alto' sa GUI-em (prozori, ikone, miš).",
@@ -634,10 +679,10 @@
           "type": "single",
           "options": ["Tačno", "Netačno"],
           "correctAnswers": ["Tačno"],
-          "context": "Tačno. Ethernet je prihvaćen i objavljen 1983. kao IEEE standard 802.3 - univerzalna, otvorena tehnologija za povezivanje računara u lokalne mreže (LAN), nezavisna od modela računara.",
+          "context": "Ethernet je prihvaćen i objavljen 1983. kao IEEE standard 802.3: univerzalna, otvorena tehnologija za povezivanje računara u lokalne mreže (LAN), nezavisna od modela računara.",
           "details": [
             "Nastao je iz potrebe (na Xerox Altu) da se poveže više računara i dijeli skup resurs (laserski printer).",
-            "Raniji Alto Exec je imao mrežu, ali proprietary; nekompatibilnost je dovela do zahtjeva za otvorenim, univerzalnim standardom - Ethernetom.",
+            "Raniji Alto Exec je imao mrežu, ali proprietary; nekompatibilnost je dovela do zahtjeva za otvorenim, univerzalnim standardom.",
             "Danas je Ethernet dominantan u lokalnim mrežama."
           ],
           "note": "Citat (P2): 'Ethernet kao standard 802.3 biva prihvaćen i objavljen 1983 godine od strane IEEE organizacije.'",
@@ -660,18 +705,19 @@
           },
           "type": "single",
           "options": [
-            "CISC ima mali skup jednostavnih instrukcija, a RISC bogat skup složenih",
-            "CISC ima bogat skup složenih instrukcija (uz mikrokod), a RISC mali skup jednostavnih instrukcija koje se izvršavaju u jednom ciklusu",
-            "Nema razlike",
-            "RISC je stariji od CISC-a"
+            "CISC ima bogat skup složenih instrukcija (uz mikrokod), a RISC mali skup jednostavnih koje se izvršavaju u jednom ciklusu",
+            "RISC ima bogat skup složenih instrukcija (uz mikrokod), a CISC mali skup jednostavnih koje se izvršavaju u jednom ciklusu",
+            "CISC i RISC imaju isti skup instrukcija, a razlikuju se samo po broju registara opšte namjene",
+            "CISC instrukcije izvršava direktno hardver, a RISC instrukcije prvo mikrokod razlaže na jednostavnije korake"
           ],
           "correctAnswers": [
-            "CISC ima bogat skup složenih instrukcija (uz mikrokod), a RISC mali skup jednostavnih instrukcija koje se izvršavaju u jednom ciklusu"
+            "CISC ima bogat skup složenih instrukcija (uz mikrokod), a RISC mali skup jednostavnih koje se izvršavaju u jednom ciklusu"
           ],
-          "context": "CISC (Complex Instruction Set Computer) ima bogat skup složenih instrukcija (mikrokod ih razlaže na jednostavnije), npr. Intel 8086, Motorola 68000. RISC (Reduced Instruction Set Computer) ima mali skup jednostavnih instrukcija koje se izvršavaju u jednom ciklusu, npr. MIPS, SPARC, ARM.",
+          "context": "CISC (Complex Instruction Set Computer) ima bogat skup složenih instrukcija koje mikrokod razlaže na jednostavnije (npr. Intel 8086, Motorola 68000). RISC (Reduced Instruction Set Computer) ima mali skup jednostavnih instrukcija koje se izvršavaju u jednom ciklusu (npr. MIPS, SPARC, ARM).",
           "details": [
-            "Istraživanja (IBM 801, Berkeley RISC, Stanford MIPS) pokazala su da kompajleri koriste samo mali podskup instrukcija - otud RISC ideja.",
-            "Pojeftinjenje memorije i veća procesorska brzina bili su pokretači RISC-a.",
+            "Istraživanja (IBM 801, Berkeley RISC, Stanford MIPS) pokazala su da kompajleri koriste samo mali podskup instrukcija; otud RISC ideja.",
+            "Mehanizam je obrnut od tvrdnje u zadnjoj opciji: mikrokod razlaže složene CISC instrukcije, dok su RISC instrukcije dovoljno jednostavne da ih hardver izvršava direktno.",
+            "Razlika nije u broju registara nego u samom skupu instrukcija (composition i složenost).",
             "RISC nije odmah preovladao jer je već postojalo mnogo aplikacija za x86 (CISC), a Intel/AMD su osigurali kompatibilnost sa starim programima."
           ],
           "note": "Citat (P2): CISC ima 'bogat skup instrukcija ... kompleksne u jednoj naredbi', RISC 'mali broj jednostavnih instrukcija ... u jednom ciklusu'.",
@@ -688,18 +734,20 @@
           },
           "type": "single",
           "options": [
-            "Mrežni kabl za povezivanje računara",
-            "Tehnika koja omogućava preklapanje faza izvršavanja više instrukcija (dok se jedna izvršava, sljedeća se dekodira, treća dohvata)",
-            "Način pohrane datoteka na disk",
-            "Vrsta virtuelne memorije"
+            "Preklapanje faza izvršavanja više instrukcija: dok se jedna izvršava, sljedeća se dekodira, a treća dohvata",
+            "Više odvojenih izvršnih jedinica koje dvije ili više instrukcija u cijelosti izvršavaju istovremeno",
+            "Brza memorija u koju procesor unaprijed učitava instrukcije za koje predviđa da slijede",
+            "Red čekanja U/I zahtjeva iz kojeg kontroler diska bira sljedeći zahtjev za obradu"
           ],
           "correctAnswers": [
-            "Tehnika koja omogućava preklapanje faza izvršavanja više instrukcija (dok se jedna izvršava, sljedeća se dekodira, treća dohvata)"
+            "Preklapanje faza izvršavanja više instrukcija: dok se jedna izvršava, sljedeća se dekodira, a treća dohvata"
           ],
           "context": "Pipeline (protočna obrada) omogućava preklapanje faza izvršavanja više instrukcija: umjesto da čeka kraj jedne, procesor započinje sljedeću čim se oslobodi prva faza hardvera. Time se drastično ubrzava rad.",
           "details": [
             "Tipičnih 5 faza: 1) dohvatanje instrukcije, 2) dekodiranje, 3) izvršavanje, 4) memorijski pristup, 5) zapisivanje u registar.",
-            "Primjer: 5 instrukcija bez pipeline-a = 25 taktova; sa pipeline-om se preklapaju pa treba znatno manje.",
+            "Više izvršnih jedinica koje instrukcije izvršavaju u cijelosti paralelno opisuje superskalarni procesor, napredniju izvedbu od pipeline-a.",
+            "Unaprijed učitavanje instrukcija u brzu memoriju je keširanje/prefetch, a red U/I zahtjeva pripada disku, ne procesoru.",
+            "Primjer: 5 instrukcija bez pipeline-a = 25 taktova; sa pipeline-om se faze preklapaju pa treba znatno manje.",
             "Pipeline uvodi kompleksnost (hazardi); OS mora paziti pri prekidima i promjeni konteksta (pražnjenje/flushing pipeline-a)."
           ],
           "note": "Citat (P2): 'Pipeline je tehnika koja omogućava preklapanje faza izvršavanja više instrukcija.'",
@@ -716,18 +764,21 @@
           },
           "type": "single",
           "options": [
-            "Vrsta hard diska",
             "Brza keš memorija unutar procesora koja pamti nedavna preslikavanja virtuelnih u fizičke adrese",
-            "Mrežni protokol",
-            "Registar za aritmetiku"
+            "Tabela u radnoj memoriji u kojoj OS čuva kompletno mapiranje svih stranica jednog procesa",
+            "Brza memorija između procesora i RAM-a koja čuva nedavno korištene podatke i instrukcije",
+            "Registar procesora koji sadrži adresu sljedeće instrukcije koju treba dohvatiti iz memorije"
           ],
           "correctAnswers": [
             "Brza keš memorija unutar procesora koja pamti nedavna preslikavanja virtuelnih u fizičke adrese"
           ],
           "context": "TLB (Translation Lookaside Buffer) je brza keš memorija unutar procesora koja pamti nedavna preslikavanja virtuelnih u fizičke adrese, čime ubrzava prevođenje adresa (da se ne mora svaki put čitati page tabela iz RAM-a).",
           "details": [
-            "Pojavljuje se uz MMU u V generaciji, kad memorija postaje velika pa je potrebno efikasno upravljanje virtuelnom memorijom.",
-            "Ako je mapiranje u TLB-u (TLB hit), adresa se prevede odmah; ako nije (TLB miss), MMU čita page tabelu iz memorije."
+            "Kompletno mapiranje svih stranica procesa drži page tabela u radnoj memoriji; TLB kešira samo nedavno korištene unose iz nje.",
+            "Keš koji čuva podatke i instrukcije je opšti CPU keš (L1/L2/L3); TLB je specijalizovan isključivo za prevode adresa.",
+            "Registar sa adresom sljedeće instrukcije je programski brojač (program counter), sasvim druga komponenta.",
+            "Ako je mapiranje u TLB-u (TLB hit), adresa se prevede odmah; ako nije (TLB miss), MMU čita page tabelu iz memorije.",
+            "Pojavljuje se uz MMU u V generaciji, kad memorija postaje velika pa je potrebno efikasno upravljanje virtuelnom memorijom."
           ],
           "note": "Citat (P2): 'TLB - brza keš memorija unutar procesora koja pamti nedavna preslikavanja virtuelnih u fizičke adrese.'",
           "readMore": ["P2-Uvod_u_operativne_sisteme_2.pdf, str. 7 (TLB)"]
@@ -741,19 +792,21 @@
           },
           "type": "single",
           "options": [
-            "Sistem sa jednim procesorom",
             "Sistem u kojem svi procesori dijele istu memoriju i svaki može izvršavati bilo koji proces",
-            "Mrežni protokol",
-            "Vrsta fajl sistema"
+            "Sistem u kojem glavni procesor kontroliše ostale, a svaki od njih ima unaprijed dodijeljen zadatak",
+            "Sistem u kojem svaki procesor ima vlastitu privatnu memoriju i sa ostalima komunicira porukama",
+            "Procesor sa više jezgri koje dijele keš, ali mogu izvršavati samo niti jednog istog procesa"
           ],
           "correctAnswers": [
             "Sistem u kojem svi procesori dijele istu memoriju i svaki može izvršavati bilo koji proces"
           ],
           "context": "SMP (Symmetric Multiprocessing) je arhitektura u kojoj svi procesori dijele istu memoriju i svaki procesor može izvršavati bilo koji proces. OS raspoređuje procese između procesora.",
           "details": [
+            "Model sa glavnim procesorom koji kontroliše ostale i unaprijed dodijeljenim zadacima je asimetrično multiprocesiranje, suprotan pristup od SMP-a.",
+            "Procesori sa privatnim memorijama koji komuniciraju porukama opisuju distribuirani/klaster sistem, a ne SMP (kod SMP-a je fizička memorija zajednička).",
+            "Kod SMP-a jezgra/procesori nisu ograničeni na niti jednog procesa: OS na njih slobodno raspoređuje bilo koje procese.",
             "OS mora raspoređivati procese na procesore, upravljati pristupom zajedničkim resursima i sprječavati konflikte.",
-            "SMP donosi bolje performanse, veću skalabilnost i paralelno izvršavanje; danas je standard.",
-            "Nastaje u V generaciji, kad se pojavljuju sistemi sa više procesora i jezgri."
+            "SMP donosi bolje performanse, veću skalabilnost i paralelno izvršavanje; danas je standard."
           ],
           "note": "Citat (P2): 'Kod SMP sistema svi procesori dijele istu memoriju, svi procesori mogu izvršavati bilo koji proces.'",
           "readMore": ["P2-Uvod_u_operativne_sisteme_2.pdf, str. 8 (SMP)"]
@@ -767,19 +820,20 @@
           },
           "type": "single",
           "options": [
-            "NTFS koristi journaling i ACL kontrolu pristupa, dok Ext2 (Linux) ne koristi journaling",
-            "Ext2 koristi journaling, a NTFS ne",
-            "Oba su isto",
-            "NTFS je za Linux, Ext2 za Windows"
+            "NTFS koristi journaling i ACL kontrolu pristupa, dok Ext2 ne koristi journaling",
+            "Ext2 koristi journaling i ACL kontrolu pristupa, dok NTFS ne koristi journaling",
+            "Oba koriste journaling, a razlikuju se samo po maksimalnoj veličini particije",
+            "Ext2 podržava kompresiju i enkripciju (EFS), dok NTFS nudi samo osnovne dozvole"
           ],
           "correctAnswers": [
-            "NTFS koristi journaling i ACL kontrolu pristupa, dok Ext2 (Linux) ne koristi journaling"
+            "NTFS koristi journaling i ACL kontrolu pristupa, dok Ext2 ne koristi journaling"
           ],
           "context": "NTFS (Windows NT) koristi journaling (dnevnik promjena prije upisa) i ACL kontrolu pristupa, plus kompresiju i enkripciju (EFS). Ext2 (Linux) koristi inode strukture i blok grupe, ali ne koristi journaling (za razliku od kasnijih Ext3/Ext4).",
           "details": [
             "Journaling: promjene se prvo upišu u dnevnik pa tek onda na disk, čime se smanjuje gubitak podataka pri padu sistema.",
-            "NTFS: pouzdanost, ACL dozvole, kompresija, EFS enkripcija, velike particije - standard u modernim Windowsima.",
-            "Ext2: jednostavan i brz, inode + blok grupe, Unix dozvole (r/w/x), ali bez journalinga (manje otporan na naglo gašenje); Ext3/Ext4 dodaju journaling."
+            "Odnos je dakle obrnut od druge opcije: journaling ima NTFS, a nema ga Ext2 (dobijaju ga tek Ext3/Ext4).",
+            "Kompresija i EFS enkripcija su NTFS-ove mogućnosti, ne Ext2 (Ext2 koristi klasične Unix dozvole r/w/x).",
+            "Ext2 je jednostavan i brz (inode + blok grupe), ali manje otporan na naglo gašenje upravo zbog izostanka journalinga."
           ],
           "note": "Citat (P2): NTFS 'koristi journaling ... ACL'; Ext2 'ne koristi journaling mehanizam'.",
           "readMore": [
@@ -795,18 +849,20 @@
           },
           "type": "single",
           "options": [
-            "Mikrokernel",
-            "Monolitno jezgro (uz podršku za dinamički učitavanje modula)",
-            "Egzokernel",
-            "Nema jezgro"
+            "Monolitno jezgro, uz podršku za dinamičko učitavanje i uklanjanje modula u toku rada",
+            "Mikrokernel u kojem se drajveri i fajl sistemi izvršavaju kao odvojeni korisnički procesi",
+            "Strogo slojevito jezgro u kojem svaki sloj koristi isključivo usluge sloja neposredno ispod",
+            "Hibridno jezgro u kojem se grafički i mrežni podsistem izvršavaju u korisničkom modu"
           ],
           "correctAnswers": [
-            "Monolitno jezgro (uz podršku za dinamički učitavanje modula)"
+            "Monolitno jezgro, uz podršku za dinamičko učitavanje i uklanjanje modula u toku rada"
           ],
-          "context": "Linux (1991, Linus Torvalds) ima monolitno jezgro: ključne funkcije (procesi, memorija, fajl sistemi, mreža, drajveri) izvršavaju se unutar istog jezgra u privilegovanom režimu. Uz to podržava modularnost - moduli (npr. drajveri) se mogu dinamički učitavati/uklanjati u toku rada.",
+          "context": "Linux (1991, Linus Torvalds) ima monolitno jezgro: ključne funkcije (procesi, memorija, fajl sistemi, mreža, drajveri) izvršavaju se unutar istog jezgra u privilegovanom režimu. Uz to podržava modularnost: moduli (npr. drajveri) se mogu dinamički učitavati i uklanjati u toku rada.",
           "details": [
+            "Kod mikrokernela bi drajveri i fajl sistemi bili izbačeni iz jezgra u korisničke procese (npr. Mach, QNX); kod Linuxa su unutar jezgra.",
+            "Strogo slojeviti pristup (svaki sloj koristi samo sloj ispod) je poseban model (npr. THE sistem), a ne Linuxov.",
+            "Monolitan = brz (direktni pozivi unutar jednog prostora), a modularan = fleksibilan (dodavanje drajvera bez ponovne gradnje cijelog kernela).",
             "Razvijen prvo za x86, inspirisan UNIX-om; sa GNU alatima čini kompletan sistem (GNU/Linux).",
-            "Monolitan = brz (direktni pozivi), ali modularan = fleksibilan (dodavanje drajvera bez ponovne gradnje cijelog kernela).",
             "Windows NT (druga važna V-generacija) je 32-bitni, sa HAL slojem, preemptivnim multitaskingom, SMP i NTFS-om."
           ],
           "note": "Citat (P2): 'Arhitektura Linuxa zasniva se na monolitnom jezgru ... Linux podržava modularnu strukturu jezgra.'",
@@ -823,16 +879,17 @@
           },
           "type": "single",
           "options": [
-            "Otvoren, Zatvoren, Pauziran",
             "Ready, Running, Waiting, Finished",
-            "Brz, Spor, Srednji",
-            "Lokalni, Mrežni, Cloud"
+            "Idle, Active, Sleeping, Zombie",
+            "Created, Scheduled, Executing, Aborted",
+            "Loaded, Cached, Swapped, Closed"
           ],
           "correctAnswers": ["Ready, Running, Waiting, Finished"],
           "context": "Proces može biti u nekoliko predefinisanih stanja: Ready (spreman, čeka CPU), Running (izvršava se), Waiting (čeka na događaj/resurs) i Finished (završen).",
           "details": [
-            "Veći broj registara u novijim procesorima zahtijevao je bolji context switching (brzo čuvanje/vraćanje stanja) radi multitaskinga.",
-            "Ova stanja su osnova upravljanja procesima, koje se detaljno obrađuje u lekciji o procesima."
+            "Nazivi u ostalim opcijama zvuče poznato jer liče na oznake iz alata (npr. ps prikazuje R/I/Z statuse), ali nisu stanja iz ovog gradiva.",
+            "Detaljna lekcija o procesima ovaj model proširuje na pet stanja: New, Ready, Running, Waiting i Terminated.",
+            "Veći broj registara u novijim procesorima zahtijevao je bolji context switching (brzo čuvanje/vraćanje stanja) radi multitaskinga."
           ],
           "note": "Citat (P2): 'Procesi mogu biti u nekoliko predefinisanih stanja Ready, Running, Waiting ili Finished.'",
           "readMore": [
@@ -848,19 +905,21 @@
           },
           "type": "single",
           "options": [
-            "Da procesor lično kopira svaki bajt podataka",
-            "Da uređaj direktno pristupi memoriji za prenos podataka, oslobađajući procesor tog posla",
-            "Da šifruje podatke na disku",
-            "Da poveže računare u mrežu"
+            "Da uređaj direktno pristupi memoriji i sam obavi prenos podataka, oslobađajući procesor tog posla",
+            "Da procesor pristupa disku direktno, zaobilazeći kontroler uređaja, čime se ubrzava U/I operacija",
+            "Da dva procesa razmjenjuju podatke preko zajedničkog memorijskog segmenta bez posredovanja jezgra",
+            "Da više procesora istovremeno pristupa istoj memorijskoj lokaciji bez međusobnog sukoba"
           ],
           "correctAnswers": [
-            "Da uređaj direktno pristupi memoriji za prenos podataka, oslobađajući procesor tog posla"
+            "Da uređaj direktno pristupi memoriji i sam obavi prenos podataka, oslobađajući procesor tog posla"
           ],
           "context": "DMA (Direct Memory Access) omogućava da uređaj direktno pristupi memoriji i sam obavi prenos podataka, čime oslobađa procesor od tog posla (npr. dok se datoteka snima na disk, CPU može raditi drugo).",
           "details": [
             "Bez DMA, procesor bi morao lično kopirati svaki komad podataka između uređaja i memorije.",
-            "Uz DMA, CPU samo zada prenos, a uređaj/DMA kontroler ga obavi i javi prekidom (interrupt) kad završi.",
-            "Vezano za to, interrupt handling koristi IRQ brojeve po prioritetima uređaja."
+            "Smjer je suprotan drugoj opciji: kod DMA se zaobilazi procesor (ne kontroler); prenos i dalje vodi kontroler/DMA sklop uređaja.",
+            "Razmjena podataka procesa preko zajedničkog segmenta je dijeljena memorija (oblik međuprocesne komunikacije), softverski koncept nevezan za DMA.",
+            "Usklađivanje više procesora oko iste memorije rješava memorijski kontroler i sinhronizacija, a ne DMA.",
+            "Uz DMA, CPU samo zada prenos, a uređaj ga obavi i javi prekidom (interrupt) kad završi; interrupt handling koristi IRQ brojeve po prioritetima uređaja."
           ],
           "note": "Citat (P2): 'DMA ... gdje uređaj može direktno pristupiti memoriji' i tako osloboditi procesor.",
           "readMore": [

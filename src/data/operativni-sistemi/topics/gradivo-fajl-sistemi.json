@@ -17,19 +17,21 @@
           },
           "type": "single",
           "options": [
-            "Primarna je trajna, sekundarna privremena",
-            "Primarna (RAM) je ona kojoj CPU direktno pristupa i bez koje sistem ne radi; sekundarna (diskovi) je trajna pohrana. Volatile gubi sadržaj bez napajanja, non-volatile ga čuva.",
-            "Volatile memorija čuva sadržaj bez napajanja",
-            "Nema razlike među njima"
+            "Primarna (RAM) je ona kojoj CPU direktno pristupa i bez koje sistem ne radi; sekundarna (diskovi) je trajna pohrana; volatile gubi sadržaj bez napajanja, non-volatile ga čuva",
+            "Sekundarna (diskovi) je ona kojoj CPU direktno pristupa; primarna (RAM) je trajna pohrana; volatile čuva sadržaj bez napajanja, non-volatile ga gubi",
+            "Primarna i sekundarna memorija se razlikuju samo po kapacitetu, a volatile i non-volatile samo po brzini pristupa podacima",
+            "Primarna (RAM) je trajna jer je ugrađena u matičnu ploču; sekundarna (diskovi) je privremena jer se može izvaditi iz računara"
           ],
           "correctAnswers": [
-            "Primarna (RAM) je ona kojoj CPU direktno pristupa i bez koje sistem ne radi; sekundarna (diskovi) je trajna pohrana. Volatile gubi sadržaj bez napajanja, non-volatile ga čuva."
+            "Primarna (RAM) je ona kojoj CPU direktno pristupa i bez koje sistem ne radi; sekundarna (diskovi) je trajna pohrana; volatile gubi sadržaj bez napajanja, non-volatile ga čuva"
           ],
           "context": "Primarna memorija (RAM) je ona kojoj CPU direktno pristupa (preko keš i memorijskog kontrolera) i bez koje se sistem ne pokreće. Sekundarna memorija (diskovi) je trajna pohrana. Volatile (povrediva/kratkotrajna) memorija gubi sadržaj kad nestane napajanja; non-volatile (trajna) ga čuva i bez napajanja.",
           "details": [
-            "Kad se sadržaj ne nađe u RAM-u (page fault), dohvata se s diska i učitava u RAM.",
+            "Uloge su obrnute od druge opcije: direktan pristup i privremenost idu uz RAM, a trajnost uz diskove.",
+            "Podjela nije po kapacitetu ni po 'ugrađenosti': ključno je kome CPU direktno pristupa (primarna) i šta preživi gašenje (non-volatile).",
             "RAM je volatile; diskovi (HDD, SSD) su non-volatile.",
-            "Operativni sistem ne radi sa fajlovima na nivou hardvera - koristi apstrakciju fajla i fajl sistema."
+            "Kad se sadržaj ne nađe u RAM-u (page fault), dohvata se s diska i učitava u RAM.",
+            "Operativni sistem ne radi sa fajlovima na nivou hardvera: koristi apstrakciju fajla i fajl sistema."
           ],
           "note": "Citat (FajlSistemi1): 'memoriju dijelimo na violatile i non vioaltile memoriju (povredivu/kratkotrajnu ... te nepovredivu/trajnu ...).'",
           "readMore": ["FajlSistemi1.pdf, str. 1 (sekundarna memorija)"]
@@ -43,16 +45,18 @@
           },
           "type": "single",
           "options": [
-            "SSD ima pokretne dijelove, HDD nema",
-            "HDD radi na mehaničkim komponentama (pokretna glava, ploče, elektromotor) pa ima veliku latenciju i mehaničke slabosti; SSD nema pokretnih dijelova (NAND Flash), pa je brži, pouzdaniji i tiši",
-            "Nema razlike u brzini",
-            "SSD je stariji od HDD-a"
+            "HDD radi na mehaničkim komponentama (glava, ploče, motor) pa ima veliku latenciju; SSD nema pokretnih dijelova (NAND Flash), pa je brži, pouzdaniji i tiši",
+            "SSD radi na mehaničkim komponentama pa ima veliku latenciju; HDD nema pokretnih dijelova (NAND Flash), pa je brži, pouzdaniji i tiši",
+            "HDD i SSD se razlikuju samo po interfejsu: HDD uvijek koristi SATA, a SSD isključivo PCIe/NVMe priključak",
+            "HDD čuva podatke trajno, a SSD gubi sadržaj bez napajanja, pa se u računaru koristi uz pomoćnu bateriju"
           ],
           "correctAnswers": [
-            "HDD radi na mehaničkim komponentama (pokretna glava, ploče, elektromotor) pa ima veliku latenciju i mehaničke slabosti; SSD nema pokretnih dijelova (NAND Flash), pa je brži, pouzdaniji i tiši"
+            "HDD radi na mehaničkim komponentama (glava, ploče, motor) pa ima veliku latenciju; SSD nema pokretnih dijelova (NAND Flash), pa je brži, pouzdaniji i tiši"
           ],
-          "context": "Mehanički disk (HDD) radi na pokretnim komponentama (glava za čitanje/pisanje, ploče/platters, elektromotor), pa ima veliku latenciju, probleme s pouzdanošću, veću potrošnju i buku. SSD (Solid State Disk) nema pokretnih dijelova - baziran je na NAND Flash tehnologiji - pa je brži, pouzdaniji i tiši.",
+          "context": "Mehanički disk (HDD) radi na pokretnim komponentama (glava za čitanje/pisanje, ploče/platters, elektromotor), pa ima veliku latenciju, probleme s pouzdanošću, veću potrošnju i buku. SSD (Solid State Disk) nema pokretnih dijelova, baziran je na NAND Flash tehnologiji, pa je brži, pouzdaniji i tiši.",
           "details": [
+            "Osobine su obrnute od druge opcije: mehanika (i njene mane) pripadaju HDD-u.",
+            "Interfejs nije ključna razlika: postoje i SATA SSD diskovi (prvi SSD-ovi su koristili baš SATA), a oba tipa su non-volatile (čuvaju podatke bez napajanja).",
             "HDD interfejsi: IDE/PATA (133 MB/s), SATA I (150), SATA II (300), SATA III (600 MB/s).",
             "HDD mane: velika latencija (vrijeme da se locira i učita podatak), mehanički dijelovi se kvare, veća potrošnja (elektromotor 12 V), buka i veće dimenzije.",
             "SSD se pojavljuje ~2007; NAND Flash je razvijen 1980-ih. SSD je riješio latenciju, ali je stari SATA interfejs ostao usko grlo."
@@ -69,20 +73,21 @@
           },
           "type": "single",
           "options": [
-            "Nema razlike, samo drugačiji naziv",
-            "NVMe SSD koristi NVMe protokol preko PCIe magistrale (dizajniran za paralelni rad sa flash memorijom), dok SATA SSD koristi AHCI protokol dizajniran za mehaničke diskove - pa je NVMe znatno brži",
-            "SATA SSD je brži jer koristi PCIe",
-            "NVMe je form-faktor, a SATA protokol"
+            "NVMe SSD koristi NVMe protokol preko PCIe magistrale (za paralelni rad sa flash memorijom); SATA SSD koristi AHCI protokol pravljen za mehaničke diskove, pa je NVMe znatno brži",
+            "SATA SSD koristi NVMe protokol preko PCIe magistrale, a NVMe SSD koristi AHCI protokol, pa je SATA varijanta znatno brža",
+            "NVMe i SATA su samo dva form-faktora (oblika) diska sa istim protokolom, pa je razlika jedino u načinu montaže na ploču",
+            "NVMe SSD ima ugrađenu keš memoriju pa je brži, dok SATA SSD radi direktno sa flash ćelijama bez keša"
           ],
           "correctAnswers": [
-            "NVMe SSD koristi NVMe protokol preko PCIe magistrale (dizajniran za paralelni rad sa flash memorijom), dok SATA SSD koristi AHCI protokol dizajniran za mehaničke diskove - pa je NVMe znatno brži"
+            "NVMe SSD koristi NVMe protokol preko PCIe magistrale (za paralelni rad sa flash memorijom); SATA SSD koristi AHCI protokol pravljen za mehaničke diskove, pa je NVMe znatno brži"
           ],
           "context": "NVMe SSD koristi NVMe protokol preko PCIe magistrale, dizajniran za paralelni rad sa flash memorijom. Klasični SATA SSD koristi AHCI protokol koji je dizajniran za mehaničke diskove. Zato je NVMe znatno brži (npr. PCIe 5.0 diskovi do ~14000 MB/s).",
           "details": [
-            "M.2 je form-faktor (fizički oblik), ne protokol: M.2 disk može biti SATA (AHCI) ili NVMe (PCIe).",
+            "Protokoli su obrnuti od druge opcije: NVMe ide uz PCIe, AHCI uz SATA.",
+            "NVMe i SATA nisu form-faktori nego protokoli/interfejsi; form-faktor je npr. M.2, i M.2 disk može biti i SATA (AHCI) i NVMe (PCIe).",
+            "Razlika nije u kešu nego u protokolu i magistrali kojom disk komunicira sa sistemom.",
             "mSATA je prvi koristio PCIe slot, ali sa SATA kontrolerom; spajao se direktno na ploču bez kablova.",
-            "U.2 NVMe je za servere: izgleda kao 2.5\" HDD ali koristi 4 PCIe staze, ima hot-swap i bolje hlađenje.",
-            "Bez obzira na tip diska (HDD, SATA SSD, NVMe SSD), OS ne radi sa fajlovima na nivou hardvera - koristi fajl sistem."
+            "U.2 NVMe je za servere: izgleda kao 2.5\" HDD ali koristi 4 PCIe staze, ima hot-swap i bolje hlađenje."
           ],
           "note": "Citat (FajlSistemi1): 'NVMe SSD se od klasičnog SATA SSD-a razlikuje po tome što koristi NVMe protokol preko PCIe magistrale ... dok SATA SSD koristi AHCI protokol dizajniran za mehaničke diskove.'",
           "readMore": ["FajlSistemi1.pdf, str. 2-3 (NVMe, SATA, M.2, U.2)"]
@@ -91,7 +96,7 @@
     },
     {
       "exerciseNumber": 2,
-      "sourceTaskName": "Fajl, metapodaci i trosloj ni model",
+      "sourceTaskName": "Fajl, metapodaci i troslojni model",
       "questions": [
         {
           "id": "fs-04",
@@ -102,19 +107,20 @@
           },
           "type": "single",
           "options": [
-            "Fizički sektor na disku",
             "Imenovana, logička cjelina povezanih informacija trajno pohranjena na sekundarnoj memoriji, koju kreiraju procesi ili korisnici",
-            "Privremeni podatak u RAM-u",
-            "Vrsta procesa"
+            "Najmanja fizička jedinica zapisa na disku (sektor od 512 bajta) kojom upravlja kontroler diska",
+            "Blok metapodataka (inode/FCB) koji opisuje sadržaj pohranjen negdje na disku",
+            "Privremeni skup podataka u radnoj memoriji koji nestaje kad se proces koji ga koristi završi"
           ],
           "correctAnswers": [
             "Imenovana, logička cjelina povezanih informacija trajno pohranjena na sekundarnoj memoriji, koju kreiraju procesi ili korisnici"
           ],
           "context": "Fajl (datoteka) je imenovana, logička cjelina povezanih informacija koja je trajno pohranjena na sekundarnoj memoriji, a kreiraju je procesi ili korisnici. Pojam fajla apstrahuje i skriva fizičke detalje pohrane (sektore, staze, flash ćelije).",
           "details": [
-            "Fajl sistem je mehanizam koji OS uvodi da bi se fajlovi organizovali i locirali na diskovima.",
-            "Datoteka se može posmatrati kao kombinacija korisničkih podataka (content/data) i metapodataka koji te podatke opisuju.",
-            "I direktorij je za OS samo posebna vrsta datoteke."
+            "Fajl je logički pojam, a sektor fizički: fajl obično zauzima više blokova/sektora, a korisnik o njima ne razmišlja.",
+            "Metapodaci (inode/FCB) opisuju datoteku, ali nisu sama datoteka; datoteka je kombinacija korisničkih podataka (content) i metapodataka koji ih opisuju.",
+            "Fajl je po definiciji trajan (preživi gašenje), za razliku od privremenih podataka u RAM-u.",
+            "Fajl sistem je mehanizam koji OS uvodi da bi se fajlovi organizovali i locirali na diskovima; i direktorij je za OS samo posebna vrsta datoteke."
           ],
           "note": "Citat (FajlSistemi1): 'Fajl je imenovana, logička cjelina povezanih informacija koja je trajno pohranjena na sekundarnoj memoriji a koju kreiraju procesi ili korisnici.'",
           "readMore": ["FajlSistemi1.pdf, str. 3 (fajlovi i direktoriji)"]
@@ -128,17 +134,18 @@
           },
           "type": "single",
           "options": [
-            "Ulaz, obrada, izlaz",
             "1) Ime datoteke (u direktoriju, mapira se na inode/FCB), 2) Metapodaci (inode/FCB: veličina, prava, vlasnik, pointeri), 3) Sadržaj (data blokovi na disku)",
-            "Kreiranje, čitanje, brisanje",
-            "RAM, keš, disk"
+            "1) Zaglavlje sa atributima datoteke, 2) Tijelo sa korisničkim sadržajem, 3) Podnožje sa kontrolnom sumom za provjeru ispravnosti",
+            "1) Ime datoteke u direktoriju, 2) Sadržaj u data blokovima na disku, 3) Radna kopija u page cache-u radne memorije",
+            "1) Logička adresa datoteke, 2) Fizička adresa u radnoj memoriji, 3) Adresa bloka na disku"
           ],
           "correctAnswers": [
             "1) Ime datoteke (u direktoriju, mapira se na inode/FCB), 2) Metapodaci (inode/FCB: veličina, prava, vlasnik, pointeri), 3) Sadržaj (data blokovi na disku)"
           ],
-          "context": "Model 3 nivoa datoteke: 1) Ime datoteke - čuva se u direktoriju kao mapiranje ime → inode (Linux) / FCB (Windows), nije dio same datoteke. 2) Metapodaci - u posebnoj strukturi (inode/FCB): veličina, timestamps, prava pristupa, vlasnik, pointeri na podatke. 3) Sadržaj (data blokovi) - nizovi bajtova fizički zapisani u blokovima na disku.",
+          "context": "Model 3 nivoa datoteke: 1) Ime datoteke, čuva se u direktoriju kao mapiranje ime → inode (Linux) / FCB (Windows), i nije dio same datoteke. 2) Metapodaci, u posebnoj strukturi (inode/FCB): veličina, timestamps, prava pristupa, vlasnik, pointeri na podatke. 3) Sadržaj (data blokovi): nizovi bajtova fizički zapisani u blokovima na disku.",
           "details": [
-            "Zato ime datoteke nije u listi atributa - ono je u direktoriju, a ne u samoj datoteci.",
+            "Srednji nivo su metapodaci (podaci o podacima), a ne zaglavlje/podnožje unutar fajla ni keš u RAM-u: keširana kopija je optimizacija, ne nivo modela.",
+            "Zato ime datoteke nije među njenim atributima: ime živi u direktoriju, a ne u samoj datoteci.",
             "Dohvatanje datoteke: korisnik selektuje ime → direktorij daje inode/FCB → iz metapodataka se pomoću pointera nalaze data blokovi → čita se sadržaj.",
             "Data blokovi datoteke često nisu u kontinuitetu, pogotovo ako se datoteka vremenom dorađuje."
           ],
@@ -160,20 +167,21 @@
           },
           "type": "single",
           "options": [
-            "Ime datoteke i njen sadržaj",
-            "Struktura (Unix/Linux) sa metapodacima datoteke: tip, veličina, permisije, vlasništvo (UID/GID), timestamps, link count i disk pointere - ali ne i ime datoteke",
-            "Samo pointeri na blokove",
-            "Fizički blok na disku"
+            "Struktura (Unix/Linux) sa metapodacima datoteke: tip, veličina, permisije, vlasništvo (UID/GID), timestamps, link count i disk pointeri, ali ne i ime datoteke",
+            "Struktura sa svim metapodacima datoteke uključujući njeno ime, pa direktorij čuva samo spisak inode brojeva bez imena",
+            "Tabela na početku particije sa brojem blokova, UUID-om i osnovnim informacijama o cijelom fajl sistemu",
+            "Prvi data blok svake datoteke, u koji se upisuju vlasnik, prava pristupa i pointeri na ostale blokove sadržaja"
           ],
           "correctAnswers": [
-            "Struktura (Unix/Linux) sa metapodacima datoteke: tip, veličina, permisije, vlasništvo (UID/GID), timestamps, link count i disk pointere - ali ne i ime datoteke"
+            "Struktura (Unix/Linux) sa metapodacima datoteke: tip, veličina, permisije, vlasništvo (UID/GID), timestamps, link count i disk pointeri, ali ne i ime datoteke"
           ],
-          "context": "Inode (index node) je struktura u Unix/Linux fajl sistemima koja sadrži metapodatke datoteke: tip datoteke, veličinu, permisije (read/write/execute), vlasništvo (UID/GID), timestamps, link count (broj hard linkova) i disk pointere na blokove. Ne sadrži ime datoteke - ime je u direktoriju koji ga mapira na inode broj.",
+          "context": "Inode (index node) je struktura u Unix/Linux fajl sistemima koja sadrži metapodatke datoteke: tip datoteke, veličinu, permisije (read/write/execute), vlasništvo (UID/GID), timestamps, link count (broj hard linkova) i disk pointere na blokove. Ne sadrži ime datoteke: ime je u direktoriju koji ga mapira na inode broj.",
           "details": [
+            "Ključna razlika prema drugoj opciji: ime nije u inode-u nego u direktoriju (direktorij mapira ime → inode broj); zato ista datoteka može imati više imena (hard linkova).",
+            "Tabela sa informacijama o cijelom fajl sistemu je superblock, a inode je odvojen od data blokova (metapodaci nisu u prvom bloku sadržaja).",
             "Svaka datoteka pri kreiranju dobija svoj inode broj; vidi se komandom ls -li, a sadržaj inode-a komandom stat.",
-            "Linux organizuje disk u: boot block (za boot loader kao GRUB), block grupe (sa block group deskriptorom, bitmapom), superblock (info o fajl sistemu: broj blokova, UUID, mount count), inode tabelu i data blokove.",
-            "Veličina inode zapisa: ext2/ext3 = 128 B, ext4 = 256 B; obično jedan inode na svakih 16 KB kapaciteta.",
-            "Tip datoteke može biti: regularni fajl, direktorij, simbolički link ili device (u Unix/Linux mnogi resursi su predstavljeni kao datoteke)."
+            "Linux organizuje disk u: boot block (za boot loader kao GRUB), block grupe (sa block group deskriptorom, bitmapom), superblock, inode tabelu i data blokove.",
+            "Veličina inode zapisa: ext2/ext3 = 128 B, ext4 = 256 B; obično jedan inode na svakih 16 KB kapaciteta. Tip datoteke može biti: regularni fajl, direktorij, simbolički link ili device."
           ],
           "note": "Citat (FajlSistemi1): 'Imena nema jer ime datoteke sadrži direktorij koji mapira imena datoteka/fajlova sa inod brojem.'",
           "readMore": ["FajlSistemi1.pdf, str. 5-6 (inode, organizacija diska)"]
@@ -187,16 +195,17 @@
           },
           "type": "single",
           "options": [
-            "MFT je boot sektor; identičan je inode-u",
-            "MFT je centralna struktura NTFS-a (pandan inode tabeli) gdje svaki fajl/direktorij ima zapis (~1024 B); NTFS koristi atributni model gdje je sve atribut (uključujući ime i sam sadržaj), pa MFT zapis može sadržavati i ime datoteke",
-            "MFT je komanda za pregled fajlova",
-            "MFT postoji samo na Linuxu"
+            "MFT je centralna struktura NTFS-a (pandan inode tabeli): svaki fajl/direktorij ima zapis (~1024 B); u atributnom modelu je sve atribut (i ime i sadržaj), pa zapis može sadržavati i ime",
+            "MFT je tabela zauzetih i slobodnih klastera na particiji; atributni model znači da svaki klaster uz podatke nosi i svoje atribute",
+            "MFT je dnevnik transakcija u koji NTFS upisuje promjene prije nego što ih primijeni na disk (journaling)",
+            "MFT je rezervna kopija boot sektora za oporavak sistema; za metapodatke NTFS koristi inode tabelu kao i Linux"
           ],
           "correctAnswers": [
-            "MFT je centralna struktura NTFS-a (pandan inode tabeli) gdje svaki fajl/direktorij ima zapis (~1024 B); NTFS koristi atributni model gdje je sve atribut (uključujući ime i sam sadržaj), pa MFT zapis može sadržavati i ime datoteke"
+            "MFT je centralna struktura NTFS-a (pandan inode tabeli): svaki fajl/direktorij ima zapis (~1024 B); u atributnom modelu je sve atribut (i ime i sadržaj), pa zapis može sadržavati i ime"
           ],
-          "context": "MFT (Master File Table) je centralna struktura NTFS fajl sistema (pandan Linux inode tabeli). Svaki fajl i direktorij ima MFT zapis (obično 1024 B) sa nazivom, veličinom, sigurnosnim atributima, timestamps, vlasnikom, pointerima na klastere i dozvolama. NTFS koristi atributni model: sve su atributi i njihove vrijednosti (npr. $FILE_NAME, $DATA, $SECURITY_DESCRIPTOR), pa MFT zapis može sadržavati i ime datoteke - za razliku od Linuxa gdje ime drži samo direktorij.",
+          "context": "MFT (Master File Table) je centralna struktura NTFS fajl sistema (pandan Linux inode tabeli). Svaki fajl i direktorij ima MFT zapis (obično 1024 B) sa nazivom, veličinom, sigurnosnim atributima, timestamps, vlasnikom, pointerima na klastere i dozvolama. NTFS koristi atributni model: sve su atributi i njihove vrijednosti (npr. $FILE_NAME, $DATA, $SECURITY_DESCRIPTOR), pa MFT zapis može sadržavati i ime datoteke, za razliku od Linuxa gdje ime drži samo direktorij.",
           "details": [
+            "Ostale opcije opisuju druge NTFS strukture: evidencija klastera je $Bitmap, dnevnik transakcija je $LogFile, a rezervna kopija kritičnih MFT zapisa je $MFTMirr.",
             "NTFS strukture: Boot Sector (sektor 0, sadrži LCN adresu $MFT-a, veličinu sektora/klastera), MFT, metadata files, data clusters.",
             "NTFS metadata files: $MFT (glavna tabela), $Bitmap (zauzeti/slobodni klasteri), $LogFile (journaling), $Boot (boot info), $BadClus (loši sektori).",
             "Sigurnosni atribut $SECURITY_DESCRIPTOR sadrži Owner SID, Group SID i RWX permisije u formi DACL/ACE pravila.",
@@ -216,19 +225,20 @@
           },
           "type": "single",
           "options": [
-            "Jer su blokovi razbacani po disku",
-            "Jer se prostor dodjeljuje u cijelim blokovima (npr. 4 KB), pa ako datoteka ne popuni zadnji blok do kraja, ostatak tog bloka 'propada' (ostaje neiskorišten)",
-            "Jer datoteka raste pa joj treba novi blok",
-            "Jer disk nema dovoljno mjesta"
+            "Prostor se dodjeljuje u cijelim blokovima (npr. 4 KB), pa ako datoteka ne popuni zadnji blok, ostatak tog bloka ostaje neiskorišten",
+            "Blokovi jedne datoteke se vremenom razbacaju po disku, pa glava mora skakati sa staze na stazu pri čitanju",
+            "Fajl sistem za svaku datoteku unaprijed rezerviše duplo više blokova nego što joj treba, zbog budućeg rasta",
+            "Metapodaci (inode) se čuvaju u istom bloku sa podacima, pa zauzimaju dio prostora predviđenog za sadržaj"
           ],
           "correctAnswers": [
-            "Jer se prostor dodjeljuje u cijelim blokovima (npr. 4 KB), pa ako datoteka ne popuni zadnji blok do kraja, ostatak tog bloka 'propada' (ostaje neiskorišten)"
+            "Prostor se dodjeljuje u cijelim blokovima (npr. 4 KB), pa ako datoteka ne popuni zadnji blok, ostatak tog bloka ostaje neiskorišten"
           ],
-          "context": "Blok je najmanja jedinica alokacije prostora na disku (kod modernih fajl sistema tipično 4 KB). Pošto se prostor dodjeljuje u cijelim blokovima, kraj datoteke može pasti na sredinu zadnjeg bloka - ostatak tog bloka ostaje neiskorišten. To se zove interna fragmentacija.",
+          "context": "Blok je najmanja jedinica alokacije prostora na disku (kod modernih fajl sistema tipično 4 KB). Pošto se prostor dodjeljuje u cijelim blokovima, kraj datoteke može pasti na sredinu zadnjeg bloka: ostatak tog bloka ostaje neiskorišten. To se zove interna fragmentacija.",
           "details": [
+            "Razbacanost blokova po disku je eksterna fragmentacija (nastaje kad datoteka raste, a susjedni blok je zauzet), drugi pojam.",
+            "Fajl sistem ne rezerviše 'duplo' unaprijed, a metapodaci žive u zasebnim strukturama (inode tabela), ne u blokovima sadržaja.",
             "Unix/Posix logička veličina bloka je 512 B (naslijeđeno od sektora starih diskova), dok je na nivou fajl sistema (IO Block) 4096 B; zato stat zna prikazati veličinu u 512 B jedinicama.",
-            "Radi efikasnosti, veličina bloka je jednaka veličini okvira (frame) memorije - 4 KB.",
-            "Eksterna fragmentacija je drugačija: nastaje kad datoteka raste, a susjedni blok je zauzet, pa se datoteka razbacuje po disku."
+            "Radi efikasnosti, veličina bloka je jednaka veličini okvira (frame) memorije: 4 KB."
           ],
           "note": "Citat (FajlSistemi2): 'Kraj datoteke može biti na sredini trenutnog bloka, što će rezultirati da je ostatak bloka neiskorišten. Ovo se naziva Interna fragmentacija.'",
           "readMore": [
@@ -250,19 +260,20 @@
           },
           "type": "single",
           "options": [
-            "Fizička particija diska",
-            "Specijalna vrsta fajla čiji sadržaj nije običan podatak, već tabela imena drugih fajlova i pokazivača na njihove lokacije (mapiranje ime → inode/File ID)",
-            "Vrsta procesa koji grupiše fajlove",
-            "Blok metapodataka bez sadržaja"
+            "Specijalna vrsta fajla čiji je sadržaj tabela imena drugih fajlova i pokazivača na njihove lokacije (mapiranje ime → inode/File ID)",
+            "Poseban region particije rezervisan pri formatiranju, u koji se fizički smještaju sve datoteke koje mu pripadaju",
+            "Zapis u superblocku koji čuva broj datoteka i slobodnih blokova za taj dio fajl sistema",
+            "Struktura koju OS gradi u radnoj memoriji pri pokretanju kako bi ubrzao pretragu datoteka"
           ],
           "correctAnswers": [
-            "Specijalna vrsta fajla čiji sadržaj nije običan podatak, već tabela imena drugih fajlova i pokazivača na njihove lokacije (mapiranje ime → inode/File ID)"
+            "Specijalna vrsta fajla čiji je sadržaj tabela imena drugih fajlova i pokazivača na njihove lokacije (mapiranje ime → inode/File ID)"
           ],
-          "context": "Direktorij je specijalna vrsta fajla čiji sadržaj nije običan podatak (tekst, slika), već tabela sa imenima drugih fajlova i pokazivačima na njihove lokacije - dakle mapiranje logičkih imena na identifikatore (inode broj u Linuxu, File ID u Windowsu). I direktorij ima svoj inode.",
+          "context": "Direktorij je specijalna vrsta fajla čiji sadržaj nije običan podatak (tekst, slika), već tabela sa imenima drugih fajlova i pokazivačima na njihove lokacije: mapiranje logičkih imena na identifikatore (inode broj u Linuxu, File ID u Windowsu). I direktorij ima svoj inode.",
           "details": [
-            "Fajlovi u istom direktoriju mogu fizički biti razbacani bilo gdje po disku.",
+            "Direktorij ne 'sadrži' datoteke fizički: fajlovi iz istog direktorija mogu biti razbacani bilo gdje po disku, direktorij drži samo imena i reference.",
+            "Nije ni dio superblocka ni struktura u RAM-u: to je trajna datoteka na disku (OS je može keširati, ali to je optimizacija).",
             "OS direktorij vidi kao listu unosa: naziv datoteke, atributi (veličina, datumi) i adresa (fizička lokacija početka datoteke na disku).",
-            "Windows kod identifikacije koristi VCN (Virtual Cluster Number - redni broj bloka unutar fajla), LCN (Logical Cluster Number - prava adresa bloka na particiji) i Clusters (koliko blokova u nizu)."
+            "Windows kod identifikacije koristi VCN (Virtual Cluster Number: redni broj bloka unutar fajla), LCN (Logical Cluster Number: prava adresa bloka na particiji) i Clusters (koliko blokova u nizu)."
           ],
           "note": "Citat (FajlSistemi1): 'Direktorij je specijalna vrsta fajla čiji sadržaj nije običan podatak ... već tabela koja sadrži imena drugih fajlova i pokazivače na njihove lokacije.'",
           "readMore": ["FajlSistemi1.pdf, str. 8-9 (direktorij, VCN/LCN)"]
@@ -276,19 +287,20 @@
           },
           "type": "single",
           "options": [
-            "Kopiranje datoteke na drugu lokaciju",
-            "Proces u kojem OS kreće od root direktorija i redom, dio po dio putanje, u svakom direktoriju traži sljedeće ime dok ne dođe do tražene datoteke",
-            "Brisanje svih datoteka u putanji",
-            "Šifrovanje putanje"
+            "OS kreće od root direktorija i redom, dio po dio putanje, u svakom direktoriju traži sljedeće ime dok ne dođe do tražene datoteke",
+            "OS pretražuje cijeli disk sekvencijalno, blok po blok, dok ne pronađe datoteku sa traženim imenom",
+            "OS putanju hešira u broj pa datoteku direktno locira preko heš tabele, bez prolaska kroz direktorije",
+            "OS na svakom nivou putanje provjerava prava pristupa korisnika prije nego što dozvoli otvaranje datoteke"
           ],
           "correctAnswers": [
-            "Proces u kojem OS kreće od root direktorija i redom, dio po dio putanje, u svakom direktoriju traži sljedeće ime dok ne dođe do tražene datoteke"
+            "OS kreće od root direktorija i redom, dio po dio putanje, u svakom direktoriju traži sljedeće ime dok ne dođe do tražene datoteke"
           ],
           "context": "Path traversal (parsiranje putanje) je proces u kojem OS locira datoteku krećući od root (korijenskog) direktorija i redom, između znakova '/', traži svako sljedeće ime. U svakoj iteraciji direktorij se tretira kao specijalna datoteka sa listom imena i referenci.",
           "details": [
+            "Ne pretražuje se disk sekvencijalno niti se ide preko heš tabele: prati se lanac direktorija, jer svaki direktorij zna imena i reference svog sadržaja.",
+            "Provjera prava pristupa je poseban korak koji se dešava uz otvaranje, ali sama riječ 'traversal' označava prolazak kroz direktorije po putanji.",
             "Primjer za C:/Users/Admin/Documents/test.txt: OS kreće od root-a, nađe Users, pa Admin, pa Documents, pa test.txt.",
-            "Root direktorij se označava '/' u Linuxu, a 'C:\\' (ili drugo slovo drajva) u Windowsu.",
-            "OS lokaciju root strukture fajl sistema saznaje tokom bootstrap procesa, pa tek onda može parsirati putanje."
+            "Root direktorij se označava '/' u Linuxu, a 'C:\\' (ili drugo slovo drajva) u Windowsu; OS lokaciju root strukture saznaje tokom bootstrap procesa."
           ],
           "note": "Citat (FajlSistemi1): 'kada Operativni sistem traži datoteku on kroz putanju, ovo se naziva path traversal.'",
           "readMore": [
@@ -304,24 +316,25 @@
         {
           "id": "fs-11",
           "promptParts": {
-            "before": "Šta se dešava kad aplikacija pozove write() - da li OS odmah piše na disk?",
+            "before": "Šta se dešava kad aplikacija pozove write(): da li OS odmah piše na disk?",
             "blank": "",
             "after": ""
           },
           "type": "single",
           "options": [
-            "Da, podaci se odmah trajno zapišu na disk",
-            "Ne, OS prvo smješta podatke u page cache u RAM-u i označi ih kao 'dirty'; zapisuje ih na disk kasnije (lazy writing / write-back), skupljeni u sekvenci",
-            "Ne, podaci se odmah brišu",
-            "Da, ali samo na SSD"
+            "Ne: podaci prvo idu u page cache u RAM-u i označe se kao 'dirty', a na disk se upisuju kasnije, skupljeni u sekvenci (lazy writing / write-back)",
+            "Da: svaki write() se odmah trajno upiše na disk, jer bi u suprotnom podaci bili nepovratno izgubljeni pri padu sistema",
+            "Ne: podaci se prvo upišu u journal na disku, pa se tek nakon potvrde prebace u RAM radi bržeg čitanja",
+            "Da, ali samo kod HDD diskova; kod SSD-a se upis odgađa da bi se štedjeli ciklusi pisanja flash ćelija"
           ],
           "correctAnswers": [
-            "Ne, OS prvo smješta podatke u page cache u RAM-u i označi ih kao 'dirty'; zapisuje ih na disk kasnije (lazy writing / write-back), skupljeni u sekvenci"
+            "Ne: podaci prvo idu u page cache u RAM-u i označe se kao 'dirty', a na disk se upisuju kasnije, skupljeni u sekvenci (lazy writing / write-back)"
           ],
           "context": "Kod poziva write(fd, data, size) OS ne piše odmah na disk, nego podatke smješta u page cache (file system cache) u RAM-u i označava ih kao 'dirty pages'. Koristi lazy writing / write-back: podaci ostaju u RAM-u pa se kasnije, skupljeni u sekvenci, zapisuju na disk.",
           "details": [
+            "Odgađanje važi za sve tipove diskova (nije SSD specifičnost), a redoslijed u trećoj opciji je izokrenut: podaci prvo idu u RAM, a journal je zaštita pri kasnijem upisu na disk.",
             "Prednost: umjesto stalnih malih upisa, OS ih grupiše i upisuje sekvencijalno (brže).",
-            "Mana: ako nestane struje, gubi se sadržaj keša (nezapisane datoteke) - zato postoji journaling.",
+            "Mana: ako nestane struje, gubi se sadržaj keša (nezapisane datoteke); zato postoji journaling.",
             "Tri nivoa keša: OS keš (logički, u RAM-u), device/driver keš (na nivou uređaja) i hardverski keš (DRAM ugrađen u disk, kojim upravlja disk kontroler).",
             "Podaci se stvarno zapisuju kad: sistem nije opterećen, keš je pun, istekne vrijeme, ili OS uradi flush."
           ],
@@ -339,18 +352,18 @@
           },
           "type": "single",
           "options": [
-            "Pointeri na svaki pojedinačni blok datoteke",
-            "Lista pointera na sekvence blokova: umjesto pointera na svaki blok, čuva se početni blok i broj blokova u sekvenci, pa pointer na sljedeću sekvencu",
-            "Tabela slobodnih blokova",
-            "Vrsta keš memorije"
+            "Lista pointera na sekvence blokova: čuva se početni blok i broj blokova u nizu, pa pointer na sljedeću sekvencu, umjesto pointera na svaki blok",
+            "Tabela u kojoj svaki fajl ima poseban indeks sa pointerom na svaki svoj pojedinačni blok na disku",
+            "Lanac blokova u kojem svaki blok na svom kraju čuva pointer na sljedeći blok iste datoteke",
+            "Bitmapa slobodnih i zauzetih blokova pomoću koje fajl sistem pronalazi prostor za nove datoteke"
           ],
           "correctAnswers": [
-            "Lista pointera na sekvence blokova: umjesto pointera na svaki blok, čuva se početni blok i broj blokova u sekvenci, pa pointer na sljedeću sekvencu"
+            "Lista pointera na sekvence blokova: čuva se početni blok i broj blokova u nizu, pa pointer na sljedeću sekvencu, umjesto pointera na svaki blok"
           ],
           "context": "Extent je lista pointera na sekvence (nizove) blokova: umjesto da se čuva pointer na svaki pojedinačni blok datoteke, čuva se početni blok i broj blokova u sekvenci, zatim pointer na sljedeću sekvencu. To štedi prostor u metapodacima (MFT/inode).",
           "details": [
+            "Pointer na svaki pojedinačni blok je indeksirana alokacija, lanac blokova sa pointerima je linkana (ulančana) alokacija, a bitmapa je struktura za praćenje slobodnog prostora: sve su stvarne tehnike, ali nisu extenti.",
             "Moderni fajl sistemi (ext4, NTFS) primarno koriste kontinuiranu alokaciju, ali dozvoljavaju i indeksiranu alokaciju i extente.",
-            "Indeksirana alokacija: svaki fajl ima poseban indeks (tabelu) sa adresama svih svojih blokova.",
             "Osnovni algoritmi alokacije: kontinuirana (uzastopni blokovi), nesekvencijalna (dozvoljava fragmentaciju), linkana (blokovi povezani pointerima).",
             "Kod starih HDD-ova fragmentacija je jako usporavala pristup; kod modernih diskova sa extentima pad performansi je zanemariv."
           ],
@@ -366,16 +379,17 @@
           },
           "type": "single",
           "options": [
-            "Brisanje fajlova; SSD ne treba jer je prazan",
-            "Reorganizacija (preslagivanje) blokova pojedinog fajla u jedan kontinuirani blok radi bržeg pristupa; SSD ne treba jer je pristup podacima drugačiji (nema pokretne glave, pa raspored blokova ne utiče na brzinu)",
-            "Šifrovanje diska; SSD to radi automatski",
-            "Formatiranje diska; SSD se ne formatira"
+            "Preslagivanje blokova fajla u jedan kontinuirani niz radi bržeg pristupa; SSD je ne treba jer bez pokretne glave raspored blokova ne utiče na brzinu",
+            "Spajanje više malih datoteka u jednu veću radi uštede prostora; SSD je ne treba jer ima znatno veći kapacitet",
+            "Provjera i popravka oštećenih blokova fajl sistema; SSD je ne treba jer njegov kontroler sam ispravlja greške",
+            "Premještanje često korištenih datoteka na brže vanjske staze; SSD je ne treba jer su mu sve ćelije jednako brze"
           ],
           "correctAnswers": [
-            "Reorganizacija (preslagivanje) blokova pojedinog fajla u jedan kontinuirani blok radi bržeg pristupa; SSD ne treba jer je pristup podacima drugačiji (nema pokretne glave, pa raspored blokova ne utiče na brzinu)"
+            "Preslagivanje blokova fajla u jedan kontinuirani niz radi bržeg pristupa; SSD je ne treba jer bez pokretne glave raspored blokova ne utiče na brzinu"
           ],
-          "context": "Defragmentacija je reorganizacija (preslagivanje) blokova pojedinog fajla u jedan kontinuirani blok, čime se ubrzava pristup kod HDD-ova. Kod SSD-ova nije potrebna jer je pristup podacima drugačiji - nema pokretne glave, pa fizički raspored blokova ne utiče na brzinu.",
+          "context": "Defragmentacija je reorganizacija (preslagivanje) blokova pojedinog fajla u jedan kontinuirani blok, čime se ubrzava pristup kod HDD-ova. Kod SSD-ova nije potrebna jer je pristup podacima drugačiji: nema pokretne glave, pa fizički raspored blokova ne utiče na brzinu.",
           "details": [
+            "Defragmentacija ne spaja datoteke, ne popravlja greške i ne bira 'brže staze' za pojedine fajlove: preslaguje blokove postojećih fajlova da budu uzastopni.",
             "Eksterna fragmentacija nastaje kad datoteka raste: korisnik doda sadržaj, a naredni blok je već zauzet, pa se datoteka razbacuje po disku.",
             "Defragmentacija se pokreće ugrađenim alatom OS-a ili specijalizovanim (npr. Smart Defrag).",
             "Kod HDD-ova je defragmentaciju trebalo raditi dosta često; kod SSD-ova bi nepotrebno trošila cikluse pisanja."
@@ -400,17 +414,17 @@
           },
           "type": "single",
           "options": [
-            "Samo od vremena transfera",
             "Access time = Seek time (pozicioniranje glave na stazu) + Rotation latency (dolazak sektora pod glavu) + Transfer time (čitanje podatka)",
-            "Access time = broj blokova × veličina bloka",
-            "Access time = CPU vrijeme + memorija"
+            "Access time = Transfer time + kontrolersko opterećenje, jer je vrijeme pristupa jednako za sve dijelove diska",
+            "Access time = Seek time × Rotation latency × Transfer time, jer se komponente međusobno uvećavaju",
+            "Access time = Rotation latency + (broj blokova × veličina bloka), jer zavisi od dužine datoteke"
           ],
           "correctAnswers": [
             "Access time = Seek time (pozicioniranje glave na stazu) + Rotation latency (dolazak sektora pod glavu) + Transfer time (čitanje podatka)"
           ],
           "context": "Kod HDD-a: Access time = Seek time + Rotation latency + Transfer time. Seek time je vrijeme da se glava pozicionira na stazu, rotation latency vrijeme da odgovarajući sektor dođe pod glavu, a transfer time vrijeme da se podatak pročita.",
           "details": [
-            "Kod SSD-a nema pokretnih dijelova, pa je formula: Access time = Transfer time + kontrolersko opterećenje.",
+            "Formula 'Transfer time + kontrolersko opterećenje' važi za SSD, gdje nema pokretnih dijelova pa su seek i rotacija nestali; komponente se sabiraju (ne množe) jer se dešavaju jedna za drugom.",
             "Kod SSD-a je transfer time uvijek isti (memorijski čipovi istog hijerarhijskog nivoa), pa je disk scheduling manje kritičan nego kod HDD-a.",
             "Disk kontroler u jednom trenutku obrađuje samo jedan zahtjev; ostali čekaju u I/O redu (I/O queue)."
           ],
@@ -428,17 +442,17 @@
           },
           "type": "single",
           "options": [
-            "Opslužuje zahtjeve redom kojim su stigli",
-            "Opslužuje onaj zahtjev koji zahtijeva najmanje pomjeranje glave od trenutne pozicije, čime se smanjuje vrijeme pozicioniranja",
-            "Glava prelazi preko svih staza redom",
-            "Prioritetizira zahtjeve čitanja nad pisanjem"
+            "Od svih čekajućih zahtjeva opslužuje onaj koji traži najmanje pomjeranje glave od trenutne pozicije, čime se skraćuje vrijeme pozicioniranja",
+            "Opslužuje zahtjeve strogo onim redom kojim su stigli u I/O red čekanja, bez ikakve optimizacije kretanja glave",
+            "Glava se stalno kreće s jednog kraja diska na drugi i usput opslužuje zahtjeve nad stazama koje prelazi",
+            "Zahtjeve čitanja i pisanja drži u odvojenim redovima, a svakom zahtjevu dodjeljuje rok u kojem mora biti obrađen"
           ],
           "correctAnswers": [
-            "Opslužuje onaj zahtjev koji zahtijeva najmanje pomjeranje glave od trenutne pozicije, čime se smanjuje vrijeme pozicioniranja"
+            "Od svih čekajućih zahtjeva opslužuje onaj koji traži najmanje pomjeranje glave od trenutne pozicije, čime se skraćuje vrijeme pozicioniranja"
           ],
           "context": "SSTF (Shortest Seek Time First) opslužuje onaj zahtjev koji zahtijeva najmanje relociranje glave za čitanje od njene trenutne lokacije. Time se smanjuje vrijeme pozicioniranja glave i dobijaju bolji rezultati od FCFS-a.",
           "details": [
-            "HDD algoritmi: FCFS (redom kako stižu, jednostavno ali loše performanse), SSTF (najbliži zahtjev prvi), SCAN/C-SCAN (glava prelazi preko svih staza opslužujući usput), LOOK/C-LOOK (glava ide samo do staza za koje ima zahtjeva).",
+            "Ostale opcije opisuju druge algoritme: strogi redoslijed pristizanja je FCFS, kretanje s kraja na kraj je SCAN (LOOK ide samo do zadnje tražene staze), a odvojeni redovi sa rokovima su MQ-Deadline (SSD algoritam).",
             "Cilj HDD algoritama je minimizirati kretanje glave i mehaničkih dijelova.",
             "SSD algoritmi (BFQ, MQ-Deadline, NOOP) imaju druge ciljeve: korektnost, upravljanje redom, paralelizam (SSD ima više internih kanala); NOOP je često default za SSD/NVMe (prepušta kontrolu disk kontroleru)."
           ],
@@ -460,19 +474,20 @@
           },
           "type": "single",
           "options": [
-            "Kompresija fajlova radi uštede prostora",
-            "Tehnika u kojoj se sve promjene prvo evidentiraju u poseban log (journal) prije zapisa na disk, čime se omogućava brz i siguran oporavak nakon pada ili nestanka napajanja",
-            "Šifrovanje fajl sistema",
-            "Automatsko brisanje starih fajlova"
+            "Tehnika u kojoj se promjene prvo evidentiraju u poseban log (journal) pa tek onda primjenjuju na disk, radi brzog i sigurnog oporavka nakon pada",
+            "Tehnika u kojoj se svaka datoteka periodično kopira na rezervnu particiju, radi oporavka u slučaju kvara diska",
+            "Tehnika u kojoj fajl sistem vodi evidenciju svih pristupa datotekama, radi statistike korištenja i revizije",
+            "Tehnika u kojoj se izmjene drže isključivo u RAM kešu dok korisnik ručno ne pokrene snimanje na disk"
           ],
           "correctAnswers": [
-            "Tehnika u kojoj se sve promjene prvo evidentiraju u poseban log (journal) prije zapisa na disk, čime se omogućava brz i siguran oporavak nakon pada ili nestanka napajanja"
+            "Tehnika u kojoj se promjene prvo evidentiraju u poseban log (journal) pa tek onda primjenjuju na disk, radi brzog i sigurnog oporavka nakon pada"
           ],
           "context": "Journaling je tehnika u fajl sistemima gdje se sve promjene prvo evidentiraju u poseban log (journal) prije zapisa na disk. Time se sprječava korupcija fajlova i omogućava brz i siguran oporavak sistema nakon pada ili nestanka napajanja, uz konzistentnost fajl sistema.",
           "details": [
+            "Journal nije rezervna kopija podataka (backup) ni evidencija pristupa (audit log): u njega se bilježe namjeravane promjene, da se nakon pada zna šta je bilo u toku.",
             "Journaling rješava problem što je RAM privremen: ako nestane struje prije nego se page cache zapiše, podaci bi se izgubili.",
             "Tri koraka: 1) Namjera upisivanja (u journal se upiše identifikator transakcije i opis promjene), 2) Pohranjivanje promjene (journal se fizički zapiše na disk), 3) Primjena promjene (podaci se zapišu na disk, log se briše/označava kao gotov).",
-            "Prisutan kod većine modernih fajl sistema (ext4, NTFS - kod NTFS-a je to metadata fajl $LogFile)."
+            "Prisutan kod većine modernih fajl sistema (ext4, NTFS; kod NTFS-a je to metadata fajl $LogFile)."
           ],
           "note": "Citat (FajlSistemi2): 'Journaling je tehnika u fajl sistemima gdje se sve promjene prvo evidentiraju u log (journal), čime se omogućava brz i siguran oporavak sistema nakon pada ili nestanka napajanja.'",
           "readMore": ["Fajl Sistemi2.pdf, str. 6 (journaling)"]
@@ -486,16 +501,17 @@
           },
           "type": "single",
           "options": [
-            "Fizički disk za virtuelne mašine",
-            "Sloj apstrakcije koji daje jedinstven interfejs (open/read/write/close) za rad sa fajlovima bez obzira na fajl sistem (NTFS, ext4, FAT32, NFS...), preusmjeravajući zahtjeve odgovarajućem fajl sistemu",
-            "Vrsta keš memorije za fajlove",
-            "Alat za defragmentaciju"
+            "Sloj apstrakcije sa jedinstvenim interfejsom (open/read/write/close) za rad sa fajlovima na bilo kojem fajl sistemu (NTFS, ext4, FAT32, NFS...)",
+            "Mrežni fajl sistem koji omogućava da se udaljene datoteke montiraju i koriste kao da su lokalne",
+            "Virtuelni disk u radnoj memoriji koji OS kreira za privremene datoteke, radi bržeg pristupa",
+            "Drajver koji prevodi zapise jednog fajl sistema u drugi (npr. omogućava čitanje NTFS particije na Linuxu)"
           ],
           "correctAnswers": [
-            "Sloj apstrakcije koji daje jedinstven interfejs (open/read/write/close) za rad sa fajlovima bez obzira na fajl sistem (NTFS, ext4, FAT32, NFS...), preusmjeravajući zahtjeve odgovarajućem fajl sistemu"
+            "Sloj apstrakcije sa jedinstvenim interfejsom (open/read/write/close) za rad sa fajlovima na bilo kojem fajl sistemu (NTFS, ext4, FAT32, NFS...)"
           ],
           "context": "VFS (Virtual File System) je sloj apstrakcije koji omogućava aplikacijama jedinstven interfejs za rad sa fajlovima bez obzira na fajl sistem (NTFS, ext4, FAT32, NFS, USB, mrežni disk). Aplikacije koriste standardne pozive open(), read(), write(), close(), a VFS prevodi te zahtjeve u specifične za dati fajl sistem.",
           "details": [
+            "Mrežni fajl sistem (npr. NFS) je jedan od fajl sistema ispod VFS sloja, a ne sam VFS; virtuelni disk u RAM-u je ramdisk/tmpfs; prevođenje među fajl sistemima rade konkretni drajveri, a VFS ih samo objedinjuje pod isti interfejs.",
             "Bez VFS-a aplikacija bi morala znati koji je fajl sistem u pitanju da bi slala ispravne zahtjeve.",
             "VFS je razvijen za Linux; Windows ima svoj sloj apstrakcije kroz I/O manager, Object Manager i file system drivers.",
             "VFS ne omogućava pokretanje istih aplikacija na Windows i Linux, ali omogućava čitanje i modificiranje istih datoteka na različitim fajl sistemima."
@@ -512,20 +528,21 @@
           },
           "type": "single",
           "options": [
-            "DAC znači da sistem odlučuje o pristupu",
-            "DAC: vlasnik datoteke odlučuje ko ima prava nad njom; MAC: sistem odlučuje na osnovu sigurnosnih nivoa; RBAC: prava se dodjeljuju ulozi (roli), a ne direktno korisniku",
-            "DAC i MAC su isto",
-            "RBAC znači da nema kontrole pristupa"
+            "DAC: vlasnik datoteke odlučuje ko ima prava nad njom; MAC: sistem odlučuje prema sigurnosnim nivoima; RBAC: prava se dodjeljuju ulozi (roli), ne direktno korisniku",
+            "DAC: sistem odlučuje prema sigurnosnim nivoima; MAC: vlasnik datoteke dodjeljuje prava; RBAC: prava se vežu direktno za pojedinačnog korisnika",
+            "DAC: prava dodjeljuje isključivo administrator; MAC: prava dodjeljuje aplikacija; RBAC: prava se dodjeljuju računaru, a ne korisniku",
+            "DAC i MAC su dva naziva istog modela kontrole pristupa, a RBAC je njihova novija verzija zasnovana na grupama"
           ],
           "correctAnswers": [
-            "DAC: vlasnik datoteke odlučuje ko ima prava nad njom; MAC: sistem odlučuje na osnovu sigurnosnih nivoa; RBAC: prava se dodjeljuju ulozi (roli), a ne direktno korisniku"
+            "DAC: vlasnik datoteke odlučuje ko ima prava nad njom; MAC: sistem odlučuje prema sigurnosnim nivoima; RBAC: prava se dodjeljuju ulozi (roli), ne direktno korisniku"
           ],
-          "context": "DAC (Discretionary Access Control) - vlasnik datoteke odlučuje ko ima pravo čitati/pisati/izvršavati. MAC (Mandatory Access Control) - sistem odlučuje o pristupu na osnovu sigurnosnih nivoa. RBAC (Role-Based Access Control) - prava se ne dodjeljuju direktno korisniku, nego ulozi (roli), a korisnik dobija prava članstvom u toj ulozi.",
+          "context": "DAC (Discretionary Access Control): vlasnik datoteke odlučuje ko ima pravo čitati/pisati/izvršavati. MAC (Mandatory Access Control): sistem odlučuje o pristupu na osnovu sigurnosnih nivoa. RBAC (Role-Based Access Control): prava se ne dodjeljuju direktno korisniku, nego ulozi (roli), a korisnik dobija prava članstvom u toj ulozi.",
           "details": [
+            "Ključ za pamćenje je ko odlučuje: discretionary = po nahođenju vlasnika, mandatory = obavezno, nameće sistem, role-based = preko uloga; druga opcija zamjenjuje DAC i MAC.",
             "Sigurnosni model nije isto što i permisije; moderni OS-i kombinuju više modela.",
             "Linux: DAC (owner/group/others), POSIX ACL (veća granularnost po korisniku), MAC preko SELinux/AppArmor (definiše šta proces smije).",
-            "Windows: DAC + ACL (Access Control List), dijelovi RBAC-a (uloge/grupe), i MAC kroz MIC (Mandatory Integrity Control - npr. browser radi na najnižem nivou integriteta pa ne može mijenjati sistemske fajlove).",
-            "Privilegije prate korisnika: sve što korisnik pokrene nasljeđuje njegove privilegije - zato je loše svakodnevno raditi kao Admin/Root (virus bi dobio sve privilegije). Napredna kontrola je došla sa NTFS-om (FAT nije građen za sigurnost)."
+            "Windows: DAC + ACL (Access Control List), dijelovi RBAC-a (uloge/grupe), i MAC kroz MIC (Mandatory Integrity Control: npr. browser radi na najnižem nivou integriteta pa ne može mijenjati sistemske fajlove).",
+            "Privilegije prate korisnika: sve što korisnik pokrene nasljeđuje njegove privilegije; zato je loše svakodnevno raditi kao Admin/Root (virus bi dobio sve privilegije). Napredna kontrola je došla sa NTFS-om (FAT nije građen za sigurnost)."
           ],
           "note": "Citat (FajlSistemi2): 'DAC (Discretionary Access Control ...) gdje vlasnik datoteke odlučuje ko ima pravo ... MAC ... sistem odlučuje ... RBAC ... Ne dodjeljujemo prava korisniku, nego ulozi.'",
           "readMore": ["Fajl Sistemi2.pdf, str. 7-8 (sigurnosni modeli)"]

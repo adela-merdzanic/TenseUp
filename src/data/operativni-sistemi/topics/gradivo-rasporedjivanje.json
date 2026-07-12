@@ -17,17 +17,18 @@
           },
           "type": "single",
           "options": [
-            "CPU iskorištenje = p^n",
             "CPU iskorištenje = 1 - p^n",
-            "CPU iskorištenje = n / p",
-            "CPU iskorištenje = 1 - n·p"
+            "CPU iskorištenje = p^n",
+            "CPU iskorištenje = 1 - n·p",
+            "CPU iskorištenje = n / p"
           ],
           "correctAnswers": ["CPU iskorištenje = 1 - p^n"],
-          "context": "CPU iskorištenje = 1 - p^n, gdje je p dio vremena koji proces provodi čekajući na U/I, a n broj procesa istovremeno u memoriji. p^n je vjerovatnoća da svih n procesa istovremeno čeka U/I (tada je CPU neaktivan).",
+          "context": "CPU iskorištenje = 1 - p^n, gdje je p dio vremena koji proces provodi čekajući na U/I, a n broj procesa istovremeno u memoriji. p^n je vjerovatnoća da svih n procesa istovremeno čeka U/I (tada je CPU neaktivan), pa je iskorištenje ostatak do 1.",
           "details": [
+            "Sam p^n je vjerovatnoća neaktivnosti, a ne iskorištenja; 1 - n·p bi značilo da čekanja rastu linearno (i brzo bi dalo negativne vrijednosti), a n/p uopšte nije vjerovatnoća.",
             "Ova funkcija se zove stepen multiprogramiranja: što je više procesa u memoriji, veće je iskorištenje CPU-a.",
             "Primjer: ako procesi 80% vremena čekaju na U/I (p = 0.8), treba bar 10 procesa u memoriji da iskorištenje pređe 90%.",
-            "Model je aproksimacija - pretpostavlja nezavisnost procesa, što uz jedan CPU nije sasvim tačno (spreman proces mora čekati ako je CPU zauzet). Precizniji model daje teorija redova."
+            "Model je aproksimacija: pretpostavlja nezavisnost procesa, što uz jedan CPU nije sasvim tačno (spreman proces mora čekati ako je CPU zauzet). Precizniji model daje teorija redova."
           ],
           "note": "Citat (Raspoređivanje): 'iskorištenje CPU-a je dato formulom: CPU iskorištenje = 1 - p^n.'",
           "readMore": [
@@ -43,16 +44,18 @@
           },
           "type": "single",
           "options": [
-            "Nezavisan proces dijeli podatke, kooperativni ne",
-            "Nezavisan proces ne utiče niti na njega utiče drugi proces (ne dijeli podatke); kooperativni proces može uticati ili na njega može uticati drugi proces (dijeli podatke)",
-            "Nema razlike",
-            "Kooperativni proces radi samo na jednom procesoru"
+            "Nezavisan proces ne utiče niti na njega utiče drugi proces (ne dijeli podatke); kooperativni može uticati ili biti pod uticajem drugih (dijeli podatke)",
+            "Kooperativni proces ne utiče niti na njega utiče drugi proces; nezavisan dijeli podatke i mora se sinhronizovati sa ostalima",
+            "Nezavisan proces se izvršava bez posredovanja OS-a, a kooperativni sve usluge traži preko sistemskih poziva",
+            "Nezavisni procesi se izvršavaju na različitim računarima, a kooperativni dijele isti procesor"
           ],
           "correctAnswers": [
-            "Nezavisan proces ne utiče niti na njega utiče drugi proces (ne dijeli podatke); kooperativni proces može uticati ili na njega može uticati drugi proces (dijeli podatke)"
+            "Nezavisan proces ne utiče niti na njega utiče drugi proces (ne dijeli podatke); kooperativni može uticati ili biti pod uticajem drugih (dijeli podatke)"
           ],
-          "context": "Nezavisan proces ne može uticati na druge niti drugi mogu uticati na njega, i ne dijeli podatke ni sa kim. Kooperativni (zavisni) proces može uticati ili na njega može uticati drugi proces - proces koji dijeli podatke sa drugim je kooperativni.",
+          "context": "Nezavisan proces ne može uticati na druge niti drugi mogu uticati na njega, i ne dijeli podatke ni sa kim. Kooperativni (zavisni) proces može uticati ili na njega može uticati drugi proces; proces koji dijeli podatke sa drugim je kooperativni.",
           "details": [
+            "Pojmovi su obrnuti od druge opcije: dijeljenje podataka i međusobni uticaj su upravo oznaka kooperativnosti.",
+            "Podjela nema veze sa sistemskim pozivima ni brojem računara: i nezavisni i kooperativni procesi koriste usluge OS-a i mogu biti na istom računaru.",
             "Razlozi za kooperaciju: dijeljenje informacija (zajednički fajlovi), povećanje brzine obrade (paralelizacija na više jedinica), modularnost, prikladnost za korištenje (više zadataka odjednom).",
             "Kooperativni procesi zahtijevaju mehanizme komunikacije i sinhronizacije.",
             "Klasična paradigma je proizvođač-potrošač: proizvođač pravi podatke koje potrošač troši (npr. kompajler proizvodi kod koji asembler troši; web server proizvodi, browser troši)."
@@ -71,18 +74,20 @@
           },
           "type": "single",
           "options": [
-            "Dijeljena memorija je sporija i za velike količine podataka nepogodna",
-            "Dijeljena memorija omogućava brže komuniciranje ali traži pažnju na sinhronizaciju; prosljeđivanje poruka je pogodno za manje podataka, lakše se implementira i prikladno je za distribuirana (mrežna) okruženja",
-            "Prosljeđivanje poruka zahtijeva zajednički adresni prostor",
-            "Nema razlike"
+            "Dijeljena memorija je brža ali traži pažljivu sinhronizaciju; prosljeđivanje poruka je pogodno za manje podataka, lakše se implementira i odgovara distribuiranim okruženjima",
+            "Prosljeđivanje poruka je brže ali traži pažljivu sinhronizaciju; dijeljena memorija je pogodnija za male količine podataka i distribuirana okruženja",
+            "Prosljeđivanje poruka zahtijeva da procesi dijele zajednički adresni prostor, dok dijeljena memorija ide isključivo preko poštanskog sandučeta u jezgru",
+            "Dijeljena memorija radi samo između procesa istog korisnika, a prosljeđivanje poruka samo između procesa različitih korisnika"
           ],
           "correctAnswers": [
-            "Dijeljena memorija omogućava brže komuniciranje ali traži pažnju na sinhronizaciju; prosljeđivanje poruka je pogodno za manje podataka, lakše se implementira i prikladno je za distribuirana (mrežna) okruženja"
+            "Dijeljena memorija je brža ali traži pažljivu sinhronizaciju; prosljeđivanje poruka je pogodno za manje podataka, lakše se implementira i odgovara distribuiranim okruženjima"
           ],
           "context": "Dijeljena memorija (shared memory) omogućava brže komuniciranje jer procesi čitaju/pišu u zajednički memorijski segment, ali zahtijeva pažljivu zaštitu i sinhronizaciju (da ne pišu simultano na istu lokaciju). Prosljeđivanje poruka (message passing) je pogodno za manje podataka, lakše se implementira, nema opasnosti od konflikta, i prikladno je za distribuirana okruženja.",
           "details": [
+            "Osobine su obrnute od druge opcije: brzina je prednost dijeljene memorije, a jednostavnost i mrežna prikladnost prednosti poruka.",
+            "Mehanizmi iz treće opcije su zamijenjeni: upravo poruke idu preko 'poštanskog sandučeta' (bez zajedničkog adresnog prostora), a dijeljena memorija znači zajednički segment.",
+            "Podjela po korisnicima ne postoji: oba modela rade među procesima bez obzira na vlasnika.",
             "Kod dijeljene memorije procesi se moraju usaglasiti da uklone OS-ovu zaštitu koja inače sprječava pristup tuđoj memoriji (sistemski pozivi shared memory create i attach); kod za pristup piše programer aplikacije.",
-            "Kod prosljeđivanja poruka procesi razmjenjuju poruke direktno ili preko zajedničkog 'poštanskog sandučeta', bez dijeljenja adresnog prostora.",
             "Većina sistema koristi oba modela."
           ],
           "note": "Citat (Raspoređivanje): 'Razmjenjivanje poruka je pogodno za manju količinu podataka ... lakše se implementira ... dijeljenje memorije omogućuje brže komuniciranje.'",
@@ -110,7 +115,8 @@
             "Ukupno vrijeme izvršavanja (turnaround time)",
             "Vrijeme čekanja (waiting time)",
             "Vrijeme odziva (response time)",
-            "Boja korisničkog interfejsa"
+            "Veličina radne memorije sistema",
+            "Stepen fragmentacije memorije"
           ],
           "correctAnswers": [
             "Iskorištenje procesora (CPU utilization)",
@@ -121,6 +127,7 @@
           ],
           "context": "Kriterijumi za poređenje algoritama raspoređivanja su: iskorištenje procesora (CPU utilization), propusnost (throughput), ukupno vrijeme izvršavanja (turnaround time), vrijeme čekanja (waiting time) i vrijeme odziva (response time).",
           "details": [
+            "Veličina memorije i fragmentacija su teme upravljanja memorijom: ne mjere kvalitet algoritma za dodjelu procesora.",
             "CPU utilization: procesor treba biti što više iskorišten (realno 40-90%).",
             "Throughput: broj procesa izvršenih u jedinici vremena.",
             "Turnaround time: ukupno vrijeme od ulaska do završetka procesa (čekanje na ulaz + čekanje u ready redu + izvršavanje + U/I).",
@@ -141,18 +148,20 @@
           },
           "type": "single",
           "options": [
-            "Nema razlike",
-            "Bez suspenzije (nonpreemptive) proces zadržava CPU dok se ne završi ili ne pređe u Waiting; sa suspenzijom (preemptive) raspoređivač može u bilo kojem trenutku prekinuti tekući proces i dati CPU drugom",
-            "Sa suspenzijom proces zadržava CPU do kraja",
-            "Bez suspenzije se koristi samo za mrežu"
+            "Bez suspenzije proces zadržava CPU dok se ne završi ili ne pređe u Waiting; sa suspenzijom raspoređivač može u bilo kojem trenutku prekinuti tekući proces",
+            "Sa suspenzijom proces zadržava CPU dok se ne završi ili ne pređe u Waiting; bez suspenzije raspoređivač ga može prekinuti u bilo kojem trenutku",
+            "Nonpreemptive znači da proces nikad ne prelazi u stanje Waiting, a preemptive da u Waiting prelazi isključivo dobrovoljno",
+            "Preemptive raspoređivanje se koristi samo u batch sistemima, a nonpreemptive samo u interaktivnim sistemima"
           ],
           "correctAnswers": [
-            "Bez suspenzije (nonpreemptive) proces zadržava CPU dok se ne završi ili ne pređe u Waiting; sa suspenzijom (preemptive) raspoređivač može u bilo kojem trenutku prekinuti tekući proces i dati CPU drugom"
+            "Bez suspenzije proces zadržava CPU dok se ne završi ili ne pređe u Waiting; sa suspenzijom raspoređivač može u bilo kojem trenutku prekinuti tekući proces"
           ],
           "context": "Kod raspoređivanja bez prinudne suspenzije (nonpreemptive/cooperative), proces koji dobije CPU zadržava ga dok se ne završi ili ne pređe u Waiting. Kod raspoređivanja sa prinudnom suspenzijom (preemptive), raspoređivač može u bilo kojem trenutku prekinuti tekući proces i dodijeliti CPU drugom procesu iz stanja Ready.",
           "details": [
-            "Odluka o raspoređivanju se donosi pri prelazima: Running→Waiting (1), Running→Ready (2), Waiting→Ready (3), →Terminated (4).",
-            "Ako se raspoređivanje dešava samo u situacijama 1 i 4, to je nonpreemptive; ako i u 2 i 3, to je preemptive.",
+            "Definicije su obrnute od druge opcije: 'prinudna suspenzija' upravo znači da raspoređivač smije prekidati.",
+            "Obje vrste dopuštaju prelazak u Waiting (to je dobrovoljno čekanje na U/I); razlika je u tome smije li se proces prekinuti dok je Running.",
+            "Namjena je obrnuta od zadnje opcije: interaktivni sistemi (time-sharing) traže preemptive raspoređivanje, dok je nonpreemptive tipičniji za batch.",
+            "Odluka o raspoređivanju se donosi pri prelazima: Running→Waiting (1), Running→Ready (2), Waiting→Ready (3), →Terminated (4); ako se raspoređuje samo u 1 i 4, to je nonpreemptive, a ako i u 2 i 3, preemptive.",
             "FCFS i osnovni SJF su nonpreemptive; RR i SRT su preemptive."
           ],
           "note": "Citat (Raspoređivanje): 'Kod raspoređivanja sa prinudnom suspenzijom procesa (preemptive scheduling), raspoređivač u bilo kojem trenutku može da prekine izvršavanje tekućeg procesa.'",
@@ -175,16 +184,17 @@
           },
           "type": "single",
           "options": [
-            "Bira najkraći posao; nema mane",
             "Dodjeljuje procesor procesima redom kojim pristižu (FIFO red); glavna mana je dugo prosječno vrijeme čekanja i konvoj efekt",
-            "Dodjeljuje procesor po prioritetu; mana je starvation",
-            "Prekida procese svakih 10 ms; mana je spor odziv"
+            "Dodjeljuje procesor procesu sa najkraćim poslom; glavna mana je što dugi procesi mogu biti izgladnjeni (starvation)",
+            "Dodjeljuje procesor procesu najvišeg prioriteta; glavna mana je neograničeno blokiranje procesa niskog prioriteta",
+            "Svakom procesu daje kvantum vremena pa ga prekida; glavna mana je veliki broj promjena konteksta"
           ],
           "correctAnswers": [
             "Dodjeljuje procesor procesima redom kojim pristižu (FIFO red); glavna mana je dugo prosječno vrijeme čekanja i konvoj efekt"
           ],
           "context": "FCFS (First Come First Served) dodjeljuje procesor procesima onim redom kojim pristižu u red čekanja (standardni FIFO red). Lako se razumije i implementira, ali mu je glavna mana dugo prosječno vrijeme čekanja i tzv. konvoj efekt.",
           "details": [
+            "Ostale opcije opisuju druge algoritme sa njihovim manama: najkraći posao je SJF, prioritet je prioritetno raspoređivanje (sa starvation problemom), a kvantum i prekidanje je Round Robin.",
             "Konvoj efekt: kad jedan dug proces drži CPU, svi kratki procesi u ready redu čekaju na njega, pa su i CPU i U/I uređaji slabo iskorišteni.",
             "FCFS je nonpreemptive: proces zadržava CPU dok se ne izvrši ili ne zatraži U/I; ne poštuje prioritete.",
             "Nepovoljan je za sisteme sa vremenskom raspodjelom, gdje svaki korisnik treba CPU u regularnim intervalima."
@@ -211,13 +221,13 @@
               ]
             }
           },
-          "options": ["3 ms", "17 ms", "27 ms", "10 ms"],
+          "options": ["17 ms", "3 ms", "27 ms", "10 ms"],
           "correctAnswers": ["17 ms"],
           "context": "Prosječno vrijeme čekanja je 17 ms. Redoslijed P1, P2, P3: P1 čeka 0, P2 čeka 24 (dok se P1 izvrši), P3 čeka 27 (24+3). Prosjek = (0+24+27)/3 = 17 ms.",
           "details": [
             "Vrijeme čekanja procesa = koliko vremena provede u redu prije nego dobije CPU.",
-            "Da su procesi išli redom P2, P3, P1, prosjek bi bio (6+0+3)/3 = 3 ms - mnogo manje. Zato FCFS prosječno vrijeme čekanja jako zavisi od redoslijeda i dolaska procesa.",
-            "Ovo ilustruje da FCFS u opštem slučaju ne daje minimalno prosječno vrijeme čekanja."
+            "3 ms bi bio prosjek da su procesi išli redom P2, P3, P1 ((6+0+3)/3); 27 ms je čekanje samog P3, a ne prosjek.",
+            "FCFS prosječno vrijeme čekanja jako zavisi od redoslijeda dolaska: isti procesi drugim redom daju višestruko manji prosjek, pa FCFS u opštem slučaju ne daje minimalno prosječno čekanje."
           ],
           "note": "Citat (Raspoređivanje): 'prosječno vrijeme čekanja (0+24+27)/3 = 17 milisekundi.'",
           "readMore": ["RasporedjivanjeProcesa.pdf, str. 5 (FCFS primjer)"]
@@ -237,17 +247,18 @@
           },
           "type": "single",
           "options": [
-            "Bira proces koji je prvi stigao; nije optimalan",
-            "Dodjeljuje procesor procesu sa najkraćim procijenjenim vremenom izvršavanja; optimalan je jer pomicanje kraćeg procesa ispred dužeg više smanjuje čekanje kraćeg nego što povećava čekanje dužeg",
-            "Bira proces sa najvišim prioritetom; optimalan zbog aging-a",
-            "Prekida procese svakih 4 ms; optimalan za odziv"
+            "Procesor daje procesu sa najkraćim procijenjenim vremenom izvršavanja; pomicanje kraćeg ispred dužeg više smanjuje čekanje kraćeg nego što povećava čekanje dužeg",
+            "Procesor daje procesu koji je najduže čekao u redu; optimalan je jer garantuje da nijedan proces ne može biti izgladnjen",
+            "Procesor daje procesu sa najvišim prioritetom; optimalan je jer se prioriteti čekajućih procesa stalno povećavaju starenjem",
+            "Svakom procesu redom daje jednak kvantum vremena; optimalan je jer svi procesi ravnomjerno napreduju"
           ],
           "correctAnswers": [
-            "Dodjeljuje procesor procesu sa najkraćim procijenjenim vremenom izvršavanja; optimalan je jer pomicanje kraćeg procesa ispred dužeg više smanjuje čekanje kraćeg nego što povećava čekanje dužeg"
+            "Procesor daje procesu sa najkraćim procijenjenim vremenom izvršavanja; pomicanje kraćeg ispred dužeg više smanjuje čekanje kraćeg nego što povećava čekanje dužeg"
           ],
           "context": "SJF (Shortest Job First) procjenjuje vrijeme izvršavanja za sve procese i dodjeljuje CPU onom kome treba najmanje vremena (procesi sa istim vremenom idu po FCFS). Optimalan je za prosječno vrijeme čekanja: pomicanjem kraćeg procesa ispred dužeg više se smanjuje čekanje kraćeg nego što raste čekanje dužeg, pa prosjek pada.",
           "details": [
-            "Glavni nedostatak: sistem ne zna unaprijed koliko će procesi trajati. Trajanje sljedećeg CPU ciklusa (CPU burst) se procjenjuje na osnovu prethodnih (eksponencijalni prosjek).",
+            "Ostale opcije opisuju druge pristupe: najduže čekanje je logika FCFS-a, prioritet sa starenjem je prioritetno raspoređivanje, a jednaki kvantumi su Round Robin; nijedan od njih ne minimizuje prosječno čekanje.",
+            "Glavni nedostatak SJF-a: sistem ne zna unaprijed koliko će procesi trajati. Trajanje sljedećeg CPU ciklusa (CPU burst) se procjenjuje na osnovu prethodnih (eksponencijalni prosjek).",
             "Zato se SJF ne može tačno primijeniti na kratkoročno CPU raspoređivanje, samo aproksimirati predviđanjem."
           ],
           "note": "Citat (Raspoređivanje): 'SJF je optimalno raspoređivanje ako je kriterijum prosječno vrijeme čekanja, zato što daje minimalno prosječno vrijeme čekanja.'",
@@ -277,8 +288,9 @@
           "correctAnswers": ["7 ms"],
           "context": "Prosječno vrijeme čekanja po SJF je 7 ms. SJF redoslijed po dužini: P4 (3), P1 (6), P3 (7), P2 (8). Čekanja: P4=0, P1=3, P3=9 (3+6), P2=16 (3+6+7). Prosjek = (0+3+9+16)/4 = 7 ms.",
           "details": [
-            "Da se raspoređivalo po FCFS (redom P1, P2, P3, P4), prosječno vrijeme čekanja bi bilo 10.25 ms - veće nego SJF.",
-            "Ovo potvrđuje da SJF minimizuje prosječno vrijeme čekanja: kraći procesi idu prvi."
+            "10.25 ms bi bio prosjek po FCFS-u (redom P1, P2, P3, P4): tu se vidi dobitak SJF-a na istim procesima.",
+            "3 ms je čekanje samog P1 (poslije P4), a ne prosjek sva četiri procesa.",
+            "Postupak: poredaj procese po vremenu izvršavanja, saberi koliko svaki čeka prije svog starta, pa podijeli brojem procesa."
           ],
           "note": "Citat (Raspoređivanje): 'prosječno vrijeme čekanja (3+16+9+0)/4 = 7 milisekundi. Kada bi ... FCFS ... bilo 10.25 milisekundi.'",
           "readMore": ["RasporedjivanjeProcesa.pdf, str. 6 (SJF primjer)"]
@@ -292,16 +304,15 @@
           },
           "type": "single",
           "options": [
+            "Shortest Remaining Time (SRT)",
             "Round Robin (RR)",
-            "Shortest Remaining Time (SRT) - raspoređivanje po najmanjem preostalom vremenu",
-            "FCFS",
-            "Multilevel queue"
+            "Longest Remaining Time (LRT)",
+            "Multilevel queue scheduling"
           ],
-          "correctAnswers": [
-            "Shortest Remaining Time (SRT) - raspoređivanje po najmanjem preostalom vremenu"
-          ],
-          "context": "SJF sa prinudnim suspendovanjem naziva se SRT (Shortest Remaining Time) - raspoređivanje po najmanjem preostalom vremenu. Kad stigne novi proces čije je vrijeme kraće od preostalog vremena tekućeg procesa, tekući se prinudno suspenduje, a CPU se daje novom.",
+          "correctAnswers": ["Shortest Remaining Time (SRT)"],
+          "context": "SJF sa prinudnim suspendovanjem naziva se SRT (Shortest Remaining Time): raspoređivanje po najmanjem preostalom vremenu. Kad stigne novi proces čije je vrijeme kraće od preostalog vremena tekućeg procesa, tekući se prinudno suspenduje, a CPU se daje novom.",
           "details": [
+            "Round Robin je preemptivan, ali po kvantumu, ne po preostalom vremenu; multilevel queue je podjela procesa u više redova; 'Longest Remaining Time' bi bio suprotan kriterijum i ne koristi se.",
             "SJF bez suspenzije uvijek dovrši tekući proces, čak i ako u međuvremenu stigne kraći.",
             "Primjer SRT: procesi P1(8), P2(4), P3(9), P4(5) sa dolascima 0,1,2,3. Kad P2(4) stigne u t=1, P1 ima preostalih 7 > 4, pa se P1 suspenduje. Prosječno čekanje = 6.5 ms (kod SJF bez suspenzije bilo bi 7.75 ms).",
             "SRT daje manje prosječno vrijeme čekanja od nonpreemptive SJF-a, ali češće mijenja kontekst."
@@ -324,19 +335,20 @@
           },
           "type": "single",
           "options": [
-            "Procesi troše previše memorije; rješenje je više RAM-a",
-            "Procesi niskog prioriteta mogu vječno čekati na CPU jer stalno stižu procesi višeg prioriteta; rješenje je 'starenje' (aging) - postupno povećavanje prioriteta procesa koji dugo čekaju",
-            "Procesi se prekidaju prečesto; rješenje je duži kvantum",
-            "Nema problema kod prioritetnog raspoređivanja"
+            "Procesi niskog prioriteta mogu vječno čekati na CPU jer stalno stižu procesi višeg prioriteta; rješenje je starenje (aging): postepeno povećavanje prioriteta onima koji dugo čekaju",
+            "Dva procesa se međusobno blokiraju jer svaki drži resurs koji onaj drugi čeka; rješenje je oduzimanje resursa jednom od njih",
+            "Kratki procesi se nagomilaju iza jednog dugog koji drži procesor; rješenje je premještanje dugog procesa na kraj reda",
+            "Proces visokog prioriteta predugo zadržava procesor; rješenje je kraći kvantum i češće promjene konteksta"
           ],
           "correctAnswers": [
-            "Procesi niskog prioriteta mogu vječno čekati na CPU jer stalno stižu procesi višeg prioriteta; rješenje je 'starenje' (aging) - postupno povećavanje prioriteta procesa koji dugo čekaju"
+            "Procesi niskog prioriteta mogu vječno čekati na CPU jer stalno stižu procesi višeg prioriteta; rješenje je starenje (aging): postepeno povećavanje prioriteta onima koji dugo čekaju"
           ],
-          "context": "Izgladnjivanje (starvation) je neograničeno blokiranje: proces niskog prioriteta može vječno čekati na CPU jer u opterećenom sistemu stalno stižu procesi višeg prioriteta. Rješenje je 'starenje' (aging) - tehnika koja postupno povećava prioritet procesa koji dugo čekaju.",
+          "context": "Izgladnjivanje (starvation) je neograničeno blokiranje: proces niskog prioriteta može vječno čekati na CPU jer u opterećenom sistemu stalno stižu procesi višeg prioriteta. Rješenje je 'starenje' (aging): tehnika koja postupno povećava prioritet procesa koji dugo čekaju.",
           "details": [
+            "Međusobno blokiranje oko resursa je potpuni zastoj (deadlock), a nagomilavanje kratkih procesa iza dugog je konvoj efekt (mana FCFS-a): srodni, ali različiti problemi.",
             "U prioritetnom algoritmu CPU se daje procesu najvišeg prioriteta (procesi istog prioriteta idu po FCFS).",
             "Prioriteti se definišu interno (mjerljive veličine: vremenska ograničenja, memorija, U/I vs CPU odnos) ili eksterno (važnost procesa, plaćanje, politički faktori).",
-            "Anegdota iz gradiva: na MIT-u su 1973. na IBM 7094 našli proces niskog prioriteta koji čeka od 1967. - primjer starvationa.",
+            "Anegdota iz gradiva: na MIT-u su 1973. na IBM 7094 našli proces niskog prioriteta koji čeka od 1967, primjer starvationa.",
             "Aging: npr. povećanje prioriteta svakih 15 minuta, pa i proces najnižeg prioriteta na kraju dođe na red."
           ],
           "note": "Citat (Raspoređivanje): 'Rješenje za problem neograničenog blokiranja je starenje procesa (aging) ... postupno povećava prioritet procesa koji dugo čekaju.'",
@@ -359,19 +371,20 @@
           },
           "type": "single",
           "options": [
-            "Dodjeljuje procesor procesu sa najvišim prioritetom bez prekidanja",
-            "Zadaje vremensku jedinicu (kvantum, obično 10-100 ms), pa redom svakom procesu iz kružnog FIFO reda daje procesor na najviše jedan kvantum; ako proces ne završi, prekida se i ide na kraj reda",
-            "Bira najkraći posao i dovrši ga",
-            "Izvršava sve procese odjednom"
+            "Zadaje kvantum (10-100 ms) i redom svakom procesu iz kružnog FIFO reda daje procesor na najviše jedan kvantum; ko ne završi, prekida se i ide na kraj reda",
+            "Dodjeljuje procesor procesu sa najmanjim preostalim vremenom izvršavanja; novi kraći proces prekida tekući",
+            "Izvršava procese do kraja bez prekidanja, strogo po redoslijedu pristizanja u red spremnih",
+            "Dijeli procese u više zasebnih redova po tipu i na svaki red primjenjuje drugačiji algoritam raspoređivanja"
           ],
           "correctAnswers": [
-            "Zadaje vremensku jedinicu (kvantum, obično 10-100 ms), pa redom svakom procesu iz kružnog FIFO reda daje procesor na najviše jedan kvantum; ako proces ne završi, prekida se i ide na kraj reda"
+            "Zadaje kvantum (10-100 ms) i redom svakom procesu iz kružnog FIFO reda daje procesor na najviše jedan kvantum; ko ne završi, prekida se i ide na kraj reda"
           ],
           "context": "Round Robin (RR) zadaje vremensku jedinicu (kvantum, obično 10-100 ms) i redom dodjeljuje procesor svakom procesu iz kružnog FIFO reda na najviše jedan kvantum. Ako proces završi prije kvantuma, sam oslobodi CPU; ako ne, tajmer generiše prekid, kontekst se mijenja, a proces ide na kraj reda. RR je preemptive (sa prinudnom suspenzijom).",
           "details": [
+            "Ostale opcije opisuju druge algoritme: najmanje preostalo vrijeme je SRT, izvršavanje do kraja po redoslijedu je FCFS, a više redova sa različitim algoritmima je multilevel queue.",
             "RR je projektovan za sisteme sa vremenskom raspodjelom; podsjeća na FCFS ali sa prinudnim prekidanjem.",
             "Ako ima n procesa i kvantum je q, niti jedan proces ne čeka više od (n-1)·q za sljedeći red.",
-            "Ako je kvantum jako dug, RR se svodi na FCFS; ako je jako kratak, to je 'dijeljenje procesora' (svaki od n procesa kao da ima procesor 1/n brzine).",
+            "Ako je kvantum jako dug, RR se svodi na FCFS; ako je jako kratak, dobija se 'dijeljenje procesora' (svaki od n procesa kao da ima procesor 1/n brzine).",
             "U praksi se kvantum bira tako da ~80% CPU ciklusa (burst) bude kraće od njega."
           ],
           "note": "Citat (Raspoređivanje): 'Kružni algoritam (Round Robin, RR) je posebno projektovan za sisteme sa vremenskom raspodjelom ... koristi prinudno suspendovanje.'",
@@ -386,19 +399,20 @@
           },
           "type": "single",
           "options": [
-            "RR ima gore vrijeme odziva i bolje turnaround vrijeme",
             "RR ima najbolje vrijeme odziva (response time), ali veće (lošije) prosječno vrijeme završetka (turnaround) u odnosu na SJF",
-            "RR i SJF su identični po svemu",
-            "RR ima najbolje turnaround vrijeme"
+            "RR ima bolje (kraće) prosječno vrijeme završetka (turnaround), ali lošije vrijeme odziva u odnosu na SJF",
+            "SJF ima bolje vrijeme odziva jer kratki procesi odmah dobiju procesor, a RR bolji turnaround jer nema čekanja",
+            "RR i SJF daju ista prosječna vremena, a razlikuju se samo po broju promjena konteksta"
           ],
           "correctAnswers": [
             "RR ima najbolje vrijeme odziva (response time), ali veće (lošije) prosječno vrijeme završetka (turnaround) u odnosu na SJF"
           ],
           "context": "RR ima najbolje vrijeme odziva (response time) jer svaki proces brzo dobije dio CPU-a, ali ima veće (lošije) prosječno vrijeme završetka (turnaround time) u odnosu na SJF.",
           "details": [
-            "Response time je bitan u interaktivnim sistemima - korisnik brzo dobije prvi odziv. RR tu blista.",
-            "Turnaround (ukupno vrijeme do završetka) je lošiji jer se procesi stalno prekidaju i vraćaju na kraj reda.",
-            "Performanse RR jako zavise od veličine kvantuma."
+            "Odnos je obrnut od druge opcije: RR-ova snaga je odziv, a SJF-ova ukupna (turnaround/waiting) vremena.",
+            "Vremena nisu ista: SJF minimizuje prosječno čekanje, dok RR svjesno žrtvuje turnaround da bi svi procesi brzo dobili prvi dio procesora.",
+            "Response time je bitan u interaktivnim sistemima: korisnik brzo dobije prvi odziv, i tu RR blista.",
+            "Turnaround je kod RR lošiji jer se procesi stalno prekidaju i vraćaju na kraj reda; performanse jako zavise od veličine kvantuma."
           ],
           "note": "Citat (Raspoređivanje): 'Kružno raspoređivanje ima najbolje vrijeme odziva (response time), a veće prosječno vrijeme završetka procesa (turnaround time) u odnosu na algoritam SJF.'",
           "readMore": ["RasporedjivanjeProcesa.pdf, str. 9 (RR performanse)"]
@@ -412,16 +426,18 @@
           },
           "type": "single",
           "options": [
-            "Svi procesi su u jednom redu sa jednim algoritmom",
-            "Red spremnih poslova se dijeli u više zasebnih redova (procesi se trajno pridružuju nekom po tipu/prioritetu), a na svaki red se primjenjuje poseban algoritam; postoji i raspoređivanje između redova",
-            "Procesi se biraju nasumično",
-            "Koristi se samo za mrežne procese"
+            "Red spremnih se dijeli u više zasebnih redova kojima se procesi trajno pridružuju (po tipu/prioritetu); svaki red ima svoj algoritam, a postoji i raspoređivanje između redova",
+            "Procesi se tokom rada slobodno premještaju iz reda u red prema svom ponašanju (dužini CPU ciklusa), pa interaktivni prirodno završe u bržim redovima",
+            "Svi procesi su u jednom zajedničkom redu, a algoritam raspoređivanja se dinamički mijenja prema trenutnom opterećenju sistema",
+            "Svaki procesor u višeprocesorskom sistemu ima vlastiti red spremnih procesa sa svojim algoritmom raspoređivanja"
           ],
           "correctAnswers": [
-            "Red spremnih poslova se dijeli u više zasebnih redova (procesi se trajno pridružuju nekom po tipu/prioritetu), a na svaki red se primjenjuje poseban algoritam; postoji i raspoređivanje između redova"
+            "Red spremnih se dijeli u više zasebnih redova kojima se procesi trajno pridružuju (po tipu/prioritetu); svaki red ima svoj algoritam, a postoji i raspoređivanje između redova"
           ],
           "context": "Kod raspoređivanja pomoću redova u više nivoa (multilevel queue), red spremnih poslova se dijeli u nekoliko zasebnih redova; procesi se trajno pridružuju nekom redu po kriterijumu (tip, prioritet, memorija). Na svaki red se primjenjuje poseban algoritam, plus postoji raspoređivanje između samih redova.",
           "details": [
+            "Ključna riječ je 'trajno': u ovoj klasi algoritama proces ostaje u svom redu (premještanje po ponašanju opisuje naprednu feedback varijantu, a ne osnovni multilevel queue iz gradiva).",
+            "Nije ni jedan zajednički red sa promjenljivim algoritmom, ni po-jedan-red-po-procesoru: podjela je po vrsti procesa, na jednom sistemu.",
             "Primjer: interaktivni (foreground) procesi u jednom redu (RR algoritam), pozadinski (background/batch) u drugom (FCFS).",
             "Raspoređivanje između redova je obično prioritetno sa suspenzijom: npr. interaktivni red ima apsolutni prioritet nad pozadinskim (batch se ne izvršava dok viši redovi nisu prazni).",
             "Druga mogućnost: svakom redu se dodijeli dio CPU vremena (npr. 80% interaktivnom redu za RR, 20% pozadinskom za FCFS)."

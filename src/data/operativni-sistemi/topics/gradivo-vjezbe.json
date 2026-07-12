@@ -17,19 +17,20 @@
           },
           "type": "single",
           "options": [
-            "Jer je Linus Torvalds napravio i kernel i sve programe",
             "Jer je Linux samo kernel (jezgro), a ostatak sistema (alati, programi) najčešće dolazi iz GNU projekta Richarda Stallmana",
-            "Jer je GNU vrsta hardvera",
-            "Jer se Linux ne može koristiti bez Windowsa"
+            "Jer je GNU organizacija razvila kernel, a Linus Torvalds alate i programe koji ga okružuju",
+            "Jer je GNU (Gnu's Not Unix) naziv licence pod kojom se Linux kernel distribuira",
+            "Jer je GNU bio prvobitni naziv kernela, koji je kasnije preimenovan u Linux"
           ],
           "correctAnswers": [
             "Jer je Linux samo kernel (jezgro), a ostatak sistema (alati, programi) najčešće dolazi iz GNU projekta Richarda Stallmana"
           ],
           "context": "Linux je zapravo samo kernel (jezgro) OS-a; sve ostalo je kreacija drugih, najčešće GNU organizacije. Zato je puni naziv GNU/Linux. Richard Stallman je 1984. započeo GNU projekt (Unix-like slobodni OS), a Linus Torvalds je 1991. započeo rad na Linux kernelu.",
           "details": [
+            "Uloge su obrnute od druge opcije: Torvalds je autor kernela (Linux), a GNU projekat je dao alate i programe oko njega.",
+            "GNU nije licenca (licenca je GPL) niti staro ime kernela: to je naziv projekta/organizacije čiji softver čini veliki dio sistema.",
             "Linux distribucija je OS sastavljen od Linux kernela i raznih softverskih paketa, uglavnom otvorenog koda (GNU ili BSD licenca), podešen za određenu namjenu.",
-            "Neke distribucije: Red Hat, Fedora, openSUSE, Ubuntu, Debian, Kali, Gentoo, Arch, Slackware, Linux Mint, CentOS.",
-            "Ubuntu je zasnovan na Debianu; nova verzija svakih 6 mjeseci (npr. Ubuntu 24.04 LTS).",
+            "Neke distribucije: Red Hat, Fedora, openSUSE, Ubuntu, Debian, Kali, Gentoo, Arch, Slackware, Linux Mint, CentOS; Ubuntu je zasnovan na Debianu, nova verzija svakih 6 mjeseci (npr. Ubuntu 24.04 LTS).",
             "Osnovne komponente distribucije: korisnički interfejs (CLI/GUI - KDE, GNOME), kernel i shell (komandni interpreter)."
           ],
           "note": "Citat (Ubuntu_osnovneKomande): 'Linux je zapravo samo kernel/jezgro OS-a, dok je sve ostalo kreacija drugih ... pa je puni naziv operativnog sistema - GNU/Linux OS.'",
@@ -46,18 +47,19 @@
           },
           "type": "single",
           "options": [
-            "Izvršne fajlove sistema",
             "Korisničke podatke, tj. lične foldere korisnika sistema",
-            "Konfiguracijske fajlove",
-            "Fajlove za pokretanje sistema"
+            "Izvršne fajlove osnovnih sistemskih komandi",
+            "Konfiguracijske fajlove sistema i servisa",
+            "Fajlove potrebne za pokretanje (boot) sistema"
           ],
           "correctAnswers": [
             "Korisničke podatke, tj. lične foldere korisnika sistema"
           ],
-          "context": "/home sadrži korisničke podatke - lične foldere korisnika sistema. Strukturu i ulogu foldera definiše FHS standard (Filesystem Hierarchy Standard).",
+          "context": "/home sadrži korisničke podatke: lične foldere korisnika sistema. Strukturu i ulogu foldera definiše FHS standard (Filesystem Hierarchy Standard).",
           "details": [
-            "Neki FHS folderi: /bin (izvršni fajlovi), /boot (fajlovi za startanje sistema), /dev (uređaji), /etc (konfiguracijski fajlovi), /lib (biblioteke), /root (root folder), /tmp (privremeni fajlovi), /proc (informacije o sistemu), /var (promjenljivi podaci, logovi).",
-            "Svaki fajl sistem ima tačno jedan direktorij na vrhu - root direktorij ('/').",
+            "Ostale opcije opisuju druge FHS foldere: izvršni fajlovi su u /bin, konfiguracija u /etc, a fajlovi za pokretanje u /boot.",
+            "Još FHS foldera: /dev (uređaji), /lib (biblioteke), /root (folder root korisnika), /tmp (privremeni fajlovi), /proc (informacije o sistemu), /var (promjenljivi podaci, logovi), /media (mount-point folderi), /usr (korisničke komande, dokumentacija).",
+            "Svaki fajl sistem ima tačno jedan direktorij na vrhu: root direktorij ('/').",
             "U Linuxu nema potrebe za ekstenzijama (.txt) da bi se odredila vrsta fajla."
           ],
           "note": "Citat (Ubuntu_osnovneKomande): '/home - korisnički podaci odnosno lični folderi korisnika sistema.'",
@@ -80,17 +82,18 @@
           },
           "type": "single",
           "options": [
-            "touch briše fajl, mkdir kopira, cp premješta, mv pravi folder, grep prikazuje fajl",
-            "touch pravi novi fajl, mkdir pravi novi folder, cp kopira fajl, mv premješta/preimenuje fajl, grep izdvaja linije prema uzorku",
-            "Sve rade isto",
-            "Sve su komande za štampanje"
+            "touch pravi novi fajl, mkdir novi folder, cp kopira, mv premješta/preimenuje, grep izdvaja linije prema uzorku",
+            "touch pravi novi folder, mkdir novi fajl, cp premješta, mv kopira, grep prikazuje cijeli sadržaj fajla",
+            "touch osvježava vrijeme pristupa, mkdir pravi folder, cp kopira, mv briše fajl, grep pretražuje fajlove po imenu",
+            "touch pravi novi fajl, mkdir novi folder, cp kopira, mv premješta, grep broji riječi i linije u fajlu"
           ],
           "correctAnswers": [
-            "touch pravi novi fajl, mkdir pravi novi folder, cp kopira fajl, mv premješta/preimenuje fajl, grep izdvaja linije prema uzorku"
+            "touch pravi novi fajl, mkdir novi folder, cp kopira, mv premješta/preimenuje, grep izdvaja linije prema uzorku"
           ],
           "context": "touch pravi novi (prazan) fajl, mkdir pravi novi folder, cp kopira fajl, mv premješta ili preimenuje fajl, a grep izdvaja linije prema uzorku (patternu) u tekstualnom fajlu.",
           "details": [
-            "Ostale česte komande: pwd (putanja radnog foldera), cd (prelazak u folder), ls (izlistavanje sadržaja), rm (brisanje fajla), rmdir (brisanje foldera), find (pretraga fajla), cat (prikaz fajla), wc (broj riječi/karaktera/linija).",
+            "Česte zamke iz ostalih opcija: brisanje radi rm (ne mv), prikaz cijelog sadržaja radi cat (ne grep), pretragu fajlova po imenu radi find (ne grep), a brojanje riječi/linija radi wc.",
+            "Ostale česte komande: pwd (putanja radnog foldera), cd (prelazak u folder), ls (izlistavanje sadržaja), rmdir (brisanje praznog foldera).",
             "Za pomoć oko komande: man <komanda> (obiman opis), whatis <komanda> (kratka informacija), ili <komanda> --help.",
             "Ctrl+C prekida naredbu koja se izvršava."
           ],
@@ -108,19 +111,20 @@
           },
           "type": "single",
           "options": [
-            "Na veličinu fajla",
             "Na tri kategorije po tri prava (rwx): vlasnik (prva tri), grupa (naredna tri), ostali (posljednja tri)",
-            "Na datum kreiranja",
-            "Na broj hard linkova"
+            "Na tri prava po tri kategorije: čitanje (prva tri znaka), pisanje (naredna tri), izvršavanje (posljednja tri)",
+            "Na prava vlasnika (prvih šest znakova) i prava svih ostalih korisnika (posljednja tri znaka)",
+            "Na tip fajla (prva tri znaka), broj hard linkova (naredna tri) i sticky bit (posljednja tri)"
           ],
           "correctAnswers": [
             "Na tri kategorije po tri prava (rwx): vlasnik (prva tri), grupa (naredna tri), ostali (posljednja tri)"
           ],
-          "context": "Nakon prvog karaktera (tip fajla: - za regularni fajl, d za folder), devet znakova daju prava pristupa za tri kategorije po tri prava (rwx): vlasnik (owner - prva tri), grupa (group - naredna tri) i ostali (others - posljednja tri). r = čitanje, w = upis, x = izvršavanje; crtica (-) znači ukinuto pravo.",
+          "context": "Nakon prvog karaktera (tip fajla: - za regularni fajl, d za folder), devet znakova daju prava pristupa za tri kategorije po tri prava (rwx): vlasnik (owner, prva tri), grupa (group, naredna tri) i ostali (others, posljednja tri). r = čitanje, w = upis, x = izvršavanje; crtica (-) znači ukinuto pravo.",
           "details": [
+            "Grupisanje je po kategoriji korisnika, a ne po vrsti prava: svaka trojka nosi rwx za jednu kategoriju (druga opcija okreće tu logiku).",
+            "Vlasniku pripadaju samo prva tri znaka (ne šest); tip fajla je jedan znak prije permisija, a broj hard linkova je zaseban broj iza permisija (nisu dio devet znakova).",
             "Primjer -rw-rw-r--: regularni fajl; vlasnik rw- (čita i piše, ne izvršava); grupa rw-; ostali r-- (samo čitaju).",
-            "Vlasnik je najčešće korisnik koji je kreirao fajl; superuser (root) mu može promijeniti vlasništvo.",
-            "Prava pristupa se vide komandom ls -l (list -long)."
+            "Vlasnik je najčešće korisnik koji je kreirao fajl; superuser (root) mu može promijeniti vlasništvo."
           ],
           "note": "Citat (Ubuntu_osnovneKomande): 'vlasnik (prva tri karaktera), grupa (naredna tri karaktera), ostali (posljednja tri karaktera).'",
           "readMore": [
@@ -151,6 +155,7 @@
           "correctAnswers": ["chmod 664 fajl"],
           "context": "chmod 664 fajl. Za rw- se sabira 4 (r) + 2 (w) = 6; za r-- je samo 4. Dakle vlasnik 6, grupa 6, ostali 4 → 664.",
           "details": [
+            "Provjera ostalih brojeva: 644 bi bio rw-r--r-- (grupa samo čita), 666 bi bio rw-rw-rw- (i ostali pišu), a 764 bi bio rwxrw-r-- (vlasnik i izvršava).",
             "Svako pravo ima vrijednost: r = 4 (2^2), w = 2 (2^1), x = 1 (2^0); cifra kategorije je zbir dozvoljenih prava.",
             "Primjer iz gradiva: rw-rw-r-- (index.jpeg) daje 6, 6, 4. Da svi samo čitaju bilo bi 444 (chmod 444).",
             "U simboličkom modu ista promjena 'svi samo čitaju' piše se chmod ugo=r fajl (u=user, g=group, o=others; sintaksa (ko)(akcija)(permisije))."
@@ -174,10 +179,11 @@
             "after": ""
           },
           "type": "single",
-          "options": ["firefox", "init (systemd)", "root", "bash"],
+          "options": ["init (systemd)", "bash", "ps", "root"],
           "correctAnswers": ["init (systemd)"],
           "context": "init (systemd) je specijalan proces koji je uvijek prvi i njegov PID je uvijek 1. Kernel ga pokreće automatski kad se sistem podiže.",
           "details": [
+            "bash je shell koji se pokreće za svaku korisničku sesiju (PID mu varira), ps je komanda za pregled procesa, a root uopšte nije proces nego superkorisnik (nalog).",
             "Svaki proces ima identifikacijski broj (PID) i, kao i fajlovi, vlasnika i grupu.",
             "PID se dodjeljuje od 1 do 99999, pa se vraća na početak.",
             "Komanda ps daje listu pokrenutih procesa (kolone: PID, TTY - terminal, TIME - CPU vrijeme, CMD - naziv komande).",
@@ -195,20 +201,20 @@
           },
           "type": "single",
           "options": [
-            "top (po PID-u) i htop (po nazivu); signal SIGKILL",
             "kill (po PID-u) i pkill (po nazivu); podrazumijevani signal je SIGTERM (broj 15)",
-            "rm (po PID-u) i del (po nazivu); signal SIGSTOP",
-            "ps (po PID-u) i grep (po nazivu); signal SIGINT"
+            "pkill (po PID-u) i kill (po nazivu); podrazumijevani signal je SIGTERM (broj 15)",
+            "kill (po PID-u) i pkill (po nazivu); podrazumijevani signal je SIGKILL (broj 9), koji se ne može ignorisati",
+            "top (po PID-u) i htop (po nazivu); podrazumijevani signal je SIGSTOP (broj 19)"
           ],
           "correctAnswers": [
             "kill (po PID-u) i pkill (po nazivu); podrazumijevani signal je SIGTERM (broj 15)"
           ],
           "context": "kill prekida proces po PID-u (npr. kill 6206), a pkill po nazivu procesa (npr. pkill gedit). Sintaksa je kill -signal PID; ako se signal ne navede, podrazumijeva se SIGTERM (signal broj 15), pa je kill 6206 isto što i kill -15 6206.",
           "details": [
-            "Listu signala daje man signal.",
-            "Kombinacije s tastature: Ctrl+C završava, Ctrl+Z stopira (pauzira) proces.",
-            "top i htop daju dinamički pregled procesa; & pokreće proces u pozadini (background), fg vraća u prvi plan (foreground).",
-            "PPID je PID roditeljskog procesa."
+            "Imena pomažu: pkill = 'process name kill' (po nazivu); u drugoj opciji su uloge zamijenjene, a u trećoj je pogrešan podrazumijevani signal (SIGKILL/9 se šalje samo izričito).",
+            "top i htop ne prekidaju procese: daju dinamički pregled procesa u sistemu.",
+            "Listu signala daje man signal; kombinacije s tastature: Ctrl+C završava, Ctrl+Z stopira (pauzira) proces.",
+            "Znak & pokreće proces u pozadini (background), fg ga vraća u prvi plan (foreground); PPID je PID roditeljskog procesa."
           ],
           "note": "Citat (OS_V_Procesi): 'Ukoliko ne navodite br. signala podrazumijeva se signal SIGTERM odnosno signal broj 15 ... pkill (pkill gedit).'",
           "readMore": [
@@ -230,20 +236,20 @@
           },
           "type": "single",
           "options": [
-            "mkdir (korisnik) i mv (vlasnik)",
-            "adduser (korisnik) i chown (vlasnik); root privilegije se dobijaju preko sudo ili su",
-            "useradd (korisnik) i chmod (vlasnik)",
-            "ps (korisnik) i cp (vlasnik)"
+            "adduser (novi korisnik) i chown (vlasnik fajla); root privilegije se dobijaju preko sudo ili su",
+            "adduser (novi korisnik) i chmod (vlasnik fajla); root privilegije se dobijaju automatski nakon prijave",
+            "useradd (novi korisnik) i chgrp (vlasnik fajla); root privilegije se dobijaju komandom root",
+            "usermod (novi korisnik) i chown (vlasnik fajla); root privilegije nisu potrebne ni za jednu od ovih komandi"
           ],
           "correctAnswers": [
-            "adduser (korisnik) i chown (vlasnik); root privilegije se dobijaju preko sudo ili su"
+            "adduser (novi korisnik) i chown (vlasnik fajla); root privilegije se dobijaju preko sudo ili su"
           ],
-          "context": "adduser dodaje novog korisnika (npr. sudo adduser goran), a chown mijenja vlasnika fajla (sintaksa: chown noviVlasnik imeFajla). Obje traže root privilegije - do njih se dolazi preko sudo (izvrši jednu komandu) ili su / sudo su (pređe u root okruženje).",
+          "context": "adduser dodaje novog korisnika (npr. sudo adduser goran), a chown mijenja vlasnika fajla (sintaksa: chown noviVlasnik imeFajla). Obje traže root privilegije: do njih se dolazi preko sudo (izvrši jednu komandu kao root) ili su / sudo su (pređe u root okruženje).",
           "details": [
-            "sudo = super user do (substitute user do). deluser briše korisnika. Lista korisnika: getent passwd (ili cat /etc/passwd).",
-            "Grupe: addgroup (nova grupa), chgrp (promjena grupe fajla), usermod -G NazivGrupe ImeKorisnika (dodavanje korisnika u grupu), getent group (lista grupa).",
-            "U promptu # označava da ste logirani kao root, a % ili $ shell bilo kojeg drugog korisnika.",
-            "su traži root password; sudo su daje root pristup uz password trenutnog korisnika (Ubuntu po defaultu ne dozvoljava logiranje kao root)."
+            "Česte zamjene iz ostalih opcija: chmod mijenja permisije (ne vlasnika), chgrp mijenja grupu fajla, a usermod mijenja postojećeg korisnika (npr. usermod -G grupa korisnik ga dodaje u grupu); komanda 'root' ne postoji.",
+            "sudo = super user do (substitute user do); deluser briše korisnika; lista korisnika: getent passwd (ili cat /etc/passwd).",
+            "Grupe: addgroup (nova grupa), getent group (lista grupa i članova).",
+            "U promptu # označava da ste logirani kao root, a % ili $ shell bilo kojeg drugog korisnika; su traži root password, a sudo su daje root pristup uz password trenutnog korisnika (Ubuntu po defaultu ne dozvoljava logiranje kao root)."
           ],
           "note": "Citat (OS_V_S5_S6): 'komanda za dodavanje novog korisnika je adduser nazivKorisnika ... Komandu chown koristimo kada želimo promijeniti vlasnika nekog fajla.'",
           "readMore": [
@@ -259,18 +265,19 @@
           },
           "type": "single",
           "options": [
-            "Zaključava folder da niko ne može ući",
             "Onemogućava da bilo ko osim vlasnika fajla i root korisnika briše ili preimenuje fajlove u tom folderu",
-            "Šifruje sve fajlove u folderu",
-            "Automatski briše fajlove u folderu"
+            "Zabranjuje ulazak (cd) u folder svim korisnicima osim vlasniku foldera i root korisniku",
+            "Čini folder nevidljivim pri izlistavanju, pa ga vide samo njegov vlasnik i root korisnik",
+            "Daje svim korisnicima pravo brisanja i preimenovanja fajlova u folderu, bez obzira na vlasništvo"
           ],
           "correctAnswers": [
             "Onemogućava da bilo ko osim vlasnika fajla i root korisnika briše ili preimenuje fajlove u tom folderu"
           ],
           "context": "Kad je folderu postavljen sticky bit, niko od korisnika osim vlasnika fajla i root korisnika ne može brisati ni preimenovati fajlove u tom folderu. Postavlja se komandom chmod +t nazivFoldera (ukida se chmod -t).",
           "details": [
+            "Sticky bit ne dira ulazak u folder (to kontroliše x permisija) ni vidljivost (skriveni su fajlovi čije ime počinje tačkom); zadnja opcija je upravo suprotna njegovoj svrsi.",
             "Sticky bit se prepoznaje po slovu t na kraju oznake permisija (npr. u ls -l izlazu).",
-            "Folder /tmp po defaultu ima sticky bit.",
+            "Folder /tmp po defaultu ima sticky bit: svi mogu pisati u njega, ali niko ne može brisati tuđe fajlove.",
             "Čak i ako fajl ima permisije 777 (svima sve dozvoljeno), sticky bit na folderu ipak sprječava druge da ga brišu."
           ],
           "note": "Citat (OS_V_S5_S6): 'Ukoliko je određenom folderu postavljen sticky bit to znači da niko od korisnika, osim vlasnika i root korisnika, ne može brisati ili raditi preimenovanja fajlova u tom folderu.'",
@@ -285,19 +292,20 @@
           },
           "type": "single",
           "options": [
-            "Nema razlike",
-            "Hard link dijeli isti inode sa izvornim fajlom (identična replika, radi i kad se original obriše, samo za fajlove); soft link je prečica sa različitim inode-om koja pokazuje na izvorni fajl (može i na foldere)",
-            "Soft link dijeli isti inode, hard link ne",
-            "Hard link radi samo na folderima"
+            "Hard link dijeli isti inode sa izvornim fajlom (replika, radi i nakon brisanja originala, samo za fajlove); soft link je prečica sa vlastitim inode-om (može i na foldere)",
+            "Soft link dijeli isti inode sa izvornim fajlom i radi nakon brisanja originala; hard link je prečica sa vlastitim inode-om koja može pokazivati i na foldere",
+            "Hard link kopira sadržaj fajla u novi nezavisni fajl, a soft link dijeli sadržaj sa originalom bez kopiranja",
+            "Hard i soft link su iznutra identični; razlika je samo u tome što se soft link prikazuje sa strelicom na ikoni"
           ],
           "correctAnswers": [
-            "Hard link dijeli isti inode sa izvornim fajlom (identična replika, radi i kad se original obriše, samo za fajlove); soft link je prečica sa različitim inode-om koja pokazuje na izvorni fajl (može i na foldere)"
+            "Hard link dijeli isti inode sa izvornim fajlom (replika, radi i nakon brisanja originala, samo za fajlove); soft link je prečica sa vlastitim inode-om (može i na foldere)"
           ],
-          "context": "Hard link (ln izvorni novi) je replika fajla koja dijeli isti inode sa izvornim - identičan je, promjene se vide u oba, i radi i nakon brisanja originala (dok broj linkova ne padne na 0); povezuje samo fajlove. Soft/simbolički link (ln -s izvorni novi) je samo prečica sa RAZLIČITIM inode-om koja pokazuje na izvorni fajl; može povezivati i fajlove i foldere.",
+          "context": "Hard link (ln izvorni novi) je replika fajla koja dijeli isti inode sa izvornim: identičan je, promjene se vide u oba, i radi i nakon brisanja originala (dok broj linkova ne padne na 0); povezuje samo fajlove. Soft/simbolički link (ln -s izvorni novi) je samo prečica sa različitim inode-om koja pokazuje na izvorni fajl; može povezivati i fajlove i foldere.",
           "details": [
-            "Fajl je pohranjen u dva dijela: blok podataka (sadržaj) i inode (informacije o fajlu - sve osim naziva i sadržaja).",
-            "Broj hard linkova fajla je broj iza permisija u ls -l izlazu.",
-            "Soft link se na Desktopu prepoznaje po strelici u uglu ikone (kao Shortcut u Windowsu); u komandnoj liniji po slovu l prije permisija."
+            "Osobine su obrnute od druge opcije: isti inode i preživljavanje brisanja pripadaju hard linku, a prečica i rad sa folderima soft linku.",
+            "Hard link ne kopira sadržaj: oba imena pokazuju na isti inode i iste blokove podataka (nema duplog prostora); razlika prema soft linku je suštinska (inode), a strelica na ikoni je samo vizuelna posljedica.",
+            "Fajl je pohranjen u dva dijela: blok podataka (sadržaj) i inode (informacije o fajlu, sve osim naziva i sadržaja).",
+            "Broj hard linkova fajla je broj iza permisija u ls -l izlazu; soft link se u komandnoj liniji prepoznaje po slovu l prije permisija."
           ],
           "note": "Citat (OS_V_S5_S6): 'Hard link je replika fajla ... Oba fajla dijele isti inode ... simbolički link je samo prečica do izvornog fajla. Inode im je različit.'",
           "readMore": ["Vjezbe/OS_V_S5_S6.pdf, str. 6 (hard i soft linkovi)"]
@@ -317,18 +325,19 @@
           },
           "type": "single",
           "options": [
-            "Maksimalno 8 fajlova u 3 foldera",
             "Maksimalno 8 znakova u nazivu datoteke i 3 znaka u ekstenziji (tipu)",
-            "8 bita naziva i 3 bita ekstenzije",
-            "8 GB veličina i 3 particije"
+            "Maksimalno 8 nivoa direktorija u putanji i 3 znaka u oznaci drajva",
+            "8 bajtova za zapis imena i 3 bajta za atribute datoteke u FAT tabeli",
+            "Najviše 8 istovremeno otvorenih korisničkih datoteka, uz 3 sistemske"
           ],
           "correctAnswers": [
             "Maksimalno 8 znakova u nazivu datoteke i 3 znaka u ekstenziji (tipu)"
           ],
           "context": "MS-DOS koristi 8+3 sistem imenovanja: maksimalno 8 znakova u nazivu datoteke i obično 3 znaka u ekstenziji (tipu). Npr. PROBA.TXT: PROBA je naziv, TXT je tip/ekstenzija.",
           "details": [
+            "Brojevi 8 i 3 se odnose isključivo na dužinu imena i ekstenzije, ne na putanje, bajtove u FAT tabeli ni broj otvorenih datoteka.",
             "MS-DOS je jednokorisnički i jednozadaćni OS bez grafičkog interfejsa; prva verzija 1981, posljednja 6.22 iz 1994. Pristupa mu se preko 'command' ili 'CMD'.",
-            "MS-DOS ne pravi razliku između malih i velikih slova; nakon svake naredbe je obavezan ENTER.",
+            "MS-DOS ne pravi razliku između malih i velikih slova; nakon svake naredbe je obavezan ENTER; nije preporučljivo koristiti znakove Š, Ć, Č, Đ i Ž u imenima.",
             "Tipovi datoteka: programske (.EXE, .COM), komandne (.BAT), sistemske (.SYS), tekstualne (.TXT), zaštitne (.BAK).",
             "Prompt (C:\\>) označava spremnost za sljedeću naredbu."
           ],
@@ -346,16 +355,17 @@
           },
           "type": "single",
           "options": [
-            "* zamjenjuje jedan znak, ? zamjenjuje sve znakove",
-            "* zamjenjuje sve znakove u nazivu ili ekstenziji, ? zamjenjuje samo jedan znak",
-            "Oba zamjenjuju sve znakove",
-            "Oba se koriste za brisanje fajlova"
+            "* zamjenjuje sve znakove u nazivu ili ekstenziji, a ? zamjenjuje tačno jedan znak",
+            "? zamjenjuje sve znakove u nazivu ili ekstenziji, a * zamjenjuje tačno jedan znak",
+            "* zamjenjuje znakove samo u nazivu datoteke, a ? samo u njenoj ekstenziji",
+            "* i ? su ravnopravni: oba zamjenjuju proizvoljan broj znakova bilo gdje u imenu"
           ],
           "correctAnswers": [
-            "* zamjenjuje sve znakove u nazivu ili ekstenziji, ? zamjenjuje samo jedan znak"
+            "* zamjenjuje sve znakove u nazivu ili ekstenziji, a ? zamjenjuje tačno jedan znak"
           ],
           "context": "U MS-DOS-u zvjezdica (*) zamjenjuje sve znakove u nazivu ili ekstenziji, a upitnik (?) zamjenjuje samo jedan znak. Služe za zamjenu znakova u nazivu datoteke.",
           "details": [
+            "Uloge su obrnute od druge opcije, a oba znaka rade i u nazivu i u ekstenziji (nisu podijeljeni po dijelovima imena) i nisu ravnopravni (razlika je 'svi znakovi' vs 'tačno jedan').",
             "Primjeri: DIR *.EXE (izlista sve .EXE datoteke), DIR *.DO? (sve datoteke čija ekstenzija počinje sa 'do' + jedan znak), DEL *.BAK (obriše sve .BAK datoteke).",
             "Česte CMD naredbe: DIR (prikaz datoteka), CD/CHDIR (promjena direktorija), MD/MKDIR (kreiranje foldera), RD/RMDIR (brisanje praznog foldera), COPY, DEL/ERASE, REN/RENAME (preimenovanje fajla, ne foldera), MOVE, CLS (čišćenje ekrana), TREE (strukturni prikaz), FORMAT.",
             "HELP <naredba> daje opis naredbe."
@@ -380,18 +390,19 @@
           },
           "type": "single",
           "options": [
-            "Samo ukucati echo tekst",
-            "touch skripta.sh (napravi fajl) -> chmod +x skripta.sh (izvršna dozvola) -> upisati komande (npr. echo) u editoru -> pokrenuti sa ./skripta.sh",
-            "mkdir skripta.sh -> pokrenuti sa run",
-            "Nije moguće praviti skripte u Linuxu"
+            "touch skripta.sh (napravi fajl) → chmod +x skripta.sh (izvršna dozvola) → upisati komande (npr. echo) u editoru → pokrenuti sa ./skripta.sh",
+            "touch skripta.sh → upisati komande u editoru → prevesti skriptu u binarni fajl → pokrenuti dobijeni izvršni fajl",
+            "gedit skripta.sh → upisati komande i spasiti; dozvole nisu potrebne jer .sh ekstenzija sama čini fajl izvršnim",
+            "mkdir skripta.sh → chmod +r skripta.sh (dozvola čitanja) → upisati komande → pokrenuti duplim klikom"
           ],
           "correctAnswers": [
-            "touch skripta.sh (napravi fajl) -> chmod +x skripta.sh (izvršna dozvola) -> upisati komande (npr. echo) u editoru -> pokrenuti sa ./skripta.sh"
+            "touch skripta.sh (napravi fajl) → chmod +x skripta.sh (izvršna dozvola) → upisati komande (npr. echo) u editoru → pokrenuti sa ./skripta.sh"
           ],
           "context": "Koraci za shell skriptu: touch skripta.sh (napravi prazan .sh fajl), chmod +x skripta.sh (dodijeli izvršnu dozvolu za sve korisnike), otvori u editoru (npr. gedit) i upiši komande (npr. echo Hello world), pa pokreni sa ./skripta.sh.",
           "details": [
-            "Ekstenzija .sh označava shell fajl. Bitno je da svaka kategorija korisnika ima izvršnu (x) dozvolu.",
-            "echo ispisuje tekst; # označava komentar; clear/clear čisti ekran.",
+            "Skripta se ne prevodi u binarni fajl: shell je interpretira liniju po liniju; ekstenzija .sh je samo oznaka za ljude, a izvršnost daje tek x dozvola (chmod +x, ne +r).",
+            "mkdir pravi folder, ne fajl; zato prva komanda mora biti touch (ili direktno editor).",
+            "echo ispisuje tekst; # označava komentar; clear čisti ekran prije ispisa.",
             "Skripta je fajl unutar kojeg se nalazi niz komandi."
           ],
           "note": "Citat (V_OS_ShellFajl): 'touch ime_skripte.sh ... chmod +x ime_skripte.sh ... ./Helloworld.sh.'",
@@ -400,25 +411,26 @@
         {
           "id": "vj-14",
           "promptParts": {
-            "before": "Kako se u shell skripti ispisuje VRIJEDNOST varijable var, a kako se čita unos sa tastature?",
+            "before": "Kako se u shell skripti ispisuje vrijednost varijable var, a kako se čita unos sa tastature?",
             "blank": "",
             "after": ""
           },
           "type": "single",
           "options": [
-            "echo var (vrijednost) i print (unos)",
-            "echo $var (vrijednost - sa znakom $ ispred imena), a unos sa tastature komandom read",
-            "echo var (vrijednost) i input (unos)",
-            "print $var (vrijednost) i scan (unos)"
+            "echo $var (znak $ ispred imena varijable), a unos sa tastature komandom read",
+            "echo var (bez ikakvog znaka ispred imena), a unos sa tastature komandom input",
+            "echo %var% (znak % oko imena varijable), a unos sa tastature komandom read",
+            "print $var (komandom print), a unos sa tastature komandom scan"
           ],
           "correctAnswers": [
-            "echo $var (vrijednost - sa znakom $ ispred imena), a unos sa tastature komandom read"
+            "echo $var (znak $ ispred imena varijable), a unos sa tastature komandom read"
           ],
           "context": "Za ispis vrijednosti varijable koristi se echo sa znakom $ ispred imena: echo $var. Bez $ shell shvata ime kao običan string i ispisuje ga doslovno. Komanda read čita unos sa tastature i čuva vrijednost u varijabli (npr. read var1).",
           "details": [
+            "echo var (bez $) bi doslovno ispisao tekst 'var'; sintaksa %var% pripada Windows batch skriptama, a print/scan/input drugim programskim jezicima, ne bash-u.",
             "Dodjela vrijednosti: var='Hello World!' (bez razmaka oko =).",
             "Aritmetika: $((izraz)), npr. a1=2; echo $(($a1+5)) daje 7. Podržani operatori: +, -, *, /, ostatak, potenciranje, zagrade.",
-            "Rezervisane riječi (keywords): if, then, else, elif, fi, for, do, done, while, until, case, esac, select, function, in, time i drugi."
+            "Rezervisane riječi (keywords): if, then, else, elif, fi, for, do, done, while, until, case, esac, select, function, in, time i druge."
           ],
           "note": "Citat (V_OS_ShellFajl): 'ispred imena se piše znak $ ... varijablu var ćemo ispisati kao - echo $var ... Komanda read služi za čitanje ulaznih podataka sa tastature.'",
           "readMore": ["Vjezbe/V_OS_ShellFajl.pdf, str. 2-3 (varijable, read)"]
@@ -432,19 +444,21 @@
           },
           "type": "single",
           "options": [
-            "if (uslov) { } ; < ostaje <",
-            "if [ uslov ] / then / komande / fi ; operator < se zamjenjuje sa -lt (less than)",
-            "if uslov: ; < se zamjenjuje sa >",
-            "Nema if iskaza u shell-u"
+            "if [ uslov ], pa then, komande i fi na kraju; operator < se zamjenjuje sa -lt (less than)",
+            "if [ uslov ], pa then, komande i end na kraju; operator < se zamjenjuje sa -le (less or equal)",
+            "if (uslov) { komande }, kao u C-u; operator < se piše normalno, bez ikakve zamjene",
+            "if uslov: pa uvučene komande, kao u Pythonu; operator < se zamjenjuje sa lt (bez crtice)"
           ],
           "correctAnswers": [
-            "if [ uslov ] / then / komande / fi ; operator < se zamjenjuje sa -lt (less than)"
+            "if [ uslov ], pa then, komande i fi na kraju; operator < se zamjenjuje sa -lt (less than)"
           ],
-          "context": "Sintaksa if iskaza: if [ uslov ] pa then, komande, i fi na kraju. U testu se operator '<' zamjenjuje skraćenicom -lt (less than), npr. if [ $temp -lt 15 ]. Bitni su razmaci iza prve i ispred druge uglaste zagrade.",
+          "context": "Sintaksa if iskaza: if [ uslov ], pa then, komande, i fi na kraju. U testu se operator '<' zamjenjuje skraćenicom -lt (less than), npr. if [ $temp -lt 15 ]. Bitni su razmaci iza prve i ispred druge uglaste zagrade.",
           "details": [
+            "Blok se zatvara sa fi (obrnuto 'if'), ne sa end; a -lt (manje od) i -le (manje ili jednako) nisu isto, pa druga opcija griješi dvostruko.",
+            "Vitičaste zagrade i dvotačka sa uvlačenjem pripadaju C-u odnosno Pythonu, ne bash-u.",
             "Operatori poređenja: -lt (<), -le (<=), -gt (>), -ge (>=), -eq (=), -ne (!=).",
             "Petlje: while (ponavlja dok je uslov tačan), until (ponavlja dok uslov ne postane tačan), for (ponavlja određeni broj puta). For sintaksa: for var in niz/rang; do; naredbe; done (npr. for i in {1..3}).",
-            "Iskazi i petlje: if, while, until, for, case, select."
+            "Iskazi i petlje koje shell podržava: if, while, until, for, case, select."
           ],
           "note": "Citat (V_OS_ShellFajl): 'if [ uslov ] then komande fi ... umjesto znaka <, skraćenicu za less than (-lt) odnosno: if [ $temp -lt 15 ].'",
           "readMore": ["Vjezbe/V_OS_ShellFajl.pdf, str. 4-6 (if, petlje)"]

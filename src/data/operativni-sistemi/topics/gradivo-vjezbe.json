@@ -430,7 +430,7 @@
             "echo var (bez $) bi doslovno ispisao tekst 'var'; sintaksa %var% pripada Windows batch skriptama, a print/scan/input drugim programskim jezicima, ne bash-u.",
             "Dodjela vrijednosti: var='Hello World!' (bez razmaka oko =).",
             "Aritmetika: $((izraz)), npr. a1=2; echo $(($a1+5)) daje 7. Podržani operatori: +, -, *, /, ostatak, potenciranje, zagrade.",
-            "Rezervisane riječi (keywords): if, then, else, elif, fi, for, do, done, while, until, case, esac, select, function, in, time i druge."
+            "Rezervisane riječi (keywords): if, then, else, elif, fi, for, do, done, while, until, case, esac, select, coproc, function, in, time i druge."
           ],
           "note": "Citat (V_OS_ShellFajl): 'ispred imena se piše znak $ ... varijablu var ćemo ispisati kao - echo $var ... Komanda read služi za čitanje ulaznih podataka sa tastature.'",
           "readMore": ["Vjezbe/V_OS_ShellFajl.pdf, str. 2-3 (varijable, read)"]

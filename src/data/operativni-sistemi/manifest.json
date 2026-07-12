@@ -136,6 +136,12 @@
       "title": "Gradivo: Vježbe (Linux/CMD komande, procesi, korisnici, shell)",
       "file": "topics/gradivo-vjezbe.json",
       "custom": true
+    },
+    {
+      "topicId": "parcijala-zadnja",
+      "title": "Zadnja parcijala: sva pitanja",
+      "file": "topics/parcijala-zadnja.json",
+      "custom": true
     }
   ]
 }

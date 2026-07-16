@@ -1,7 +1,7 @@
 {
-  "topicId": "arhiva-2018-ostalo",
-  "title": "2018 ispit: ostalo (van gradiva)",
-  "custom": true,
+  "topicId": "classmarker-2018-van-gradiva",
+  "title": "ClassMarker 2018: van gradiva",
+  "description": "Ostatak istog testa: teme kojih više nema u gradivu (UNIX/BSD, RAID, mreže, Windows Server, Active Directory).",
   "sourcePdf": "Opšte znanje + Silberschatz/Tanenbaum (van trenutnih predavanja/vježbi)",
   "exercises": [
     {

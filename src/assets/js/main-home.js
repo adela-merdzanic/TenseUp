@@ -16,7 +16,7 @@ initTheme();
 wireThemeToggle();
 
 let pool = [];
-let topicsMeta = []; // [{ topicId, title }] in manifest order
+let topicsMeta = []; // [{ topicId, title, description }] in manifest order
 let essayCards = [];
 let essayCategories = [];
 
@@ -162,17 +162,23 @@ function renderTopicList() {
   const selected = getSettings().topicIds; // null = all selected
 
   qs("#topic-list").innerHTML = topicsMeta
-    .map(({ topicId, title }) => {
+    .map(({ topicId, title, description }) => {
       const entry = stats.get(topicId) || { total: 0, solved: 0 };
       const checked = !selected || selected.includes(topicId) ? "checked" : "";
       const doneClass =
         entry.total > 0 && entry.solved === entry.total
           ? " topic-row--done"
           : "";
+      const desc = description
+        ? `<span class="topic-desc">${escapeHtml(description)}</span>`
+        : "";
       return `
         <label class="topic-row${doneClass}">
           <input type="checkbox" value="${escapeHtml(topicId)}" ${checked} />
-          <span class="topic-name">${escapeHtml(title)}</span>
+          <span class="topic-text">
+            <span class="topic-name">${escapeHtml(title)}</span>
+            ${desc}
+          </span>
           <span class="topic-progress">${entry.solved}/${entry.total}</span>
         </label>`;
     })
@@ -276,6 +282,7 @@ async function init() {
     topicsMeta = topics.map((topic) => ({
       topicId: topic.topicId,
       title: topic.title,
+      description: topic.description,
     }));
     if (essayData) {
       essayCards = essayData.cards;

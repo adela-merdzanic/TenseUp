@@ -1,7 +1,7 @@
 {
-  "topicId": "arhiva-2018-zadrzati",
-  "title": "2018 ispit: za zadržati (u gradivu)",
-  "custom": true,
+  "topicId": "classmarker-2018",
+  "title": "ClassMarker 2018",
+  "description": "Pitanja sa ClassMarker testa iz 2018. čije su teme i danas u gradivu; odgovori određeni i objašnjeni prema aktuelnim materijalima.",
   "sourcePdf": "Upravljanje_procesima.pdf, RasporedjivanjeProcesa.pdf, Upravljanje_memorijom.pdf, Memorija2.pdf",
   "exercises": [
     {

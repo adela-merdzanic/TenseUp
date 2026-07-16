@@ -11,7 +11,7 @@ export function buildMixedPool(topics) {
           namespacedId: `${topic.topicId}::${question.id}`,
           topicId: topic.topicId,
           topicTitle: topic.title,
-          sourcePdf: topic.sourcePdf,
+          sourcePdf: exercise.sourcePdf || topic.sourcePdf,
           exerciseNumber: exercise.exerciseNumber,
           sourceTaskName: exercise.sourceTaskName,
         });

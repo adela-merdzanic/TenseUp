@@ -216,6 +216,25 @@
   flex: 1;
 }
 
+/* Quiz topic rows wrap the name and an optional description in a column;
+   the essay list keeps the bare .topic-name layout. */
+.topic-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.topic-text .topic-name {
+  flex: none;
+}
+
+.topic-desc {
+  color: var(--color-muted);
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+
 .topic-progress {
   color: var(--color-muted);
   font-size: 0.85rem;

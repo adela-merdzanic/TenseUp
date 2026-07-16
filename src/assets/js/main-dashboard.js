@@ -251,7 +251,7 @@ function wireOrder() {
 // the quiz/essay card for subjects that don't have that feature.
 function applySubject(config, hasQuiz, hasEssay) {
   if (config) {
-    document.title = `TenseUp - ${config.title}`;
+    document.title = `Recall - ${config.title}`;
     qs("#home-title").textContent = config.title;
     if (config.subtitle) qs("#home-subtitle").textContent = config.subtitle;
     qs("#grammar-card-label").textContent = config.quizLabel || "Practice";

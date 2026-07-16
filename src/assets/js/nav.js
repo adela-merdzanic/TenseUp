@@ -1,7 +1,7 @@
 // Header and in-page link wiring shared by every subject-scoped page. It
 // carries the active subject through internal links (marked data-nav), hides
 // links for features a subject does not have, and shows the subject name.
-// Links marked data-switch (e.g. "Subjects") always go to the picker.
+// Links marked data-switch (e.g. "Home") always go to the picker.
 import {
   getSubjectId,
   getSubjectConfig,
@@ -9,11 +9,10 @@ import {
   withSubject,
 } from "./subject.js";
 
-// Links that used to point at the old home (index.html) now lead to the
-// subject home; everything else just gains ?subject.
+// Internal links marked data-nav gain ?subject; links marked data-switch
+// (Home, the logo) lead to the subject picker untouched.
 function subjectHref(href, id) {
-  const target = href === "index.html" ? "home.html" : href;
-  return withSubject(target, id);
+  return withSubject(href, id);
 }
 
 async function setupNav() {
@@ -27,8 +26,9 @@ async function setupNav() {
 
   const id = getSubjectId();
 
+  // The logo always leads back to the subject picker.
   const logo = document.querySelector(".app-logo");
-  if (logo) logo.setAttribute("href", withSubject("home.html", id));
+  if (logo) logo.setAttribute("href", "index.html");
 
   document.querySelectorAll("[data-nav]").forEach((link) => {
     const feature = link.dataset.feature;

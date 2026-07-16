@@ -7,12 +7,12 @@
 // one reload later. MP3s are never re-fetched once cached, to spare mobile
 // data. Bump the version to force a full re-download.
 
-const CACHE_NAME = "tenseup-v2";
+const CACHE_NAME = "recall-v1";
 
 const CORE = [
   "./",
   "index.html",
-  "home.html",
+  "dashboard.html",
   "quiz.html",
   "rules.html",
   "theory.html",
@@ -34,7 +34,7 @@ const CORE = [
   "assets/js/essay-diagrams.js",
   "assets/js/essay-store.js",
   "assets/js/main-essay.js",
-  "assets/js/main-home.js",
+  "assets/js/main-dashboard.js",
   "assets/js/main-picker.js",
   "assets/js/main-quiz.js",
   "assets/js/main-static.js",

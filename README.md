@@ -1,4 +1,4 @@
-# TenseUp
+# Recall
 
 Randomized English grammar practice, built with plain HTML/CSS/JS (no build step, no dependencies).
 

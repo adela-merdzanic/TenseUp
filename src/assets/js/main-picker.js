@@ -98,7 +98,7 @@ function renderCard(config, stats) {
       ${subtitle}
       ${grammar}
       ${essay}
-      <a href="${withSubject("home.html", config.id)}" class="btn btn-primary btn-block">
+      <a href="${withSubject("dashboard.html", config.id)}" class="btn btn-primary btn-block">
         Open
       </a>
     </section>`;

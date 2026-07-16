@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1d2634" />
+    <title>Recall - Essay Theory</title>
+    <meta
+      name="description"
+      content="Read the theory behind the FIT English II essay questions in one place: operating systems, Linux, networks and the World Wide Web - then practise it as flashcards."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Recall" />
+    <meta property="og:title" content="Recall - Essay Theory" />
+    <meta
+      property="og:description"
+      content="Read the theory behind the FIT English II essay questions in one place: operating systems, Linux, networks and the World Wide Web - then practise it as flashcards."
+    />
+    <meta
+      property="og:url"
+      content="https://recall-fit.netlify.app/theory.html"
+    />
+    <meta
+      property="og:image"
+      content="https://recall-fit.netlify.app/assets/images/og-image.png"
+    />
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/images/favicon-32.png"
+    />
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("quizTheme");
+          var prefersDark =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+          if (saved === "dark" || (!saved && prefersDark)) {
+            document.documentElement.setAttribute("data-theme", "dark");
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" href="assets/css/variables.css" />
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/components.css" />
+    <link rel="stylesheet" href="assets/css/rules.css" />
+    <link rel="stylesheet" href="assets/css/essay.css" />
+    <link rel="stylesheet" href="assets/css/theory.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="index.html" class="app-logo">Recall</a>
+      <nav class="header-nav">
+        <a href="index.html" data-switch>Home</a>
+        <a href="dashboard.html" data-nav>Dashboard</a>
+        <a href="rules.html" data-nav data-feature="rules">Grammar rules</a>
+        <a href="theory.html" data-nav data-feature="theory" class="is-active"
+          >Essay theory</a
+        >
+        <a href="contribute.html" data-nav>Contribute</a>
+      </nav>
+      <button
+        type="button"
+        id="theme-toggle"
+        class="btn theme-toggle"
+        aria-label="Toggle dark mode"
+      >
+        🌙
+      </button>
+    </header>
+
+    <main class="container rules-screen">
+      <h1 id="theory-heading" tabindex="-1">Essay theory</h1>
+      <p class="rules-intro">
+        Everything the essay flashcards test, in one readable page.
+      </p>
+
+      <aside class="theory-sidebar">
+        <nav
+          class="theory-playlist"
+          id="theory-playlist"
+          aria-label="All cards"
+        ></nav>
+        <div id="listen-bar" class="listen-bar" hidden>
+          <div class="listen-controls">
+            <button
+              type="button"
+              id="listen-play"
+              class="btn btn-sm btn-primary"
+            ></button>
+            <button type="button" id="listen-select-all" class="btn btn-sm">
+              Clear all
+            </button>
+            <button
+              type="button"
+              id="listen-prev"
+              class="btn btn-sm listen-skip"
+              aria-label="Previous card"
+              title="Previous card"
+              hidden
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path d="M6 5h2v14H6zM20 5v14L9.5 12z" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              id="listen-toggle"
+              class="btn btn-sm listen-skip"
+              aria-label="Pause"
+              title="Pause"
+              hidden
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              id="listen-next"
+              class="btn btn-sm listen-skip"
+              aria-label="Next card"
+              title="Next card"
+              hidden
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path d="M16 5h2v14h-2zM4 5v14l10.5-7z" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              id="listen-stop"
+              class="btn btn-sm listen-skip"
+              aria-label="Stop"
+              title="Stop"
+              hidden
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path d="M6 6h12v12H6z" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              id="listen-replay"
+              class="btn btn-sm listen-skip"
+              aria-label="Replay this card"
+              title="Replay this card"
+              hidden
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"
+                />
+              </svg>
+            </button>
+            <button
+              type="button"
+              id="listen-rate"
+              class="btn btn-sm listen-rate"
+              aria-label="Playback speed"
+              title="Playback speed"
+            >
+              1x
+            </button>
+          </div>
+          <p class="listen-now" id="listen-now" aria-live="polite"></p>
+          <span class="listen-time listen-total" id="listen-total"></span>
+          <div class="listen-seek" id="listen-seek" hidden>
+            <span class="listen-time" id="listen-time-current">0:00</span>
+            <input
+              type="range"
+              id="listen-seek-input"
+              class="listen-seek-line"
+              min="0"
+              max="0"
+              step="0.1"
+              value="0"
+              aria-label="Seek within the current card"
+            />
+            <span class="listen-time" id="listen-time-total">0:00</span>
+          </div>
+        </div>
+      </aside>
+      <audio id="listen-audio" preload="none"></audio>
+
+      <nav class="rules-toc" id="theory-toc" aria-label="Topics"></nav>
+
+      <div id="theory-content"></div>
+
+      <div class="actions theory-cta">
+        <a href="dashboard.html" data-nav class="btn btn-primary"
+          >Practise as flashcards</a
+        >
+      </div>
+    </main>
+
+    <button
+      type="button"
+      id="back-to-top"
+      class="btn back-to-top"
+      aria-label="Back to top"
+    >
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+      Top
+    </button>
+
+    <footer class="app-footer">
+      <p>
+        © 2026 Recall · Open source under the MIT license ·
+        <a href="contribute.html">Contribute</a>
+      </p>
+    </footer>
+
+    <script type="module" src="assets/js/nav.js"></script>
+    <script type="module" src="assets/js/main-theory.js"></script>
+    <script type="module" src="assets/js/sw-register.js"></script>
+    <!-- Cloudflare Web Analytics -->
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "2d894505941446eaa9881d46d337e4bb"}'
+    ></script>
+    <!-- End Cloudflare Web Analytics -->
+  </body>
+</html>

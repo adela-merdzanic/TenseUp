@@ -108,7 +108,7 @@ a {
 
 /* Small square brand mark in front of the wordmark. */
 .app-logo::before {
-  content: "T";
+  content: "R";
   display: inline-flex;
   align-items: center;
   justify-content: center;

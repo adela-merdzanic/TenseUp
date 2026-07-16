@@ -1,0 +1,3 @@
+# Store and check out every text file with LF endings, matching Prettier's
+# expectations, so local checks and CI see identical content on any OS.
+* text=auto eol=lf

@@ -3,22 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TenseUp - Practice</title>
+    <meta name="theme-color" content="#1d2634" />
+    <title>Recall - Practice</title>
     <meta
       name="description"
       content="Practice session - randomized English grammar questions for the FIT English II exam."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="TenseUp" />
-    <meta property="og:title" content="TenseUp - Practice" />
+    <meta property="og:site_name" content="Recall" />
+    <meta property="og:title" content="Recall - Practice" />
     <meta
       property="og:description"
       content="Practice session - randomized English grammar questions for the FIT English II exam."
     />
-    <meta property="og:url" content="https://tense-up.netlify.app/quiz.html" />
+    <meta
+      property="og:url"
+      content="https://recall-fit.netlify.app/quiz.html"
+    />
     <meta
       property="og:image"
-      content="https://tense-up.netlify.app/assets/images/og-image.png"
+      content="https://recall-fit.netlify.app/assets/images/og-image.png"
     />
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
     <link
@@ -48,11 +52,13 @@
   </head>
   <body>
     <header class="app-header">
-      <a href="index.html" class="app-logo">TenseUp</a>
+      <a href="index.html" class="app-logo">Recall</a>
       <nav class="header-nav">
-        <a href="index.html">Home</a>
-        <a href="rules.html">Grammar rules</a>
-        <a href="contribute.html">Contribute</a>
+        <a href="index.html" data-switch>Home</a>
+        <a href="dashboard.html" data-nav>Dashboard</a>
+        <a href="rules.html" data-nav data-feature="rules">Grammar rules</a>
+        <a href="theory.html" data-nav data-feature="theory">Essay theory</a>
+        <a href="contribute.html" data-nav>Contribute</a>
       </nav>
       <button
         type="button"
@@ -71,11 +77,32 @@
       </div>
 
       <section id="question-screen" class="question-card" hidden>
+        <button
+          type="button"
+          id="uncertain-badge"
+          class="uncertain-badge"
+          hidden
+          aria-label="This answer is not fully confirmed in the course materials."
+        >
+          <svg
+            viewBox="0 0 24 24"
+            width="15"
+            height="15"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path
+              fill="currentColor"
+              d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
+            />
+          </svg>
+          <span class="uncertain-tooltip">
+            This answer is not fully confirmed in the course materials.
+          </span>
+        </button>
+        <div id="task-setup" class="task-setup" hidden></div>
         <p class="sentence" id="sentence"></p>
         <div id="options-form" class="options-list"></div>
-        <p id="select-hint" class="select-hint" hidden>
-          Please select an answer first.
-        </p>
         <div class="actions quiz-actions">
           <button
             type="button"
@@ -101,48 +128,80 @@
         </div>
         <div id="feedback" class="feedback" hidden>
           <p id="feedback-result" class="feedback-result"></p>
-          <p id="topic-tag" class="topic-tag"></p>
           <div id="rule-box" class="rule-box"></div>
+          <details class="feedback-more" id="feedback-more" hidden>
+            <summary>
+              More detail
+              <svg
+                class="chevron"
+                viewBox="0 0 24 24"
+                width="16"
+                height="16"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path
+                  fill="currentColor"
+                  d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                />
+              </svg>
+            </summary>
+            <div id="feedback-details" class="feedback-details"></div>
+          </details>
+          <div class="feedback-meta">
+            <p id="topic-tag" class="topic-tag"></p>
+            <p id="feedback-source" class="feedback-source" hidden></p>
+            <p id="feedback-note" class="feedback-note" hidden></p>
+            <div id="feedback-readmore" class="feedback-readmore" hidden>
+              <p class="feedback-readmore__label">Further reading</p>
+              <ul id="feedback-readmore-list"></ul>
+            </div>
+          </div>
         </div>
       </section>
 
       <section id="empty-screen" class="question-card" hidden>
         <p>
           You've solved every question in the selected topics - nice work! You
-          can pick other topics on the start screen, or reset your progress
-          below.
+          can pick other topics on the dashboard, or reset your progress below.
         </p>
         <button type="button" id="reset-from-empty-btn" class="btn btn-primary">
           Reset progress and practice again
         </button>
-        <a href="index.html" class="btn">Back to start</a>
+        <a href="dashboard.html" data-nav class="btn">Back to dashboard</a>
       </section>
 
       <section id="summary-screen" class="question-card" hidden>
         <h2>Session complete</h2>
         <p id="summary-text"></p>
         <div class="actions">
-          <a href="quiz.html" class="btn btn-primary">Practice again</a>
-          <a href="rules.html" class="btn">Grammar rules</a>
-          <a href="index.html" class="btn">Back to start</a>
+          <a href="quiz.html" data-nav class="btn btn-primary"
+            >Practice again</a
+          >
+          <a href="rules.html" data-nav data-feature="rules" class="btn"
+            >Grammar rules</a
+          >
+          <a href="dashboard.html" data-nav class="btn">Back to dashboard</a>
         </div>
         <div id="summary-review" class="summary-review"></div>
       </section>
 
       <section id="error-screen" class="question-card" hidden>
         <p id="error-text"></p>
-        <a href="index.html" class="btn">Back to start</a>
+        <a href="dashboard.html" data-nav class="btn">Back to dashboard</a>
       </section>
     </main>
 
     <footer class="app-footer">
       <p>
-        © 2026 TenseUp · Open source under the MIT license ·
+        © 2026 Recall · Open source under the MIT license ·
         <a href="contribute.html">Contribute</a>
       </p>
     </footer>
 
+    <script type="module" src="assets/js/nav.js"></script>
     <script type="module" src="assets/js/main-quiz.js"></script>
+    <script type="module" src="assets/js/sw-register.js"></script>
     <!-- Cloudflare Web Analytics -->
     <script
       defer

@@ -3,22 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TenseUp - Grammar Rules</title>
+    <meta name="theme-color" content="#1d2634" />
+    <title>Recall - Grammar Rules</title>
     <meta
       name="description"
       content="Grammar cheat sheet for the FIT English II exam: tenses, conditionals, participle clauses, irregular verbs, prepositions and more."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="TenseUp" />
-    <meta property="og:title" content="TenseUp - Grammar Rules" />
+    <meta property="og:site_name" content="Recall" />
+    <meta property="og:title" content="Recall - Grammar Rules" />
     <meta
       property="og:description"
       content="Grammar cheat sheet for the FIT English II exam: tenses, conditionals, participle clauses, irregular verbs, prepositions and more."
     />
-    <meta property="og:url" content="https://tense-up.netlify.app/rules.html" />
+    <meta
+      property="og:url"
+      content="https://recall-fit.netlify.app/rules.html"
+    />
     <meta
       property="og:image"
-      content="https://tense-up.netlify.app/assets/images/og-image.png"
+      content="https://recall-fit.netlify.app/assets/images/og-image.png"
     />
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
     <link
@@ -48,11 +52,15 @@
   </head>
   <body>
     <header class="app-header">
-      <a href="index.html" class="app-logo">TenseUp</a>
+      <a href="index.html" class="app-logo">Recall</a>
       <nav class="header-nav">
-        <a href="index.html">Home</a>
-        <a href="rules.html" class="is-active">Grammar rules</a>
-        <a href="contribute.html">Contribute</a>
+        <a href="index.html" data-switch>Home</a>
+        <a href="dashboard.html" data-nav>Dashboard</a>
+        <a href="rules.html" data-nav data-feature="rules" class="is-active"
+          >Grammar rules</a
+        >
+        <a href="theory.html" data-nav data-feature="theory">Essay theory</a>
+        <a href="contribute.html" data-nav>Contribute</a>
       </nav>
       <button
         type="button"
@@ -1235,8 +1243,8 @@
       </section>
 
       <div class="actions rules-actions">
-        <a href="quiz.html" class="btn btn-primary">Start practice</a>
-        <a href="index.html" class="btn">Back to start</a>
+        <a href="quiz.html" data-nav class="btn btn-primary">Start practice</a>
+        <a href="dashboard.html" data-nav class="btn">Back to dashboard</a>
       </div>
     </main>
 
@@ -1264,12 +1272,14 @@
 
     <footer class="app-footer">
       <p>
-        © 2026 TenseUp · Open source under the MIT license ·
+        © 2026 Recall · Open source under the MIT license ·
         <a href="contribute.html">Contribute</a>
       </p>
     </footer>
 
+    <script type="module" src="assets/js/nav.js"></script>
     <script type="module" src="assets/js/main-static.js"></script>
+    <script type="module" src="assets/js/sw-register.js"></script>
     <!-- Cloudflare Web Analytics -->
     <script
       defer

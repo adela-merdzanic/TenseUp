@@ -1,0 +1,24 @@
+{
+  "topics": [
+    {
+      "topicId": "prikupljena-pitanja",
+      "title": "Prikupljena pitanja",
+      "file": "topics/prikupljena-pitanja.json"
+    },
+    {
+      "topicId": "classmarker-2018",
+      "title": "ClassMarker 2018",
+      "file": "topics/classmarker-2018.json"
+    },
+    {
+      "topicId": "classmarker-2018-van-gradiva",
+      "title": "ClassMarker 2018: van gradiva",
+      "file": "topics/classmarker-2018-van-gradiva.json"
+    },
+    {
+      "topicId": "predavanja-vjezbe",
+      "title": "Predavanja i vježbe",
+      "file": "topics/predavanja-vjezbe.json"
+    }
+  ]
+}

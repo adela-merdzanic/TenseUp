@@ -3,25 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TenseUp - Use &amp; Contribute</title>
+    <meta name="theme-color" content="#1d2634" />
+    <title>Recall - Use &amp; Contribute</title>
     <meta
       name="description"
-      content="TenseUp is open source under the MIT license - use it, fork it for your own quiz, report wrong questions, or contribute improvements."
+      content="Recall is open source under the MIT license - use it, fork it for your own quiz, report wrong questions, or contribute improvements."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="TenseUp" />
-    <meta property="og:title" content="TenseUp - Use &amp; Contribute" />
+    <meta property="og:site_name" content="Recall" />
+    <meta property="og:title" content="Recall - Use &amp; Contribute" />
     <meta
       property="og:description"
-      content="TenseUp is open source under the MIT license - use it, fork it for your own quiz, report wrong questions, or contribute improvements."
+      content="Recall is open source under the MIT license - use it, fork it for your own quiz, report wrong questions, or contribute improvements."
     />
     <meta
       property="og:url"
-      content="https://tense-up.netlify.app/contribute.html"
+      content="https://recall-fit.netlify.app/contribute.html"
     />
     <meta
       property="og:image"
-      content="https://tense-up.netlify.app/assets/images/og-image.png"
+      content="https://recall-fit.netlify.app/assets/images/og-image.png"
     />
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
     <link
@@ -51,11 +52,13 @@
   </head>
   <body>
     <header class="app-header">
-      <a href="index.html" class="app-logo">TenseUp</a>
+      <a href="index.html" class="app-logo">Recall</a>
       <nav class="header-nav">
-        <a href="index.html">Home</a>
-        <a href="rules.html">Grammar rules</a>
-        <a href="contribute.html" class="is-active">Contribute</a>
+        <a href="index.html" data-switch>Home</a>
+        <a href="dashboard.html" data-nav>Dashboard</a>
+        <a href="rules.html" data-nav data-feature="rules">Grammar rules</a>
+        <a href="theory.html" data-nav data-feature="theory">Essay theory</a>
+        <a href="contribute.html" data-nav class="is-active">Contribute</a>
       </nav>
       <button
         type="button"
@@ -70,7 +73,7 @@
     <main class="container rules-screen">
       <h1>Use &amp; contribute</h1>
       <p class="rules-intro">
-        TenseUp is open source under the MIT license. This page explains what
+        Recall is open source under the MIT license. This page explains what
         you're free to do with it and how to propose a change - even if you've
         never contributed to a project before.
       </p>
@@ -155,14 +158,17 @@
           </li>
           <li>
             Push the branch to your fork and open a
-            <strong>pull request</strong> against <code>main</code>, describing
-            what you changed and why.
+            <strong>pull request</strong> against <code>develop</code>,
+            describing what you changed and why. The <code>main</code> branch
+            mirrors the deployed site, so changes are collected on
+            <code>develop</code> and released together.
           </li>
         </ol>
         <div class="tip tip--info">
           Small fix, like a typo in one question? You can edit the file directly
           on github.com - click the pencil icon on the file and GitHub creates
-          the fork, branch and pull request for you.
+          the fork, branch and pull request for you. Just pick
+          <code>develop</code> as the base branch on the pull request page.
         </div>
       </section>
 
@@ -186,12 +192,14 @@
 
     <footer class="app-footer">
       <p>
-        © 2026 TenseUp · Open source under the MIT license ·
+        © 2026 Recall · Open source under the MIT license ·
         <a href="contribute.html">Contribute</a>
       </p>
     </footer>
 
+    <script type="module" src="assets/js/nav.js"></script>
     <script type="module" src="assets/js/main-static.js"></script>
+    <script type="module" src="assets/js/sw-register.js"></script>
     <!-- Cloudflare Web Analytics -->
     <script
       defer

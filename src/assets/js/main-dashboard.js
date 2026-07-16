@@ -1,4 +1,5 @@
-import { loadAllTopics } from "./data-loader.js";
+import { loadAllTopics, loadEssayCards } from "./data-loader.js";
+import { getSubjectConfig, subjectHasFeature, withSubject } from "./subject.js";
 import { buildMixedPool } from "./quiz-engine.js";
 import { getSolvedIds, resetProgress } from "./progress-store.js";
 import {
@@ -15,7 +16,7 @@ initTheme();
 wireThemeToggle();
 
 let pool = [];
-let topicsMeta = []; // [{ topicId, title }] in manifest order
+let topicsMeta = []; // [{ topicId, title, description }] in manifest order
 let essayCards = [];
 let essayCategories = [];
 
@@ -142,22 +143,42 @@ function wireEssaySessionSize() {
   );
 }
 
+function wireEssayMode() {
+  const settings = getEssaySettings();
+  const current = qs(`input[name="essay-mode"][value="${settings.mode}"]`);
+  if (current) current.checked = true;
+
+  qsa('input[name="essay-mode"]').forEach((input) =>
+    input.addEventListener("change", () => {
+      const updated = getEssaySettings();
+      updated.mode = input.value === "write" ? "write" : "recall";
+      saveEssaySettings(updated);
+    }),
+  );
+}
+
 function renderTopicList() {
   const stats = computeTopicStats();
   const selected = getSettings().topicIds; // null = all selected
 
   qs("#topic-list").innerHTML = topicsMeta
-    .map(({ topicId, title }) => {
+    .map(({ topicId, title, description }) => {
       const entry = stats.get(topicId) || { total: 0, solved: 0 };
       const checked = !selected || selected.includes(topicId) ? "checked" : "";
       const doneClass =
         entry.total > 0 && entry.solved === entry.total
           ? " topic-row--done"
           : "";
+      const desc = description
+        ? `<span class="topic-desc">${escapeHtml(description)}</span>`
+        : "";
       return `
         <label class="topic-row${doneClass}">
           <input type="checkbox" value="${escapeHtml(topicId)}" ${checked} />
-          <span class="topic-name">${escapeHtml(title)}</span>
+          <span class="topic-text">
+            <span class="topic-name">${escapeHtml(title)}</span>
+            ${desc}
+          </span>
           <span class="topic-progress">${entry.solved}/${entry.total}</span>
         </label>`;
     })
@@ -212,27 +233,61 @@ function wireSessionSize() {
   );
 }
 
-async function loadEssayCards() {
-  const response = await fetch("data/essay-cards.json");
-  if (!response.ok) {
-    throw new Error(`Failed to load essay-cards.json (${response.status})`);
+function wireOrder() {
+  const settings = getSettings();
+  const current = qs(`input[name="order"][value="${settings.order}"]`);
+  if (current) current.checked = true;
+
+  qsa('input[name="order"]').forEach((input) =>
+    input.addEventListener("change", () => {
+      const updated = getSettings();
+      updated.order = input.value === "sequential" ? "sequential" : "shuffle";
+      saveSettings(updated);
+    }),
+  );
+}
+
+// Fill the hero, card title and start-button links from the subject, and hide
+// the quiz/essay card for subjects that don't have that feature.
+function applySubject(config, hasQuiz, hasEssay) {
+  if (config) {
+    document.title = `Recall - ${config.title}`;
+    qs("#home-title").textContent = config.title;
+    if (config.subtitle) qs("#home-subtitle").textContent = config.subtitle;
+    qs("#grammar-card-label").textContent = config.quizLabel || "Practice";
   }
-  return response.json();
+  qs("#start-btn").href = withSubject("quiz.html");
+  qs("#start-essay-btn").href = withSubject("essay.html");
+  if (!hasQuiz) qs("#grammar-card").hidden = true;
+  if (!hasEssay) qs("#essay-card").hidden = true;
 }
 
 async function init() {
+  let config = null;
+  try {
+    config = await getSubjectConfig();
+  } catch {
+    /* Fall back to whatever data the default subject can load. */
+  }
+  const hasQuiz = subjectHasFeature(config, "quiz");
+  const hasEssay = subjectHasFeature(config, "essay");
+  applySubject(config, hasQuiz, hasEssay);
+
   try {
     const [topics, essayData] = await Promise.all([
-      loadAllTopics(),
-      loadEssayCards(),
+      hasQuiz ? loadAllTopics(config) : Promise.resolve([]),
+      hasEssay ? loadEssayCards(config) : Promise.resolve(null),
     ]);
     pool = buildMixedPool(topics);
     topicsMeta = topics.map((topic) => ({
       topicId: topic.topicId,
       title: topic.title,
+      description: topic.description,
     }));
-    essayCards = essayData.cards;
-    essayCategories = essayData.categories;
+    if (essayData) {
+      essayCards = essayData.cards;
+      essayCategories = essayData.categories;
+    }
   } catch (err) {
     const statsText = qs("#stats-text");
     statsText.hidden = false;
@@ -243,7 +298,9 @@ async function init() {
   renderTopicList();
   renderEssayCategoryList();
   wireSessionSize();
+  wireOrder();
   wireEssaySessionSize();
+  wireEssayMode();
 }
 
 // Reset wipes stored progress, so it takes two clicks: the first arms the

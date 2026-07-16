@@ -11,6 +11,7 @@ export function buildMixedPool(topics) {
           namespacedId: `${topic.topicId}::${question.id}`,
           topicId: topic.topicId,
           topicTitle: topic.title,
+          sourcePdf: exercise.sourcePdf || topic.sourcePdf,
           exerciseNumber: exercise.exerciseNumber,
           sourceTaskName: exercise.sourceTaskName,
         });
@@ -34,6 +35,16 @@ export function filterUnsolved(pool) {
 
 export function shuffledSession(pool) {
   return shuffle(pool).map((question) => ({
+    ...question,
+    options: shuffle(question.options),
+  }));
+}
+
+// Keeps the pool (question) order but still shuffles each question's options,
+// so the "in order" setting and the ?q= deep link preserve which question you
+// are on while the answers stay randomized (correct answer is not a giveaway).
+export function sequentialSession(pool) {
+  return pool.map((question) => ({
     ...question,
     options: shuffle(question.options),
   }));

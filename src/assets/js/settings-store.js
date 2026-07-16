@@ -1,10 +1,14 @@
-const STORAGE_KEY = "quizSettings";
+import { subjectKey } from "./subject.js";
+
+const STORAGE_KEY = subjectKey("quizSettings");
 
 export const SHORT_SESSION_SIZE = 20;
 
 // topicIds: null means "all topics" (so newly added topics are included
 // automatically); an array means an explicit selection.
-const DEFAULTS = { sessionSize: "all", topicIds: null };
+// order: "shuffle" (random each session) or "sequential" (questions in the
+// order the manifest and files list them).
+const DEFAULTS = { sessionSize: "all", topicIds: null, order: "shuffle" };
 
 export function getSettings() {
   try {
@@ -14,6 +18,7 @@ export function getSettings() {
     return {
       sessionSize: parsed.sessionSize === "short" ? "short" : "all",
       topicIds: Array.isArray(parsed.topicIds) ? parsed.topicIds : null,
+      order: parsed.order === "sequential" ? "sequential" : "shuffle",
     };
   } catch {
     return { ...DEFAULTS };
@@ -28,13 +33,18 @@ export function saveSettings(settings) {
   }
 }
 
-const ESSAY_STORAGE_KEY = "essaySettings";
+const ESSAY_STORAGE_KEY = subjectKey("essaySettings");
 
 export const ESSAY_SHORT_SESSION_SIZE = 5;
 
 // categoryIds: null means "all categories" (so categories added later are
 // included automatically); an array means an explicit selection.
-const ESSAY_DEFAULTS = { sessionSize: "all", categoryIds: null };
+// mode: "recall" (read and answer out loud) or "write" (type the answer first).
+const ESSAY_DEFAULTS = {
+  sessionSize: "all",
+  categoryIds: null,
+  mode: "recall",
+};
 
 export function getEssaySettings() {
   try {
@@ -46,6 +56,7 @@ export function getEssaySettings() {
       categoryIds: Array.isArray(parsed.categoryIds)
         ? parsed.categoryIds
         : null,
+      mode: parsed.mode === "write" ? "write" : "recall",
     };
   } catch {
     return { ...ESSAY_DEFAULTS };

@@ -3,22 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TenseUp - Essay Prep</title>
+    <meta name="theme-color" content="#1d2634" />
+    <title>Recall - Essay Prep</title>
     <meta
       name="description"
       content="Flashcards for the FIT English II essay questions: operating systems, networks, the World Wide Web and more."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="TenseUp" />
-    <meta property="og:title" content="TenseUp - Essay Prep" />
+    <meta property="og:site_name" content="Recall" />
+    <meta property="og:title" content="Recall - Essay Prep" />
     <meta
       property="og:description"
       content="Flashcards for the FIT English II essay questions: operating systems, networks, the World Wide Web and more."
     />
-    <meta property="og:url" content="https://tense-up.netlify.app/essay.html" />
+    <meta
+      property="og:url"
+      content="https://recall-fit.netlify.app/essay.html"
+    />
     <meta
       property="og:image"
-      content="https://tense-up.netlify.app/assets/images/og-image.png"
+      content="https://recall-fit.netlify.app/assets/images/og-image.png"
     />
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
     <link
@@ -48,11 +52,13 @@
   </head>
   <body>
     <header class="app-header">
-      <a href="index.html" class="app-logo">TenseUp</a>
+      <a href="index.html" class="app-logo">Recall</a>
       <nav class="header-nav">
-        <a href="index.html">Home</a>
-        <a href="rules.html">Grammar rules</a>
-        <a href="contribute.html">Contribute</a>
+        <a href="index.html" data-switch>Home</a>
+        <a href="dashboard.html" data-nav>Dashboard</a>
+        <a href="rules.html" data-nav data-feature="rules">Grammar rules</a>
+        <a href="theory.html" data-nav data-feature="theory">Essay theory</a>
+        <a href="contribute.html" data-nav>Contribute</a>
       </nav>
       <button
         type="button"
@@ -88,6 +94,18 @@
           </div>
         </div>
         <h2 class="essay-question" id="card-question"></h2>
+
+        <div class="write-area" id="write-area" hidden>
+          <label class="write-label" for="write-input"
+            >Write your answer from memory</label
+          >
+          <textarea
+            id="write-input"
+            class="write-input"
+            rows="6"
+            placeholder="Type what you remember, then reveal the answer to compare and grade yourself."
+          ></textarea>
+        </div>
 
         <div id="card-answer" hidden>
           <ul class="answer-core" id="answer-core"></ul>
@@ -129,18 +147,20 @@
 
       <section id="error-screen" class="question-card" hidden>
         <p id="error-text"></p>
-        <a href="index.html" class="btn">Back to start</a>
+        <a href="dashboard.html" data-nav class="btn">Back to dashboard</a>
       </section>
     </main>
 
     <footer class="app-footer">
       <p>
-        © 2026 TenseUp · Open source under the MIT license ·
+        © 2026 Recall · Open source under the MIT license ·
         <a href="contribute.html">Contribute</a>
       </p>
     </footer>
 
+    <script type="module" src="assets/js/nav.js"></script>
     <script type="module" src="assets/js/main-essay.js"></script>
+    <script type="module" src="assets/js/sw-register.js"></script>
     <!-- Cloudflare Web Analytics -->
     <script
       defer

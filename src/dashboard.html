@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1d2634" />
+    <title>Recall - Dashboard</title>
+    <meta
+      name="description"
+      content="Randomized practice with progress tracking - grammar questions, essay flashcards and theory from your course materials."
+    />
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/images/favicon-32.png"
+    />
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("quizTheme");
+          var prefersDark =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+          if (saved === "dark" || (!saved && prefersDark)) {
+            document.documentElement.setAttribute("data-theme", "dark");
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" href="assets/css/variables.css" />
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/components.css" />
+    <link rel="stylesheet" href="assets/css/home.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="index.html" class="app-logo">Recall</a>
+      <nav class="header-nav">
+        <a href="index.html" data-switch>Home</a>
+        <a href="dashboard.html" data-nav class="is-active">Dashboard</a>
+        <a href="rules.html" data-nav data-feature="rules">Grammar rules</a>
+        <a href="theory.html" data-nav data-feature="theory">Essay theory</a>
+        <a href="contribute.html" data-nav>Contribute</a>
+      </nav>
+      <button
+        type="button"
+        id="theme-toggle"
+        class="btn theme-toggle"
+        aria-label="Toggle dark mode"
+      >
+        🌙
+      </button>
+    </header>
+
+    <main class="container home-screen">
+      <section class="hero">
+        <h1 class="app-title" id="home-title">Practice</h1>
+        <p class="app-subtitle" id="home-subtitle">
+          What you master drops out of the pool, so every session focuses on
+          what you don't know yet.
+        </p>
+        <p id="stats-text" class="stats-text" hidden></p>
+      </section>
+
+      <div class="home-grid">
+        <section
+          class="home-card setup-card card-grammar"
+          id="grammar-card"
+          aria-labelledby="setup-card-title"
+        >
+          <h2 class="card-title" id="setup-card-title">
+            <svg
+              class="card-icon"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <polyline points="9 11 12 14 22 4"></polyline>
+              <path
+                d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"
+              ></path>
+            </svg>
+            <span id="grammar-card-label">Grammar practice</span>
+          </h2>
+
+          <div class="mastery">
+            <div class="overall-bar">
+              <div class="overall-bar__fill" id="grammar-bar-fill"></div>
+            </div>
+            <div class="mastery-row">
+              <span class="mastery-stats">
+                <strong id="grammar-count">–</strong> mastered ·
+                <span id="grammar-percent">0%</span>
+              </span>
+              <button
+                type="button"
+                id="reset-btn"
+                class="btn btn-sm btn-reset"
+                title="Bring back the full question pool and start over"
+              >
+                Reset
+              </button>
+            </div>
+          </div>
+
+          <p class="card-desc">
+            Multiple-choice questions from the course exercises, shuffled across
+            your selected topics. Answer a question correctly and it is removed
+            from future sessions.
+          </p>
+
+          <div class="setup-group">
+            <h3 class="setup-title">Session length</h3>
+            <div class="choice-grid">
+              <label class="choice-card">
+                <input type="radio" name="session-size" value="all" checked />
+                <span class="choice-title">Full set</span>
+                <span class="choice-desc">All remaining questions</span>
+              </label>
+              <label class="choice-card">
+                <input type="radio" name="session-size" value="short" />
+                <span class="choice-title">Short session</span>
+                <span class="choice-desc">20 random questions</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="setup-group">
+            <h3 class="setup-title">Question order</h3>
+            <div class="choice-grid">
+              <label class="choice-card">
+                <input type="radio" name="order" value="shuffle" checked />
+                <span class="choice-title">Shuffled</span>
+                <span class="choice-desc">Random order each time</span>
+              </label>
+              <label class="choice-card">
+                <input type="radio" name="order" value="sequential" />
+                <span class="choice-title">In order</span>
+                <span class="choice-desc">Follow the course order</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="setup-group">
+            <div class="setup-heading-row">
+              <h3 class="setup-title">Topics</h3>
+              <div class="topic-bulk">
+                <span id="topic-count" class="topic-count"></span>
+                <button type="button" id="toggle-all-btn" class="btn btn-sm">
+                  Select all
+                </button>
+              </div>
+            </div>
+            <div id="topic-list" class="topic-list"></div>
+            <p id="topic-hint" class="select-hint" hidden>
+              Select at least one topic first.
+            </p>
+          </div>
+
+          <a href="quiz.html" id="start-btn" class="btn btn-primary btn-block"
+            >Start practice</a
+          >
+        </section>
+
+        <section
+          class="home-card setup-card card-essay"
+          id="essay-card"
+          aria-labelledby="essay-card-title"
+        >
+          <h2 class="card-title" id="essay-card-title">
+            <svg
+              class="card-icon"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+            Essay prep
+          </h2>
+
+          <div class="mastery">
+            <div class="overall-bar">
+              <div class="overall-bar__fill" id="essay-bar-fill"></div>
+            </div>
+            <div class="mastery-row">
+              <span class="mastery-stats">
+                <strong id="essay-count">–</strong> mastered ·
+                <span id="essay-percent">0%</span>
+              </span>
+              <button
+                type="button"
+                id="reset-essay-btn"
+                class="btn btn-sm btn-reset"
+                title="Bring back the full card deck and start over"
+              >
+                Reset
+              </button>
+            </div>
+          </div>
+
+          <p class="card-desc">
+            Flashcards for the essay questions: answer from memory, then grade
+            yourself. Three "Knew it" answers in a row count a card as mastered
+            and retire it from the deck. New to a topic?
+            <a href="theory.html" data-nav data-feature="theory"
+              >Read the theory first</a
+            >.
+          </p>
+
+          <div class="setup-group">
+            <h3 class="setup-title">Study mode</h3>
+            <div class="choice-grid">
+              <label class="choice-card">
+                <input type="radio" name="essay-mode" value="recall" checked />
+                <span class="choice-title">Recall</span>
+                <span class="choice-desc">Answer out loud, then grade</span>
+              </label>
+              <label class="choice-card">
+                <input type="radio" name="essay-mode" value="write" />
+                <span class="choice-title">Write</span>
+                <span class="choice-desc">Type your answer, then grade</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="setup-group">
+            <h3 class="setup-title">Session length</h3>
+            <div class="choice-grid">
+              <label class="choice-card">
+                <input
+                  type="radio"
+                  name="essay-session-size"
+                  value="all"
+                  checked
+                />
+                <span class="choice-title">Full deck</span>
+                <span class="choice-desc">All remaining cards</span>
+              </label>
+              <label class="choice-card">
+                <input type="radio" name="essay-session-size" value="short" />
+                <span class="choice-title">Short session</span>
+                <span class="choice-desc">5 cards you know least</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="setup-group">
+            <div class="setup-heading-row">
+              <h3 class="setup-title">Topics</h3>
+              <div class="topic-bulk">
+                <span id="essay-topic-count" class="topic-count"></span>
+                <button
+                  type="button"
+                  id="essay-toggle-all-btn"
+                  class="btn btn-sm"
+                >
+                  Select all
+                </button>
+              </div>
+            </div>
+            <div id="essay-topic-list" class="topic-list"></div>
+            <p id="essay-topic-hint" class="select-hint" hidden>
+              Select at least one topic first.
+            </p>
+          </div>
+
+          <a
+            href="essay.html"
+            id="start-essay-btn"
+            class="btn btn-primary btn-block"
+            >Start flashcards</a
+          >
+        </section>
+      </div>
+    </main>
+
+    <footer class="app-footer">
+      <p>
+        © 2026 Recall · Open source under the MIT license ·
+        <a href="contribute.html">Contribute</a>
+      </p>
+    </footer>
+
+    <script type="module" src="assets/js/nav.js"></script>
+    <script type="module" src="assets/js/main-dashboard.js"></script>
+    <script type="module" src="assets/js/sw-register.js"></script>
+    <!-- Cloudflare Web Analytics -->
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "2d894505941446eaa9881d46d337e4bb"}'
+    ></script>
+    <!-- End Cloudflare Web Analytics -->
+  </body>
+</html>

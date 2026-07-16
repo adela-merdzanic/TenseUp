@@ -1,0 +1,4 @@
+# CHANGELOG.md is written by the Release Please bot directly to main, in a
+# style Prettier disagrees with (e.g. "*" list bullets). Skip it in checks so
+# every release does not turn CI red.
+CHANGELOG.md

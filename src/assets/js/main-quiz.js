@@ -25,7 +25,6 @@ import {
 import {
   renderQuestion,
   getSelectedOptions,
-  showSelectHint,
   renderFeedback,
   renderNavButtons,
   renderProgress,
@@ -122,11 +121,9 @@ function onCheck(state) {
   if (currentHistory(state)) return; // already answered - ignore duplicate/rapid triggers
 
   const question = currentQuestion(state);
+  // An empty selection is allowed on purpose: "I don't know, show me" counts
+  // as a wrong answer and reveals the correct options.
   const selected = getSelectedOptions();
-  if (selected.length === 0) {
-    showSelectHint();
-    return;
-  }
 
   const result = checkAnswer(question, selected);
   result.selected = selected;

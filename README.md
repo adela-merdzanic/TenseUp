@@ -2,7 +2,7 @@
 
 Randomized exam practice for FIT courses, built with plain HTML/CSS/JS (no build step, no dependencies). Currently covers two subjects: **English II** (grammar practice, essay flashcards and theory) and **Operativni sistemi** (theory questions from the lectures and labs).
 
-**Live demo:** <https://tense-up.netlify.app/>
+**Live demo:** <https://recall-fit.netlify.app/>
 
 ## Features
 

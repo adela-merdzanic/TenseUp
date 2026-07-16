@@ -580,8 +580,9 @@
             "Znak + je sigurnije staviti pod navodnike da se ne tumači posebno.",
             "Ista logika razmaka važi i za numeričke testove: if [ $temp -lt 15 ], sa razmacima oko svih dijelova."
           ],
-          "note": "Vježbe (V_OS_ShellFajl): 'ne zaboravite razmake iza prve uglaste zagrade i ispred druge uglaste zagrade.'",
-          "readMore": ["Vjezbe/V_OS_ShellFajl.pdf, str. 4-5 (if iskaz)"]
+          "note": "Odgovor zavisi od razmaka u izvornom zadatku: ovako kako je prepisano (bez razmaka oko [ i ]) nijedna opcija nije sintaksno ispravna, pa je tačno 'ništa od navedenog'; ako je na ispitu pisalo if [ $operacija = '+' ] sa razmacima, tačna je varijanta sa '+' pod navodnicima. Vježbe (V_OS_ShellFajl): 'ne zaboravite razmake iza prve uglaste zagrade i ispred druge uglaste zagrade.'",
+          "readMore": ["Vjezbe/V_OS_ShellFajl.pdf, str. 4-5 (if iskaz)"],
+          "uncertain": true
         },
         {
           "id": "par-24",
@@ -621,7 +622,7 @@
               ]
             }
           },
-          "options": ["3", "7", "0", "ništa", "24"],
+          "options": ["3", "7", "0", "ništa od navedenog", "24"],
           "correctAnswers": ["0"],
           "context": "Kod FCFS-a procesi dobijaju procesor redoslijedom dolaska. P1 je prvi u redu, pa odmah dobija procesor i njegovo vrijeme čekanja je 0 ms.",
           "details": [

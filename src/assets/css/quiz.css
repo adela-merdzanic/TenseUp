@@ -1,4 +1,5 @@
 .question-card {
+  position: relative;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
@@ -6,6 +7,60 @@
   margin-top: calc(var(--spacing-unit) * 3);
   box-shadow: var(--shadow-card);
   transition: background-color 0.15s ease;
+}
+
+/* Corner badge for exam-transcribed questions whose official answer is not
+   fully confirmed in the materials. Hover/tap reveals the explanation. */
+.uncertain-badge {
+  position: absolute;
+  top: calc(var(--spacing-unit) * 1.5);
+  right: calc(var(--spacing-unit) * 1.5);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid var(--color-missed);
+  border-radius: 999px;
+  background: var(--color-missed-bg);
+  color: var(--color-missed);
+  font-size: 0.95rem;
+  line-height: 1;
+  cursor: help;
+  z-index: 2;
+}
+
+.uncertain-badge[hidden] {
+  display: none;
+}
+
+.uncertain-tooltip {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: max-content;
+  max-width: min(280px, 72vw);
+  padding: calc(var(--spacing-unit)) calc(var(--spacing-unit) * 1.5);
+  border-radius: var(--radius);
+  background: var(--color-header-bg);
+  color: var(--color-header-text);
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1.45;
+  text-align: left;
+  box-shadow: var(--shadow-card);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.uncertain-badge:hover .uncertain-tooltip,
+.uncertain-badge:focus .uncertain-tooltip {
+  opacity: 1;
+  visibility: visible;
 }
 
 .sentence {
@@ -154,45 +209,91 @@
 .feedback-result {
   font-weight: 700;
   font-size: 1.1rem;
+  margin-bottom: calc(var(--spacing-unit) * 1.5);
 }
 
 .feedback-result.is-correct {
   color: var(--color-correct);
 }
 
+.feedback-result.is-correct::before {
+  content: "✓ ";
+}
+
 .feedback-result.is-incorrect {
   color: var(--color-incorrect);
 }
 
-.topic-tag {
-  font-size: 0.85rem;
-  color: var(--color-muted);
+.feedback-result.is-incorrect::before {
+  content: "✕ ";
 }
 
+/* The main explanation: the one block that should actually get read. */
 .rule-box {
-  margin-top: calc(var(--spacing-unit));
   background: var(--color-surface-2);
   border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-primary);
   border-radius: var(--radius);
-  padding: calc(var(--spacing-unit) * 1.5);
+  padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2);
+  line-height: 1.55;
 }
 
-/* "Show more" disclosure with the wider context (mirrors essay .answer-more). */
+/* "More detail" disclosure with the wider context, styled as a button so it
+   reads as clickable rather than as more small print. */
 .feedback-more {
   margin-top: calc(var(--spacing-unit) * 1.5);
 }
 
 .feedback-more summary {
-  cursor: pointer;
-  color: var(--color-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--spacing-unit) * 0.75);
+  padding: calc(var(--spacing-unit)) calc(var(--spacing-unit) * 2.25);
+  border: 1px solid
+    color-mix(in srgb, var(--color-primary) 35%, var(--color-border));
+  border-radius: 999px;
+  background: color-mix(
+    in srgb,
+    var(--color-primary) 10%,
+    var(--color-surface)
+  );
+  color: var(--color-primary);
   font-size: 0.9rem;
   font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.feedback-more summary::-webkit-details-marker {
+  display: none;
+}
+
+.feedback-more summary .chevron {
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.feedback-more[open] summary .chevron {
+  transform: rotate(180deg);
+}
+
+.feedback-more summary:hover {
+  border-color: var(--color-primary);
+  background: color-mix(
+    in srgb,
+    var(--color-primary) 16%,
+    var(--color-surface)
+  );
 }
 
 .feedback-details {
-  margin-top: var(--spacing-unit);
+  margin-top: calc(var(--spacing-unit) * 1.5);
   font-size: 0.95rem;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 .feedback-details p {
@@ -201,23 +302,64 @@
 
 .feedback-details ul {
   margin: 0;
-  padding-left: 1.2rem;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--spacing-unit));
 }
 
+/* Every point is its own mini card. */
 .feedback-details li {
-  margin-bottom: calc(var(--spacing-unit) / 2);
+  position: relative;
+  padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 1.5)
+    calc(var(--spacing-unit) * 1.5) 2.1rem;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
 }
 
-/* Small print under the explanation: source PDF and, when present, the note. */
+/* Small diamond marker in front of every point. */
+.feedback-details li::before {
+  content: "";
+  position: absolute;
+  left: 0.95rem;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  border-radius: 2px;
+  background: var(--color-primary);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+/* Small print grouped at the bottom: topic, source PDF, note, further reading.
+   Separated by a hairline so it stops competing with the explanation. */
+.feedback-meta {
+  margin-top: calc(var(--spacing-unit) * 2);
+  padding-top: calc(var(--spacing-unit) * 1.5);
+  border-top: 1px solid var(--color-border);
+}
+
+.topic-tag {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  line-height: 1.4;
+}
+
 .feedback-source {
-  margin-top: calc(var(--spacing-unit));
+  margin-top: calc(var(--spacing-unit) * 0.5);
   font-size: 0.8rem;
   line-height: 1.4;
   color: var(--color-muted);
 }
 
-.feedback-source + .feedback-source {
-  margin-top: calc(var(--spacing-unit) * 0.5);
+.feedback-note {
+  margin-top: calc(var(--spacing-unit));
+  font-size: 0.8rem;
+  line-height: 1.45;
+  font-style: italic;
+  color: var(--color-muted);
 }
 
 /* "Further reading" pointers to material sections and pages. */

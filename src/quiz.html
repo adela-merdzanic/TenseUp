@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1d2634" />
     <title>Recall - Practice</title>
     <meta
       name="description"
@@ -15,10 +16,13 @@
       property="og:description"
       content="Practice session - randomized English grammar questions for the FIT English II exam."
     />
-    <meta property="og:url" content="https://tense-up.netlify.app/quiz.html" />
+    <meta
+      property="og:url"
+      content="https://recall-fit.netlify.app/quiz.html"
+    />
     <meta
       property="og:image"
-      content="https://tense-up.netlify.app/assets/images/og-image.png"
+      content="https://recall-fit.netlify.app/assets/images/og-image.png"
     />
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
     <link
@@ -73,12 +77,32 @@
       </div>
 
       <section id="question-screen" class="question-card" hidden>
+        <button
+          type="button"
+          id="uncertain-badge"
+          class="uncertain-badge"
+          hidden
+          aria-label="This answer is not fully confirmed in the course materials."
+        >
+          <svg
+            viewBox="0 0 24 24"
+            width="15"
+            height="15"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path
+              fill="currentColor"
+              d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
+            />
+          </svg>
+          <span class="uncertain-tooltip">
+            This answer is not fully confirmed in the course materials.
+          </span>
+        </button>
         <div id="task-setup" class="task-setup" hidden></div>
         <p class="sentence" id="sentence"></p>
         <div id="options-form" class="options-list"></div>
-        <p id="select-hint" class="select-hint" hidden>
-          Please select an answer first.
-        </p>
         <div class="actions quiz-actions">
           <button
             type="button"
@@ -104,17 +128,34 @@
         </div>
         <div id="feedback" class="feedback" hidden>
           <p id="feedback-result" class="feedback-result"></p>
-          <p id="topic-tag" class="topic-tag"></p>
           <div id="rule-box" class="rule-box"></div>
           <details class="feedback-more" id="feedback-more" hidden>
-            <summary>Show more</summary>
+            <summary>
+              More detail
+              <svg
+                class="chevron"
+                viewBox="0 0 24 24"
+                width="16"
+                height="16"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path
+                  fill="currentColor"
+                  d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                />
+              </svg>
+            </summary>
             <div id="feedback-details" class="feedback-details"></div>
           </details>
-          <p id="feedback-source" class="feedback-source" hidden></p>
-          <p id="feedback-note" class="feedback-source" hidden></p>
-          <div id="feedback-readmore" class="feedback-readmore" hidden>
-            <p class="feedback-readmore__label">Further reading</p>
-            <ul id="feedback-readmore-list"></ul>
+          <div class="feedback-meta">
+            <p id="topic-tag" class="topic-tag"></p>
+            <p id="feedback-source" class="feedback-source" hidden></p>
+            <p id="feedback-note" class="feedback-note" hidden></p>
+            <div id="feedback-readmore" class="feedback-readmore" hidden>
+              <p class="feedback-readmore__label">Further reading</p>
+              <ul id="feedback-readmore-list"></ul>
+            </div>
           </div>
         </div>
       </section>
@@ -122,13 +163,12 @@
       <section id="empty-screen" class="question-card" hidden>
         <p>
           You've solved every question in the selected topics - nice work! You
-          can pick other topics on the start screen, or reset your progress
-          below.
+          can pick other topics on the dashboard, or reset your progress below.
         </p>
         <button type="button" id="reset-from-empty-btn" class="btn btn-primary">
           Reset progress and practice again
         </button>
-        <a href="index.html" data-nav class="btn">Back to start</a>
+        <a href="dashboard.html" data-nav class="btn">Back to dashboard</a>
       </section>
 
       <section id="summary-screen" class="question-card" hidden>
@@ -141,14 +181,14 @@
           <a href="rules.html" data-nav data-feature="rules" class="btn"
             >Grammar rules</a
           >
-          <a href="index.html" data-nav class="btn">Back to start</a>
+          <a href="dashboard.html" data-nav class="btn">Back to dashboard</a>
         </div>
         <div id="summary-review" class="summary-review"></div>
       </section>
 
       <section id="error-screen" class="question-card" hidden>
         <p id="error-text"></p>
-        <a href="index.html" data-nav class="btn">Back to start</a>
+        <a href="dashboard.html" data-nav class="btn">Back to dashboard</a>
       </section>
     </main>
 

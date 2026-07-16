@@ -34,7 +34,7 @@ function applyFeedbackClasses(question, selected) {
 function showFeedbackPanel(result, question) {
   qs("#feedback-result").textContent = result.isCorrect
     ? "Correct!"
-    : "Not quite.";
+    : "Not correct.";
   qs("#feedback-result").className =
     `feedback-result ${result.isCorrect ? "is-correct" : "is-incorrect"}`;
   qs("#topic-tag").textContent =
@@ -91,7 +91,11 @@ export function renderQuestion(question, historyEntry) {
   qs("#question-screen").hidden = false;
   qs("#empty-screen").hidden = true;
   qs("#summary-screen").hidden = true;
-  qs("#select-hint").hidden = true;
+
+  // Questions transcribed from exams whose official answer clashes with the
+  // materials carry an `uncertain` flag; show the corner badge right away so
+  // the answer is taken with a grain of salt.
+  qs("#uncertain-badge").hidden = !question.uncertain;
 
   renderTaskSetup(question);
 
@@ -165,13 +169,7 @@ export function getSelectedOptions() {
   );
 }
 
-export function showSelectHint() {
-  qs("#select-hint").hidden = false;
-}
-
 export function renderFeedback(result, question) {
-  qs("#select-hint").hidden = true;
-
   const form = qs("#options-form");
   form.querySelectorAll("input").forEach((input) => (input.disabled = true));
 
@@ -215,7 +213,7 @@ function renderReviewMarkup(mistakes) {
     return `
       <article class="review-item">
         <p class="review-sentence">${escapeHtml(question.promptParts.before)}<span class="review-answer">${correct}</span>${escapeHtml(question.promptParts.after)}</p>
-        <p class="review-yours">Your answer: ${selected.map(escapeHtml).join(", ")}</p>
+        <p class="review-yours">Your answer: ${selected.length ? selected.map(escapeHtml).join(", ") : "(no answer)"}</p>
         <div class="rule-box">${escapeHtml(question.context || question.grammarRule)}</div>
       </article>`;
   });

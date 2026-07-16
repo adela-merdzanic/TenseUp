@@ -73,7 +73,13 @@ async function start() {
     }
   }
 
-  const pool = filterByTopics(fullPool, settings.topicIds);
+  // A user who never chose topics practices just the first one by default;
+  // null (explicit "all") and stored selections pass through unchanged.
+  const topicIds =
+    settings.topicIds === undefined && topics.length > 0
+      ? [topics[0].topicId]
+      : settings.topicIds;
+  const pool = filterByTopics(fullPool, topicIds);
   const unsolved = filterUnsolved(pool);
 
   if (unsolved.length === 0) {

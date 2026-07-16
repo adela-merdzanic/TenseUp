@@ -159,12 +159,17 @@ function wireEssayMode() {
 
 function renderTopicList() {
   const stats = computeTopicStats();
-  const selected = getSettings().topicIds; // null = all selected
+  // undefined = never chosen (default to the first topic), null = all selected.
+  const selected = getSettings().topicIds;
 
   qs("#topic-list").innerHTML = topicsMeta
-    .map(({ topicId, title, description }) => {
+    .map(({ topicId, title, description }, index) => {
       const entry = stats.get(topicId) || { total: 0, solved: 0 };
-      const checked = !selected || selected.includes(topicId) ? "checked" : "";
+      const isSelected =
+        selected === undefined
+          ? index === 0
+          : !selected || selected.includes(topicId);
+      const checked = isSelected ? "checked" : "";
       const doneClass =
         entry.total > 0 && entry.solved === entry.total
           ? " topic-row--done"

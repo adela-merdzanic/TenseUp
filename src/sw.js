@@ -1,6 +1,8 @@
-// Offline support: on the first visit the worker downloads the whole site -
-// pages, styles, scripts, quiz data and every narration MP3 - into Cache
-// Storage, so studying keeps working without a connection.
+// Offline support: on the first visit the worker downloads the site - pages,
+// styles, scripts and quiz data - into Cache Storage, so studying keeps
+// working without a connection. Narration MP3s are the exception: they are
+// large, so they only start downloading (in the background) when the theory
+// page that plays them is actually visited.
 //
 // Strategy: everything is served cache-first. Small files (pages, CSS, JS,
 // JSON) are re-fetched in the background on every use, so a deploy shows up
@@ -74,15 +76,46 @@ async function extraUrls() {
     }
     if (subject.features && subject.features.includes("essay")) {
       urls.push(`data/${dir}/essay-cards.json`);
-      try {
-        const data = await (await fetch(`data/${dir}/essay-cards.json`)).json();
-        urls.push(...data.cards.map((card) => `assets/voice/${card.id}.mp3`));
-      } catch {
-        /* This subject's narration stays online-only. */
-      }
     }
   }
   return urls;
+}
+
+// Narration MP3s for every essay subject. Not precached at install time -
+// downloading starts when the theory page is visited (see the fetch handler).
+async function narrationUrls() {
+  const urls = [];
+  let subjects = [];
+  try {
+    subjects = (await (await fetch("data/subjects.json")).json()).subjects;
+  } catch {
+    return urls;
+  }
+  for (const subject of subjects) {
+    if (!subject.features || !subject.features.includes("essay")) continue;
+    const dir = subject.dir || subject.id;
+    try {
+      const data = await (await fetch(`data/${dir}/essay-cards.json`)).json();
+      urls.push(...data.cards.map((card) => `assets/voice/${card.id}.mp3`));
+    } catch {
+      /* This subject's narration stays online-only. */
+    }
+  }
+  return urls;
+}
+
+async function precacheNarration() {
+  const cache = await caches.open(CACHE_NAME);
+  // Cached one by one and never re-fetched: a card without a narration file
+  // or a dropped connection must not break the ones that succeed.
+  await Promise.allSettled(
+    (await narrationUrls()).map(async (url) => {
+      if (await cache.match(url)) return;
+      const response = await fetch(url);
+      if (response.ok && response.status === 200)
+        await cache.put(url, response);
+    }),
+  );
 }
 
 async function precache() {
@@ -194,6 +227,12 @@ self.addEventListener("fetch", (event) => {
   }
 
   if (request.method !== "GET") return;
+
+  // Visiting the theory page is what triggers the narration download; the
+  // files land in the cache in the background while the page is used.
+  if (request.mode === "navigate" && url.pathname.endsWith("/theory.html")) {
+    event.waitUntil(precacheNarration());
+  }
 
   if (url.pathname.endsWith(".mp3")) {
     event.respondWith(serveAudio(request));

@@ -4,11 +4,12 @@ const STORAGE_KEY = subjectKey("quizSettings");
 
 export const SHORT_SESSION_SIZE = 20;
 
-// topicIds: null means "all topics" (so newly added topics are included
+// topicIds: undefined means "never chosen" (the UI then defaults to the first
+// topic only); null means "all topics" (so newly added topics are included
 // automatically); an array means an explicit selection.
 // order: "shuffle" (random each session) or "sequential" (questions in the
 // order the manifest and files list them).
-const DEFAULTS = { sessionSize: "all", topicIds: null, order: "shuffle" };
+const DEFAULTS = { sessionSize: "all", topicIds: undefined, order: "shuffle" };
 
 export function getSettings() {
   try {

@@ -1,27 +1,29 @@
 # Recall
 
-Randomized English grammar practice, built with plain HTML/CSS/JS (no build step, no dependencies).
+Randomized exam practice for FIT courses, built with plain HTML/CSS/JS (no build step, no dependencies). Currently covers two subjects: **English II** (grammar practice, essay flashcards and theory) and **Operativni sistemi** (theory questions from the lectures and labs).
 
 **Live demo:** <https://tense-up.netlify.app/>
 
 ## Features
 
-- Questions from all topics are merged and shuffled into one pool, like the real exam.
-- Choose between a full session (every remaining question) or a short session of 20 questions, and pick which topics to practice — settings persist in `localStorage`.
-- Single-answer (radio) and multiple-answer (checkbox) questions, with the grammar rule shown after each answer.
-- End-of-session review: every mistake is listed with the correct answer and the relevant rule.
-- A hand-written grammar cheat sheet (`rules.html`) covering the areas the exercises test: tenses, future forms, conditionals, participle clauses, both/either/neither, passive, modals, prepositions, collocations, question formation, the e-/cyber- prefixes, and an irregular-verbs table (all verbs used in the exercises + other common ones).
-- Essay-prep flashcards (`essay.html`) for the descriptive exam questions (operating systems, networks, WWW): active-recall cards with self-grading, compact "exam answer" bullets, mnemonics, topology diagrams, and Leitner-style repetition (cards you don't know come back first; three "Knew it" answers master a card). The topic area is chosen on the start screen, like the grammar topics. Two study modes: recall (answer out loud) or write (type your answer before revealing).
-- Essay theory page (`theory.html`) that renders the same content as one readable article, grouped by topic, so you can learn the material before drilling it as flashcards. It is generated from `essay-cards.json`, so it never drifts from the cards.
-- Audio narration on the theory page: pre-made MP3s in `src/assets/voice/`, one per card, played like a podcast. Every narrated card has an include-checkbox (all selected by default, with a select all/clear all toggle) and Play walks the selection in page order, while a per-card Listen button plays the whole narrated list from that card's position. Pause, previous/next card, stop, and a tap-to-cycle speed chip (0.75x-2x) included. A card's file must be named `<card-id>.mp3` - the page detects which files exist, so partial coverage works and adding narration for a new card needs no code changes.
-- Correctly answered questions are excluded from future sessions (tracked in `localStorage`), with per-topic progress shown on the start screen.
-- You can navigate back to review already-answered questions in the current session.
+- Multi-subject: the start screen (`index.html`) lists the subjects, each with its own dashboard, data folder and feature set. Subjects are declared in `src/data/subjects.json` - adding one requires no code changes.
+- Per-subject dashboard (`dashboard.html`): overall progress, session setup and topic selection, with a short description and progress counter per topic.
+- Questions from the selected topics are merged and shuffled into one pool, like the real exam. Answer options are shuffled too, even in the "in order" mode.
+- Choose between a full session (every remaining question) or a short session of 20 questions - settings persist per subject in `localStorage`.
+- Single-answer (radio) and multiple-answer (checkbox) questions. After each answer: a short explanation, an optional "Show more" with details (typically why each wrong option is wrong), the source material and further-reading pointers.
+- End-of-session review: every mistake is listed with the correct answer and the relevant explanation.
+- Offline support: a service worker (`src/sw.js`) precaches the whole site on the first visit - pages, styles, scripts, quiz data and narration audio - so studying keeps working without a connection. Content updates show up one reload later.
+- Correctly answered questions are excluded from future sessions (tracked in `localStorage`), and you can navigate back to review already-answered questions in the current session.
 - Light/dark theme with a toggle, following the system preference by default.
-- Topics are plain JSON files — adding one requires no code changes.
+- English II extras:
+  - A hand-written grammar cheat sheet (`rules.html`) covering the areas the exercises test: tenses, future forms, conditionals, participle clauses, both/either/neither, passive, modals, prepositions, collocations, question formation, the e-/cyber- prefixes, and an irregular-verbs table.
+  - Essay-prep flashcards (`essay.html`) for the descriptive exam questions: active-recall cards with self-grading, compact "exam answer" bullets, mnemonics, topology diagrams, and Leitner-style repetition. Two study modes: recall (answer out loud) or write (type your answer before revealing).
+  - Essay theory page (`theory.html`) that renders the same content as one readable article, generated from `essay-cards.json` so it never drifts from the cards.
+  - Audio narration on the theory page: pre-made MP3s in `src/assets/voice/`, one per card (`<card-id>.mp3`), played like a playlist with pause, previous/next, and a speed chip (0.75x-2x). The page detects which files exist, so partial coverage works.
 
 ## Running locally
 
-Opening `index.html` directly (`file://`) will NOT work — `fetch()` of local JSON is blocked under the file protocol. The site lives in `src/`, so serve that folder, for example:
+Opening `index.html` directly (`file://`) will NOT work - `fetch()` of local JSON is blocked under the file protocol. The site lives in `src/`, so serve that folder, for example:
 
 ```
 npx serve src
@@ -36,36 +38,51 @@ python -m http.server
 
 or use the VS Code "Live Server" extension on `src/index.html`. Then open the printed local URL in your browser.
 
+## Checks
+
+CI runs these two commands on every push and PR - run them locally before committing:
+
+```
+npx prettier@3.9.4 --check "src/**/*.{html,css,js,json}" "scripts/**/*.js" ".github/workflows/**/*.{yml,yaml}" "*.md"
+node scripts/validate-data.js
+```
+
 ## Project structure
 
 ```
 src/                    Everything the browser loads (Netlify publishes this folder)
-  index.html            Start screen (stats, session setup, topic selection)
+  index.html            Start screen: subject picker with per-subject stats
+  dashboard.html        Per-subject dashboard (progress, session setup, topic selection)
   quiz.html             Quiz screen (question, feedback, summary + mistake review)
-  rules.html            Grammar cheat sheet for the exam topics
-  essay.html            Flashcards for the essay questions (self-graded, Leitner repetition)
-  theory.html           Essay theory as one readable page (generated from essay-cards.json)
+  rules.html            Grammar cheat sheet (English II)
+  essay.html            Flashcards for the essay questions (English II)
+  theory.html           Essay theory as one readable page (English II)
   contribute.html       How to use, fork and contribute to the project
+  sw.js                 Service worker: precaches the site for offline use
   assets/
     css/
       variables.css     Design tokens (colors, spacing, radius) + dark theme overrides
       base.css          Reset, layout, header, footer
       components.css    Shared components (buttons, progress bar)
-      home.css          Start-screen styles (setup card, topic list)
+      home.css          Subject picker + dashboard styles (setup card, topic list)
       quiz.css          Quiz-screen styles (options, feedback states, review)
       rules.css         Rules + contribute page styles
       essay.css         Flashcards page styles (chips, card, diagrams, grading)
       theory.css        Theory page styles (per-question blocks within a topic)
     js/
-      main-home.js      Entry point for the start screen
+      main-picker.js    Entry point for the subject picker
+      main-dashboard.js Entry point for the dashboard
       main-quiz.js      Entry point for the quiz screen (wires everything together)
       main-static.js    Entry point for the rules/contribute pages (theme only)
       main-essay.js     Entry point for the flashcards page (deck, grading, diagrams)
       main-theory.js    Entry point for the theory page (renders cards as an article)
+      subject.js        Resolves the active subject (?subject=...) and its config
+      nav.js            Header links: carries ?subject through, hides missing features
+      sw-register.js    Registers the service worker
       audio-player.js   Plays the narration MP3s as a playlist (theory page)
       essay-diagrams.js Shared topology SVGs used by the flashcards and theory page
       essay-store.js    localStorage persistence of flashcard Leitner boxes
-      data-loader.js    Fetches the manifest and topic JSON files
+      data-loader.js    Fetches subjects, manifests and topic JSON files
       quiz-engine.js    Pure logic: pool building, topic filtering, answer checking
       quiz-state.js     Session state (current question, score, answer history)
       quiz-render.js    All DOM updates for the quiz screen
@@ -76,20 +93,36 @@ src/                    Everything the browser loads (Netlify publishes this fol
     images/             Favicons and the social preview image
     voice/              Narration MP3s for the theory page, one per card (<card-id>.mp3)
   data/
-    manifest.json       List of topics the app loads
-    topics/*.json       One file per topic (see schema below)
-    essay-cards.json    Essay-prep flashcards (categories + cards)
+    subjects.json       List of subjects (title, data folder, features)
+    english/
+      manifest.json     List of English topics the app loads
+      topics/*.json     One file per topic (see schema below)
+      essay-cards.json  Essay-prep flashcards (categories + cards)
+    operativni-sistemi/
+      manifest.json     List of OS topics the app loads
+      topics/*.json     One file per topic
+scripts/
+  validate-data.js      Data sanity checks (run by CI)
 netlify.toml            Tells Netlify to publish the src/ folder
 ```
 
 ## Adding a new topic
 
-1. Author a new JSON file in `src/data/topics/` following the schema used by `src/data/topics/sample.json`:
-   - `topicId`, `title`, `sourcePdf`
-   - `exercises[]`, each with `exerciseNumber`, `sourceTaskName`, `questions[]`
-   - each question has `id`, `promptParts` (`before`/`blank`/`after`), `type` (`"single"` or `"multiple"`), `options`, `correctAnswers` (always an array), `grammarRule`
-2. Add an entry for it in `src/data/manifest.json`.
-3. No code changes needed — the app merges every topic listed in the manifest into one shuffled question pool.
+1. Author a new JSON file in `src/data/<subject>/topics/`:
+   - top level: `topicId`, `title`, optional `description` (shown on the dashboard), optional `sourcePdf`
+   - `exercises[]`, each with `exerciseNumber`, `sourceTaskName`, optional `sourcePdf` (overrides the topic-level one) and `questions[]`
+   - each question has `id`, `promptParts` (`before`/`blank`/`after`), `type` (`"single"` or `"multiple"`), `options`, `correctAnswers` (always an array) and `context` (the explanation; older English topics use `grammarRule`), plus optional `details[]` ("Show more" bullets), `note`, `readMore[]`, `taskSetup` (intro text and/or table for numeric tasks) and `uncertain` (flags a disputed answer)
+2. Add an entry for it in that subject's `manifest.json`.
+3. Run `node scripts/validate-data.js`.
+
+No code changes needed - the app merges every topic listed in the manifest into one shuffled question pool.
+
+## Adding a new subject
+
+1. Create `src/data/<dir>/` with a `manifest.json` and a `topics/` folder (plus `essay-cards.json` if the subject uses the essay feature).
+2. Add an entry to `src/data/subjects.json`: `id`, `dir`, `title`, `subtitle`, `quizLabel` and the list of `features` (`quiz`, `essay`, `rules`, `theory`).
+
+The picker, dashboard, navigation and the service worker all read this configuration, so nothing else changes.
 
 ## Contributing
 
@@ -102,4 +135,4 @@ See `src/contribute.html` (or the "Contribute" page on the live site) for the fu
 
 ## Progress
 
-Correctly answered questions are excluded from future sessions (tracked in `localStorage`, per browser). Use "Reset progress" on the start screen to clear this and practice the full pool again.
+Correctly answered questions are excluded from future sessions (tracked in `localStorage`, per subject and per browser). Use "Reset progress" on the dashboard to clear this and practice the full pool again.
